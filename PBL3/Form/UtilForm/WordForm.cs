@@ -1,0 +1,104 @@
+﻿using FontAwesome.Sharp;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Windows.Media.Media3D;
+
+namespace PBL3
+{
+    public partial class WordForm : Form
+    {
+        private Button _currentTag;
+        private Form _currentChildForm;
+
+        private string _word;
+
+        public WordForm(string word)
+        {
+            _word = word;
+
+            InitializeComponent();
+
+            ActiveTag(btnMeaning);
+            OpenChildForm(new WordForm_Meaning(word));
+        }
+
+        public void CloseChildForms()
+        {
+            if (_currentChildForm != null)
+            {
+                _currentChildForm.Close();
+            }
+        }
+
+        private void ActiveTag(Button tag)
+        {
+            if (_currentTag != null) 
+            {
+                ResetTag();
+            }
+
+            _currentTag = tag;
+
+            _currentTag.BackColor = Color.FromArgb(240, 237, 254);
+            _currentTag.ForeColor = Color.FromArgb(48, 48, 87);
+            _currentTag.Size = new Size(190, 60);
+            _currentTag.Location = new Point(_currentTag.Location.X, _currentTag.Location.Y - 10);
+            _currentTag.Enabled = false;
+        }
+
+        private void ResetTag()
+        {
+            _currentTag.BackColor = Color.FromArgb(44, 41, 74);
+            _currentTag.ForeColor = Color.FromArgb(240, 237, 254);
+            _currentTag.Size = new Size(190, 50);
+            _currentTag.Enabled = true;
+            _currentTag.Location = new Point(_currentTag.Location.X, _currentTag.Location.Y + 10);
+        }
+
+        private void OpenChildForm(Form childForm)
+        {
+            if (_currentChildForm != null)
+            {
+                _currentChildForm.Close();
+            }
+
+            _currentChildForm = childForm;
+            childForm.TopLevel = false;
+            childForm.Dock = DockStyle.Fill;
+            panelBase.Controls.Add(childForm);
+            panelBase.Tag = childForm;
+            childForm.SendToBack();
+            childForm.Show();
+        }
+
+        private void btnMeaning_Click(object sender, EventArgs e)
+        {
+            ActiveTag((Button)sender);
+            OpenChildForm(new WordForm_Meaning(_word));
+        }
+
+        private void btnGrammar_Click(object sender, EventArgs e)
+        {
+            ActiveTag((Button)sender);
+            OpenChildForm(new WordForm_Grammar());
+        }
+
+        private void btnSynonym_Click(object sender, EventArgs e)
+        {
+            ActiveTag((Button)sender);
+            OpenChildForm(new WordForm_Synonym());
+        }
+
+        private void btnReturn_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
