@@ -18,7 +18,6 @@ D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\CircularProgressBar.dll
 D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\WinFormAnimation.dll
 D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\CircularProgressBar.xml
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormHome.resources
-D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\Syn.WordNet.dll
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.exe.config
 D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\MySql.Data.dll
 D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\Google.Protobuf.dll
@@ -35,3 +34,14 @@ D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.WordForm.resources
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.WordForm_Meaning.resources
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.WordForm_Grammar.resources
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.WordForm_Synonym.resources
+D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.LoginForm.resources
+D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormSignUp.resources
+D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormSignIn.resources
+D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.MessageBox_Exit.resources
+D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormSetting.resources
+D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.WordForm_None.resources
+D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\CustomControls.dll
+D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\CustomControls.pdb
+D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormNotebook.resources
+D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\Control.Draggable.dll
+D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormProfile.resources

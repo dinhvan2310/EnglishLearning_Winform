@@ -30,9 +30,9 @@
         {
             this.panelTop = new System.Windows.Forms.Panel();
             this.btnReturn = new FontAwesome.Sharp.IconButton();
-            this.btnSynonym = new PBLLibrary.CustomControls.RJButton();
-            this.btnGrammar = new PBLLibrary.CustomControls.RJButton();
-            this.btnMeaning = new PBLLibrary.CustomControls.RJButton();
+            this.btnSynonym = new CustomControls.RJButton();
+            this.btnGrammar = new CustomControls.RJButton();
+            this.btnMeaning = new CustomControls.RJButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panelBase = new System.Windows.Forms.Panel();
             this.panelTop.SuspendLayout();
@@ -79,13 +79,13 @@
             this.btnSynonym.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSynonym.FlatAppearance.BorderSize = 0;
             this.btnSynonym.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSynonym.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.btnSynonym.Font = new System.Drawing.Font("Bahnschrift", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSynonym.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
             this.btnSynonym.Location = new System.Drawing.Point(462, 29);
             this.btnSynonym.Name = "btnSynonym";
             this.btnSynonym.Size = new System.Drawing.Size(190, 50);
             this.btnSynonym.TabIndex = 2;
-            this.btnSynonym.Text = "SYNONYM";
+            this.btnSynonym.Text = "ĐỒNG NGHĨA";
             this.btnSynonym.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnSynonym.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
             this.btnSynonym.UseVisualStyleBackColor = false;
@@ -101,13 +101,13 @@
             this.btnGrammar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnGrammar.FlatAppearance.BorderSize = 0;
             this.btnGrammar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGrammar.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.btnGrammar.Font = new System.Drawing.Font("Bahnschrift", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGrammar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
             this.btnGrammar.Location = new System.Drawing.Point(254, 29);
             this.btnGrammar.Name = "btnGrammar";
             this.btnGrammar.Size = new System.Drawing.Size(190, 50);
             this.btnGrammar.TabIndex = 1;
-            this.btnGrammar.Text = "GRAMMAR";
+            this.btnGrammar.Text = "CÚ PHÁP";
             this.btnGrammar.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnGrammar.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
             this.btnGrammar.UseVisualStyleBackColor = false;
@@ -123,13 +123,13 @@
             this.btnMeaning.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMeaning.FlatAppearance.BorderSize = 0;
             this.btnMeaning.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMeaning.Font = new System.Drawing.Font("Century Gothic", 9F);
+            this.btnMeaning.Font = new System.Drawing.Font("Bahnschrift", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMeaning.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
             this.btnMeaning.Location = new System.Drawing.Point(50, 29);
             this.btnMeaning.Name = "btnMeaning";
             this.btnMeaning.Size = new System.Drawing.Size(190, 50);
             this.btnMeaning.TabIndex = 0;
-            this.btnMeaning.Text = "MEANING";
+            this.btnMeaning.Text = "NGHĨA TỪ";
             this.btnMeaning.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnMeaning.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
             this.btnMeaning.UseVisualStyleBackColor = false;
@@ -174,9 +174,9 @@
         #endregion
 
         private System.Windows.Forms.Panel panelTop;
-        private PBLLibrary.CustomControls.RJButton btnMeaning;
-        private PBLLibrary.CustomControls.RJButton btnSynonym;
-        private PBLLibrary.CustomControls.RJButton btnGrammar;
+        private CustomControls.RJButton btnMeaning;
+        private CustomControls.RJButton btnSynonym;
+        private CustomControls.RJButton btnGrammar;
         private FontAwesome.Sharp.IconButton btnReturn;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panelBase;

@@ -43,6 +43,7 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -56,18 +57,17 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomControls\RJButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="CustomControls\RJToggleButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Database\DatabaseConnection.cs" />
+    <Compile Include="ColorConfig.cs" />
+    <Compile Include="DataAccess\MySQLConnector.cs" />
+    <Compile Include="GlobalConfig.cs" />
+    <Compile Include="Models\SynsetModel.cs" />
+    <Compile Include="Models\WordModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,6 @@
 ﻿using FontAwesome.Sharp;
+using PBLLibrary;
+using PBLLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,19 +16,24 @@ namespace PBL3
 {
     public partial class WordForm : Form
     {
+        private Form _parentForm;
+
         private Button _currentTag;
         private Form _currentChildForm;
 
         private string _word;
+        private List<SynsetModel> _synsets;
 
-        public WordForm(string word)
+        public WordForm(Form parentForm, string rawWord)
         {
-            _word = word;
+            _parentForm = parentForm;
+            _word = rawWord;
 
             InitializeComponent();
 
             ActiveTag(btnMeaning);
-            OpenChildForm(new WordForm_Meaning(word));
+            _synsets = GlobalConfig.Connector.GetSynset_ByWord(rawWord);
+            OpenChildForm(new WordForm_Meaning(rawWord, _synsets));
         }
 
         public void CloseChildForms()
@@ -81,7 +88,7 @@ namespace PBL3
         private void btnMeaning_Click(object sender, EventArgs e)
         {
             ActiveTag((Button)sender);
-            OpenChildForm(new WordForm_Meaning(_word));
+            OpenChildForm(new WordForm_Meaning(_word, _synsets));
         }
 
         private void btnGrammar_Click(object sender, EventArgs e)
@@ -98,7 +105,7 @@ namespace PBL3
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
-
+            ((MainForm)_parentForm).OpenChildForm(FormStack.Pop(), MainForm.StackType.Dispose);
         }
     }
 }

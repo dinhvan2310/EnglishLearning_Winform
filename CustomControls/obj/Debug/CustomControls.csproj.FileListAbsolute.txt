@@ -1,0 +1,9 @@
+D:\Source\Visual Studio\C#\PBL3\CustomControls\obj\Debug\CustomControls.csproj.AssemblyReference.cache
+D:\Source\Visual Studio\C#\PBL3\CustomControls\obj\Debug\CustomControls.csproj.GenerateResource.cache
+D:\Source\Visual Studio\C#\PBL3\CustomControls\obj\Debug\CustomControls.csproj.CoreCompileInputs.cache
+D:\Source\Visual Studio\C#\PBL3\CustomControls\bin\Debug\CustomControls.dll
+D:\Source\Visual Studio\C#\PBL3\CustomControls\bin\Debug\CustomControls.pdb
+D:\Source\Visual Studio\C#\PBL3\CustomControls\obj\Debug\CustomControls.dll
+D:\Source\Visual Studio\C#\PBL3\CustomControls\obj\Debug\CustomControls.pdb
+D:\Source\Visual Studio\C#\PBL3\CustomControls\obj\Debug\CustomControls.RJComboBox.resources
+D:\Source\Visual Studio\C#\PBL3\CustomControls\obj\Debug\CustomControls.Properties.Resources.resources

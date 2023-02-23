@@ -1,10 +1,11 @@
-﻿using PBLLibrary.Database;
-using Syn.WordNet;
+﻿using PBLLibrary;
+using PBLLibrary.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -14,11 +15,14 @@ namespace PBL3
     {
         static void Main(string[] args)
         {
-            DatabaseConnection.Init();
+            GlobalConfig.InitializeConnection();
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
+            Application.Run();
         }
     }
 }

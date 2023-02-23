@@ -11,55 +11,68 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
 using Microsoft.Win32;
-using PBLLibrary.CustomControls;
+using CustomControls;
 using MySql.Data.MySqlClient;
-using PBLLibrary.Database;
+using PBLLibrary.DataAccess;
 using System.Windows.Controls;
 using Mysqlx.Crud;
 using System.Windows.Controls.Primitives;
+using System.Reflection;
+using PBLLibrary.Models;
+using PBLLibrary;
+using System.Threading;
 
 namespace PBL3
 {
     public partial class MainForm : Form
     {
-        private bool _searchBarIsDirty = false;
+        public enum StackType
+        {
+            Replace, Push, Dispose, None
+        }
+
+        public LoginForm LoginForm { get; private set; }
+        public FormHome HomeForm { get; private set; }
+        public Form TopicForm { get; private set; }
+        public FormNotebook NotebookForm { get; private set; }
+        public Form MinigameForm { get; private set; }
+        public FormSetting SettingForm { get; private set; }
 
         private IconButton _currentBtn;
         private Form _currentChildForm;
 
+        private bool _searchBarIsDirty = false;
         private IconButton[] _searchOptions;
         private int _currentSearchOptionIndex;
+
 
         public MainForm()
         {
             InitializeComponent();
-            this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 50, 50));
+            SettingFormProperties();
+            InitializeChildForm();
+            InitializeVariables();
 
-            this.DoubleBuffered = true;
             fadeInFormAnim.Start();
 
+            // FormHome for default
             ActivateButton(btnHome, Color.FromArgb(97, 110, 254));
-            OpenChildForm(new FormHome());
-            rightPanelAnim.Start();
+            FormStack.Push(null);
+            OpenChildForm(HomeForm);
 
             //vScrollBar1.Value = flowLayoutPanel1.VerticalScroll.Value;
             //vScrollBar1.Minimum = flowLayoutPanel1.VerticalScroll.Minimum;
             //vScrollBar1.Maximum = flowLayoutPanel1.VerticalScroll.Maximum;
-
-            _searchOptions = new IconButton[10];
-            _searchOptions[0] = btnSearchFound1;
-            _searchOptions[1] = btnSearchFound2;
-            _searchOptions[2] = btnSearchFound3;
-            _searchOptions[3] = btnSearchFound4;
-            _searchOptions[4] = btnSearchFound5;
-            _searchOptions[5] = btnSearchFound6;
-            _searchOptions[6] = btnSearchFound7;
-            _searchOptions[7] = btnSearchFound8;
-            _searchOptions[8] = btnSearchFound9;
-            _searchOptions[9] = btnSearchFound10;
+        }
+        
+        private void InitializeChildForm()
+        {
+            HomeForm = new FormHome(this);
+            NotebookForm = new FormNotebook();
+            SettingForm = new FormSetting();
         }
 
-        private void ActivateButton(object sender, Color color)
+        public void ActivateButton(object sender, Color color)
         {
             if (sender != null)
             {
@@ -102,11 +115,30 @@ namespace PBL3
             }
         }
 
-        private void OpenChildForm(Form childForm)
+        public void OpenChildForm(Form childForm, StackType stackType = StackType.None)
         {
             if (_currentChildForm != null)
             {
-                _currentChildForm.Close();
+                if (_currentChildForm == childForm)
+                {
+                    return;
+                }
+
+                _currentChildForm.Visible = false;
+                switch (stackType)
+                {
+                    case StackType.Push:
+                        FormStack.Push(_currentChildForm);
+                        break;
+                    case StackType.Replace:
+                        FormStack.Pop();
+                        FormStack.Push(_currentChildForm);
+                        break;
+                    case StackType.Dispose:
+                        _currentChildForm.Close();
+                        break;
+                }
+
             }
 
             _currentChildForm = childForm;
@@ -119,6 +151,37 @@ namespace PBL3
             childForm.Show();
         }
 
+        private void InitializeVariables()
+        {
+            _searchOptions = new IconButton[10];
+            _searchOptions[0] = btnSearchFound1;
+            _searchOptions[1] = btnSearchFound2;
+            _searchOptions[2] = btnSearchFound3;
+            _searchOptions[3] = btnSearchFound4;
+            _searchOptions[4] = btnSearchFound5;
+            _searchOptions[5] = btnSearchFound6;
+            _searchOptions[6] = btnSearchFound7;
+            _searchOptions[7] = btnSearchFound8;
+            _searchOptions[8] = btnSearchFound9;
+            _searchOptions[9] = btnSearchFound10;
+        }
+
+        private void SettingFormProperties()
+        {
+            this.AutoSizeMode = AutoSizeMode.GrowOnly;
+            this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 50, 50));
+
+            // Reduce Flicker
+            this.DoubleBuffered = true;
+
+            typeof(System.Windows.Forms.Control).InvokeMember("DoubleBuffered",
+                BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic,
+                null, panelBase, new object[] { true });
+
+            typeof(System.Windows.Forms.Control).InvokeMember("DoubleBuffered",
+                BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic,
+                null, panelDrag, new object[] { true });
+        }
         private void panelDrag_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -127,7 +190,10 @@ namespace PBL3
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            fadeOutFormAnim.Start();
+            Form messageBox = new MessageBox_Exit();
+
+            messageBox.StartPosition = FormStartPosition.CenterScreen;
+            messageBox.ShowDialog();
         }
 
         private void btnMaximize_Click(object sender, EventArgs e)
@@ -159,26 +225,22 @@ namespace PBL3
                 btnCollapse.ImageAlign = ContentAlignment.MiddleCenter;
                 btnCollapse.Size = new Size(btnCollapse.Size.Width, 60);
                 btnLogo.Visible = false;
+                btnPremium.Size = new Size(0, 80);
+                btnPremium.Dock = DockStyle.Bottom;
+                lblVersion.Visible = false;
+
                 // buttons
                 btnHome.Text = string.Empty;
-                //btnHome.ImageAlign = ContentAlignment.MiddleCenter;
-                //btnHome.Padding = new Padding(0);
 
                 btnTopic.Text = string.Empty;
-                //btnTopic.ImageAlign = ContentAlignment.MiddleCenter;
-                //btnTopic.Padding = new Padding(0);
 
                 btnNotebook.Text = string.Empty;
-                //btnNotebook.ImageAlign = ContentAlignment.MiddleCenter;
-                //btnNotebook.Padding = new Padding(0);
 
                 btnGame.Text = string.Empty;
-                //btnGame.ImageAlign = ContentAlignment.MiddleCenter;
-                //btnGame.Padding = new Padding(0);
 
                 btnSetting.Text = string.Empty;
-                //btnSetting.ImageAlign = ContentAlignment.MiddleCenter;
-                //btnSetting.Padding = new Padding(0);
+
+                lblChildForm.Text = "";
 
                 collapseAnim.Start();
             }
@@ -206,6 +268,10 @@ namespace PBL3
                 btnSetting.ImageAlign = ContentAlignment.MiddleLeft;
                 btnSetting.Padding = new Padding(20, 0, 0, 0);
 
+                btnPremium.Size = new Size(150, 40);
+                btnPremium.Dock = DockStyle.None;
+                lblVersion.Visible = true;
+                iconSub.Visible = false;
                 expandAnim.Start();
             }
         }
@@ -213,7 +279,7 @@ namespace PBL3
         private void btnHome_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(97, 110, 254));
-            OpenChildForm(new FormHome());
+            OpenChildForm(HomeForm, StackType.Replace);
         }
 
         private void btnTopic_Click(object sender, EventArgs e)
@@ -224,6 +290,7 @@ namespace PBL3
         private void btnNotebook_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(127, 135, 255));
+            OpenChildForm(NotebookForm, StackType.Replace);
         }
 
         private void btnGame_Click(object sender, EventArgs e)
@@ -234,22 +301,26 @@ namespace PBL3
         private void btnSetting_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(60, 150, 255));
+            OpenChildForm(SettingForm, StackType.Replace);
         }
 
         private void collapseAnim_Tick(object sender, EventArgs e)
         {
             if (panelButton.Size.Width > 80)
             {
-                panelButton.Size = new Size(panelButton.Size.Width - 10, panelButton.Size.Height);
+                panelButton.Size = new Size(panelButton.Size.Width - 20, panelButton.Size.Height);
             }
             else
+            {
                 collapseAnim.Stop();
+                iconSub.Visible = true;
+            }
         }
         private void expandAnim_Tick(object sender, EventArgs e)
         {
             if (panelButton.Size.Width < 200)
             {
-                panelButton.Size = new Size(panelButton.Size.Width + 10, panelButton.Size.Height);
+                panelButton.Size = new Size(panelButton.Size.Width + 20, panelButton.Size.Height);
             }
             else
             {
@@ -260,6 +331,8 @@ namespace PBL3
                 btnNotebook.Text = "Notebook";
                 btnGame.Text = "Minigames";
                 btnSetting.Text = "Settings";
+
+                lblChildForm.Text = _currentBtn.Text.ToUpper();
             }
         }
         private void rightPanelAnim_Tick(object sender, EventArgs e)
@@ -305,24 +378,6 @@ namespace PBL3
             //    rk.DeleteValue("PBL3", false);
         }
 
-        private void txtSearch_Leave(object sender, EventArgs e)
-        {
-            if (txtSearch.Text.Length == 0)
-            {
-                txtSearch.Text = "Search";
-                txtSearch.ForeColor = Color.FromArgb(119, 112, 156);
-
-                _searchBarIsDirty = false;
-            }
-            else
-            {
-                _searchBarIsDirty = true;
-            }
-
-            panelSearchFound.Visible = false;
-        }
-
-
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             if (txtSearch.Text.Length == 0)
@@ -331,25 +386,17 @@ namespace PBL3
                 return;
             }
 
-            string filter = "\'" + txtSearch.Text + "%'";
-            MySqlDataReader reader = DatabaseConnection.Query(
-                "SELECT DISTINCT wn_synset.word FROM wn_pro_mysql.wn_synset\nWHERE word LIKE " + filter + "\nLIMIT 10;");
+            List<WordModel> words = GlobalConfig.Connector.GetWord_ByFilter(txtSearch.Text.Replace(' ', '_') + "%", 10, true);
 
-            if (reader == null)
+            if (words != null)
             {
-                return;
-            }
+                panelSearchFound.Size = new Size(519, 25 + 30 * words.Count);
 
-            if (reader.HasRows)
-            {
                 int i = 0;
-                while (reader.Read())
+                foreach (WordModel w in words)
                 {
-                    _searchOptions[i].Text = reader.GetString(0).Replace('_', ' ');
-                    i++;
+                    _searchOptions[i++].Text = w.Word.Replace('_', ' ');
                 }
-
-                panelSearchFound.Size = new Size(519, 25 + 30 * i);
             }
             else
             {
@@ -363,6 +410,18 @@ namespace PBL3
             panelSearchFound.Visible = true;
 
         }
+        private void txtSearch_Leave(object sender, EventArgs e)
+        {
+            _searchBarIsDirty = txtSearch.Text.Length != 0;
+            if (!_searchBarIsDirty)
+            {
+                txtSearch.Text = "Search";
+                txtSearch.ForeColor = Color.FromArgb(119, 112, 156);
+            }
+
+            panelSearchFound.Visible = false;
+        }
+
 
         private void txtSearch_KeyDown(object sender, KeyEventArgs e)
         {
@@ -374,8 +433,22 @@ namespace PBL3
             if (e.KeyCode == Keys.Enter)
             {
                 panelSearchFound.Visible = false;
-                //TO-DO: check if it exist in wordnet or not
-                OpenChildForm(new WordForm(((System.Windows.Forms.TextBox)sender).Text));
+                _searchOptions[_currentSearchOptionIndex].BackColor = Color.FromArgb(60, 50, 99);
+                _searchOptions[_currentSearchOptionIndex].Refresh();
+
+                // When press enter, application make a Ting sound, so this is a little trick
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+
+                if (GlobalConfig.Connector.GetWord_ByFilter(_searchOptions[_currentSearchOptionIndex].Text.Replace(' ', '_')) == null)
+                {
+                    OpenChildForm(new WordForm_None(this, txtSearch.Text.Replace(' ', '_')), StackType.Replace);
+                }
+                else
+                {
+                    OpenChildForm(new WordForm(this, _searchOptions[_currentSearchOptionIndex].Text.Replace(' ', '_')),
+                        StackType.Replace);
+                }
             }
 
             if (e.KeyCode == Keys.Down)
@@ -391,6 +464,7 @@ namespace PBL3
                 _currentSearchOptionIndex = (_currentSearchOptionIndex == 0) ? 9 : _currentSearchOptionIndex - 1;
                 ActiveSearchOption();
             }
+
         }
 
         private void ActiveSearchOption()
@@ -404,7 +478,14 @@ namespace PBL3
         }
         private void btnSearchFound_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new WordForm(((IconButton)sender).Text));
+            if (GlobalConfig.Connector.GetWord_ByFilter(_searchOptions[_currentSearchOptionIndex].Text.Replace(' ', '_')) == null)
+            {
+                OpenChildForm(new WordForm_None(this, ((IconButton)sender).Text.Replace(' ', '_')), StackType.Replace);
+            }
+            else
+            {
+                OpenChildForm(new WordForm(this, ((IconButton)sender).Text.Replace(' ', '_')), StackType.Replace);
+            }
         }
 
         private void txtSearch_Enter(object sender, EventArgs e)
@@ -413,7 +494,6 @@ namespace PBL3
             {
                 txtSearch.Text = string.Empty;
                 txtSearch.ForeColor = Color.FromArgb(240, 237, 252);
-
             }
         }
 
@@ -436,5 +516,48 @@ namespace PBL3
 
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            panelPersonal.Visible = false;
+
+            if (LoginForm == null)
+            {
+                LoginForm = new LoginForm();
+                ((LoginForm)LoginForm).MainForm = this;
+            }
+
+            LoginForm.Show();
+
+            this.Hide();
+        }
+
+
+        private void btnPersonal_Click(object sender, EventArgs e)
+        {
+            panelPersonal.Visible = !panelPersonal.Visible;
+        }
+
+        private void btnPersonalSetting_MouseClick(object sender, MouseEventArgs e)
+        {
+            panelPersonal.Visible = false;
+
+            ActivateButton(btnSetting, Color.FromArgb(60, 150, 255));
+            OpenChildForm(SettingForm, StackType.Replace);
+        }
+
+        private void btnLogo_MouseClick(object sender, MouseEventArgs e)
+        {
+            ActivateButton(btnHome, Color.FromArgb(97, 110, 254));
+
+            OpenChildForm(HomeForm, StackType.Replace);
+        }
+
+        private void btnPersonalInfo_MouseClick(object sender, MouseEventArgs e)
+        {
+            panelPersonal.Visible = false;
+
+            OpenChildForm(new FormProfile(this), StackType.Replace);
+        }
     }
 }
