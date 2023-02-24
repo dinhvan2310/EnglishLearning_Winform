@@ -57,8 +57,7 @@ namespace PBL3
 
             // FormHome for default
             ActivateButton(btnHome, Color.FromArgb(97, 110, 254));
-            FormStack.Push(null);
-            OpenChildForm(HomeForm);
+            OpenChildForm(HomeForm, FormStack.FormType.Strong);
 
             //vScrollBar1.Value = flowLayoutPanel1.VerticalScroll.Value;
             //vScrollBar1.Minimum = flowLayoutPanel1.VerticalScroll.Minimum;
@@ -115,7 +114,7 @@ namespace PBL3
             }
         }
 
-        public void OpenChildForm(Form childForm, StackType stackType = StackType.None)
+        public void OpenChildForm(Form childForm, /*StackType stackType = StackType.None*/FormStack.FormType formType = FormStack.FormType.Weak)
         {
             if (_currentChildForm != null)
             {
@@ -125,21 +124,39 @@ namespace PBL3
                 }
 
                 _currentChildForm.Visible = false;
-                switch (stackType)
+                //switch (stackType)
+                //{
+                //    case StackType.Push:
+                //        FormStack.Push(_currentChildForm);
+                //        break;
+                //    case StackType.Replace:
+                //        FormStack.Pop();
+                //        FormStack.Push(_currentChildForm);
+                //        break;
+                //    case StackType.Dispose:
+                //        _currentChildForm.Close();
+                //        break;
+                //}
+
+                switch (FormStack.CurrentFormType)
                 {
-                    case StackType.Push:
-                        FormStack.Push(_currentChildForm);
-                        break;
-                    case StackType.Replace:
+                    case FormStack.FormType.Strong:
                         FormStack.Pop();
                         FormStack.Push(_currentChildForm);
                         break;
-                    case StackType.Dispose:
+                    case FormStack.FormType.Weak:
+                        FormStack.Push(_currentChildForm);
+                        break;
+                    case FormStack.FormType.Neutral:
                         _currentChildForm.Close();
                         break;
                 }
 
             }
+
+            FormStack.CurrentFormType = formType;
+            Console.WriteLine(FormStack.Peek() + " " + FormStack.Count().ToString());
+            Console.WriteLine(FormStack.CurrentFormType);
 
             _currentChildForm = childForm;
             childForm.TopLevel = false;
@@ -279,7 +296,7 @@ namespace PBL3
         private void btnHome_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(97, 110, 254));
-            OpenChildForm(HomeForm, StackType.Replace);
+            OpenChildForm(HomeForm, FormStack.FormType.Strong);
         }
 
         private void btnTopic_Click(object sender, EventArgs e)
@@ -290,7 +307,7 @@ namespace PBL3
         private void btnNotebook_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(127, 135, 255));
-            OpenChildForm(NotebookForm, StackType.Replace);
+            OpenChildForm(NotebookForm, FormStack.FormType.Strong);
         }
 
         private void btnGame_Click(object sender, EventArgs e)
@@ -301,7 +318,7 @@ namespace PBL3
         private void btnSetting_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(60, 150, 255));
-            OpenChildForm(SettingForm, StackType.Replace);
+            OpenChildForm(SettingForm, FormStack.FormType.Strong);
         }
 
         private void collapseAnim_Tick(object sender, EventArgs e)
@@ -386,7 +403,7 @@ namespace PBL3
                 return;
             }
 
-            List<WordModel> words = GlobalConfig.Connector.GetWord_ByFilter(txtSearch.Text.Replace(' ', '_') + "%", 10, true);
+            List<WordModel> words = GlobalConfig.GetWord_ByFilter(txtSearch.Text.Replace(' ', '_') + "%", 10, true);
 
             if (words != null)
             {
@@ -440,14 +457,14 @@ namespace PBL3
                 e.Handled = true;
                 e.SuppressKeyPress = true;
 
-                if (GlobalConfig.Connector.GetWord_ByFilter(_searchOptions[_currentSearchOptionIndex].Text.Replace(' ', '_')) == null)
+                if (GlobalConfig.GetWord_ByFilter(_searchOptions[_currentSearchOptionIndex].Text.Replace(' ', '_')) == null)
                 {
-                    OpenChildForm(new WordForm_None(this, txtSearch.Text.Replace(' ', '_')), StackType.Replace);
+                    OpenChildForm(new WordForm_None(this, txtSearch.Text.Replace(' ', '_')), FormStack.FormType.Neutral);
                 }
                 else
                 {
                     OpenChildForm(new WordForm(this, _searchOptions[_currentSearchOptionIndex].Text.Replace(' ', '_')),
-                        StackType.Replace);
+                        FormStack.FormType.Neutral);
                 }
             }
 
@@ -478,13 +495,13 @@ namespace PBL3
         }
         private void btnSearchFound_Click(object sender, EventArgs e)
         {
-            if (GlobalConfig.Connector.GetWord_ByFilter(_searchOptions[_currentSearchOptionIndex].Text.Replace(' ', '_')) == null)
+            if (GlobalConfig.GetWord_ByFilter(_searchOptions[_currentSearchOptionIndex].Text.Replace(' ', '_')) == null)
             {
-                OpenChildForm(new WordForm_None(this, ((IconButton)sender).Text.Replace(' ', '_')), StackType.Replace);
+                OpenChildForm(new WordForm_None(this, ((IconButton)sender).Text.Replace(' ', '_')), FormStack.FormType.Neutral);
             }
             else
             {
-                OpenChildForm(new WordForm(this, ((IconButton)sender).Text.Replace(' ', '_')), StackType.Replace);
+                OpenChildForm(new WordForm(this, ((IconButton)sender).Text.Replace(' ', '_')), FormStack.FormType.Neutral);
             }
         }
 
@@ -543,21 +560,21 @@ namespace PBL3
             panelPersonal.Visible = false;
 
             ActivateButton(btnSetting, Color.FromArgb(60, 150, 255));
-            OpenChildForm(SettingForm, StackType.Replace);
+            OpenChildForm(SettingForm, FormStack.FormType.Strong);
         }
 
         private void btnLogo_MouseClick(object sender, MouseEventArgs e)
         {
             ActivateButton(btnHome, Color.FromArgb(97, 110, 254));
 
-            OpenChildForm(HomeForm, StackType.Replace);
+            OpenChildForm(HomeForm, FormStack.FormType.Strong);
         }
 
         private void btnPersonalInfo_MouseClick(object sender, MouseEventArgs e)
         {
             panelPersonal.Visible = false;
 
-            OpenChildForm(new FormProfile(this), StackType.Replace);
+            OpenChildForm(new FormProfile(this), FormStack.FormType.Neutral);
         }
     }
 }

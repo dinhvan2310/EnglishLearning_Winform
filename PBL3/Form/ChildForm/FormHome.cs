@@ -35,7 +35,7 @@ namespace PBL3
 
         private void InitializeVariables()
         {
-            _wordsEveryDay = GlobalConfig.Connector.GetWord_Random(_suggestedWordCount);
+            _wordsEveryDay = GlobalConfig.GetWord_Random(_suggestedWordCount);
             foreach (WordModel word in _wordsEveryDay)
             {
                 word.Word = word.Word.ToUpper().Replace('_', ' ');
@@ -44,7 +44,7 @@ namespace PBL3
 
         private void swapWordAnim_Tick(object sender, EventArgs e)
         {
-            _currentWordEveryDayIndex = (_currentWordEveryDayIndex + 1) % _suggestedWordCount;
+            _currentWordEveryDayIndex = (_currentWordEveryDayIndex + 1) % _wordsEveryDay.Count;
 
             _reverseState = false;
             sugWordLeftAnim.Start();
@@ -52,7 +52,7 @@ namespace PBL3
 
         private void btnForward_MouseClick(object sender, MouseEventArgs e)
         {
-            _currentWordEveryDayIndex = (_currentWordEveryDayIndex + 1) % _suggestedWordCount;
+            _currentWordEveryDayIndex = (_currentWordEveryDayIndex + 1) % _wordsEveryDay.Count;
 
             _reverseState = false;
             sugWordLeftAnim.Start();
@@ -60,7 +60,7 @@ namespace PBL3
 
         private void btnBackward_MouseClick(object sender, MouseEventArgs e)
         {
-            _currentWordEveryDayIndex = (_currentWordEveryDayIndex - 1) < 0 ? _suggestedWordCount - 1 : (_currentWordEveryDayIndex - 1);
+            _currentWordEveryDayIndex = (_currentWordEveryDayIndex - 1) < 0 ? _wordsEveryDay.Count - 1 : (_currentWordEveryDayIndex - 1);
 
             _reverseState = false;
             sugWordRightAnim.Start();
@@ -110,13 +110,13 @@ namespace PBL3
         private void btnSugWord_MouseClick(object sender, MouseEventArgs e)
         {
             ((MainForm)_parentForm).OpenChildForm(new WordForm(_parentForm, btnSugWord.Text.Replace(' ', '_').ToLower()),
-                MainForm.StackType.Replace);
+                FormStack.FormType.Neutral);
         }
 
         private void btnGotoNtebk_MouseClick(object sender, MouseEventArgs e)
         {
             ((MainForm)_parentForm).ActivateButton(((MainForm)_parentForm).btnNotebook, Color.FromArgb(127, 135, 255));
-            ((MainForm)_parentForm).OpenChildForm(((MainForm)_parentForm).NotebookForm, MainForm.StackType.Replace);
+            ((MainForm)_parentForm).OpenChildForm(((MainForm)_parentForm).NotebookForm, FormStack.FormType.Strong);
         }
     }
 }

@@ -32,7 +32,7 @@ namespace PBL3
             InitializeComponent();
 
             ActiveTag(btnMeaning);
-            _synsets = GlobalConfig.Connector.GetSynset_ByWord(rawWord);
+            _synsets = GlobalConfig.GetSynset_ByWord(rawWord);
             OpenChildForm(new WordForm_Meaning(rawWord, _synsets));
         }
 
@@ -79,7 +79,7 @@ namespace PBL3
             _currentChildForm = childForm;
             childForm.TopLevel = false;
             childForm.Dock = DockStyle.Fill;
-            panelBase.Controls.Add(childForm);
+            panelBase.Controls.Add(childForm); 
             panelBase.Tag = childForm;
             childForm.SendToBack();
             childForm.Show();
@@ -105,7 +105,7 @@ namespace PBL3
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
-            ((MainForm)_parentForm).OpenChildForm(FormStack.Pop(), MainForm.StackType.Dispose);
+            ((MainForm)_parentForm).OpenChildForm(FormStack.Pop(), FormStack.FormType.Strong);
         }
     }
 }

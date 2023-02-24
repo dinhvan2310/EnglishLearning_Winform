@@ -36,7 +36,7 @@ namespace PBL3
             _lblWords[6] = lblWordFound7;
             _lblWords[7] = lblWordFound8;
 
-            List<WordModel> words = GlobalConfig.Connector.GetWord_ByFilter_Random(rawWord[0] + "%", 8, true);
+            List<WordModel> words = GlobalConfig.GetWord_ByFilter_Random(rawWord[0] + "%", 8, true);
 
             int i = 0;
             foreach (Label lbl in _lblWords)
@@ -49,12 +49,12 @@ namespace PBL3
         private void lblWordFound1_MouseClick(object sender, MouseEventArgs e)
         {
             ((MainForm)_parentForm).OpenChildForm(new WordForm(_parentForm, ((Label)sender).Text.Replace(' ', '_')),
-                MainForm.StackType.Dispose);
+                FormStack.FormType.Neutral);
         }
 
         private void btnReturn_MouseClick(object sender, MouseEventArgs e)
         {
-            ((MainForm)_parentForm).OpenChildForm(FormStack.Pop(), MainForm.StackType.Dispose);
+            ((MainForm)_parentForm).OpenChildForm(FormStack.Pop(), FormStack.FormType.Strong);
         }
     }
 }

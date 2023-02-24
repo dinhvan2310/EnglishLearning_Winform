@@ -31,7 +31,7 @@
     name/value pairs.
     
     Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
+    type or mimetype. FormType corresponds to a .NET class that support 
     text/value conversion through the TypeConverter architecture. 
     Classes that don't support this are serialized and stored with the 
     mimetype set.
@@ -121,7 +121,7 @@
   <data name="panel2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vQAADr0BR/uQrQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADkoSURBVHhe7d0J
+        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAADkoSURBVHhe7d0J
         lG1XXedxyAQJJASCIIMMQtu2Co0yBxJkTpAhLQjqghZd3S4XShIGmYeAyDwq6Ya2W7sxtG1AGcIo4upu
         RcVEA4QHrY+kXp3xvld5U519qt6Q5PTeVbfy6p37q6pbt+6w9z5f1vqsF/6vXtWt//7v89/33HP2ucMl
         l1wCAAA6RgYBAEDcZBAAAMRNBgEAQNxkEAAAxE0GAQBA3GQQAADETQYBAEDcZBAAAMRNBgEAQNxkEAAA

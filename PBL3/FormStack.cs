@@ -9,8 +9,15 @@ using System.Windows.Forms;
 
 namespace PBL3
 {
-    internal static class FormStack
+    public static class FormStack
     {
+        public enum FormType
+        {
+            Strong, Weak, Neutral
+        }
+
+        public static FormType CurrentFormType = FormType.Strong;
+
         private static Stack<Form> _stack = new Stack<Form>();
 
         public static void Push(Form form)

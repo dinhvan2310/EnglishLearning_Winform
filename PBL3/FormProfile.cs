@@ -47,7 +47,7 @@ namespace PBL3
         private void btnReturn_MouseClick(object sender, MouseEventArgs e)
         {
             ((MainForm)_parentForm).panelPersonal.Visible = false;
-            ((MainForm)_parentForm).OpenChildForm(FormStack.Pop(), MainForm.StackType.Dispose);
+            ((MainForm)_parentForm).OpenChildForm(FormStack.Pop(), FormStack.FormType.Strong);
         }
 
         [System.Runtime.InteropServices.DllImport("user32.dll")]
