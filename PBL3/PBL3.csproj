@@ -64,8 +64,8 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Speech" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -79,16 +79,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormNotebook.cs">
+    <Compile Include="ExternalImport.cs" />
+    <Compile Include="FormPremium.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormNotebook.Designer.cs">
+    <Compile Include="FormPremium.Designer.cs">
+      <DependentUpon>FormPremium.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\ChildForm\FormNotebook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\ChildForm\FormNotebook.Designer.cs">
       <DependentUpon>FormNotebook.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormProfile.cs">
+    <Compile Include="Form\UtilForm\FormProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormProfile.Designer.cs">
+    <Compile Include="Form\UtilForm\FormProfile.Designer.cs">
       <DependentUpon>FormProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="Form\ChildForm\FormSetting.cs">
@@ -128,11 +135,11 @@
     <Compile Include="Form\Base\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\UtilForm\MessageBox_Exit.cs">
+    <Compile Include="Form\UtilForm\MessageBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\UtilForm\MessageBox_Exit.Designer.cs">
-      <DependentUpon>MessageBox_Exit.cs</DependentUpon>
+    <Compile Include="Form\UtilForm\MessageBox.Designer.cs">
+      <DependentUpon>MessageBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -177,10 +184,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FormNotebook.resx">
+    <EmbeddedResource Include="FormPremium.resx">
+      <DependentUpon>FormPremium.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\ChildForm\FormNotebook.resx">
       <DependentUpon>FormNotebook.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormProfile.resx">
+    <EmbeddedResource Include="Form\UtilForm\FormProfile.resx">
       <DependentUpon>FormProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\ChildForm\FormSetting.resx">
@@ -204,8 +214,8 @@
     <EmbeddedResource Include="Form\UtilForm\WordForm.resx">
       <DependentUpon>WordForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\UtilForm\MessageBox_Exit.resx">
-      <DependentUpon>MessageBox_Exit.cs</DependentUpon>
+    <EmbeddedResource Include="Form\UtilForm\MessageBox.resx">
+      <DependentUpon>MessageBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -255,6 +265,7 @@
   <ItemGroup>
     <Content Include="Resources\calendarDark.png" />
     <Content Include="Resources\calendarWhite.png" />
+    <None Include="Resources\Theme1.png" />
     <None Include="Resources\Cursor.png" />
     <None Include="Resources\Theme2.png" />
     <None Include="Resources\Theme.png" />

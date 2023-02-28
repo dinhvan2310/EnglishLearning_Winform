@@ -18,3 +18,5 @@ D:\Source\Visual Studio\C#\PBL3\PBLLibrary\bin\Debug\K4os.Compression.LZ4.dll
 D:\Source\Visual Studio\C#\PBL3\PBLLibrary\bin\Debug\K4os.Hash.xxHash.dll
 D:\Source\Visual Studio\C#\PBL3\PBLLibrary\bin\Debug\System.Numerics.Vectors.dll
 D:\Source\Visual Studio\C#\PBL3\PBLLibrary\bin\Debug\MySql.Data.xml
+D:\Source\Visual Studio\C#\PBL3\PBLLibrary\bin\Debug\Newtonsoft.Json.dll
+D:\Source\Visual Studio\C#\PBL3\PBLLibrary\bin\Debug\Newtonsoft.Json.xml

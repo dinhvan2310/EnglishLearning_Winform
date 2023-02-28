@@ -31,7 +31,7 @@
     name/value pairs.
     
     Each data row contains a name, and value. The row also contains a 
-    type or mimetype. FormType corresponds to a .NET class that support 
+    type or mimetype. Type corresponds to a .NET class that support 
     text/value conversion through the TypeConverter architecture. 
     Classes that don't support this are serialized and stored with the 
     mimetype set.
@@ -117,4 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="fileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Documents;
 using System.Windows;
 using System.Windows.Forms;
-using System.Speech.Synthesis;
+using PBLLibrary;
 
 namespace PBL3
 {
@@ -21,8 +21,6 @@ namespace PBL3
         private List<RichTextBox> _definitionTextBoxes = new List<RichTextBox>();
 
         private int _currentTypeLabelIndex;
-
-        private SpeechSynthesizer _speechSyn = new SpeechSynthesizer();
 
 
         public WordForm_Meaning(string rawWord, List<SynsetModel> synsets)
@@ -212,7 +210,17 @@ namespace PBL3
 
         private void btnSpeak_Click(object sender, EventArgs e)
         {
-            _speechSyn.Speak(lblWord.Text);
+            if (SoundConfig.IsSpeaking)
+            {
+                return;
+            }
+
+            Task.Run(() => {
+                SoundConfig.IsSpeaking = true;
+                SoundConfig.Speak(lblWord.Text);
+                SoundConfig.IsSpeaking = false;
+            });
         }
+
     }
 }

@@ -37,7 +37,6 @@ D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.WordForm_Synonym.resources
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.LoginForm.resources
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormSignUp.resources
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormSignIn.resources
-D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.MessageBox_Exit.resources
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormSetting.resources
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.WordForm_None.resources
 D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\CustomControls.dll
@@ -45,3 +44,5 @@ D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\CustomControls.pdb
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormNotebook.resources
 D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\Control.Draggable.dll
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormProfile.resources
+D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.MessageBox.resources
+D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormPremium.resources

@@ -33,19 +33,19 @@ namespace PBL3
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSignUp));
             this.txtUname = new System.Windows.Forms.TextBox();
-            this.iconUser = new FontAwesome.Sharp.IconButton();
             this.txtPasswrd = new System.Windows.Forms.TextBox();
-            this.iconPassword = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
             this.txtConPasswrd = new System.Windows.Forms.TextBox();
-            this.iconConfirmPassword = new FontAwesome.Sharp.IconButton();
-            this.btnConfirmShow = new FontAwesome.Sharp.IconButton();
-            this.btnShow = new FontAwesome.Sharp.IconButton();
             this.panelPage2 = new System.Windows.Forms.Panel();
             this.rjButton9 = new CustomControls.RJButton();
             this.rjButton7 = new CustomControls.RJButton();
+            this.iconUser = new FontAwesome.Sharp.IconButton();
             this.rjButton8 = new CustomControls.RJButton();
             this.rjButton1 = new CustomControls.RJButton();
+            this.iconPassword = new FontAwesome.Sharp.IconButton();
+            this.btnConfirmShow = new FontAwesome.Sharp.IconButton();
+            this.iconConfirmPassword = new FontAwesome.Sharp.IconButton();
+            this.btnShow = new FontAwesome.Sharp.IconButton();
             this.rjButton2 = new CustomControls.RJButton();
             this.rjButton6 = new CustomControls.RJButton();
             this.panelPage1 = new System.Windows.Forms.Panel();
@@ -68,77 +68,63 @@ namespace PBL3
             this.btnPage1 = new CustomControls.RJRadioButton();
             this.rjButton5 = new CustomControls.RJButton();
             this.rjButton4 = new CustomControls.RJButton();
-            this.rjButton3 = new CustomControls.RJButton();
+            this.btnResigter = new CustomControls.RJButton();
             this.fakeTabStop = new System.Windows.Forms.TextBox();
+            this.panelEmail = new System.Windows.Forms.Panel();
+            this.panelSlideEmail = new System.Windows.Forms.Panel();
+            this.rjButton19 = new CustomControls.RJButton();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.iconButton3 = new FontAwesome.Sharp.IconButton();
+            this.rjButton20 = new CustomControls.RJButton();
+            this.panelVerify = new System.Windows.Forms.Panel();
+            this.lblChangeMail = new System.Windows.Forms.Label();
+            this.btnRegenerate = new FontAwesome.Sharp.IconButton();
+            this.rjButton16 = new CustomControls.RJButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtVerify = new System.Windows.Forms.TextBox();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.rjButton17 = new CustomControls.RJButton();
+            this.childSlideAnim = new System.Windows.Forms.Timer(this.components);
+            this.btnReturn = new FontAwesome.Sharp.IconButton();
             this.btnLogo = new System.Windows.Forms.Button();
             this.panelPage2.SuspendLayout();
             this.panelPage1.SuspendLayout();
-            this.panelBase.SuspendLayout();
+            this.panelEmail.SuspendLayout();
+            this.panelSlideEmail.SuspendLayout();
+            this.panelVerify.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtUname
             // 
             this.txtUname.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
             this.txtUname.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUname.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUname.Font = new System.Drawing.Font("Bahnschrift Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
             this.txtUname.Location = new System.Drawing.Point(85, 24);
             this.txtUname.MinimumSize = new System.Drawing.Size(0, 30);
             this.txtUname.Name = "txtUname";
-            this.txtUname.Size = new System.Drawing.Size(291, 25);
+            this.txtUname.Size = new System.Drawing.Size(291, 28);
             this.txtUname.TabIndex = 4;
             this.txtUname.Text = "Tên Tài Khoản";
             this.txtUname.Enter += new System.EventHandler(this.txtPH_Enter);
+            this.txtUname.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtEmail_KeyDown);
             this.txtUname.Leave += new System.EventHandler(this.txtPH_Leave);
-            // 
-            // iconUser
-            // 
-            this.iconUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
-            this.iconUser.Enabled = false;
-            this.iconUser.FlatAppearance.BorderSize = 0;
-            this.iconUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconUser.IconChar = FontAwesome.Sharp.IconChar.User;
-            this.iconUser.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
-            this.iconUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconUser.IconSize = 25;
-            this.iconUser.Location = new System.Drawing.Point(33, 21);
-            this.iconUser.Name = "iconUser";
-            this.iconUser.Size = new System.Drawing.Size(39, 28);
-            this.iconUser.TabIndex = 35;
-            this.iconUser.TabStop = false;
-            this.iconUser.UseVisualStyleBackColor = false;
             // 
             // txtPasswrd
             // 
             this.txtPasswrd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
             this.txtPasswrd.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPasswrd.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPasswrd.Font = new System.Drawing.Font("Bahnschrift Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPasswrd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
             this.txtPasswrd.Location = new System.Drawing.Point(85, 92);
             this.txtPasswrd.MinimumSize = new System.Drawing.Size(0, 30);
             this.txtPasswrd.Name = "txtPasswrd";
-            this.txtPasswrd.Size = new System.Drawing.Size(291, 25);
+            this.txtPasswrd.Size = new System.Drawing.Size(291, 28);
             this.txtPasswrd.TabIndex = 5;
             this.txtPasswrd.Text = "Mật Khẩu";
             this.txtPasswrd.Enter += new System.EventHandler(this.txtPH_Enter);
+            this.txtPasswrd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtEmail_KeyDown);
             this.txtPasswrd.Leave += new System.EventHandler(this.txtPH_Leave);
-            // 
-            // iconPassword
-            // 
-            this.iconPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
-            this.iconPassword.Enabled = false;
-            this.iconPassword.FlatAppearance.BorderSize = 0;
-            this.iconPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconPassword.IconChar = FontAwesome.Sharp.IconChar.Lock;
-            this.iconPassword.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
-            this.iconPassword.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPassword.IconSize = 25;
-            this.iconPassword.Location = new System.Drawing.Point(33, 87);
-            this.iconPassword.Name = "iconPassword";
-            this.iconPassword.Size = new System.Drawing.Size(39, 28);
-            this.iconPassword.TabIndex = 39;
-            this.iconPassword.TabStop = false;
-            this.iconPassword.UseVisualStyleBackColor = false;
             // 
             // label1
             // 
@@ -155,73 +141,17 @@ namespace PBL3
             // 
             this.txtConPasswrd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
             this.txtConPasswrd.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtConPasswrd.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConPasswrd.Font = new System.Drawing.Font("Bahnschrift Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConPasswrd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
             this.txtConPasswrd.Location = new System.Drawing.Point(85, 160);
             this.txtConPasswrd.MinimumSize = new System.Drawing.Size(0, 30);
             this.txtConPasswrd.Name = "txtConPasswrd";
-            this.txtConPasswrd.Size = new System.Drawing.Size(291, 25);
+            this.txtConPasswrd.Size = new System.Drawing.Size(291, 28);
             this.txtConPasswrd.TabIndex = 6;
             this.txtConPasswrd.Text = "Xác Nhận Mật Khẩu";
             this.txtConPasswrd.Enter += new System.EventHandler(this.txtPH_Enter);
+            this.txtConPasswrd.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtEmail_KeyDown);
             this.txtConPasswrd.Leave += new System.EventHandler(this.txtPH_Leave);
-            // 
-            // iconConfirmPassword
-            // 
-            this.iconConfirmPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
-            this.iconConfirmPassword.Enabled = false;
-            this.iconConfirmPassword.FlatAppearance.BorderSize = 0;
-            this.iconConfirmPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconConfirmPassword.IconChar = FontAwesome.Sharp.IconChar.Lock;
-            this.iconConfirmPassword.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
-            this.iconConfirmPassword.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconConfirmPassword.IconSize = 25;
-            this.iconConfirmPassword.Location = new System.Drawing.Point(33, 155);
-            this.iconConfirmPassword.Name = "iconConfirmPassword";
-            this.iconConfirmPassword.Size = new System.Drawing.Size(39, 28);
-            this.iconConfirmPassword.TabIndex = 43;
-            this.iconConfirmPassword.TabStop = false;
-            this.iconConfirmPassword.UseVisualStyleBackColor = false;
-            // 
-            // btnConfirmShow
-            // 
-            this.btnConfirmShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
-            this.btnConfirmShow.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConfirmShow.FlatAppearance.BorderSize = 0;
-            this.btnConfirmShow.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
-            this.btnConfirmShow.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
-            this.btnConfirmShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConfirmShow.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
-            this.btnConfirmShow.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
-            this.btnConfirmShow.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnConfirmShow.IconSize = 25;
-            this.btnConfirmShow.Location = new System.Drawing.Point(385, 156);
-            this.btnConfirmShow.Name = "btnConfirmShow";
-            this.btnConfirmShow.Size = new System.Drawing.Size(29, 28);
-            this.btnConfirmShow.TabIndex = 45;
-            this.btnConfirmShow.TabStop = false;
-            this.btnConfirmShow.UseVisualStyleBackColor = false;
-            this.btnConfirmShow.Click += new System.EventHandler(this.btnConfirmShow_Click);
-            // 
-            // btnShow
-            // 
-            this.btnShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
-            this.btnShow.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnShow.FlatAppearance.BorderSize = 0;
-            this.btnShow.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
-            this.btnShow.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
-            this.btnShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShow.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
-            this.btnShow.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
-            this.btnShow.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnShow.IconSize = 25;
-            this.btnShow.Location = new System.Drawing.Point(385, 88);
-            this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(29, 28);
-            this.btnShow.TabIndex = 44;
-            this.btnShow.TabStop = false;
-            this.btnShow.UseVisualStyleBackColor = false;
-            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
             // panelPage2
             // 
@@ -239,7 +169,7 @@ namespace PBL3
             this.panelPage2.Controls.Add(this.txtPasswrd);
             this.panelPage2.Controls.Add(this.rjButton2);
             this.panelPage2.Controls.Add(this.rjButton6);
-            this.panelPage2.Location = new System.Drawing.Point(12, 389);
+            this.panelPage2.Location = new System.Drawing.Point(22, 207);
             this.panelPage2.Name = "panelPage2";
             this.panelPage2.Size = new System.Drawing.Size(454, 198);
             this.panelPage2.TabIndex = 50;
@@ -285,6 +215,23 @@ namespace PBL3
             this.rjButton7.TextColor = System.Drawing.Color.White;
             this.rjButton7.UseVisualStyleBackColor = false;
             // 
+            // iconUser
+            // 
+            this.iconUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.iconUser.Enabled = false;
+            this.iconUser.FlatAppearance.BorderSize = 0;
+            this.iconUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconUser.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.iconUser.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
+            this.iconUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconUser.IconSize = 25;
+            this.iconUser.Location = new System.Drawing.Point(33, 21);
+            this.iconUser.Name = "iconUser";
+            this.iconUser.Size = new System.Drawing.Size(39, 28);
+            this.iconUser.TabIndex = 35;
+            this.iconUser.TabStop = false;
+            this.iconUser.UseVisualStyleBackColor = false;
+            // 
             // rjButton8
             // 
             this.rjButton8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
@@ -323,6 +270,80 @@ namespace PBL3
             this.rjButton1.TabStop = false;
             this.rjButton1.TextColor = System.Drawing.Color.White;
             this.rjButton1.UseVisualStyleBackColor = false;
+            // 
+            // iconPassword
+            // 
+            this.iconPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.iconPassword.Enabled = false;
+            this.iconPassword.FlatAppearance.BorderSize = 0;
+            this.iconPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconPassword.IconChar = FontAwesome.Sharp.IconChar.Lock;
+            this.iconPassword.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
+            this.iconPassword.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPassword.IconSize = 25;
+            this.iconPassword.Location = new System.Drawing.Point(33, 87);
+            this.iconPassword.Name = "iconPassword";
+            this.iconPassword.Size = new System.Drawing.Size(39, 28);
+            this.iconPassword.TabIndex = 39;
+            this.iconPassword.TabStop = false;
+            this.iconPassword.UseVisualStyleBackColor = false;
+            // 
+            // btnConfirmShow
+            // 
+            this.btnConfirmShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.btnConfirmShow.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfirmShow.FlatAppearance.BorderSize = 0;
+            this.btnConfirmShow.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.btnConfirmShow.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.btnConfirmShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfirmShow.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            this.btnConfirmShow.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
+            this.btnConfirmShow.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnConfirmShow.IconSize = 25;
+            this.btnConfirmShow.Location = new System.Drawing.Point(385, 156);
+            this.btnConfirmShow.Name = "btnConfirmShow";
+            this.btnConfirmShow.Size = new System.Drawing.Size(29, 28);
+            this.btnConfirmShow.TabIndex = 45;
+            this.btnConfirmShow.TabStop = false;
+            this.btnConfirmShow.UseVisualStyleBackColor = false;
+            this.btnConfirmShow.Click += new System.EventHandler(this.btnConfirmShow_Click);
+            // 
+            // iconConfirmPassword
+            // 
+            this.iconConfirmPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.iconConfirmPassword.Enabled = false;
+            this.iconConfirmPassword.FlatAppearance.BorderSize = 0;
+            this.iconConfirmPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconConfirmPassword.IconChar = FontAwesome.Sharp.IconChar.Lock;
+            this.iconConfirmPassword.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
+            this.iconConfirmPassword.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconConfirmPassword.IconSize = 25;
+            this.iconConfirmPassword.Location = new System.Drawing.Point(33, 155);
+            this.iconConfirmPassword.Name = "iconConfirmPassword";
+            this.iconConfirmPassword.Size = new System.Drawing.Size(39, 28);
+            this.iconConfirmPassword.TabIndex = 43;
+            this.iconConfirmPassword.TabStop = false;
+            this.iconConfirmPassword.UseVisualStyleBackColor = false;
+            // 
+            // btnShow
+            // 
+            this.btnShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.btnShow.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnShow.FlatAppearance.BorderSize = 0;
+            this.btnShow.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.btnShow.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.btnShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShow.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            this.btnShow.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
+            this.btnShow.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnShow.IconSize = 25;
+            this.btnShow.Location = new System.Drawing.Point(385, 88);
+            this.btnShow.Name = "btnShow";
+            this.btnShow.Size = new System.Drawing.Size(29, 28);
+            this.btnShow.TabIndex = 44;
+            this.btnShow.TabStop = false;
+            this.btnShow.UseVisualStyleBackColor = false;
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
             // rjButton2
             // 
@@ -377,10 +398,11 @@ namespace PBL3
             this.panelPage1.Controls.Add(this.iconName);
             this.panelPage1.Controls.Add(this.rjButton11);
             this.panelPage1.Controls.Add(this.rjButton14);
-            this.panelPage1.Location = new System.Drawing.Point(29, 3);
+            this.panelPage1.Location = new System.Drawing.Point(428, 94);
             this.panelPage1.Name = "panelPage1";
             this.panelPage1.Size = new System.Drawing.Size(454, 210);
             this.panelPage1.TabIndex = 51;
+            this.panelPage1.Visible = false;
             // 
             // rjButton12
             // 
@@ -408,7 +430,7 @@ namespace PBL3
             this.cmbBoxGender.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
             this.cmbBoxGender.BorderSize = 0;
             this.cmbBoxGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbBoxGender.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
+            this.cmbBoxGender.Font = new System.Drawing.Font("Bahnschrift Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbBoxGender.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
             this.cmbBoxGender.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
             this.cmbBoxGender.Items.AddRange(new object[] {
@@ -417,12 +439,12 @@ namespace PBL3
             "Không"});
             this.cmbBoxGender.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
             this.cmbBoxGender.ListTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
-            this.cmbBoxGender.Location = new System.Drawing.Point(80, 87);
+            this.cmbBoxGender.Location = new System.Drawing.Point(78, 87);
             this.cmbBoxGender.MinimumSize = new System.Drawing.Size(200, 0);
             this.cmbBoxGender.Name = "cmbBoxGender";
-            this.cmbBoxGender.Size = new System.Drawing.Size(349, 32);
+            this.cmbBoxGender.Size = new System.Drawing.Size(349, 36);
             this.cmbBoxGender.TabIndex = 2;
-            this.cmbBoxGender.Text = "Giới Tính";
+            this.cmbBoxGender.Text = "Sex";
             this.cmbBoxGender.Texts = "";
             this.cmbBoxGender.OnSelectedIndexChanged += new System.EventHandler(this.cmbBoxGender_OnSelectedIndexChanged);
             // 
@@ -470,15 +492,16 @@ namespace PBL3
             // 
             this.txtDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
             this.txtDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtDate.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDate.Font = new System.Drawing.Font("Bahnschrift Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
             this.txtDate.Location = new System.Drawing.Point(85, 160);
             this.txtDate.MinimumSize = new System.Drawing.Size(0, 30);
             this.txtDate.Name = "txtDate";
-            this.txtDate.Size = new System.Drawing.Size(291, 25);
+            this.txtDate.Size = new System.Drawing.Size(291, 28);
             this.txtDate.TabIndex = 3;
             this.txtDate.Text = "01/01/2003";
             this.txtDate.Enter += new System.EventHandler(this.txtPH_Enter);
+            this.txtDate.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtEmail_KeyDown);
             this.txtDate.Leave += new System.EventHandler(this.txtPH_Leave);
             // 
             // iconDate
@@ -558,15 +581,16 @@ namespace PBL3
             // 
             this.txtName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
             this.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtName.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Font = new System.Drawing.Font("Bahnschrift Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
             this.txtName.Location = new System.Drawing.Point(85, 24);
             this.txtName.MinimumSize = new System.Drawing.Size(0, 30);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(291, 25);
+            this.txtName.Size = new System.Drawing.Size(291, 28);
             this.txtName.TabIndex = 1;
             this.txtName.Text = "Họ và Tên";
             this.txtName.Enter += new System.EventHandler(this.txtPH_Enter);
+            this.txtName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtEmail_KeyDown);
             this.txtName.Leave += new System.EventHandler(this.txtPH_Leave);
             // 
             // iconName
@@ -626,7 +650,6 @@ namespace PBL3
             // 
             // panelBase
             // 
-            this.panelBase.Controls.Add(this.panelPage1);
             this.panelBase.Location = new System.Drawing.Point(50, 134);
             this.panelBase.Name = "panelBase";
             this.panelBase.Size = new System.Drawing.Size(454, 210);
@@ -649,6 +672,7 @@ namespace PBL3
             this.btnPage2.TabIndex = 53;
             this.btnPage2.UnCheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
             this.btnPage2.UseVisualStyleBackColor = true;
+            this.btnPage2.Visible = false;
             // 
             // btnPage1
             // 
@@ -664,6 +688,7 @@ namespace PBL3
             this.btnPage1.TabStop = true;
             this.btnPage1.UnCheckedColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
             this.btnPage1.UseVisualStyleBackColor = true;
+            this.btnPage1.Visible = false;
             this.btnPage1.CheckedChanged += new System.EventHandler(this.btnPage1_CheckedChanged);
             // 
             // rjButton5
@@ -706,25 +731,26 @@ namespace PBL3
             this.rjButton4.UseVisualStyleBackColor = false;
             this.rjButton4.Click += new System.EventHandler(this.rjButton4_Click);
             // 
-            // rjButton3
+            // btnResigter
             // 
-            this.rjButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.rjButton3.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.rjButton3.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton3.BorderRadius = 30;
-            this.rjButton3.BorderSize = 0;
-            this.rjButton3.FlatAppearance.BorderSize = 0;
-            this.rjButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton3.Font = new System.Drawing.Font("Bahnschrift", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
-            this.rjButton3.Location = new System.Drawing.Point(320, 345);
-            this.rjButton3.Name = "rjButton3";
-            this.rjButton3.Size = new System.Drawing.Size(170, 60);
-            this.rjButton3.TabIndex = 36;
-            this.rjButton3.TabStop = false;
-            this.rjButton3.Text = "ĐĂNG KÍ";
-            this.rjButton3.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
-            this.rjButton3.UseVisualStyleBackColor = false;
+            this.btnResigter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.btnResigter.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.btnResigter.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnResigter.BorderRadius = 30;
+            this.btnResigter.BorderSize = 0;
+            this.btnResigter.FlatAppearance.BorderSize = 0;
+            this.btnResigter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnResigter.Font = new System.Drawing.Font("Bahnschrift", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResigter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
+            this.btnResigter.Location = new System.Drawing.Point(320, 345);
+            this.btnResigter.Name = "btnResigter";
+            this.btnResigter.Size = new System.Drawing.Size(170, 60);
+            this.btnResigter.TabIndex = 36;
+            this.btnResigter.TabStop = false;
+            this.btnResigter.Text = "ĐĂNG KÍ";
+            this.btnResigter.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
+            this.btnResigter.UseVisualStyleBackColor = false;
+            this.btnResigter.Visible = false;
             // 
             // fakeTabStop
             // 
@@ -732,6 +758,253 @@ namespace PBL3
             this.fakeTabStop.Name = "fakeTabStop";
             this.fakeTabStop.Size = new System.Drawing.Size(81, 22);
             this.fakeTabStop.TabIndex = 0;
+            // 
+            // panelEmail
+            // 
+            this.panelEmail.Controls.Add(this.panelSlideEmail);
+            this.panelEmail.Controls.Add(this.panelVerify);
+            this.panelEmail.Location = new System.Drawing.Point(164, 3);
+            this.panelEmail.Name = "panelEmail";
+            this.panelEmail.Size = new System.Drawing.Size(454, 210);
+            this.panelEmail.TabIndex = 64;
+            // 
+            // panelSlideEmail
+            // 
+            this.panelSlideEmail.Controls.Add(this.rjButton19);
+            this.panelSlideEmail.Controls.Add(this.txtEmail);
+            this.panelSlideEmail.Controls.Add(this.iconButton3);
+            this.panelSlideEmail.Controls.Add(this.rjButton20);
+            this.panelSlideEmail.Location = new System.Drawing.Point(3, 63);
+            this.panelSlideEmail.Name = "panelSlideEmail";
+            this.panelSlideEmail.Size = new System.Drawing.Size(451, 80);
+            this.panelSlideEmail.TabIndex = 63;
+            // 
+            // rjButton19
+            // 
+            this.rjButton19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.rjButton19.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.rjButton19.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton19.BorderRadius = 2;
+            this.rjButton19.BorderSize = 0;
+            this.rjButton19.Enabled = false;
+            this.rjButton19.FlatAppearance.BorderSize = 0;
+            this.rjButton19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton19.ForeColor = System.Drawing.Color.White;
+            this.rjButton19.Location = new System.Drawing.Point(66, 21);
+            this.rjButton19.Name = "rjButton19";
+            this.rjButton19.Size = new System.Drawing.Size(3, 39);
+            this.rjButton19.TabIndex = 55;
+            this.rjButton19.TabStop = false;
+            this.rjButton19.Text = "rjButton19";
+            this.rjButton19.TextColor = System.Drawing.Color.White;
+            this.rjButton19.UseVisualStyleBackColor = false;
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtEmail.Font = new System.Drawing.Font("Bahnschrift Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
+            this.txtEmail.Location = new System.Drawing.Point(82, 30);
+            this.txtEmail.MinimumSize = new System.Drawing.Size(0, 30);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(291, 28);
+            this.txtEmail.TabIndex = 7;
+            this.txtEmail.Text = "Email";
+            this.txtEmail.Enter += new System.EventHandler(this.txtPH_Enter);
+            this.txtEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtEmail_KeyDown);
+            this.txtEmail.Leave += new System.EventHandler(this.txtPH_Leave);
+            // 
+            // iconButton3
+            // 
+            this.iconButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.iconButton3.Enabled = false;
+            this.iconButton3.FlatAppearance.BorderSize = 0;
+            this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.At;
+            this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
+            this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton3.IconSize = 25;
+            this.iconButton3.Location = new System.Drawing.Point(30, 27);
+            this.iconButton3.Name = "iconButton3";
+            this.iconButton3.Size = new System.Drawing.Size(39, 28);
+            this.iconButton3.TabIndex = 54;
+            this.iconButton3.TabStop = false;
+            this.iconButton3.UseVisualStyleBackColor = false;
+            // 
+            // rjButton20
+            // 
+            this.rjButton20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.rjButton20.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.rjButton20.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton20.BorderRadius = 25;
+            this.rjButton20.BorderSize = 0;
+            this.rjButton20.Enabled = false;
+            this.rjButton20.FlatAppearance.BorderSize = 0;
+            this.rjButton20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton20.ForeColor = System.Drawing.Color.White;
+            this.rjButton20.Location = new System.Drawing.Point(10, 13);
+            this.rjButton20.Name = "rjButton20";
+            this.rjButton20.Size = new System.Drawing.Size(430, 50);
+            this.rjButton20.TabIndex = 53;
+            this.rjButton20.TabStop = false;
+            this.rjButton20.TextColor = System.Drawing.Color.White;
+            this.rjButton20.UseVisualStyleBackColor = false;
+            // 
+            // panelVerify
+            // 
+            this.panelVerify.Controls.Add(this.lblChangeMail);
+            this.panelVerify.Controls.Add(this.btnRegenerate);
+            this.panelVerify.Controls.Add(this.rjButton16);
+            this.panelVerify.Controls.Add(this.label2);
+            this.panelVerify.Controls.Add(this.txtVerify);
+            this.panelVerify.Controls.Add(this.iconButton1);
+            this.panelVerify.Controls.Add(this.rjButton17);
+            this.panelVerify.Location = new System.Drawing.Point(24, 89);
+            this.panelVerify.Name = "panelVerify";
+            this.panelVerify.Size = new System.Drawing.Size(430, 90);
+            this.panelVerify.TabIndex = 61;
+            this.panelVerify.Visible = false;
+            // 
+            // lblChangeMail
+            // 
+            this.lblChangeMail.AutoSize = true;
+            this.lblChangeMail.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblChangeMail.Font = new System.Drawing.Font("Bahnschrift Light", 10.2F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChangeMail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.lblChangeMail.Location = new System.Drawing.Point(347, 10);
+            this.lblChangeMail.Name = "lblChangeMail";
+            this.lblChangeMail.Size = new System.Drawing.Size(83, 21);
+            this.lblChangeMail.TabIndex = 62;
+            this.lblChangeMail.Text = "Đổi Email";
+            this.lblChangeMail.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lblChangeMail_MouseClick);
+            // 
+            // btnRegenerate
+            // 
+            this.btnRegenerate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.btnRegenerate.Enabled = false;
+            this.btnRegenerate.FlatAppearance.BorderSize = 0;
+            this.btnRegenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegenerate.IconChar = FontAwesome.Sharp.IconChar.Repeat;
+            this.btnRegenerate.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
+            this.btnRegenerate.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnRegenerate.IconSize = 25;
+            this.btnRegenerate.Location = new System.Drawing.Point(378, 50);
+            this.btnRegenerate.Name = "btnRegenerate";
+            this.btnRegenerate.Size = new System.Drawing.Size(39, 28);
+            this.btnRegenerate.TabIndex = 61;
+            this.btnRegenerate.TabStop = false;
+            this.btnRegenerate.UseVisualStyleBackColor = false;
+            this.btnRegenerate.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnRegenerate_MouseClick);
+            // 
+            // rjButton16
+            // 
+            this.rjButton16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.rjButton16.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.rjButton16.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton16.BorderRadius = 2;
+            this.rjButton16.BorderSize = 0;
+            this.rjButton16.Enabled = false;
+            this.rjButton16.FlatAppearance.BorderSize = 0;
+            this.rjButton16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton16.ForeColor = System.Drawing.Color.White;
+            this.rjButton16.Location = new System.Drawing.Point(192, 44);
+            this.rjButton16.Name = "rjButton16";
+            this.rjButton16.Size = new System.Drawing.Size(3, 39);
+            this.rjButton16.TabIndex = 59;
+            this.rjButton16.TabStop = false;
+            this.rjButton16.Text = "rjButton16";
+            this.rjButton16.TextColor = System.Drawing.Color.White;
+            this.rjButton16.UseVisualStyleBackColor = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Bahnschrift Light", 12F);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.label2.Location = new System.Drawing.Point(18, 53);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(90, 24);
+            this.label2.TabIndex = 60;
+            this.label2.Text = "Xác Thực";
+            // 
+            // txtVerify
+            // 
+            this.txtVerify.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.txtVerify.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtVerify.Font = new System.Drawing.Font("Bahnschrift Light", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVerify.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
+            this.txtVerify.Location = new System.Drawing.Point(201, 53);
+            this.txtVerify.MinimumSize = new System.Drawing.Size(0, 30);
+            this.txtVerify.Name = "txtVerify";
+            this.txtVerify.Size = new System.Drawing.Size(171, 28);
+            this.txtVerify.TabIndex = 8;
+            this.txtVerify.Text = "Nhập mã xác thực";
+            this.txtVerify.TextChanged += new System.EventHandler(this.txtVerify_TextChanged);
+            this.txtVerify.Enter += new System.EventHandler(this.txtPH_Enter);
+            this.txtVerify.Leave += new System.EventHandler(this.txtPH_Leave);
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.iconButton1.Enabled = false;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Envelope;
+            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 25;
+            this.iconButton1.Location = new System.Drawing.Point(154, 50);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(39, 28);
+            this.iconButton1.TabIndex = 58;
+            this.iconButton1.TabStop = false;
+            this.iconButton1.UseVisualStyleBackColor = false;
+            // 
+            // rjButton17
+            // 
+            this.rjButton17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.rjButton17.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.rjButton17.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton17.BorderRadius = 25;
+            this.rjButton17.BorderSize = 0;
+            this.rjButton17.Enabled = false;
+            this.rjButton17.FlatAppearance.BorderSize = 0;
+            this.rjButton17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton17.ForeColor = System.Drawing.Color.White;
+            this.rjButton17.Location = new System.Drawing.Point(127, 37);
+            this.rjButton17.Name = "rjButton17";
+            this.rjButton17.Size = new System.Drawing.Size(303, 50);
+            this.rjButton17.TabIndex = 57;
+            this.rjButton17.TabStop = false;
+            this.rjButton17.TextColor = System.Drawing.Color.White;
+            this.rjButton17.UseVisualStyleBackColor = false;
+            // 
+            // childSlideAnim
+            // 
+            this.childSlideAnim.Interval = 1;
+            this.childSlideAnim.Tick += new System.EventHandler(this.childSlideAnim_Tick);
+            // 
+            // btnReturn
+            // 
+            this.btnReturn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
+            this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReturn.FlatAppearance.BorderSize = 0;
+            this.btnReturn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
+            this.btnReturn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
+            this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReturn.IconChar = FontAwesome.Sharp.IconChar.CaretLeft;
+            this.btnReturn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
+            this.btnReturn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnReturn.IconSize = 40;
+            this.btnReturn.Location = new System.Drawing.Point(5, 143);
+            this.btnReturn.Name = "btnReturn";
+            this.btnReturn.Size = new System.Drawing.Size(39, 28);
+            this.btnReturn.TabIndex = 66;
+            this.btnReturn.TabStop = false;
+            this.btnReturn.UseVisualStyleBackColor = false;
+            this.btnReturn.Visible = false;
+            this.btnReturn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnReturn_MouseClick);
             // 
             // btnLogo
             // 
@@ -754,12 +1027,15 @@ namespace PBL3
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
             this.ClientSize = new System.Drawing.Size(550, 467);
+            this.Controls.Add(this.btnReturn);
+            this.Controls.Add(this.panelPage1);
             this.Controls.Add(this.panelPage2);
+            this.Controls.Add(this.panelEmail);
             this.Controls.Add(this.btnPage2);
             this.Controls.Add(this.btnPage1);
             this.Controls.Add(this.rjButton5);
             this.Controls.Add(this.rjButton4);
-            this.Controls.Add(this.rjButton3);
+            this.Controls.Add(this.btnResigter);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panelBase);
             this.Controls.Add(this.btnLogo);
@@ -773,7 +1049,11 @@ namespace PBL3
             this.panelPage2.PerformLayout();
             this.panelPage1.ResumeLayout(false);
             this.panelPage1.PerformLayout();
-            this.panelBase.ResumeLayout(false);
+            this.panelEmail.ResumeLayout(false);
+            this.panelSlideEmail.ResumeLayout(false);
+            this.panelSlideEmail.PerformLayout();
+            this.panelVerify.ResumeLayout(false);
+            this.panelVerify.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -789,7 +1069,7 @@ namespace PBL3
         private CustomControls.RJButton rjButton4;
         private FontAwesome.Sharp.IconButton iconPassword;
         private CustomControls.RJButton rjButton2;
-        private CustomControls.RJButton rjButton3;
+        private CustomControls.RJButton btnResigter;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtConPasswrd;
         private FontAwesome.Sharp.IconButton iconConfirmPassword;
@@ -820,5 +1100,21 @@ namespace PBL3
         private System.Windows.Forms.Timer slideAnim;
         private System.Windows.Forms.TextBox fakeTabStop;
         private System.Windows.Forms.Button btnLogo;
+        private System.Windows.Forms.Panel panelEmail;
+        private RJButton rjButton19;
+        private System.Windows.Forms.TextBox txtEmail;
+        private FontAwesome.Sharp.IconButton iconButton3;
+        private RJButton rjButton20;
+        private System.Windows.Forms.Label lblChangeMail;
+        private System.Windows.Forms.Panel panelVerify;
+        private FontAwesome.Sharp.IconButton btnRegenerate;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private RJButton rjButton16;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtVerify;
+        private RJButton rjButton17;
+        private System.Windows.Forms.Panel panelSlideEmail;
+        private System.Windows.Forms.Timer childSlideAnim;
+        private FontAwesome.Sharp.IconButton btnReturn;
     }
 }

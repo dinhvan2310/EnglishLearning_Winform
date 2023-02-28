@@ -32,6 +32,39 @@ namespace PBL3
             _overFont = new Font(_primaryFont.FontFamily, _primaryFont.Size, FontStyle.Underline);
         }
 
+        private bool ValidateDate()
+        {
+            string[] split = txtDate.Text.Split('/');
+            int[] date = new int[3];
+
+            if (split.Length != 3)
+            {
+                return false;
+            }
+            else
+            {
+                int i = 0;
+                foreach (string s in split)
+                {
+                    if (!int.TryParse(s, out date[i++]))
+                    {
+                        return false;
+                    }
+                }
+
+                try
+                {
+                    DateTime dateTime = new DateTime(date[2], date[1], date[0]);
+                }
+                catch
+                {
+                    return false;
+                }
+
+            }
+
+            return true;
+        }
         private void btnAdjust1_MouseEnter(object sender, EventArgs e)
         {
             ((IconButton)sender).Font = _overFont;
@@ -127,42 +160,30 @@ namespace PBL3
             {
                 return;
             }
-
-            string[] split = txtDate.Text.Split('/');
-            int[] date = new int[3];
-
-            if (split.Length != 3)
+            
+            if (ValidateDate())
             {
-                MessageBox.Show("Wrong Date Format");
-                txtDate.Text = "01/01/2003";
-            }
-            else
-            {
+                string[] split = txtDate.Text.Split('/');
+                int[] date = new int[3];
+
                 int i = 0;
                 foreach (string s in split)
                 {
-                    if (!int.TryParse(s, out date[i++]))
-                    {
-                        MessageBox.Show("Wrong Date Format");
-                        txtDate.Text = "01/01/2003";
-                        break;
-                    }
+
+                    date[i++] = Convert.ToInt32(s);
                 }
 
-                try
-                {
-                    DateTime dateTime = new DateTime(date[2], date[1], date[0]);
-                    datePicker.Value = dateTime;
-                    txtDate.ForeColor = Color.FromArgb(119, 112, 156);
-                    txtDate.ReadOnly = true;
-                    datePicker.Visible = false;
-                }
-                catch
-                {
-                    MessageBox.Show("Wrong Date Format");
-                    txtDate.Text = "01/01/2003";
-                }
-
+                DateTime dateTime = new DateTime(date[2], date[1], date[0]);
+                datePicker.Value = dateTime;
+                txtDate.ForeColor = Color.FromArgb(119, 112, 156);
+                txtDate.ReadOnly = true;
+                datePicker.Visible = false;
+            }
+            else
+            {
+                Form messageBox = new MessageBox("NHẬP SAI", "Nhập Sai Ngày Sinh", MessageBox.MessageType.Info);
+                messageBox.ShowDialog();
+                txtDate.Text = "01/01/2003";
             }
         }
 
@@ -182,7 +203,8 @@ namespace PBL3
                 string[] splits = txtEmail.Text.Split('@');
                 if (splits.Length != 2)
                 {
-                    MessageBox.Show("Wrong Email Format");
+                    Form messageBox = new MessageBox("NHẬP SAI", "Nhập Sai Email", MessageBox.MessageType.Info);
+                    messageBox.ShowDialog();
                     txtEmail.Text = "email@gmail.com";
                 }
                 else
@@ -204,6 +226,14 @@ namespace PBL3
         {
             txtGender.Text = cmbBoxGender.SelectedItem.ToString();
             cmbBoxGender.Visible = false;
+        }
+
+        private void btnChangeImage_MouseClick(object sender, MouseEventArgs e)
+        {
+            fileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;";
+            fileDialog.ShowDialog();
+            btnImage.BackgroundImage = Image.FromStream(fileDialog.OpenFile());
+            
         }
     }
 }

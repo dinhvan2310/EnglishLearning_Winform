@@ -54,7 +54,6 @@ namespace PBL3
             this.rjPanel8 = new CustomControls.RJPanel();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.rjPanel9 = new CustomControls.RJPanel();
-            this.label16 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.circularProgressBar2 = new CircularProgressBar.CircularProgressBar();
@@ -77,6 +76,7 @@ namespace PBL3
             this.swapWordAnim = new System.Windows.Forms.Timer(this.components);
             this.sugWordLeftAnim = new System.Windows.Forms.Timer(this.components);
             this.sugWordRightAnim = new System.Windows.Forms.Timer(this.components);
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.rjPanel6.SuspendLayout();
             this.panel1.SuspendLayout();
             this.rjPanel1.SuspendLayout();
@@ -120,7 +120,7 @@ namespace PBL3
             // 
             this.btnSugWord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(108)))), ((int)(((byte)(131)))));
             this.btnSugWord.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(108)))), ((int)(((byte)(131)))));
-            this.btnSugWord.BackgroundImage = global::PBL3.Properties.Resources.Theme2;
+            this.btnSugWord.BackgroundImage = global::PBL3.Properties.Resources.Theme1;
             this.btnSugWord.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnSugWord.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(108)))), ((int)(((byte)(131)))));
             this.btnSugWord.BorderRadius = 20;
@@ -128,7 +128,7 @@ namespace PBL3
             this.btnSugWord.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSugWord.FlatAppearance.BorderSize = 0;
             this.btnSugWord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSugWord.Font = new System.Drawing.Font("Bahnschrift", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSugWord.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSugWord.ForeColor = System.Drawing.Color.White;
             this.btnSugWord.Location = new System.Drawing.Point(0, 0);
             this.btnSugWord.Name = "btnSugWord";
@@ -474,16 +474,16 @@ namespace PBL3
             this.rjPanel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
             this.rjPanel8.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
             this.rjPanel8.BorderRadius = 30;
+            this.rjPanel8.Controls.Add(this.iconButton2);
             this.rjPanel8.Controls.Add(this.iconButton4);
             this.rjPanel8.Controls.Add(this.rjPanel9);
-            this.rjPanel8.Controls.Add(this.label16);
             this.rjPanel8.Controls.Add(this.label18);
             this.rjPanel8.Controls.Add(this.label17);
-            this.rjPanel8.Controls.Add(this.circularProgressBar2);
             this.rjPanel8.Controls.Add(this.label22);
             this.rjPanel8.Controls.Add(this.label19);
             this.rjPanel8.Controls.Add(this.label21);
             this.rjPanel8.Controls.Add(this.label20);
+            this.rjPanel8.Controls.Add(this.circularProgressBar2);
             this.rjPanel8.ForeColor = System.Drawing.Color.Black;
             this.rjPanel8.GradientAngle = 90F;
             this.rjPanel8.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
@@ -520,24 +520,12 @@ namespace PBL3
             this.rjPanel9.BorderRadius = 10;
             this.rjPanel9.ForeColor = System.Drawing.Color.Black;
             this.rjPanel9.GradientAngle = 0F;
-            this.rjPanel9.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.rjPanel9.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(110)))), ((int)(((byte)(254)))));
+            this.rjPanel9.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(190)))), ((int)(((byte)(157)))));
+            this.rjPanel9.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(108)))), ((int)(((byte)(131)))));
             this.rjPanel9.Location = new System.Drawing.Point(249, 127);
             this.rjPanel9.Name = "rjPanel9";
             this.rjPanel9.Size = new System.Drawing.Size(96, 10);
             this.rjPanel9.TabIndex = 14;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.Transparent;
-            this.label16.Font = new System.Drawing.Font("Aquire", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(110)))), ((int)(((byte)(254)))));
-            this.label16.Location = new System.Drawing.Point(94, 107);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(72, 30);
-            this.label16.TabIndex = 42;
-            this.label16.Text = "75%";
             // 
             // label18
             // 
@@ -567,10 +555,10 @@ namespace PBL3
             // 
             this.circularProgressBar2.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
             this.circularProgressBar2.AnimationSpeed = 500;
-            this.circularProgressBar2.BackColor = System.Drawing.Color.Transparent;
+            this.circularProgressBar2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
             this.circularProgressBar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold);
             this.circularProgressBar2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.circularProgressBar2.InnerColor = System.Drawing.Color.Transparent;
+            this.circularProgressBar2.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
             this.circularProgressBar2.InnerMargin = 2;
             this.circularProgressBar2.InnerWidth = -1;
             this.circularProgressBar2.Location = new System.Drawing.Point(22, 24);
@@ -579,7 +567,7 @@ namespace PBL3
             this.circularProgressBar2.OuterColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
             this.circularProgressBar2.OuterMargin = -70;
             this.circularProgressBar2.OuterWidth = 70;
-            this.circularProgressBar2.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(110)))), ((int)(((byte)(254)))));
+            this.circularProgressBar2.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(108)))), ((int)(((byte)(131)))));
             this.circularProgressBar2.ProgressWidth = 30;
             this.circularProgressBar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.circularProgressBar2.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
@@ -846,6 +834,26 @@ namespace PBL3
             this.sugWordRightAnim.Interval = 1;
             this.sugWordRightAnim.Tick += new System.EventHandler(this.sugWordRightAnim_Tick);
             // 
+            // iconButton2
+            // 
+            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.iconButton2.FlatAppearance.BorderSize = 0;
+            this.iconButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.iconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.Font = new System.Drawing.Font("Aquire", 18F, System.Drawing.FontStyle.Bold);
+            this.iconButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(108)))), ((int)(((byte)(131)))));
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Fire;
+            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(108)))), ((int)(((byte)(131)))));
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.Location = new System.Drawing.Point(82, 77);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(84, 94);
+            this.iconButton2.TabIndex = 43;
+            this.iconButton2.Text = "75%";
+            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.iconButton2.UseVisualStyleBackColor = false;
+            // 
             // FormHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -900,7 +908,6 @@ namespace PBL3
         private FontAwesome.Sharp.IconButton btnForward;
         private RJPanel rjPanel8;
         private RJPanel rjPanel9;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private CircularProgressBar.CircularProgressBar circularProgressBar2;
@@ -926,5 +933,6 @@ namespace PBL3
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Timer sugWordLeftAnim;
         private System.Windows.Forms.Timer sugWordRightAnim;
+        private FontAwesome.Sharp.IconButton iconButton2;
     }
 }

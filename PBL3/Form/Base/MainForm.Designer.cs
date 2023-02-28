@@ -49,20 +49,13 @@ namespace PBL3
             this.label1 = new System.Windows.Forms.Label();
             this.fakeTabStop = new System.Windows.Forms.TextBox();
             this.panelBase = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.rjButton2 = new CustomControls.RJButton();
-            this.panelPersonal = new CustomControls.RJPanel();
-            this.iconLogin = new FontAwesome.Sharp.IconButton();
-            this.iconSetting = new FontAwesome.Sharp.IconButton();
-            this.iconPersonal = new FontAwesome.Sharp.IconButton();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnPersonalLogin = new CustomControls.RJButton();
-            this.btnPersonalSetting = new CustomControls.RJButton();
-            this.btnPersonalInfo = new CustomControls.RJButton();
+            this.panelSearch = new CustomControls.RJPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.rjButton1 = new CustomControls.RJButton();
+            this.rjButton6 = new CustomControls.RJButton();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.btnSearchType = new CustomControls.RJToggleButton();
             this.txtSearch = new System.Windows.Forms.TextBox();
-            this.iconSearch = new FontAwesome.Sharp.IconButton();
-            this.btnBackgroundSearch = new CustomControls.RJButton();
             this.panelSearchFound = new System.Windows.Forms.Panel();
             this.btnSearchFound10 = new FontAwesome.Sharp.IconButton();
             this.btnSearchFound9 = new FontAwesome.Sharp.IconButton();
@@ -75,6 +68,18 @@ namespace PBL3
             this.btnSearchFound2 = new FontAwesome.Sharp.IconButton();
             this.btnSearchFound1 = new FontAwesome.Sharp.IconButton();
             this.btnFilledSearchFound = new FontAwesome.Sharp.IconButton();
+            this.lblSearchType = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.rjButton2 = new CustomControls.RJButton();
+            this.panelPersonal = new CustomControls.RJPanel();
+            this.iconLogin = new FontAwesome.Sharp.IconButton();
+            this.iconSetting = new FontAwesome.Sharp.IconButton();
+            this.iconPersonal = new FontAwesome.Sharp.IconButton();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnPersonalLogin = new CustomControls.RJButton();
+            this.btnPersonalSetting = new CustomControls.RJButton();
+            this.btnPersonalInfo = new CustomControls.RJButton();
             this.btnPersonal = new CustomControls.RJButton();
             this.btnAnnounce = new CustomControls.RJButton();
             this.btnExit = new FontAwesome.Sharp.IconButton();
@@ -93,8 +98,10 @@ namespace PBL3
             this.panelButton.SuspendLayout();
             this.panelLogo.SuspendLayout();
             this.panelBase.SuspendLayout();
-            this.panelPersonal.SuspendLayout();
+            this.panelSearch.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.panelSearchFound.SuspendLayout();
+            this.panelPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconChildForm)).BeginInit();
             this.panelDrag.SuspendLayout();
             this.SuspendLayout();
@@ -126,20 +133,24 @@ namespace PBL3
             // 
             this.btnPremium.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(108)))), ((int)(((byte)(131)))));
             this.btnPremium.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(108)))), ((int)(((byte)(131)))));
+            this.btnPremium.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnPremium.BackgroundImage")));
             this.btnPremium.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnPremium.BorderRadius = 20;
             this.btnPremium.BorderSize = 0;
+            this.btnPremium.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPremium.FlatAppearance.BorderSize = 0;
             this.btnPremium.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPremium.Font = new System.Drawing.Font("Bauhaus 93", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPremium.ForeColor = System.Drawing.Color.White;
-            this.btnPremium.Location = new System.Drawing.Point(24, 533);
+            this.btnPremium.Location = new System.Drawing.Point(24, 547);
             this.btnPremium.Name = "btnPremium";
             this.btnPremium.Size = new System.Drawing.Size(150, 40);
             this.btnPremium.TabIndex = 9;
             this.btnPremium.TabStop = false;
-            this.btnPremium.Text = "Upgrade Premium";
+            this.btnPremium.Text = "premium";
             this.btnPremium.TextColor = System.Drawing.Color.White;
             this.btnPremium.UseVisualStyleBackColor = false;
+            this.btnPremium.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnPremium_MouseClick);
             // 
             // lblVersion
             // 
@@ -395,13 +406,12 @@ namespace PBL3
             // 
             // panelBase
             // 
+            this.panelBase.Controls.Add(this.panelSearch);
+            this.panelBase.Controls.Add(this.panelSearchFound);
+            this.panelBase.Controls.Add(this.lblSearchType);
             this.panelBase.Controls.Add(this.label3);
             this.panelBase.Controls.Add(this.rjButton2);
             this.panelBase.Controls.Add(this.panelPersonal);
-            this.panelBase.Controls.Add(this.txtSearch);
-            this.panelBase.Controls.Add(this.iconSearch);
-            this.panelBase.Controls.Add(this.btnBackgroundSearch);
-            this.panelBase.Controls.Add(this.panelSearchFound);
             this.panelBase.Controls.Add(this.btnPersonal);
             this.panelBase.Controls.Add(this.btnAnnounce);
             this.panelBase.Controls.Add(this.btnExit);
@@ -412,11 +422,392 @@ namespace PBL3
             this.panelBase.Controls.Add(this.btnBackgroundRoundIn);
             this.panelBase.Controls.Add(this.btnBackgroundRoundOut);
             this.panelBase.Controls.Add(this.fakeTabStop);
+            this.panelBase.Cursor = System.Windows.Forms.Cursors.Default;
             this.panelBase.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelBase.Location = new System.Drawing.Point(200, 0);
             this.panelBase.Name = "panelBase";
             this.panelBase.Size = new System.Drawing.Size(1058, 628);
             this.panelBase.TabIndex = 1;
+            // 
+            // panelSearch
+            // 
+            this.panelSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.panelSearch.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
+            this.panelSearch.BorderRadius = 40;
+            this.panelSearch.Controls.Add(this.panel1);
+            this.panelSearch.Controls.Add(this.rjButton6);
+            this.panelSearch.Controls.Add(this.iconButton1);
+            this.panelSearch.Controls.Add(this.btnSearchType);
+            this.panelSearch.Controls.Add(this.txtSearch);
+            this.panelSearch.ForeColor = System.Drawing.Color.Black;
+            this.panelSearch.GradientAngle = 90F;
+            this.panelSearch.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.panelSearch.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.panelSearch.Location = new System.Drawing.Point(247, 74);
+            this.panelSearch.Name = "panelSearch";
+            this.panelSearch.Size = new System.Drawing.Size(550, 50);
+            this.panelSearch.TabIndex = 52;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(50)))), ((int)(((byte)(99)))));
+            this.panel1.Controls.Add(this.rjButton1);
+            this.panel1.Location = new System.Drawing.Point(416, -18);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(134, 73);
+            this.panel1.TabIndex = 53;
+            // 
+            // rjButton1
+            // 
+            this.rjButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rjButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(50)))), ((int)(((byte)(99)))));
+            this.rjButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(50)))), ((int)(((byte)(99)))));
+            this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton1.BorderRadius = 20;
+            this.rjButton1.BorderSize = 0;
+            this.rjButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rjButton1.FlatAppearance.BorderSize = 0;
+            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton1.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rjButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.rjButton1.Location = new System.Drawing.Point(9, 18);
+            this.rjButton1.Name = "rjButton1";
+            this.rjButton1.Size = new System.Drawing.Size(125, 50);
+            this.rjButton1.TabIndex = 51;
+            this.rjButton1.TabStop = false;
+            this.rjButton1.Text = "Dịch Văn Bản";
+            this.rjButton1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.rjButton1.UseVisualStyleBackColor = false;
+            // 
+            // rjButton6
+            // 
+            this.rjButton6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rjButton6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.rjButton6.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.rjButton6.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton6.BorderRadius = 2;
+            this.rjButton6.BorderSize = 0;
+            this.rjButton6.FlatAppearance.BorderSize = 0;
+            this.rjButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton6.ForeColor = System.Drawing.Color.White;
+            this.rjButton6.Location = new System.Drawing.Point(353, 6);
+            this.rjButton6.Name = "rjButton6";
+            this.rjButton6.Size = new System.Drawing.Size(3, 39);
+            this.rjButton6.TabIndex = 49;
+            this.rjButton6.TabStop = false;
+            this.rjButton6.Text = "rjButton6";
+            this.rjButton6.TextColor = System.Drawing.Color.White;
+            this.rjButton6.UseVisualStyleBackColor = false;
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.iconButton1.Enabled = false;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
+            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(252)))));
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.IconSize = 35;
+            this.iconButton1.Location = new System.Drawing.Point(311, 7);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(38, 38);
+            this.iconButton1.TabIndex = 5;
+            this.iconButton1.TabStop = false;
+            this.iconButton1.UseVisualStyleBackColor = false;
+            // 
+            // btnSearchType
+            // 
+            this.btnSearchType.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSearchType.AutoSize = true;
+            this.btnSearchType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.btnSearchType.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearchType.FlatAppearance.BorderSize = 0;
+            this.btnSearchType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchType.Location = new System.Drawing.Point(366, 14);
+            this.btnSearchType.MinimumSize = new System.Drawing.Size(44, 22);
+            this.btnSearchType.Name = "btnSearchType";
+            this.btnSearchType.OffBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(255)))));
+            this.btnSearchType.OffToggleColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(255)))));
+            this.btnSearchType.OnBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(255)))));
+            this.btnSearchType.OnToggleColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(255)))));
+            this.btnSearchType.Size = new System.Drawing.Size(44, 22);
+            this.btnSearchType.SolidStyle = false;
+            this.btnSearchType.TabIndex = 49;
+            this.btnSearchType.TabStop = false;
+            this.btnSearchType.UseVisualStyleBackColor = false;
+            this.btnSearchType.CheckedChanged += new System.EventHandler(this.btnSearchType_CheckedChanged);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtSearch.AutoCompleteCustomSource.AddRange(new string[] {
+            "jg"});
+            this.txtSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSearch.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
+            this.txtSearch.Location = new System.Drawing.Point(17, 15);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(275, 29);
+            this.txtSearch.TabIndex = 6;
+            this.txtSearch.Text = "Search";
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            this.txtSearch.Enter += new System.EventHandler(this.txtSearch_Enter);
+            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
+            this.txtSearch.Leave += new System.EventHandler(this.txtSearch_Leave);
+            // 
+            // panelSearchFound
+            // 
+            this.panelSearchFound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelSearchFound.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(50)))), ((int)(((byte)(99)))));
+            this.panelSearchFound.Controls.Add(this.btnSearchFound10);
+            this.panelSearchFound.Controls.Add(this.btnSearchFound9);
+            this.panelSearchFound.Controls.Add(this.btnSearchFound8);
+            this.panelSearchFound.Controls.Add(this.btnSearchFound7);
+            this.panelSearchFound.Controls.Add(this.btnSearchFound6);
+            this.panelSearchFound.Controls.Add(this.btnSearchFound5);
+            this.panelSearchFound.Controls.Add(this.btnSearchFound4);
+            this.panelSearchFound.Controls.Add(this.btnSearchFound3);
+            this.panelSearchFound.Controls.Add(this.btnSearchFound2);
+            this.panelSearchFound.Controls.Add(this.btnSearchFound1);
+            this.panelSearchFound.Controls.Add(this.btnFilledSearchFound);
+            this.panelSearchFound.Location = new System.Drawing.Point(247, 101);
+            this.panelSearchFound.Name = "panelSearchFound";
+            this.panelSearchFound.Size = new System.Drawing.Size(356, 325);
+            this.panelSearchFound.TabIndex = 15;
+            this.panelSearchFound.Visible = false;
+            // 
+            // btnSearchFound10
+            // 
+            this.btnSearchFound10.FlatAppearance.BorderSize = 0;
+            this.btnSearchFound10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchFound10.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchFound10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.btnSearchFound10.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnSearchFound10.IconColor = System.Drawing.Color.Black;
+            this.btnSearchFound10.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSearchFound10.Location = new System.Drawing.Point(0, 295);
+            this.btnSearchFound10.Name = "btnSearchFound10";
+            this.btnSearchFound10.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnSearchFound10.Size = new System.Drawing.Size(410, 30);
+            this.btnSearchFound10.TabIndex = 10;
+            this.btnSearchFound10.TabStop = false;
+            this.btnSearchFound10.Text = "Word";
+            this.btnSearchFound10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearchFound10.UseVisualStyleBackColor = true;
+            this.btnSearchFound10.MouseCaptureChanged += new System.EventHandler(this.btnSearchFound_Click);
+            // 
+            // btnSearchFound9
+            // 
+            this.btnSearchFound9.FlatAppearance.BorderSize = 0;
+            this.btnSearchFound9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchFound9.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchFound9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.btnSearchFound9.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnSearchFound9.IconColor = System.Drawing.Color.Black;
+            this.btnSearchFound9.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSearchFound9.Location = new System.Drawing.Point(0, 265);
+            this.btnSearchFound9.Name = "btnSearchFound9";
+            this.btnSearchFound9.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnSearchFound9.Size = new System.Drawing.Size(410, 30);
+            this.btnSearchFound9.TabIndex = 9;
+            this.btnSearchFound9.TabStop = false;
+            this.btnSearchFound9.Text = "Word";
+            this.btnSearchFound9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearchFound9.UseVisualStyleBackColor = true;
+            this.btnSearchFound9.MouseCaptureChanged += new System.EventHandler(this.btnSearchFound_Click);
+            // 
+            // btnSearchFound8
+            // 
+            this.btnSearchFound8.FlatAppearance.BorderSize = 0;
+            this.btnSearchFound8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchFound8.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchFound8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.btnSearchFound8.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnSearchFound8.IconColor = System.Drawing.Color.Black;
+            this.btnSearchFound8.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSearchFound8.Location = new System.Drawing.Point(0, 235);
+            this.btnSearchFound8.Name = "btnSearchFound8";
+            this.btnSearchFound8.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnSearchFound8.Size = new System.Drawing.Size(410, 30);
+            this.btnSearchFound8.TabIndex = 8;
+            this.btnSearchFound8.TabStop = false;
+            this.btnSearchFound8.Text = "Word";
+            this.btnSearchFound8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearchFound8.UseVisualStyleBackColor = true;
+            this.btnSearchFound8.MouseCaptureChanged += new System.EventHandler(this.btnSearchFound_Click);
+            // 
+            // btnSearchFound7
+            // 
+            this.btnSearchFound7.FlatAppearance.BorderSize = 0;
+            this.btnSearchFound7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchFound7.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchFound7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.btnSearchFound7.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnSearchFound7.IconColor = System.Drawing.Color.Black;
+            this.btnSearchFound7.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSearchFound7.Location = new System.Drawing.Point(0, 205);
+            this.btnSearchFound7.Name = "btnSearchFound7";
+            this.btnSearchFound7.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnSearchFound7.Size = new System.Drawing.Size(410, 30);
+            this.btnSearchFound7.TabIndex = 7;
+            this.btnSearchFound7.TabStop = false;
+            this.btnSearchFound7.Text = "Word";
+            this.btnSearchFound7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearchFound7.UseVisualStyleBackColor = true;
+            this.btnSearchFound7.MouseCaptureChanged += new System.EventHandler(this.btnSearchFound_Click);
+            // 
+            // btnSearchFound6
+            // 
+            this.btnSearchFound6.FlatAppearance.BorderSize = 0;
+            this.btnSearchFound6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchFound6.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchFound6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.btnSearchFound6.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnSearchFound6.IconColor = System.Drawing.Color.Black;
+            this.btnSearchFound6.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSearchFound6.Location = new System.Drawing.Point(0, 175);
+            this.btnSearchFound6.Name = "btnSearchFound6";
+            this.btnSearchFound6.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnSearchFound6.Size = new System.Drawing.Size(410, 30);
+            this.btnSearchFound6.TabIndex = 6;
+            this.btnSearchFound6.TabStop = false;
+            this.btnSearchFound6.Text = "Word";
+            this.btnSearchFound6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearchFound6.UseVisualStyleBackColor = true;
+            this.btnSearchFound6.MouseCaptureChanged += new System.EventHandler(this.btnSearchFound_Click);
+            // 
+            // btnSearchFound5
+            // 
+            this.btnSearchFound5.FlatAppearance.BorderSize = 0;
+            this.btnSearchFound5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchFound5.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchFound5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.btnSearchFound5.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnSearchFound5.IconColor = System.Drawing.Color.Black;
+            this.btnSearchFound5.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSearchFound5.Location = new System.Drawing.Point(0, 145);
+            this.btnSearchFound5.Name = "btnSearchFound5";
+            this.btnSearchFound5.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnSearchFound5.Size = new System.Drawing.Size(410, 30);
+            this.btnSearchFound5.TabIndex = 5;
+            this.btnSearchFound5.TabStop = false;
+            this.btnSearchFound5.Text = "Word";
+            this.btnSearchFound5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearchFound5.UseVisualStyleBackColor = true;
+            this.btnSearchFound5.MouseCaptureChanged += new System.EventHandler(this.btnSearchFound_Click);
+            // 
+            // btnSearchFound4
+            // 
+            this.btnSearchFound4.FlatAppearance.BorderSize = 0;
+            this.btnSearchFound4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchFound4.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchFound4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.btnSearchFound4.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnSearchFound4.IconColor = System.Drawing.Color.Black;
+            this.btnSearchFound4.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSearchFound4.Location = new System.Drawing.Point(0, 115);
+            this.btnSearchFound4.Name = "btnSearchFound4";
+            this.btnSearchFound4.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnSearchFound4.Size = new System.Drawing.Size(410, 30);
+            this.btnSearchFound4.TabIndex = 4;
+            this.btnSearchFound4.TabStop = false;
+            this.btnSearchFound4.Text = "Word";
+            this.btnSearchFound4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearchFound4.UseVisualStyleBackColor = true;
+            this.btnSearchFound4.MouseCaptureChanged += new System.EventHandler(this.btnSearchFound_Click);
+            // 
+            // btnSearchFound3
+            // 
+            this.btnSearchFound3.FlatAppearance.BorderSize = 0;
+            this.btnSearchFound3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchFound3.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchFound3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.btnSearchFound3.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnSearchFound3.IconColor = System.Drawing.Color.Black;
+            this.btnSearchFound3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSearchFound3.Location = new System.Drawing.Point(0, 85);
+            this.btnSearchFound3.Name = "btnSearchFound3";
+            this.btnSearchFound3.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnSearchFound3.Size = new System.Drawing.Size(410, 30);
+            this.btnSearchFound3.TabIndex = 3;
+            this.btnSearchFound3.TabStop = false;
+            this.btnSearchFound3.Text = "Word";
+            this.btnSearchFound3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearchFound3.UseVisualStyleBackColor = true;
+            this.btnSearchFound3.MouseCaptureChanged += new System.EventHandler(this.btnSearchFound_Click);
+            // 
+            // btnSearchFound2
+            // 
+            this.btnSearchFound2.FlatAppearance.BorderSize = 0;
+            this.btnSearchFound2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchFound2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchFound2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.btnSearchFound2.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnSearchFound2.IconColor = System.Drawing.Color.Black;
+            this.btnSearchFound2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSearchFound2.Location = new System.Drawing.Point(0, 55);
+            this.btnSearchFound2.Name = "btnSearchFound2";
+            this.btnSearchFound2.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnSearchFound2.Size = new System.Drawing.Size(410, 30);
+            this.btnSearchFound2.TabIndex = 2;
+            this.btnSearchFound2.TabStop = false;
+            this.btnSearchFound2.Text = "Word";
+            this.btnSearchFound2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearchFound2.UseVisualStyleBackColor = true;
+            this.btnSearchFound2.MouseCaptureChanged += new System.EventHandler(this.btnSearchFound_Click);
+            // 
+            // btnSearchFound1
+            // 
+            this.btnSearchFound1.FlatAppearance.BorderSize = 0;
+            this.btnSearchFound1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearchFound1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearchFound1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.btnSearchFound1.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnSearchFound1.IconColor = System.Drawing.Color.Black;
+            this.btnSearchFound1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnSearchFound1.Location = new System.Drawing.Point(0, 25);
+            this.btnSearchFound1.Name = "btnSearchFound1";
+            this.btnSearchFound1.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnSearchFound1.Size = new System.Drawing.Size(410, 30);
+            this.btnSearchFound1.TabIndex = 1;
+            this.btnSearchFound1.TabStop = false;
+            this.btnSearchFound1.Text = "Word";
+            this.btnSearchFound1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSearchFound1.UseVisualStyleBackColor = true;
+            this.btnSearchFound1.MouseCaptureChanged += new System.EventHandler(this.btnSearchFound_Click);
+            // 
+            // btnFilledSearchFound
+            // 
+            this.btnFilledSearchFound.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnFilledSearchFound.FlatAppearance.BorderSize = 0;
+            this.btnFilledSearchFound.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(50)))), ((int)(((byte)(99)))));
+            this.btnFilledSearchFound.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(50)))), ((int)(((byte)(99)))));
+            this.btnFilledSearchFound.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFilledSearchFound.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.btnFilledSearchFound.IconColor = System.Drawing.Color.Black;
+            this.btnFilledSearchFound.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnFilledSearchFound.Location = new System.Drawing.Point(0, 0);
+            this.btnFilledSearchFound.Name = "btnFilledSearchFound";
+            this.btnFilledSearchFound.Size = new System.Drawing.Size(356, 25);
+            this.btnFilledSearchFound.TabIndex = 0;
+            this.btnFilledSearchFound.TabStop = false;
+            this.btnFilledSearchFound.UseVisualStyleBackColor = true;
+            // 
+            // lblSearchType
+            // 
+            this.lblSearchType.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblSearchType.AutoSize = true;
+            this.lblSearchType.Font = new System.Drawing.Font("Bahnschrift Condensed", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearchType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.lblSearchType.Location = new System.Drawing.Point(609, 127);
+            this.lblSearchType.Name = "lblSearchType";
+            this.lblSearchType.Size = new System.Drawing.Size(54, 16);
+            this.lblSearchType.TabIndex = 50;
+            this.lblSearchType.Text = "ANH - ANH";
             // 
             // label3
             // 
@@ -621,310 +1012,6 @@ namespace PBL3
             this.btnPersonalInfo.UseVisualStyleBackColor = false;
             this.btnPersonalInfo.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnPersonalInfo_MouseClick);
             // 
-            // txtSearch
-            // 
-            this.txtSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSearch.AutoCompleteCustomSource.AddRange(new string[] {
-            "jg"});
-            this.txtSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
-            this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtSearch.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
-            this.txtSearch.Location = new System.Drawing.Point(265, 90);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(438, 29);
-            this.txtSearch.TabIndex = 6;
-            this.txtSearch.Text = "Search";
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
-            this.txtSearch.Enter += new System.EventHandler(this.txtSearch_Enter);
-            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
-            this.txtSearch.Leave += new System.EventHandler(this.txtSearch_Leave);
-            // 
-            // iconSearch
-            // 
-            this.iconSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.iconSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
-            this.iconSearch.Enabled = false;
-            this.iconSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
-            this.iconSearch.IconChar = FontAwesome.Sharp.IconChar.MagnifyingGlass;
-            this.iconSearch.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(252)))));
-            this.iconSearch.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconSearch.IconSize = 35;
-            this.iconSearch.Location = new System.Drawing.Point(730, 81);
-            this.iconSearch.Name = "iconSearch";
-            this.iconSearch.Size = new System.Drawing.Size(38, 38);
-            this.iconSearch.TabIndex = 5;
-            this.iconSearch.TabStop = false;
-            this.iconSearch.UseVisualStyleBackColor = false;
-            // 
-            // btnBackgroundSearch
-            // 
-            this.btnBackgroundSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBackgroundSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
-            this.btnBackgroundSearch.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
-            this.btnBackgroundSearch.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnBackgroundSearch.BorderRadius = 20;
-            this.btnBackgroundSearch.BorderSize = 0;
-            this.btnBackgroundSearch.Enabled = false;
-            this.btnBackgroundSearch.FlatAppearance.BorderSize = 0;
-            this.btnBackgroundSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBackgroundSearch.ForeColor = System.Drawing.Color.White;
-            this.btnBackgroundSearch.Location = new System.Drawing.Point(247, 74);
-            this.btnBackgroundSearch.Name = "btnBackgroundSearch";
-            this.btnBackgroundSearch.Size = new System.Drawing.Size(535, 50);
-            this.btnBackgroundSearch.TabIndex = 2;
-            this.btnBackgroundSearch.TextColor = System.Drawing.Color.White;
-            this.btnBackgroundSearch.UseVisualStyleBackColor = true;
-            // 
-            // panelSearchFound
-            // 
-            this.panelSearchFound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelSearchFound.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(50)))), ((int)(((byte)(99)))));
-            this.panelSearchFound.Controls.Add(this.btnSearchFound10);
-            this.panelSearchFound.Controls.Add(this.btnSearchFound9);
-            this.panelSearchFound.Controls.Add(this.btnSearchFound8);
-            this.panelSearchFound.Controls.Add(this.btnSearchFound7);
-            this.panelSearchFound.Controls.Add(this.btnSearchFound6);
-            this.panelSearchFound.Controls.Add(this.btnSearchFound5);
-            this.panelSearchFound.Controls.Add(this.btnSearchFound4);
-            this.panelSearchFound.Controls.Add(this.btnSearchFound3);
-            this.panelSearchFound.Controls.Add(this.btnSearchFound2);
-            this.panelSearchFound.Controls.Add(this.btnSearchFound1);
-            this.panelSearchFound.Controls.Add(this.btnFilledSearchFound);
-            this.panelSearchFound.Location = new System.Drawing.Point(247, 101);
-            this.panelSearchFound.Name = "panelSearchFound";
-            this.panelSearchFound.Size = new System.Drawing.Size(535, 325);
-            this.panelSearchFound.TabIndex = 15;
-            this.panelSearchFound.Visible = false;
-            // 
-            // btnSearchFound10
-            // 
-            this.btnSearchFound10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSearchFound10.FlatAppearance.BorderSize = 0;
-            this.btnSearchFound10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchFound10.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchFound10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.btnSearchFound10.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnSearchFound10.IconColor = System.Drawing.Color.Black;
-            this.btnSearchFound10.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSearchFound10.Location = new System.Drawing.Point(0, 295);
-            this.btnSearchFound10.Name = "btnSearchFound10";
-            this.btnSearchFound10.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnSearchFound10.Size = new System.Drawing.Size(535, 30);
-            this.btnSearchFound10.TabIndex = 10;
-            this.btnSearchFound10.TabStop = false;
-            this.btnSearchFound10.Text = "Word";
-            this.btnSearchFound10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearchFound10.UseVisualStyleBackColor = true;
-            this.btnSearchFound10.MouseCaptureChanged += new System.EventHandler(this.btnSearchFound_Click);
-            // 
-            // btnSearchFound9
-            // 
-            this.btnSearchFound9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSearchFound9.FlatAppearance.BorderSize = 0;
-            this.btnSearchFound9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchFound9.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchFound9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.btnSearchFound9.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnSearchFound9.IconColor = System.Drawing.Color.Black;
-            this.btnSearchFound9.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSearchFound9.Location = new System.Drawing.Point(0, 265);
-            this.btnSearchFound9.Name = "btnSearchFound9";
-            this.btnSearchFound9.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnSearchFound9.Size = new System.Drawing.Size(535, 30);
-            this.btnSearchFound9.TabIndex = 9;
-            this.btnSearchFound9.TabStop = false;
-            this.btnSearchFound9.Text = "Word";
-            this.btnSearchFound9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearchFound9.UseVisualStyleBackColor = true;
-            this.btnSearchFound9.MouseCaptureChanged += new System.EventHandler(this.btnSearchFound_Click);
-            // 
-            // btnSearchFound8
-            // 
-            this.btnSearchFound8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSearchFound8.FlatAppearance.BorderSize = 0;
-            this.btnSearchFound8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchFound8.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchFound8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.btnSearchFound8.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnSearchFound8.IconColor = System.Drawing.Color.Black;
-            this.btnSearchFound8.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSearchFound8.Location = new System.Drawing.Point(0, 235);
-            this.btnSearchFound8.Name = "btnSearchFound8";
-            this.btnSearchFound8.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnSearchFound8.Size = new System.Drawing.Size(535, 30);
-            this.btnSearchFound8.TabIndex = 8;
-            this.btnSearchFound8.TabStop = false;
-            this.btnSearchFound8.Text = "Word";
-            this.btnSearchFound8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearchFound8.UseVisualStyleBackColor = true;
-            this.btnSearchFound8.MouseCaptureChanged += new System.EventHandler(this.btnSearchFound_Click);
-            // 
-            // btnSearchFound7
-            // 
-            this.btnSearchFound7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSearchFound7.FlatAppearance.BorderSize = 0;
-            this.btnSearchFound7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchFound7.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchFound7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.btnSearchFound7.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnSearchFound7.IconColor = System.Drawing.Color.Black;
-            this.btnSearchFound7.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSearchFound7.Location = new System.Drawing.Point(0, 205);
-            this.btnSearchFound7.Name = "btnSearchFound7";
-            this.btnSearchFound7.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnSearchFound7.Size = new System.Drawing.Size(535, 30);
-            this.btnSearchFound7.TabIndex = 7;
-            this.btnSearchFound7.TabStop = false;
-            this.btnSearchFound7.Text = "Word";
-            this.btnSearchFound7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearchFound7.UseVisualStyleBackColor = true;
-            this.btnSearchFound7.MouseCaptureChanged += new System.EventHandler(this.btnSearchFound_Click);
-            // 
-            // btnSearchFound6
-            // 
-            this.btnSearchFound6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSearchFound6.FlatAppearance.BorderSize = 0;
-            this.btnSearchFound6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchFound6.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchFound6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.btnSearchFound6.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnSearchFound6.IconColor = System.Drawing.Color.Black;
-            this.btnSearchFound6.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSearchFound6.Location = new System.Drawing.Point(0, 175);
-            this.btnSearchFound6.Name = "btnSearchFound6";
-            this.btnSearchFound6.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnSearchFound6.Size = new System.Drawing.Size(535, 30);
-            this.btnSearchFound6.TabIndex = 6;
-            this.btnSearchFound6.TabStop = false;
-            this.btnSearchFound6.Text = "Word";
-            this.btnSearchFound6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearchFound6.UseVisualStyleBackColor = true;
-            this.btnSearchFound6.MouseCaptureChanged += new System.EventHandler(this.btnSearchFound_Click);
-            // 
-            // btnSearchFound5
-            // 
-            this.btnSearchFound5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSearchFound5.FlatAppearance.BorderSize = 0;
-            this.btnSearchFound5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchFound5.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchFound5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.btnSearchFound5.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnSearchFound5.IconColor = System.Drawing.Color.Black;
-            this.btnSearchFound5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSearchFound5.Location = new System.Drawing.Point(0, 145);
-            this.btnSearchFound5.Name = "btnSearchFound5";
-            this.btnSearchFound5.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnSearchFound5.Size = new System.Drawing.Size(535, 30);
-            this.btnSearchFound5.TabIndex = 5;
-            this.btnSearchFound5.TabStop = false;
-            this.btnSearchFound5.Text = "Word";
-            this.btnSearchFound5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearchFound5.UseVisualStyleBackColor = true;
-            this.btnSearchFound5.MouseCaptureChanged += new System.EventHandler(this.btnSearchFound_Click);
-            // 
-            // btnSearchFound4
-            // 
-            this.btnSearchFound4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSearchFound4.FlatAppearance.BorderSize = 0;
-            this.btnSearchFound4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchFound4.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchFound4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.btnSearchFound4.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnSearchFound4.IconColor = System.Drawing.Color.Black;
-            this.btnSearchFound4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSearchFound4.Location = new System.Drawing.Point(0, 115);
-            this.btnSearchFound4.Name = "btnSearchFound4";
-            this.btnSearchFound4.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnSearchFound4.Size = new System.Drawing.Size(535, 30);
-            this.btnSearchFound4.TabIndex = 4;
-            this.btnSearchFound4.TabStop = false;
-            this.btnSearchFound4.Text = "Word";
-            this.btnSearchFound4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearchFound4.UseVisualStyleBackColor = true;
-            this.btnSearchFound4.MouseCaptureChanged += new System.EventHandler(this.btnSearchFound_Click);
-            // 
-            // btnSearchFound3
-            // 
-            this.btnSearchFound3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSearchFound3.FlatAppearance.BorderSize = 0;
-            this.btnSearchFound3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchFound3.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchFound3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.btnSearchFound3.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnSearchFound3.IconColor = System.Drawing.Color.Black;
-            this.btnSearchFound3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSearchFound3.Location = new System.Drawing.Point(0, 85);
-            this.btnSearchFound3.Name = "btnSearchFound3";
-            this.btnSearchFound3.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnSearchFound3.Size = new System.Drawing.Size(535, 30);
-            this.btnSearchFound3.TabIndex = 3;
-            this.btnSearchFound3.TabStop = false;
-            this.btnSearchFound3.Text = "Word";
-            this.btnSearchFound3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearchFound3.UseVisualStyleBackColor = true;
-            this.btnSearchFound3.MouseCaptureChanged += new System.EventHandler(this.btnSearchFound_Click);
-            // 
-            // btnSearchFound2
-            // 
-            this.btnSearchFound2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSearchFound2.FlatAppearance.BorderSize = 0;
-            this.btnSearchFound2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchFound2.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchFound2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.btnSearchFound2.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnSearchFound2.IconColor = System.Drawing.Color.Black;
-            this.btnSearchFound2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSearchFound2.Location = new System.Drawing.Point(0, 55);
-            this.btnSearchFound2.Name = "btnSearchFound2";
-            this.btnSearchFound2.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnSearchFound2.Size = new System.Drawing.Size(535, 30);
-            this.btnSearchFound2.TabIndex = 2;
-            this.btnSearchFound2.TabStop = false;
-            this.btnSearchFound2.Text = "Word";
-            this.btnSearchFound2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearchFound2.UseVisualStyleBackColor = true;
-            this.btnSearchFound2.MouseCaptureChanged += new System.EventHandler(this.btnSearchFound_Click);
-            // 
-            // btnSearchFound1
-            // 
-            this.btnSearchFound1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnSearchFound1.FlatAppearance.BorderSize = 0;
-            this.btnSearchFound1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchFound1.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchFound1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.btnSearchFound1.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnSearchFound1.IconColor = System.Drawing.Color.Black;
-            this.btnSearchFound1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSearchFound1.Location = new System.Drawing.Point(0, 25);
-            this.btnSearchFound1.Name = "btnSearchFound1";
-            this.btnSearchFound1.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnSearchFound1.Size = new System.Drawing.Size(535, 30);
-            this.btnSearchFound1.TabIndex = 1;
-            this.btnSearchFound1.TabStop = false;
-            this.btnSearchFound1.Text = "Word";
-            this.btnSearchFound1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearchFound1.UseVisualStyleBackColor = true;
-            this.btnSearchFound1.MouseCaptureChanged += new System.EventHandler(this.btnSearchFound_Click);
-            // 
-            // btnFilledSearchFound
-            // 
-            this.btnFilledSearchFound.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnFilledSearchFound.FlatAppearance.BorderSize = 0;
-            this.btnFilledSearchFound.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(50)))), ((int)(((byte)(99)))));
-            this.btnFilledSearchFound.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(50)))), ((int)(((byte)(99)))));
-            this.btnFilledSearchFound.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFilledSearchFound.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnFilledSearchFound.IconColor = System.Drawing.Color.Black;
-            this.btnFilledSearchFound.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnFilledSearchFound.Location = new System.Drawing.Point(0, 0);
-            this.btnFilledSearchFound.Name = "btnFilledSearchFound";
-            this.btnFilledSearchFound.Size = new System.Drawing.Size(535, 25);
-            this.btnFilledSearchFound.TabIndex = 0;
-            this.btnFilledSearchFound.TabStop = false;
-            this.btnFilledSearchFound.UseVisualStyleBackColor = true;
-            // 
             // btnPersonal
             // 
             this.btnPersonal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1122,6 +1209,7 @@ namespace PBL3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
             this.ClientSize = new System.Drawing.Size(1258, 628);
             this.Controls.Add(this.panelBase);
@@ -1137,8 +1225,11 @@ namespace PBL3
             this.panelLogo.ResumeLayout(false);
             this.panelBase.ResumeLayout(false);
             this.panelBase.PerformLayout();
-            this.panelPersonal.ResumeLayout(false);
+            this.panelSearch.ResumeLayout(false);
+            this.panelSearch.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.panelSearchFound.ResumeLayout(false);
+            this.panelPersonal.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.iconChildForm)).EndInit();
             this.panelDrag.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -1154,8 +1245,6 @@ namespace PBL3
         private FontAwesome.Sharp.IconButton btnExit;
         private FontAwesome.Sharp.IconPictureBox iconChildForm;
         private System.Windows.Forms.Label lblChildForm;
-        private CustomControls.RJButton btnBackgroundSearch;
-        private FontAwesome.Sharp.IconButton iconSearch;
         private CustomControls.RJButton btnPersonal;
         private CustomControls.RJButton btnAnnounce;
         private System.Windows.Forms.Button btnLogo;
@@ -1205,5 +1294,12 @@ namespace PBL3
         public FontAwesome.Sharp.IconButton btnNotebook;
         public FontAwesome.Sharp.IconButton btnTopic;
         public RJPanel panelPersonal;
+        private RJButton rjButton1;
+        private System.Windows.Forms.Label lblSearchType;
+        private RJPanel panelSearch;
+        private RJButton rjButton6;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private RJToggleButton btnSearchType;
+        private System.Windows.Forms.Panel panel1;
     }
 }

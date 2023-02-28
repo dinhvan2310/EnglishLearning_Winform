@@ -20,7 +20,7 @@ namespace PBL3
         public LoginForm()
         {
             InitializeComponent();
-            this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 50, 50));
+            this.Region = System.Drawing.Region.FromHrgn(ExternalImport.CreateRoundRectRgn(0, 0, Width, Height, 50, 50));
 
             StartPosition = FormStartPosition.CenterScreen;
             OpenChildForm(new FormSignIn(this));
@@ -44,28 +44,11 @@ namespace PBL3
 
         private void panelDrag_MouseDown(object sender, MouseEventArgs e)
         {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
+            ExternalImport.ReleaseCapture();
+            ExternalImport.SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        // Rounded winform
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        private static extern IntPtr CreateRoundRectRgn(
-            int nLeftRect,
-            int nTopRect,
-            int nRightRect,
-            int nBottomRect,
-            int nWidthEllipse,
-            int nHeightEllipse
-            );
-
-        // Drag winform
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-
+        
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();

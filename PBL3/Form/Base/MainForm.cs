@@ -112,6 +112,7 @@ namespace PBL3
                 _currentBtn.Enabled = true;
                 rightPanelBtn.Location = new Point(190, _currentBtn.Location.Y);
             }
+
         }
 
         public void OpenChildForm(Form childForm, /*StackType stackType = StackType.None*/FormStack.FormType formType = FormStack.FormType.Weak)
@@ -185,8 +186,8 @@ namespace PBL3
 
         private void SettingFormProperties()
         {
-            this.AutoSizeMode = AutoSizeMode.GrowOnly;
-            this.Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 50, 50));
+            this.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            this.Region = System.Drawing.Region.FromHrgn(ExternalImport.CreateRoundRectRgn(0, 0, Width, Height, 50, 50));
 
             // Reduce Flicker
             this.DoubleBuffered = true;
@@ -201,13 +202,13 @@ namespace PBL3
         }
         private void panelDrag_MouseDown(object sender, MouseEventArgs e)
         {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
+            ExternalImport.ReleaseCapture();
+            ExternalImport.SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Form messageBox = new MessageBox_Exit();
+            Form messageBox = new MessageBox("XÁC NHẬN", "Muốn Rời Khỏi?", MessageBox.MessageType.Option);
 
             messageBox.StartPosition = FormStartPosition.CenterScreen;
             messageBox.ShowDialog();
@@ -301,12 +302,12 @@ namespace PBL3
 
         private void btnTopic_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, Color.FromArgb(0, 191, 159));
+            ActivateButton(sender, Color.FromArgb(127, 135, 255));
         }
 
         private void btnNotebook_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, Color.FromArgb(127, 135, 255));
+            ActivateButton(sender, Color.FromArgb(0, 191, 159));
             OpenChildForm(NotebookForm, FormStack.FormType.Strong);
         }
 
@@ -407,7 +408,7 @@ namespace PBL3
 
             if (words != null)
             {
-                panelSearchFound.Size = new Size(519, 25 + 30 * words.Count);
+                panelSearchFound.Size = new Size(panelSearchFound.Size.Width, 25 + 30 * words.Count);
 
                 int i = 0;
                 foreach (WordModel w in words)
@@ -417,7 +418,7 @@ namespace PBL3
             }
             else
             {
-                panelSearchFound.Size = new Size(519, 55);
+                panelSearchFound.Size = new Size(panelSearchFound.Size.Width, 55);
                 _searchOptions[0].Text = txtSearch.Text;
             }
 
@@ -451,7 +452,6 @@ namespace PBL3
             {
                 panelSearchFound.Visible = false;
                 _searchOptions[_currentSearchOptionIndex].BackColor = Color.FromArgb(60, 50, 99);
-                _searchOptions[_currentSearchOptionIndex].Refresh();
 
                 // When press enter, application make a Ting sound, so this is a little trick
                 e.Handled = true;
@@ -515,25 +515,6 @@ namespace PBL3
         }
 
 
-        // Rounded winform
-        [DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        private static extern IntPtr CreateRoundRectRgn(
-            int nLeftRect,
-            int nTopRect,
-            int nRightRect,
-            int nBottomRect,
-            int nWidthEllipse,
-            int nHeightEllipse
-            );
-
-
-        // Drag winform
-        [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-
-        [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             panelPersonal.Visible = false;
@@ -575,6 +556,24 @@ namespace PBL3
             panelPersonal.Visible = false;
 
             OpenChildForm(new FormProfile(this), FormStack.FormType.Neutral);
+        }
+
+        private void btnPremium_MouseClick(object sender, MouseEventArgs e)
+        {
+            Form premiumForm = new FormPremium();
+            premiumForm.ShowDialog();
+        }
+
+        private void btnSearchType_CheckedChanged(object sender, EventArgs e)
+        {
+            if (lblSearchType.Text.CompareTo("ANH - ANH") == 0)
+            {
+                lblSearchType.Text = "ANH - VIET";
+            }    
+            else
+            {
+                lblSearchType.Text = "ANH - ANH";
+            }
         }
     }
 }

@@ -60,6 +60,7 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "PBL3";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelDrag_MouseDown);
             // 
             // btnMinimize
             // 

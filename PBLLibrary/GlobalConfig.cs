@@ -1,4 +1,5 @@
 ﻿using PBLLibrary.DataAccess;
+using PBLLibrary.Mailing;
 using PBLLibrary.Models;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,12 @@ namespace PBLLibrary
     public static class GlobalConfig
     {
         private static MySQLConnector Connector;
+        private static EmailConnector EmailConnector;
 
         public static void InitializeConnection()
         {
             Connector = new MySQLConnector();
+            EmailConnector = new EmailConnector();
         }
 
         public static List<SynsetModel> GetSynset_All()
@@ -46,6 +49,17 @@ namespace PBLLibrary
         public static List<WordModel> GetWord_ByFilter_Random(string filter, int limit = 10, bool distinct = false)
         {
             return Connector.GetWord_ByFilter_Random(filter, limit, distinct);
+        }
+
+        public static void SendMessage(string desEmail, string subject, string body)
+        {
+            Task.Run(() => EmailConnector.SendMessage(desEmail, subject, body));
+        }
+
+        public static string GenerateVerifyCode()
+        {
+            Random random = new Random();
+            return random.Next(100000, 999999).ToString();
         }
 
         public static string ConnectionString(string name)
