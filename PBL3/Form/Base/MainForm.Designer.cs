@@ -446,16 +446,16 @@ namespace PBL3
             this.panelSearch.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
             this.panelSearch.Location = new System.Drawing.Point(247, 74);
             this.panelSearch.Name = "panelSearch";
-            this.panelSearch.Size = new System.Drawing.Size(550, 50);
+            this.panelSearch.Size = new System.Drawing.Size(574, 50);
             this.panelSearch.TabIndex = 52;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(50)))), ((int)(((byte)(99)))));
             this.panel1.Controls.Add(this.rjButton1);
-            this.panel1.Location = new System.Drawing.Point(416, -18);
+            this.panel1.Location = new System.Drawing.Point(440, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(134, 73);
+            this.panel1.Size = new System.Drawing.Size(134, 59);
             this.panel1.TabIndex = 53;
             // 
             // rjButton1
@@ -471,7 +471,7 @@ namespace PBL3
             this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton1.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rjButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.rjButton1.Location = new System.Drawing.Point(9, 18);
+            this.rjButton1.Location = new System.Drawing.Point(9, -1);
             this.rjButton1.Name = "rjButton1";
             this.rjButton1.Size = new System.Drawing.Size(125, 50);
             this.rjButton1.TabIndex = 51;
@@ -491,7 +491,7 @@ namespace PBL3
             this.rjButton6.FlatAppearance.BorderSize = 0;
             this.rjButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton6.ForeColor = System.Drawing.Color.White;
-            this.rjButton6.Location = new System.Drawing.Point(353, 6);
+            this.rjButton6.Location = new System.Drawing.Point(377, 6);
             this.rjButton6.Name = "rjButton6";
             this.rjButton6.Size = new System.Drawing.Size(3, 39);
             this.rjButton6.TabIndex = 49;
@@ -511,7 +511,7 @@ namespace PBL3
             this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(252)))));
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 35;
-            this.iconButton1.Location = new System.Drawing.Point(311, 7);
+            this.iconButton1.Location = new System.Drawing.Point(335, 7);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(38, 38);
             this.iconButton1.TabIndex = 5;
@@ -526,7 +526,7 @@ namespace PBL3
             this.btnSearchType.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearchType.FlatAppearance.BorderSize = 0;
             this.btnSearchType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchType.Location = new System.Drawing.Point(366, 14);
+            this.btnSearchType.Location = new System.Drawing.Point(390, 14);
             this.btnSearchType.MinimumSize = new System.Drawing.Size(44, 22);
             this.btnSearchType.Name = "btnSearchType";
             this.btnSearchType.OffBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(255)))));
@@ -549,7 +549,7 @@ namespace PBL3
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSearch.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
-            this.txtSearch.Location = new System.Drawing.Point(17, 15);
+            this.txtSearch.Location = new System.Drawing.Point(29, 15);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(275, 29);
             this.txtSearch.TabIndex = 6;
@@ -576,7 +576,7 @@ namespace PBL3
             this.panelSearchFound.Controls.Add(this.btnFilledSearchFound);
             this.panelSearchFound.Location = new System.Drawing.Point(247, 101);
             this.panelSearchFound.Name = "panelSearchFound";
-            this.panelSearchFound.Size = new System.Drawing.Size(356, 325);
+            this.panelSearchFound.Size = new System.Drawing.Size(443, 325);
             this.panelSearchFound.TabIndex = 15;
             this.panelSearchFound.Visible = false;
             // 
@@ -592,7 +592,7 @@ namespace PBL3
             this.btnSearchFound10.Location = new System.Drawing.Point(0, 295);
             this.btnSearchFound10.Name = "btnSearchFound10";
             this.btnSearchFound10.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnSearchFound10.Size = new System.Drawing.Size(410, 30);
+            this.btnSearchFound10.Size = new System.Drawing.Size(443, 30);
             this.btnSearchFound10.TabIndex = 10;
             this.btnSearchFound10.TabStop = false;
             this.btnSearchFound10.Text = "Word";
@@ -612,7 +612,7 @@ namespace PBL3
             this.btnSearchFound9.Location = new System.Drawing.Point(0, 265);
             this.btnSearchFound9.Name = "btnSearchFound9";
             this.btnSearchFound9.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnSearchFound9.Size = new System.Drawing.Size(410, 30);
+            this.btnSearchFound9.Size = new System.Drawing.Size(443, 30);
             this.btnSearchFound9.TabIndex = 9;
             this.btnSearchFound9.TabStop = false;
             this.btnSearchFound9.Text = "Word";
@@ -632,7 +632,7 @@ namespace PBL3
             this.btnSearchFound8.Location = new System.Drawing.Point(0, 235);
             this.btnSearchFound8.Name = "btnSearchFound8";
             this.btnSearchFound8.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnSearchFound8.Size = new System.Drawing.Size(410, 30);
+            this.btnSearchFound8.Size = new System.Drawing.Size(443, 30);
             this.btnSearchFound8.TabIndex = 8;
             this.btnSearchFound8.TabStop = false;
             this.btnSearchFound8.Text = "Word";
@@ -652,7 +652,7 @@ namespace PBL3
             this.btnSearchFound7.Location = new System.Drawing.Point(0, 205);
             this.btnSearchFound7.Name = "btnSearchFound7";
             this.btnSearchFound7.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnSearchFound7.Size = new System.Drawing.Size(410, 30);
+            this.btnSearchFound7.Size = new System.Drawing.Size(443, 30);
             this.btnSearchFound7.TabIndex = 7;
             this.btnSearchFound7.TabStop = false;
             this.btnSearchFound7.Text = "Word";
@@ -672,7 +672,7 @@ namespace PBL3
             this.btnSearchFound6.Location = new System.Drawing.Point(0, 175);
             this.btnSearchFound6.Name = "btnSearchFound6";
             this.btnSearchFound6.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnSearchFound6.Size = new System.Drawing.Size(410, 30);
+            this.btnSearchFound6.Size = new System.Drawing.Size(443, 30);
             this.btnSearchFound6.TabIndex = 6;
             this.btnSearchFound6.TabStop = false;
             this.btnSearchFound6.Text = "Word";
@@ -692,7 +692,7 @@ namespace PBL3
             this.btnSearchFound5.Location = new System.Drawing.Point(0, 145);
             this.btnSearchFound5.Name = "btnSearchFound5";
             this.btnSearchFound5.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnSearchFound5.Size = new System.Drawing.Size(410, 30);
+            this.btnSearchFound5.Size = new System.Drawing.Size(443, 30);
             this.btnSearchFound5.TabIndex = 5;
             this.btnSearchFound5.TabStop = false;
             this.btnSearchFound5.Text = "Word";
@@ -712,7 +712,7 @@ namespace PBL3
             this.btnSearchFound4.Location = new System.Drawing.Point(0, 115);
             this.btnSearchFound4.Name = "btnSearchFound4";
             this.btnSearchFound4.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnSearchFound4.Size = new System.Drawing.Size(410, 30);
+            this.btnSearchFound4.Size = new System.Drawing.Size(443, 30);
             this.btnSearchFound4.TabIndex = 4;
             this.btnSearchFound4.TabStop = false;
             this.btnSearchFound4.Text = "Word";
@@ -732,7 +732,7 @@ namespace PBL3
             this.btnSearchFound3.Location = new System.Drawing.Point(0, 85);
             this.btnSearchFound3.Name = "btnSearchFound3";
             this.btnSearchFound3.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnSearchFound3.Size = new System.Drawing.Size(410, 30);
+            this.btnSearchFound3.Size = new System.Drawing.Size(443, 30);
             this.btnSearchFound3.TabIndex = 3;
             this.btnSearchFound3.TabStop = false;
             this.btnSearchFound3.Text = "Word";
@@ -752,7 +752,7 @@ namespace PBL3
             this.btnSearchFound2.Location = new System.Drawing.Point(0, 55);
             this.btnSearchFound2.Name = "btnSearchFound2";
             this.btnSearchFound2.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnSearchFound2.Size = new System.Drawing.Size(410, 30);
+            this.btnSearchFound2.Size = new System.Drawing.Size(443, 30);
             this.btnSearchFound2.TabIndex = 2;
             this.btnSearchFound2.TabStop = false;
             this.btnSearchFound2.Text = "Word";
@@ -772,7 +772,7 @@ namespace PBL3
             this.btnSearchFound1.Location = new System.Drawing.Point(0, 25);
             this.btnSearchFound1.Name = "btnSearchFound1";
             this.btnSearchFound1.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.btnSearchFound1.Size = new System.Drawing.Size(410, 30);
+            this.btnSearchFound1.Size = new System.Drawing.Size(443, 30);
             this.btnSearchFound1.TabIndex = 1;
             this.btnSearchFound1.TabStop = false;
             this.btnSearchFound1.Text = "Word";
@@ -792,7 +792,7 @@ namespace PBL3
             this.btnFilledSearchFound.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnFilledSearchFound.Location = new System.Drawing.Point(0, 0);
             this.btnFilledSearchFound.Name = "btnFilledSearchFound";
-            this.btnFilledSearchFound.Size = new System.Drawing.Size(356, 25);
+            this.btnFilledSearchFound.Size = new System.Drawing.Size(443, 25);
             this.btnFilledSearchFound.TabIndex = 0;
             this.btnFilledSearchFound.TabStop = false;
             this.btnFilledSearchFound.UseVisualStyleBackColor = true;
@@ -803,7 +803,7 @@ namespace PBL3
             this.lblSearchType.AutoSize = true;
             this.lblSearchType.Font = new System.Drawing.Font("Bahnschrift Condensed", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSearchType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.lblSearchType.Location = new System.Drawing.Point(609, 127);
+            this.lblSearchType.Location = new System.Drawing.Point(634, 127);
             this.lblSearchType.Name = "lblSearchType";
             this.lblSearchType.Size = new System.Drawing.Size(54, 16);
             this.lblSearchType.TabIndex = 50;
@@ -812,14 +812,14 @@ namespace PBL3
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Aquire", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.label3.Location = new System.Drawing.Point(842, 87);
+            this.label3.Location = new System.Drawing.Point(820, 92);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 20);
+            this.label3.Size = new System.Drawing.Size(71, 20);
             this.label3.TabIndex = 25;
             this.label3.Text = "123";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // rjButton2
             // 

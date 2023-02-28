@@ -30,7 +30,7 @@ namespace PBL3
 
         private void cmbVoice_OnSelectedIndexChanged(object sender, EventArgs e)
         {
-            SoundConfig.ChangeVolumn(cmbVoice.SelectedIndex);
+            SoundConfig.ChangeVoice(cmbVoice.SelectedIndex == 0 ? SoundConfig.Voice.Male : SoundConfig.Voice.Female);
         }
 
     }
