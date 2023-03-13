@@ -71,6 +71,9 @@
       <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=8.0.32.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -173,6 +176,12 @@
     <Compile Include="Form\Base\LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\UtilForm\FormTranslanteText.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\UtilForm\FormTranslanteText.Designer.cs">
+      <DependentUpon>FormTranslanteText.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\UtilForm\MessageBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,6 +269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Base\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\UtilForm\FormTranslanteText.resx">
+      <DependentUpon>FormTranslanteText.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\UtilForm\WordForm.resx">
       <DependentUpon>WordForm.cs</DependentUpon>

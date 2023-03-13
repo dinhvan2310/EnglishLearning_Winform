@@ -59,3 +59,6 @@ D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormStatistic.resources
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormSetGoal.resources
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormTopic.resources
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormAdmin.resources
+D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormTranslanteText.resources
+D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\Newtonsoft.Json.dll
+D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\Newtonsoft.Json.xml

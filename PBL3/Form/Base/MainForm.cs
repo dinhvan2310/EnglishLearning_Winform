@@ -577,5 +577,11 @@ namespace PBL3
                 lblSearchType.Text = "ANH - ANH";
             }
         }
+
+        private void btnTranslate_MouseClick(object sender, MouseEventArgs e)
+        {
+            Form form = new FormTranslanteText();
+            OpenChildForm(form, FormStack.FormType.Neutral);
+        }
     }
 }

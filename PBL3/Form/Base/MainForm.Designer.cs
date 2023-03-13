@@ -51,7 +51,7 @@ namespace PBL3
             this.panelBase = new System.Windows.Forms.Panel();
             this.panelSearch = new CustomControls.RJPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.rjButton1 = new CustomControls.RJButton();
+            this.btnTranslate = new CustomControls.RJButton();
             this.rjButton6 = new CustomControls.RJButton();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.btnSearchType = new CustomControls.RJToggleButton();
@@ -452,33 +452,34 @@ namespace PBL3
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(50)))), ((int)(((byte)(99)))));
-            this.panel1.Controls.Add(this.rjButton1);
+            this.panel1.Controls.Add(this.btnTranslate);
             this.panel1.Location = new System.Drawing.Point(440, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(134, 59);
             this.panel1.TabIndex = 53;
             // 
-            // rjButton1
+            // btnTranslate
             // 
-            this.rjButton1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rjButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(50)))), ((int)(((byte)(99)))));
-            this.rjButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(50)))), ((int)(((byte)(99)))));
-            this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton1.BorderRadius = 20;
-            this.rjButton1.BorderSize = 0;
-            this.rjButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.rjButton1.Location = new System.Drawing.Point(9, -1);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(125, 50);
-            this.rjButton1.TabIndex = 51;
-            this.rjButton1.TabStop = false;
-            this.rjButton1.Text = "Dịch Văn Bản";
-            this.rjButton1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.rjButton1.UseVisualStyleBackColor = false;
+            this.btnTranslate.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnTranslate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(50)))), ((int)(((byte)(99)))));
+            this.btnTranslate.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(50)))), ((int)(((byte)(99)))));
+            this.btnTranslate.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnTranslate.BorderRadius = 20;
+            this.btnTranslate.BorderSize = 0;
+            this.btnTranslate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTranslate.FlatAppearance.BorderSize = 0;
+            this.btnTranslate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTranslate.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTranslate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.btnTranslate.Location = new System.Drawing.Point(9, -1);
+            this.btnTranslate.Name = "btnTranslate";
+            this.btnTranslate.Size = new System.Drawing.Size(125, 50);
+            this.btnTranslate.TabIndex = 51;
+            this.btnTranslate.TabStop = false;
+            this.btnTranslate.Text = "Dịch Văn Bản";
+            this.btnTranslate.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.btnTranslate.UseVisualStyleBackColor = false;
+            this.btnTranslate.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnTranslate_MouseClick);
             // 
             // rjButton6
             // 
@@ -1295,7 +1296,7 @@ namespace PBL3
         public FontAwesome.Sharp.IconButton btnNotebook;
         public FontAwesome.Sharp.IconButton btnTopic;
         public RJPanel panelPersonal;
-        private RJButton rjButton1;
+        private RJButton btnTranslate;
         private System.Windows.Forms.Label lblSearchType;
         private RJPanel panelSearch;
         private RJButton rjButton6;
