@@ -27,5 +27,9 @@ namespace PBL3
 
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         public extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+
+        // Hide Cursor
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public static extern bool HideCaret(IntPtr hWnd);
     }
 }

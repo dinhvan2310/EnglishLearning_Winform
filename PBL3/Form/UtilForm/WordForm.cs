@@ -16,17 +16,14 @@ namespace PBL3
 {
     public partial class WordForm : Form
     {
-        private Form _parentForm;
-
         private Button _currentTag;
         private Form _currentChildForm;
 
         private string _word;
         private List<SynsetModel> _synsets;
 
-        public WordForm(Form parentForm, string rawWord)
+        public WordForm(string rawWord)
         {
-            _parentForm = parentForm;
             _word = rawWord;
 
             InitializeComponent();
@@ -105,7 +102,7 @@ namespace PBL3
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
-            ((MainForm)_parentForm).OpenChildForm(FormStack.Pop(), FormStack.FormType.Strong);
+            ((MainForm)Application.OpenForms["MainForm"]).OpenChildForm(FormStack.Pop(), FormStack.FormType.Strong);
         }
     }
 }

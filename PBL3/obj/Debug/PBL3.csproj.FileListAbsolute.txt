@@ -46,3 +46,16 @@ D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\Control.Draggable.dll
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormProfile.resources
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.MessageBox.resources
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormPremium.resources
+D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\LiveCharts.dll
+D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\LiveCharts.pdb
+D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\LiveCharts.xml
+D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\LiveCharts.WinForms.dll
+D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\LiveCharts.Wpf.dll
+D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\LiveCharts.WinForms.pdb
+D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\LiveCharts.WinForms.xml
+D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\LiveCharts.Wpf.pdb
+D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\LiveCharts.Wpf.xml
+D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormStatistic.resources
+D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormSetGoal.resources
+D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormTopic.resources
+D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormAdmin.resources

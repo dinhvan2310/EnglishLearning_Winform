@@ -14,8 +14,6 @@ namespace PBL3
 {
     public partial class FormHome : Form
     {
-        private Form _parentForm;
-
         private const int _suggestedWordCount = 10;
 
         private int _currentWordEveryDayIndex = 0;
@@ -23,10 +21,8 @@ namespace PBL3
 
         private bool _reverseState = false;
 
-        public FormHome(Form parentForm)
+        public FormHome()
         {
-            _parentForm = parentForm;
-
             InitializeComponent();
             InitializeVariables();
 
@@ -109,14 +105,40 @@ namespace PBL3
 
         private void btnSugWord_MouseClick(object sender, MouseEventArgs e)
         {
-            ((MainForm)_parentForm).OpenChildForm(new WordForm(_parentForm, btnSugWord.Text.Replace(' ', '_').ToLower()),
+            ((MainForm)Application.OpenForms["MainForm"]).OpenChildForm(new WordForm(btnSugWord.Text.Replace(' ', '_').ToLower()),
                 FormStack.FormType.Neutral);
         }
 
         private void btnGotoNtebk_MouseClick(object sender, MouseEventArgs e)
         {
-            ((MainForm)_parentForm).ActivateButton(((MainForm)_parentForm).btnNotebook, Color.FromArgb(127, 135, 255));
-            ((MainForm)_parentForm).OpenChildForm(((MainForm)_parentForm).NotebookForm, FormStack.FormType.Strong);
+            ((MainForm)Application.OpenForms["MainForm"]).ActivateButton(
+                ((MainForm)Application.OpenForms["MainForm"]).btnNotebook,
+                Color.FromArgb(0, 191, 159));
+            ((MainForm)Application.OpenForms["MainForm"]).OpenChildForm(
+                ((MainForm)Application.OpenForms["MainForm"]).NotebookForm,
+                FormStack.FormType.Strong);
+        }
+
+        private void numericUpDown1_MouseClick(object sender, MouseEventArgs e)
+        {
+            ExternalImport.HideCaret(((NumericUpDown)sender).Handle);
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            ActiveControl = null;
+        }
+
+        private void numericUpDown1_MouseClick_1(object sender, MouseEventArgs e)
+        {
+            ActiveControl = null;
+        }
+
+        private void btnSetGoal_MouseClick(object sender, MouseEventArgs e)
+        {
+            ((MainForm)Application.OpenForms["MainForm"]).OpenChildForm(
+                new FormSetGoal(Application.OpenForms["MainForm"]),
+                FormStack.FormType.Neutral);
         }
     }
 }

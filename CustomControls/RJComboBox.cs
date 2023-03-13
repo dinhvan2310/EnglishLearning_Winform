@@ -8,7 +8,7 @@ using System.Windows.Forms;
 namespace CustomControls
 {
     [DefaultEvent("OnSelectedIndexChanged")]
-    public class RJComboBox : ComboBox
+    public class RJComboBox : UserControl
     {
         //Fields
         private Color backColor = Color.WhiteSmoke;
@@ -40,7 +40,6 @@ namespace CustomControls
             cmbList.ForeColor = listTextColor;
             cmbList.SelectedIndexChanged += new EventHandler(ComboBox_SelectedIndexChanged);//Default event
             cmbList.TextChanged += new EventHandler(ComboBox_TextChanged);//Refresh text
-            cmbList.Size = this.Size;
 
             //Button: Icon
             btnIcon.Dock = DockStyle.Right;
@@ -57,7 +56,8 @@ namespace CustomControls
             lblText.AutoSize = false;
             lblText.BackColor = backColor;
             lblText.TextAlign = ContentAlignment.MiddleLeft;
-            lblText.Font = this.Font;
+            lblText.Padding = new Padding(8, 0, 0, 0);
+            lblText.Font = new Font(this.Font.Name, 10F);
             //->Attach label events to user control event
             lblText.Click += new EventHandler(Surface_Click);//Select combo box
             lblText.MouseEnter += new EventHandler(Surface_MouseEnter);
@@ -80,14 +80,12 @@ namespace CustomControls
         //Private methods
         private void AdjustComboBoxDimensions()
         {
-            Size cmbListSize = new Size(this.Size.Width - 20, this.Size.Height);
-            cmbList.Size = cmbListSize;
+            cmbList.Width = lblText.Width + 10;
             cmbList.Location = new Point()
             {
-                X = this.Width - this.Padding.Right - cmbList.Width - 20,
+                X = this.Width - this.Padding.Right - cmbList.Width - 10,
                 Y = lblText.Bottom - cmbList.Height
             };
-
         }
 
         //Event methods
@@ -355,24 +353,11 @@ namespace CustomControls
             this.OnMouseEnter(e);
         }
         //::::+
-
         //Overridden methods
         protected override void OnResize(EventArgs e)
         {
             base.OnResize(e);
             AdjustComboBoxDimensions();
-        }
-
-        private void InitializeComponent()
-        {
-            this.SuspendLayout();
-            // 
-            // RJComboBox
-            // 
-            this.Name = "RJComboBox";
-            this.Size = new System.Drawing.Size(239, 150);
-            this.ResumeLayout(false);
-
         }
     }
 }

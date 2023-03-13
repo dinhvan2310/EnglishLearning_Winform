@@ -523,6 +523,7 @@ namespace PBL3
             this.btnSearchType.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSearchType.AutoSize = true;
             this.btnSearchType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.btnSearchType.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnSearchType.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearchType.FlatAppearance.BorderSize = 0;
             this.btnSearchType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -814,7 +815,7 @@ namespace PBL3
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.Font = new System.Drawing.Font("Aquire", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.label3.Location = new System.Drawing.Point(820, 92);
+            this.label3.Location = new System.Drawing.Point(820, 87);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 20);
             this.label3.TabIndex = 25;

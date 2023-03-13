@@ -444,8 +444,7 @@ namespace PBL3
             this.cmbBoxGender.Name = "cmbBoxGender";
             this.cmbBoxGender.Size = new System.Drawing.Size(349, 36);
             this.cmbBoxGender.TabIndex = 2;
-            this.cmbBoxGender.Text = "Sex";
-            this.cmbBoxGender.Texts = "";
+            this.cmbBoxGender.Texts = "Giới tính";
             this.cmbBoxGender.OnSelectedIndexChanged += new System.EventHandler(this.cmbBoxGender_OnSelectedIndexChanged);
             // 
             // datePicker

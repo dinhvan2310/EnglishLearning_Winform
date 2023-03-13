@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProfile));
             this.label2 = new System.Windows.Forms.Label();
             this.btnReturn = new FontAwesome.Sharp.IconButton();
             this.label1 = new System.Windows.Forms.Label();
@@ -51,6 +52,7 @@
             this.btnChangeImage = new CustomControls.RJButton();
             this.fileDialog = new System.Windows.Forms.OpenFileDialog();
             this.rjPanel1 = new CustomControls.RJPanel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.rjPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -296,13 +298,14 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.panel2.Location = new System.Drawing.Point(99, 372);
+            this.panel2.Location = new System.Drawing.Point(181, 372);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(691, 5);
+            this.panel2.Size = new System.Drawing.Size(609, 5);
             this.panel2.TabIndex = 22;
             // 
             // rjButton3
             // 
+            this.rjButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.rjButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
             this.rjButton3.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
             this.rjButton3.BorderColor = System.Drawing.Color.PaleVioletRed;
@@ -348,8 +351,7 @@
             this.cmbBoxGender.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
             this.cmbBoxGender.BorderSize = 0;
             this.cmbBoxGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbBoxGender.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmbBoxGender.Font = new System.Drawing.Font("Bahnschrift", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbBoxGender.Font = new System.Drawing.Font("Bahnschrift", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbBoxGender.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
             this.cmbBoxGender.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
             this.cmbBoxGender.Items.AddRange(new object[] {
@@ -358,24 +360,24 @@
             "Không"});
             this.cmbBoxGender.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
             this.cmbBoxGender.ListTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
-            this.cmbBoxGender.Location = new System.Drawing.Point(287, 276);
+            this.cmbBoxGender.Location = new System.Drawing.Point(272, 270);
             this.cmbBoxGender.MinimumSize = new System.Drawing.Size(200, 0);
             this.cmbBoxGender.Name = "cmbBoxGender";
             this.cmbBoxGender.Size = new System.Drawing.Size(349, 41);
             this.cmbBoxGender.TabIndex = 23;
-            this.cmbBoxGender.Text = "Nam";
-            this.cmbBoxGender.Texts = "";
+            this.cmbBoxGender.Texts = "Nam";
             this.cmbBoxGender.Visible = false;
             this.cmbBoxGender.OnSelectedIndexChanged += new System.EventHandler(this.cmbBoxGender_OnSelectedIndexChanged);
             // 
             // btnImage
             // 
+            this.btnImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
             this.btnImage.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
             this.btnImage.BackgroundImage = global::PBL3.Properties.Resources.Theme;
             this.btnImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnImage.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnImage.BorderRadius = 20;
+            this.btnImage.BorderRadius = 10;
             this.btnImage.BorderSize = 0;
             this.btnImage.FlatAppearance.BorderSize = 0;
             this.btnImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -390,6 +392,7 @@
             // 
             // btnChangeImage
             // 
+            this.btnChangeImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnChangeImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(41)))), ((int)(((byte)(74)))));
             this.btnChangeImage.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(41)))), ((int)(((byte)(74)))));
             this.btnChangeImage.BorderColor = System.Drawing.Color.PaleVioletRed;
@@ -409,12 +412,9 @@
             this.btnChangeImage.UseVisualStyleBackColor = false;
             this.btnChangeImage.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnChangeImage_MouseClick);
             // 
-            // fileDialog
-            // 
-            this.fileDialog.FileName = "fileDialog";
-            // 
             // rjPanel1
             // 
+            this.rjPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.rjPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
             this.rjPanel1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
             this.rjPanel1.BorderRadius = 40;
@@ -427,6 +427,15 @@
             this.rjPanel1.Name = "rjPanel1";
             this.rjPanel1.Size = new System.Drawing.Size(200, 200);
             this.rjPanel1.TabIndex = 58;
+            // 
+            // panel3
+            // 
+            this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
+            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel3.Location = new System.Drawing.Point(25, 334);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(150, 150);
+            this.panel3.TabIndex = 59;
             // 
             // FormProfile
             // 
@@ -455,6 +464,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.rjPanel1);
+            this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormProfile";
             this.Text = "FormProfile";
@@ -489,5 +499,6 @@
         private CustomControls.RJButton btnChangeImage;
         private System.Windows.Forms.OpenFileDialog fileDialog;
         private CustomControls.RJPanel rjPanel1;
+        private System.Windows.Forms.Panel panel3;
     }
 }

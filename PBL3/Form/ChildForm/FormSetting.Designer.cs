@@ -48,7 +48,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bahnschrift", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.label1.Location = new System.Drawing.Point(93, 78);
+            this.label1.Location = new System.Drawing.Point(93, 61);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(271, 34);
             this.label1.TabIndex = 0;
@@ -122,10 +122,10 @@
             // 
             this.cmbVoice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
             this.cmbVoice.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
-            this.cmbVoice.BorderSize = 1;
+            this.cmbVoice.BorderSize = 0;
+            this.cmbVoice.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDown;
             this.cmbVoice.Font = new System.Drawing.Font("Bahnschrift", 13.8F);
             this.cmbVoice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.cmbVoice.FormattingEnabled = true;
             this.cmbVoice.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
             this.cmbVoice.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
             this.cmbVoice.ListTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
@@ -135,7 +135,7 @@
             this.cmbVoice.Size = new System.Drawing.Size(200, 36);
             this.cmbVoice.TabIndex = 25;
             this.cmbVoice.TabStop = false;
-            this.cmbVoice.Texts = "";
+            this.cmbVoice.Texts = "Default";
             this.cmbVoice.OnSelectedIndexChanged += new System.EventHandler(this.cmbVoice_OnSelectedIndexChanged);
             // 
             // panel1

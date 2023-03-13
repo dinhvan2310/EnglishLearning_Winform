@@ -18,5 +18,10 @@ namespace PBL3
             InitializeComponent();
         }
 
+        private void btnStatistic_MouseClick(object sender, MouseEventArgs e)
+        {
+            ((MainForm)Application.OpenForms["MainForm"]).OpenChildForm(new FormStatistic(),
+                FormStack.FormType.Neutral);
+        }
     }
 }

@@ -14,15 +14,13 @@ namespace PBL3
 {
     public partial class WordForm_None : Form
     {
-        private Form _parentForm;
         private string _rawWord;
 
         private Label[] _lblWords = new Label[8];
-        public WordForm_None(Form parentForm, string rawWord)
+        public WordForm_None( string rawWord)
         {
             InitializeComponent();
 
-            _parentForm = parentForm;
             _rawWord = rawWord;
 
             lblWord.Text = rawWord;
@@ -48,13 +46,13 @@ namespace PBL3
 
         private void lblWordFound1_MouseClick(object sender, MouseEventArgs e)
         {
-            ((MainForm)_parentForm).OpenChildForm(new WordForm(_parentForm, ((Label)sender).Text.Replace(' ', '_')),
+            ((MainForm)Application.OpenForms["MainForm"]).OpenChildForm(new WordForm(((Label)sender).Text.Replace(' ', '_')),
                 FormStack.FormType.Neutral);
         }
 
         private void btnReturn_MouseClick(object sender, MouseEventArgs e)
         {
-            ((MainForm)_parentForm).OpenChildForm(FormStack.Pop(), FormStack.FormType.Strong);
+            ((MainForm)Application.OpenForms["MainForm"]).OpenChildForm(FormStack.Pop(), FormStack.FormType.Strong);
         }
     }
 }

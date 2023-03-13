@@ -52,7 +52,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="RJComboBox.cs">
-      <SubType>Component</SubType>
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="RJDatePicker.cs">
       <SubType>Component</SubType>

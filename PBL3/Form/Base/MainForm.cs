@@ -32,8 +32,8 @@ namespace PBL3
         }
 
         public LoginForm LoginForm { get; private set; }
-        public FormHome HomeForm { get; private set; }
-        public Form TopicForm { get; private set; }
+        public Form HomeForm { get; private set; }
+        public FormTopic TopicForm { get; private set; }
         public FormNotebook NotebookForm { get; private set; }
         public Form MinigameForm { get; private set; }
         public FormSetting SettingForm { get; private set; }
@@ -66,7 +66,8 @@ namespace PBL3
         
         private void InitializeChildForm()
         {
-            HomeForm = new FormHome(this);
+            HomeForm = new FormHome();
+            TopicForm = new FormTopic();
             NotebookForm = new FormNotebook();
             SettingForm = new FormSetting();
         }
@@ -302,7 +303,8 @@ namespace PBL3
 
         private void btnTopic_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, Color.FromArgb(127, 135, 255));
+            ActivateButton(sender, Color.FromArgb(83, 205, 216));
+            OpenChildForm(TopicForm, FormStack.FormType.Strong);
         }
 
         private void btnNotebook_Click(object sender, EventArgs e)
@@ -318,7 +320,7 @@ namespace PBL3
 
         private void btnSetting_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, Color.FromArgb(60, 150, 255));
+            ActivateButton(sender, Color.FromArgb(255, 211, 137));
             OpenChildForm(SettingForm, FormStack.FormType.Strong);
         }
 
@@ -459,11 +461,11 @@ namespace PBL3
 
                 if (GlobalConfig.GetWord_ByFilter(_searchOptions[_currentSearchOptionIndex].Text.Replace(' ', '_')) == null)
                 {
-                    OpenChildForm(new WordForm_None(this, txtSearch.Text.Replace(' ', '_')), FormStack.FormType.Neutral);
+                    OpenChildForm(new WordForm_None(txtSearch.Text.Replace(' ', '_')), FormStack.FormType.Neutral);
                 }
                 else
                 {
-                    OpenChildForm(new WordForm(this, _searchOptions[_currentSearchOptionIndex].Text.Replace(' ', '_')),
+                    OpenChildForm(new WordForm(_searchOptions[_currentSearchOptionIndex].Text.Replace(' ', '_')),
                         FormStack.FormType.Neutral);
                 }
             }
@@ -497,11 +499,11 @@ namespace PBL3
         {
             if (GlobalConfig.GetWord_ByFilter(_searchOptions[_currentSearchOptionIndex].Text.Replace(' ', '_')) == null)
             {
-                OpenChildForm(new WordForm_None(this, ((IconButton)sender).Text.Replace(' ', '_')), FormStack.FormType.Neutral);
+                OpenChildForm(new WordForm_None(((IconButton)sender).Text.Replace(' ', '_')), FormStack.FormType.Neutral);
             }
             else
             {
-                OpenChildForm(new WordForm(this, ((IconButton)sender).Text.Replace(' ', '_')), FormStack.FormType.Neutral);
+                OpenChildForm(new WordForm(((IconButton)sender).Text.Replace(' ', '_')), FormStack.FormType.Neutral);
             }
         }
 
@@ -540,7 +542,7 @@ namespace PBL3
         {
             panelPersonal.Visible = false;
 
-            ActivateButton(btnSetting, Color.FromArgb(60, 150, 255));
+            ActivateButton(btnSetting, Color.FromArgb(255, 255, 127));
             OpenChildForm(SettingForm, FormStack.FormType.Strong);
         }
 
@@ -555,7 +557,7 @@ namespace PBL3
         {
             panelPersonal.Visible = false;
 
-            OpenChildForm(new FormProfile(this), FormStack.FormType.Neutral);
+            OpenChildForm(new FormProfile(), FormStack.FormType.Neutral);
         }
 
         private void btnPremium_MouseClick(object sender, MouseEventArgs e)

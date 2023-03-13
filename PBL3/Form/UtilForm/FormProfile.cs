@@ -14,18 +14,14 @@ namespace PBL3
 {
     public partial class FormProfile : Form
     {
-        private Form _parentForm;
-
         private Font _overFont;
         private Font _primaryFont;
 
         // TO-DO
         //private PersonModel ;
 
-        public FormProfile(Form parentForm)
+        public FormProfile()
         {
-            _parentForm = parentForm;
-
             InitializeComponent();
 
             _primaryFont = btnAdjust1.Font;
@@ -79,18 +75,17 @@ namespace PBL3
 
         private void btnReturn_MouseClick(object sender, MouseEventArgs e)
         {
-            ((MainForm)_parentForm).panelPersonal.Visible = false;
-            ((MainForm)_parentForm).OpenChildForm(FormStack.Pop(), FormStack.FormType.Strong);
+            ((MainForm)Application.OpenForms["MainForm"]).panelPersonal.Visible = false;
+            ((MainForm)Application.OpenForms["MainForm"]).OpenChildForm(FormStack.Pop(), FormStack.FormType.Strong);
         }
 
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
-        static extern bool HideCaret(IntPtr hWnd);
+
 
         private void txtName_MouseClick(object sender, MouseEventArgs e)
         {
             if (((TextBox)sender).ReadOnly)
             {
-                HideCaret(((TextBox)sender).Handle);
+                ExternalImport.HideCaret(((TextBox)sender).Handle);
                 ActiveControl = null;
             }
         }
@@ -231,8 +226,8 @@ namespace PBL3
         private void btnChangeImage_MouseClick(object sender, MouseEventArgs e)
         {
             fileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;";
-            fileDialog.ShowDialog();
-            btnImage.BackgroundImage = Image.FromStream(fileDialog.OpenFile());
+            if (fileDialog.ShowDialog() == DialogResult.OK)
+                btnImage.BackgroundImage = Image.FromStream(fileDialog.OpenFile());
             
         }
     }
