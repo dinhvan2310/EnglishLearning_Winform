@@ -75,8 +75,8 @@ namespace PBL3
 
         private void btnReturn_MouseClick(object sender, MouseEventArgs e)
         {
-            ((MainForm)Application.OpenForms["MainForm"]).panelPersonal.Visible = false;
-            ((MainForm)Application.OpenForms["MainForm"]).OpenChildForm(FormStack.Pop(), FormStack.FormType.Strong);
+            GlobalForm.MainForm.panelPersonal.Visible = false;
+            GlobalForm.MainForm.OpenChildForm(FormStack.Pop(), FormStack.FormType.Strong);
         }
 
 

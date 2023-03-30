@@ -105,17 +105,17 @@ namespace PBL3
 
         private void btnSugWord_MouseClick(object sender, MouseEventArgs e)
         {
-            ((MainForm)Application.OpenForms["MainForm"]).OpenChildForm(new WordForm(btnSugWord.Text.Replace(' ', '_').ToLower()),
+            GlobalForm.MainForm.OpenChildForm(new WordForm(btnSugWord.Text.Replace(' ', '_').ToLower()),
                 FormStack.FormType.Neutral);
         }
 
         private void btnGotoNtebk_MouseClick(object sender, MouseEventArgs e)
         {
-            ((MainForm)Application.OpenForms["MainForm"]).ActivateButton(
-                ((MainForm)Application.OpenForms["MainForm"]).btnNotebook,
+            GlobalForm.MainForm.ActivateButton(
+                GlobalForm.MainForm.btnNotebook,
                 Color.FromArgb(0, 191, 159));
-            ((MainForm)Application.OpenForms["MainForm"]).OpenChildForm(
-                ((MainForm)Application.OpenForms["MainForm"]).NotebookForm,
+            GlobalForm.MainForm.OpenChildForm(
+                GlobalForm.MainForm.NotebookForm,
                 FormStack.FormType.Strong);
         }
 
@@ -136,9 +136,7 @@ namespace PBL3
 
         private void btnSetGoal_MouseClick(object sender, MouseEventArgs e)
         {
-            ((MainForm)Application.OpenForms["MainForm"]).OpenChildForm(
-                new FormSetGoal(Application.OpenForms["MainForm"]),
-                FormStack.FormType.Neutral);
+            GlobalForm.MainForm.OpenChildForm(new FormSetGoal(), FormStack.FormType.Neutral);
         }
     }
 }

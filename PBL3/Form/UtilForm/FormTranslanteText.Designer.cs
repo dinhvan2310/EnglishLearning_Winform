@@ -53,7 +53,7 @@ namespace PBL3
             this.txt1.Font = new System.Drawing.Font("Bahnschrift", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
             this.txt1.Location = new System.Drawing.Point(37, 33);
-            this.txt1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt1.Margin = new System.Windows.Forms.Padding(4);
             this.txt1.Name = "txt1";
             this.txt1.Size = new System.Drawing.Size(289, 270);
             this.txt1.TabIndex = 0;
@@ -72,7 +72,7 @@ namespace PBL3
             this.btnATV.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnATV.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
             this.btnATV.Location = new System.Drawing.Point(375, 194);
-            this.btnATV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnATV.Margin = new System.Windows.Forms.Padding(4);
             this.btnATV.Name = "btnATV";
             this.btnATV.Size = new System.Drawing.Size(160, 71);
             this.btnATV.TabIndex = 1;
@@ -94,7 +94,7 @@ namespace PBL3
             this.btnVTA.Font = new System.Drawing.Font("Bahnschrift Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVTA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
             this.btnVTA.Location = new System.Drawing.Point(375, 66);
-            this.btnVTA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnVTA.Margin = new System.Windows.Forms.Padding(4);
             this.btnVTA.Name = "btnVTA";
             this.btnVTA.Size = new System.Drawing.Size(160, 72);
             this.btnVTA.TabIndex = 1;
@@ -145,7 +145,7 @@ namespace PBL3
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 30;
             this.iconButton1.Location = new System.Drawing.Point(12, 12);
-            this.iconButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.iconButton1.Margin = new System.Windows.Forms.Padding(4);
             this.iconButton1.Name = "iconButton1";
             this.iconButton1.Size = new System.Drawing.Size(40, 40);
             this.iconButton1.TabIndex = 2;
@@ -159,7 +159,7 @@ namespace PBL3
             this.txt2.Font = new System.Drawing.Font("Bahnschrift", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
             this.txt2.Location = new System.Drawing.Point(577, 33);
-            this.txt2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt2.Margin = new System.Windows.Forms.Padding(4);
             this.txt2.Name = "txt2";
             this.txt2.ReadOnly = true;
             this.txt2.Size = new System.Drawing.Size(289, 270);
@@ -168,6 +168,7 @@ namespace PBL3
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bahnschrift", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
@@ -219,6 +220,7 @@ namespace PBL3
             // 
             // panel1
             // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
             this.panel1.Location = new System.Drawing.Point(73, 95);
             this.panel1.Name = "panel1";
@@ -227,8 +229,9 @@ namespace PBL3
             // 
             // rjPanel1
             // 
+            this.rjPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.rjPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.rjPanel1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.rjPanel1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
             this.rjPanel1.BorderRadius = 30;
             this.rjPanel1.Controls.Add(this.iconButton2);
             this.rjPanel1.Controls.Add(this.txt1);
@@ -278,7 +281,7 @@ namespace PBL3
             this.Controls.Add(this.iconButton1);
             this.Controls.Add(this.rjPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormTranslanteText";
             this.Text = "FormTranslanteText";
             this.rjPanel1.ResumeLayout(false);

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PBL3
 {
-    public partial class FormAdmin : Form
+    public partial class FormAdmin_Word_AddUpdate : Form
     {
-        public FormAdmin()
+        public FormAdmin_Word_AddUpdate()
         {
             InitializeComponent();
         }

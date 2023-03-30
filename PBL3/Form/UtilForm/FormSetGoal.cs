@@ -13,7 +13,7 @@ namespace PBL3
     public partial class FormSetGoal : Form
     {
         private int _currentIndex = 2;
-        public FormSetGoal(Form parentForm)
+        public FormSetGoal()
         {
             InitializeComponent();
 
@@ -22,7 +22,7 @@ namespace PBL3
 
         private void btnReturn_MouseClick(object sender, MouseEventArgs e)
         {
-            ((MainForm)Application.OpenForms["MainForm"]).OpenChildForm(FormStack.Pop(), FormStack.FormType.Strong);
+            GlobalForm.MainForm.OpenChildForm(FormStack.Pop(), FormStack.FormType.Strong);
         }
 
         private void btn5Min_MouseClick(object sender, MouseEventArgs e)

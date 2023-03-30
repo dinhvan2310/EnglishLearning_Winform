@@ -62,3 +62,8 @@ D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormAdmin.resources
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormTranslanteText.resources
 D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\Newtonsoft.Json.dll
 D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\Newtonsoft.Json.xml
+D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormAdmin_Account.resources
+D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormAdmin_Packet.resources
+D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormAdmin_Word.resources
+D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormAdmin_Account_AddUpdate.resources
+D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormAdmin_Word_AddUpdate.resources

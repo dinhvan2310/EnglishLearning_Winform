@@ -120,7 +120,7 @@ namespace PBL3
             this.txtUsername.Location = new System.Drawing.Point(129, 157);
             this.txtUsername.MinimumSize = new System.Drawing.Size(0, 30);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(300, 25);
+            this.txtUsername.Size = new System.Drawing.Size(300, 30);
             this.txtUsername.TabIndex = 1;
             this.txtUsername.Text = "Tên Đăng Nhập";
             this.txtUsername.Enter += new System.EventHandler(this.txtPH_Enter);
