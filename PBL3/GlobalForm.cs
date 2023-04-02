@@ -9,16 +9,16 @@ namespace PBL3
 {
     internal static class GlobalForm
     {
-        private static FormAdmin _adminForm;
-        private static MainForm _mainForm;
+        private static FormAdmin _AdminForm;
+        private static MainForm _MainForm;
 
         public static FormAdmin AdminForm
         {
             get
             {
-                if (_adminForm == null)
-                    _adminForm = (FormAdmin)Application.OpenForms["FormAdmin"];
-                return _adminForm;
+                if (_AdminForm == null)
+                    _AdminForm = (FormAdmin)Application.OpenForms["FormAdmin"];
+                return _AdminForm;
             }
             private set { }
         }
@@ -27,9 +27,9 @@ namespace PBL3
         {
             get
             {
-                if (_mainForm == null)
-                    _mainForm = (MainForm)Application.OpenForms["MainForm"];
-                return _mainForm;
+                if (_MainForm == null)
+                    _MainForm = (MainForm)Application.OpenForms["MainForm"];
+                return _MainForm;
             }
             private set { }
         }

@@ -1,0 +1,257 @@
+D:\PBL3\PLB3\PLB3\BLL\bin\Debug\BLL.exe.config
+D:\PBL3\PLB3\PLB3\BLL\bin\Debug\BLL.exe
+D:\PBL3\PLB3\PLB3\BLL\bin\Debug\BLL.pdb
+D:\PBL3\PLB3\PLB3\BLL\bin\Debug\BouncyCastle.Crypto.dll
+D:\PBL3\PLB3\PLB3\BLL\bin\Debug\EntityFramework.dll
+D:\PBL3\PLB3\PLB3\BLL\bin\Debug\EntityFramework.SqlServer.dll
+D:\PBL3\PLB3\PLB3\BLL\bin\Debug\Google.Protobuf.dll
+D:\PBL3\PLB3\PLB3\BLL\bin\Debug\K4os.Compression.LZ4.dll
+D:\PBL3\PLB3\PLB3\BLL\bin\Debug\K4os.Compression.LZ4.Streams.dll
+D:\PBL3\PLB3\PLB3\BLL\bin\Debug\K4os.Hash.xxHash.dll
+D:\PBL3\PLB3\PLB3\BLL\bin\Debug\MySql.Data.dll
+D:\PBL3\PLB3\PLB3\BLL\bin\Debug\MySql.Data.EntityFramework.dll
+D:\PBL3\PLB3\PLB3\BLL\bin\Debug\System.Buffers.dll
+D:\PBL3\PLB3\PLB3\BLL\bin\Debug\System.Memory.dll
+D:\PBL3\PLB3\PLB3\BLL\bin\Debug\System.Numerics.Vectors.dll
+D:\PBL3\PLB3\PLB3\BLL\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\PBL3\PLB3\PLB3\BLL\bin\Debug\ZstdNet.dll
+D:\PBL3\PLB3\PLB3\BLL\bin\Debug\BouncyCastle.Crypto.xml
+D:\PBL3\PLB3\PLB3\BLL\bin\Debug\EntityFramework.xml
+D:\PBL3\PLB3\PLB3\BLL\bin\Debug\EntityFramework.SqlServer.xml
+D:\PBL3\PLB3\PLB3\BLL\bin\Debug\Google.Protobuf.pdb
+D:\PBL3\PLB3\PLB3\BLL\bin\Debug\Google.Protobuf.xml
+D:\PBL3\PLB3\PLB3\BLL\bin\Debug\K4os.Compression.LZ4.xml
+D:\PBL3\PLB3\PLB3\BLL\bin\Debug\K4os.Compression.LZ4.Streams.xml
+D:\PBL3\PLB3\PLB3\BLL\bin\Debug\K4os.Hash.xxHash.xml
+D:\PBL3\PLB3\PLB3\BLL\bin\Debug\MySql.Data.xml
+D:\PBL3\PLB3\PLB3\BLL\bin\Debug\MySql.Data.EntityFramework.xml
+D:\PBL3\PLB3\PLB3\BLL\bin\Debug\System.Buffers.xml
+D:\PBL3\PLB3\PLB3\BLL\bin\Debug\System.Memory.xml
+D:\PBL3\PLB3\PLB3\BLL\bin\Debug\System.Numerics.Vectors.xml
+D:\PBL3\PLB3\PLB3\BLL\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\PBL3\PLB3\PLB3\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+D:\PBL3\PLB3\PLB3\BLL\obj\Debug\BLL.Properties.Resources.resources
+D:\PBL3\PLB3\PLB3\BLL\obj\Debug\BLL.csproj.GenerateResource.cache
+D:\PBL3\PLB3\PLB3\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\PBL3\PLB3\PLB3\BLL\obj\Debug\BLL.csproj.CopyComplete
+D:\PBL3\PLB3\PLB3\BLL\obj\Debug\BLL.exe
+D:\PBL3\PLB3\PLB3\BLL\obj\Debug\BLL.pdb
+D:\PBL3\PLB3\PLB3\BLL\obj\Debug\BLL.Migrations.itit.resources
+D:\PBL3\PLB3\PLB3\BLL\obj\Debug\BLL.Form1.resources
+D:\PBL3\pLB\PLB3\BLL\bin\Debug\BLL.exe.config
+D:\PBL3\pLB\PLB3\BLL\bin\Debug\BLL.exe
+D:\PBL3\pLB\PLB3\BLL\bin\Debug\BLL.pdb
+D:\PBL3\pLB\PLB3\BLL\bin\Debug\BouncyCastle.Crypto.dll
+D:\PBL3\pLB\PLB3\BLL\bin\Debug\EntityFramework.dll
+D:\PBL3\pLB\PLB3\BLL\bin\Debug\EntityFramework.SqlServer.dll
+D:\PBL3\pLB\PLB3\BLL\bin\Debug\Google.Protobuf.dll
+D:\PBL3\pLB\PLB3\BLL\bin\Debug\K4os.Compression.LZ4.dll
+D:\PBL3\pLB\PLB3\BLL\bin\Debug\K4os.Compression.LZ4.Streams.dll
+D:\PBL3\pLB\PLB3\BLL\bin\Debug\K4os.Hash.xxHash.dll
+D:\PBL3\pLB\PLB3\BLL\bin\Debug\MySql.Data.dll
+D:\PBL3\pLB\PLB3\BLL\bin\Debug\MySql.Data.EntityFramework.dll
+D:\PBL3\pLB\PLB3\BLL\bin\Debug\System.Buffers.dll
+D:\PBL3\pLB\PLB3\BLL\bin\Debug\System.Memory.dll
+D:\PBL3\pLB\PLB3\BLL\bin\Debug\System.Numerics.Vectors.dll
+D:\PBL3\pLB\PLB3\BLL\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\PBL3\pLB\PLB3\BLL\bin\Debug\ZstdNet.dll
+D:\PBL3\pLB\PLB3\BLL\bin\Debug\BouncyCastle.Crypto.xml
+D:\PBL3\pLB\PLB3\BLL\bin\Debug\EntityFramework.xml
+D:\PBL3\pLB\PLB3\BLL\bin\Debug\EntityFramework.SqlServer.xml
+D:\PBL3\pLB\PLB3\BLL\bin\Debug\Google.Protobuf.pdb
+D:\PBL3\pLB\PLB3\BLL\bin\Debug\Google.Protobuf.xml
+D:\PBL3\pLB\PLB3\BLL\bin\Debug\K4os.Compression.LZ4.xml
+D:\PBL3\pLB\PLB3\BLL\bin\Debug\K4os.Compression.LZ4.Streams.xml
+D:\PBL3\pLB\PLB3\BLL\bin\Debug\K4os.Hash.xxHash.xml
+D:\PBL3\pLB\PLB3\BLL\bin\Debug\MySql.Data.xml
+D:\PBL3\pLB\PLB3\BLL\bin\Debug\MySql.Data.EntityFramework.xml
+D:\PBL3\pLB\PLB3\BLL\bin\Debug\System.Buffers.xml
+D:\PBL3\pLB\PLB3\BLL\bin\Debug\System.Memory.xml
+D:\PBL3\pLB\PLB3\BLL\bin\Debug\System.Numerics.Vectors.xml
+D:\PBL3\pLB\PLB3\BLL\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\PBL3\pLB\PLB3\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+D:\PBL3\pLB\PLB3\BLL\obj\Debug\BLL.Form1.resources
+D:\PBL3\pLB\PLB3\BLL\obj\Debug\BLL.Migrations.itit.resources
+D:\PBL3\pLB\PLB3\BLL\obj\Debug\BLL.Properties.Resources.resources
+D:\PBL3\pLB\PLB3\BLL\obj\Debug\BLL.csproj.GenerateResource.cache
+D:\PBL3\pLB\PLB3\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\PBL3\pLB\PLB3\BLL\obj\Debug\BLL.csproj.CopyComplete
+D:\PBL3\pLB\PLB3\BLL\obj\Debug\BLL.exe
+D:\PBL3\pLB\PLB3\BLL\obj\Debug\BLL.pdb
+D:\PBL3\pLB\PLB3\BLL\obj\Debug\BLL.Migrations.ititit.resources
+D:\PLB3\BLL\bin\Debug\BLL.exe.config
+D:\PLB3\BLL\bin\Debug\BLL.exe
+D:\PLB3\BLL\bin\Debug\BLL.pdb
+D:\PLB3\BLL\bin\Debug\BouncyCastle.Crypto.dll
+D:\PLB3\BLL\bin\Debug\EntityFramework.dll
+D:\PLB3\BLL\bin\Debug\EntityFramework.SqlServer.dll
+D:\PLB3\BLL\bin\Debug\Google.Protobuf.dll
+D:\PLB3\BLL\bin\Debug\K4os.Compression.LZ4.dll
+D:\PLB3\BLL\bin\Debug\K4os.Compression.LZ4.Streams.dll
+D:\PLB3\BLL\bin\Debug\K4os.Hash.xxHash.dll
+D:\PLB3\BLL\bin\Debug\MySql.Data.dll
+D:\PLB3\BLL\bin\Debug\MySql.Data.EntityFramework.dll
+D:\PLB3\BLL\bin\Debug\System.Buffers.dll
+D:\PLB3\BLL\bin\Debug\System.Memory.dll
+D:\PLB3\BLL\bin\Debug\System.Numerics.Vectors.dll
+D:\PLB3\BLL\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\PLB3\BLL\bin\Debug\ZstdNet.dll
+D:\PLB3\BLL\bin\Debug\BouncyCastle.Crypto.xml
+D:\PLB3\BLL\bin\Debug\EntityFramework.xml
+D:\PLB3\BLL\bin\Debug\EntityFramework.SqlServer.xml
+D:\PLB3\BLL\bin\Debug\Google.Protobuf.pdb
+D:\PLB3\BLL\bin\Debug\Google.Protobuf.xml
+D:\PLB3\BLL\bin\Debug\K4os.Compression.LZ4.xml
+D:\PLB3\BLL\bin\Debug\K4os.Compression.LZ4.Streams.xml
+D:\PLB3\BLL\bin\Debug\K4os.Hash.xxHash.xml
+D:\PLB3\BLL\bin\Debug\MySql.Data.xml
+D:\PLB3\BLL\bin\Debug\MySql.Data.EntityFramework.xml
+D:\PLB3\BLL\bin\Debug\System.Buffers.xml
+D:\PLB3\BLL\bin\Debug\System.Memory.xml
+D:\PLB3\BLL\bin\Debug\System.Numerics.Vectors.xml
+D:\PLB3\BLL\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\PLB3\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+D:\PLB3\BLL\obj\Debug\BLL.csproj.SuggestedBindingRedirects.cache
+D:\PLB3\BLL\obj\Debug\BLL.Form1.resources
+D:\PLB3\BLL\obj\Debug\BLL.Properties.Resources.resources
+D:\PLB3\BLL\obj\Debug\BLL.csproj.GenerateResource.cache
+D:\PLB3\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\PLB3\BLL\obj\Debug\BLL.csproj.CopyComplete
+D:\PLB3\BLL\obj\Debug\BLL.exe
+D:\PLB3\BLL\obj\Debug\BLL.pdb
+D:\PLB3\BLL\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\PLB3\BLL\bin\Debug\Microsoft.Bcl.HashCode.dll
+D:\PLB3\BLL\bin\Debug\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\PLB3\BLL\bin\Debug\Microsoft.EntityFrameworkCore.dll
+D:\PLB3\BLL\bin\Debug\Microsoft.EntityFrameworkCore.Relational.dll
+D:\PLB3\BLL\bin\Debug\Microsoft.Extensions.Caching.Abstractions.dll
+D:\PLB3\BLL\bin\Debug\Microsoft.Extensions.Caching.Memory.dll
+D:\PLB3\BLL\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\PLB3\BLL\bin\Debug\Microsoft.Extensions.Configuration.Binder.dll
+D:\PLB3\BLL\bin\Debug\Microsoft.Extensions.Configuration.dll
+D:\PLB3\BLL\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\PLB3\BLL\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
+D:\PLB3\BLL\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+D:\PLB3\BLL\bin\Debug\Microsoft.Extensions.Logging.dll
+D:\PLB3\BLL\bin\Debug\Microsoft.Extensions.Options.dll
+D:\PLB3\BLL\bin\Debug\Microsoft.Extensions.Primitives.dll
+D:\PLB3\BLL\bin\Debug\MySql.EntityFrameworkCore.dll
+D:\PLB3\BLL\bin\Debug\System.Collections.Immutable.dll
+D:\PLB3\BLL\bin\Debug\System.ComponentModel.Annotations.dll
+D:\PLB3\BLL\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+D:\PLB3\BLL\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\PLB3\BLL\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\PLB3\BLL\bin\Debug\Microsoft.Bcl.HashCode.xml
+D:\PLB3\BLL\bin\Debug\Microsoft.EntityFrameworkCore.xml
+D:\PLB3\BLL\bin\Debug\Microsoft.EntityFrameworkCore.Abstractions.xml
+D:\PLB3\BLL\bin\Debug\Microsoft.EntityFrameworkCore.Relational.xml
+D:\PLB3\BLL\bin\Debug\Microsoft.Extensions.Caching.Abstractions.xml
+D:\PLB3\BLL\bin\Debug\Microsoft.Extensions.Caching.Memory.xml
+D:\PLB3\BLL\bin\Debug\Microsoft.Extensions.Configuration.xml
+D:\PLB3\BLL\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+D:\PLB3\BLL\bin\Debug\Microsoft.Extensions.Configuration.Binder.xml
+D:\PLB3\BLL\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
+D:\PLB3\BLL\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+D:\PLB3\BLL\bin\Debug\Microsoft.Extensions.Logging.xml
+D:\PLB3\BLL\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+D:\PLB3\BLL\bin\Debug\Microsoft.Extensions.Options.xml
+D:\PLB3\BLL\bin\Debug\Microsoft.Extensions.Primitives.xml
+D:\PLB3\BLL\bin\Debug\MySql.EntityFrameworkCore.xml
+D:\PLB3\BLL\bin\Debug\System.Collections.Immutable.xml
+D:\PLB3\BLL\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+D:\PLB3\BLL\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\PLB3\BLL\obj\Debug\BLL.Migrations.itit.resources
+D:\PLB3\BLL\obj\Debug\BLL.Migrations.ititit.resources
+D:\PLB3\BLL\bin\Debug\Microsoft.EntityFrameworkCore.Design.dll
+D:\PLB3\BLL\bin\Debug\Microsoft.EntityFrameworkCore.Design.xml
+D:\PLB3\BLL\obj\Debug\BLL.exe.config
+D:\PLB3\BLL\bin\Debug\PBLLibrary.dll
+D:\PLB3\BLL\bin\Debug\PBLLibrary.pdb
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\BLL.exe.config
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\BLL.exe
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\BLL.pdb
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\BouncyCastle.Crypto.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\EntityFramework.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Google.Protobuf.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\K4os.Compression.LZ4.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\K4os.Compression.LZ4.Streams.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\K4os.Hash.xxHash.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.Bcl.HashCode.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.EntityFrameworkCore.Design.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.EntityFrameworkCore.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.Extensions.Caching.Abstractions.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.Extensions.Caching.Memory.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.Extensions.Configuration.Binder.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.Extensions.Configuration.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.Extensions.Logging.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.Extensions.Options.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.Extensions.Primitives.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\MySql.Data.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\MySql.Data.EntityFramework.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\MySql.EntityFrameworkCore.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\PBLLibrary.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\System.Buffers.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\System.Collections.Immutable.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\System.ComponentModel.Annotations.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\System.Memory.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\System.Numerics.Vectors.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\ZstdNet.dll
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\PBLLibrary.pdb
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\BouncyCastle.Crypto.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\EntityFramework.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Google.Protobuf.pdb
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Google.Protobuf.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\K4os.Compression.LZ4.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\K4os.Compression.LZ4.Streams.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\K4os.Hash.xxHash.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.Bcl.HashCode.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.EntityFrameworkCore.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.EntityFrameworkCore.Abstractions.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.EntityFrameworkCore.Design.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.EntityFrameworkCore.Relational.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.Extensions.Caching.Abstractions.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.Extensions.Caching.Memory.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.Extensions.Configuration.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.Extensions.Configuration.Binder.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.Extensions.Logging.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.Extensions.Options.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\Microsoft.Extensions.Primitives.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\MySql.Data.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\MySql.Data.EntityFramework.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\MySql.EntityFrameworkCore.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\System.Buffers.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\System.Collections.Immutable.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\System.Memory.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\System.Numerics.Vectors.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Source\Visual Studio\C#\PLB3\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+D:\Source\Visual Studio\C#\PLB3\BLL\obj\Debug\BLL.csproj.SuggestedBindingRedirects.cache
+D:\Source\Visual Studio\C#\PLB3\BLL\obj\Debug\BLL.exe.config
+D:\Source\Visual Studio\C#\PLB3\BLL\obj\Debug\BLL.Form1.resources
+D:\Source\Visual Studio\C#\PLB3\BLL\obj\Debug\BLL.Migrations.itit.resources
+D:\Source\Visual Studio\C#\PLB3\BLL\obj\Debug\BLL.Migrations.ititit.resources
+D:\Source\Visual Studio\C#\PLB3\BLL\obj\Debug\BLL.Properties.Resources.resources
+D:\Source\Visual Studio\C#\PLB3\BLL\obj\Debug\BLL.csproj.GenerateResource.cache
+D:\Source\Visual Studio\C#\PLB3\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\Source\Visual Studio\C#\PLB3\BLL\obj\Debug\BLL.csproj.CopyComplete
+D:\Source\Visual Studio\C#\PLB3\BLL\obj\Debug\BLL.exe
+D:\Source\Visual Studio\C#\PLB3\BLL\obj\Debug\BLL.pdb

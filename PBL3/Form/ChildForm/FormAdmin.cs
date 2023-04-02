@@ -13,8 +13,8 @@ namespace PBL3
     public partial class FormAdmin : Form
     {
 
-        private Button _currentTag;
-        private Form _currentChildForm;
+        private Button _CurrentTag;
+        private Form _CurrentChildForm;
 
         public FormAdmin_Account AccountForm { get; private set; }
         public FormAdmin_Word WordForm { get; private set; }
@@ -35,37 +35,37 @@ namespace PBL3
 
         private void ActiveTag(Button tag)
         {
-            if (_currentTag != null)
+            if (_CurrentTag != null)
             {
                 ResetTag();
             }
 
-            _currentTag = tag;
+            _CurrentTag = tag;
 
-            _currentTag.BackColor = Color.FromArgb(240, 237, 254);
-            _currentTag.ForeColor = Color.FromArgb(48, 48, 87);
-            _currentTag.Size = new Size(190, 60);
-            _currentTag.Location = new Point(_currentTag.Location.X, _currentTag.Location.Y - 10);
-            _currentTag.Enabled = false;
+            _CurrentTag.BackColor = Color.FromArgb(240, 237, 254);
+            _CurrentTag.ForeColor = Color.FromArgb(48, 48, 87);
+            _CurrentTag.Size = new Size(190, 60);
+            _CurrentTag.Location = new Point(_CurrentTag.Location.X, _CurrentTag.Location.Y - 10);
+            _CurrentTag.Enabled = false;
         }
 
         private void ResetTag()
         {
-            _currentTag.BackColor = Color.FromArgb(44, 41, 74);
-            _currentTag.ForeColor = Color.FromArgb(240, 237, 254);
-            _currentTag.Size = new Size(190, 50);
-            _currentTag.Enabled = true;
-            _currentTag.Location = new Point(_currentTag.Location.X, _currentTag.Location.Y + 10);
+            _CurrentTag.BackColor = Color.FromArgb(44, 41, 74);
+            _CurrentTag.ForeColor = Color.FromArgb(240, 237, 254);
+            _CurrentTag.Size = new Size(190, 50);
+            _CurrentTag.Enabled = true;
+            _CurrentTag.Location = new Point(_CurrentTag.Location.X, _CurrentTag.Location.Y + 10);
         }
 
         public void OpenChildForm(Form childForm)
         {
-            if (_currentChildForm != null)
+            if (_CurrentChildForm != null)
             {
-                _currentChildForm.Visible = false;
+                _CurrentChildForm.Visible = false;
             }
 
-            _currentChildForm = childForm;
+            _CurrentChildForm = childForm;
             childForm.TopLevel = false;
             childForm.Dock = DockStyle.Fill;
             panelBase.Controls.Add(childForm);

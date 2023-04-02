@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.EntityFrameworkCore.Design.3.1.32\build\net461\Microsoft.EntityFrameworkCore.Design.props" Condition="Exists('..\packages\Microsoft.EntityFrameworkCore.Design.3.1.32\build\net461\Microsoft.EntityFrameworkCore.Design.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -27,6 +28,8 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -70,6 +73,57 @@
     <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
       <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.1.1.1\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore, Version=3.1.32.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.3.1.32\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Abstractions, Version=3.1.32.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Abstractions.3.1.32\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Design, Version=3.1.32.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Design.3.1.32\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.EntityFrameworkCore.Relational, Version=3.1.32.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.EntityFrameworkCore.Relational.3.1.32\lib\netstandard2.0\Microsoft.EntityFrameworkCore.Relational.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Abstractions, Version=3.1.32.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Abstractions.3.1.32\lib\netstandard2.0\Microsoft.Extensions.Caching.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Caching.Memory, Version=3.1.32.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Caching.Memory.3.1.32\lib\netstandard2.0\Microsoft.Extensions.Caching.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=3.1.32.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.3.1.32\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=3.1.32.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.3.1.32\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=3.1.32.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Binder.3.1.32\lib\netstandard2.0\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=3.1.32.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.3.1.32\lib\net461\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=3.1.32.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.3.1.32\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=3.1.32.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.3.1.32\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=3.1.32.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.3.1.32\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=3.1.32.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.3.1.32\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=3.1.32.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.3.1.32\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=8.0.32.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -77,9 +131,35 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Collections.Immutable.1.7.1\lib\net461\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.7.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.7.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
     <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.1\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
@@ -103,34 +183,34 @@
     <Compile Include="Form\ChildForm\FormAdmin.Designer.cs">
       <DependentUpon>FormAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\UtilForm\FormAdmin_Account.cs">
+    <Compile Include="Form\UtilForm\Admin\FormAdmin_Account.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\UtilForm\FormAdmin_Account.Designer.cs">
+    <Compile Include="Form\UtilForm\Admin\FormAdmin_Account.Designer.cs">
       <DependentUpon>FormAdmin_Account.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\UtilForm\FormAdmin_Account_AddUpdate.cs">
+    <Compile Include="Form\UtilForm\Admin\FormAdmin_Account_AddUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\UtilForm\FormAdmin_Account_AddUpdate.Designer.cs">
+    <Compile Include="Form\UtilForm\Admin\FormAdmin_Account_AddUpdate.Designer.cs">
       <DependentUpon>FormAdmin_Account_AddUpdate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\UtilForm\FormAdmin_Packet.cs">
+    <Compile Include="Form\UtilForm\Admin\FormAdmin_Packet.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\UtilForm\FormAdmin_Packet.Designer.cs">
+    <Compile Include="Form\UtilForm\Admin\FormAdmin_Packet.Designer.cs">
       <DependentUpon>FormAdmin_Packet.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\UtilForm\FormAdmin_Word.cs">
+    <Compile Include="Form\UtilForm\Admin\FormAdmin_Word.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\UtilForm\FormAdmin_Word.Designer.cs">
+    <Compile Include="Form\UtilForm\Admin\FormAdmin_Word.Designer.cs">
       <DependentUpon>FormAdmin_Word.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\UtilForm\FormAdmin_Word_AddUpdate.cs">
+    <Compile Include="Form\UtilForm\Admin\FormAdmin_Word_AddUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\UtilForm\FormAdmin_Word_AddUpdate.Designer.cs">
+    <Compile Include="Form\UtilForm\Admin\FormAdmin_Word_AddUpdate.Designer.cs">
       <DependentUpon>FormAdmin_Word_AddUpdate.cs</DependentUpon>
     </Compile>
     <Compile Include="Form\UtilForm\FormPremium.cs">
@@ -176,16 +256,16 @@
       <DependentUpon>FormSetting.cs</DependentUpon>
     </Compile>
     <Compile Include="FormStack.cs" />
-    <Compile Include="Form\UtilForm\FormSignUp.cs">
+    <Compile Include="Form\UtilForm\Login\FormSignUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\UtilForm\FormSignUp.Designer.cs">
+    <Compile Include="Form\UtilForm\Login\FormSignUp.Designer.cs">
       <DependentUpon>FormSignUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\UtilForm\FormSignIn.cs">
+    <Compile Include="Form\UtilForm\Login\FormSignIn.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\UtilForm\FormSignIn.Designer.cs">
+    <Compile Include="Form\UtilForm\Login\FormSignIn.Designer.cs">
       <DependentUpon>FormSignIn.cs</DependentUpon>
     </Compile>
     <Compile Include="Form\ChildForm\FormHome.cs">
@@ -212,11 +292,11 @@
     <Compile Include="Form\UtilForm\FormTranslanteText.Designer.cs">
       <DependentUpon>FormTranslanteText.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\UtilForm\MessageBox.cs">
+    <Compile Include="Form\UtilForm\FormMessageBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\UtilForm\MessageBox.Designer.cs">
-      <DependentUpon>MessageBox.cs</DependentUpon>
+    <Compile Include="Form\UtilForm\FormMessageBox.Designer.cs">
+      <DependentUpon>FormMessageBox.cs</DependentUpon>
     </Compile>
     <Compile Include="GlobalForm.cs" />
     <Compile Include="Program.cs" />
@@ -226,34 +306,34 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Form\UtilForm\WordForm.cs">
+    <Compile Include="Form\UtilForm\Word\WordForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\UtilForm\WordForm.Designer.cs">
+    <Compile Include="Form\UtilForm\Word\WordForm.Designer.cs">
       <DependentUpon>WordForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\UtilForm\WordForm_Grammar.cs">
+    <Compile Include="Form\UtilForm\Word\WordForm_Grammar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\UtilForm\WordForm_Grammar.Designer.cs">
+    <Compile Include="Form\UtilForm\Word\WordForm_Grammar.Designer.cs">
       <DependentUpon>WordForm_Grammar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\UtilForm\WordForm_Meaning.cs">
+    <Compile Include="Form\UtilForm\Word\WordForm_Meaning.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\UtilForm\WordForm_Meaning.Designer.cs">
+    <Compile Include="Form\UtilForm\Word\WordForm_Meaning.Designer.cs">
       <DependentUpon>WordForm_Meaning.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\UtilForm\WordForm_Synonym.cs">
+    <Compile Include="Form\UtilForm\Word\WordForm_Synonym.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\UtilForm\WordForm_Synonym.Designer.cs">
+    <Compile Include="Form\UtilForm\Word\WordForm_Synonym.Designer.cs">
       <DependentUpon>WordForm_Synonym.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\UtilForm\WordForm_None.cs">
+    <Compile Include="Form\UtilForm\Word\WordForm_None.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\UtilForm\WordForm_None.Designer.cs">
+    <Compile Include="Form\UtilForm\Word\WordForm_None.Designer.cs">
       <DependentUpon>WordForm_None.cs</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -265,19 +345,19 @@
     <EmbeddedResource Include="Form\ChildForm\FormAdmin.resx">
       <DependentUpon>FormAdmin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\UtilForm\FormAdmin_Account.resx">
+    <EmbeddedResource Include="Form\UtilForm\Admin\FormAdmin_Account.resx">
       <DependentUpon>FormAdmin_Account.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\UtilForm\FormAdmin_Account_AddUpdate.resx">
+    <EmbeddedResource Include="Form\UtilForm\Admin\FormAdmin_Account_AddUpdate.resx">
       <DependentUpon>FormAdmin_Account_AddUpdate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\UtilForm\FormAdmin_Packet.resx">
+    <EmbeddedResource Include="Form\UtilForm\Admin\FormAdmin_Packet.resx">
       <DependentUpon>FormAdmin_Packet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\UtilForm\FormAdmin_Word.resx">
+    <EmbeddedResource Include="Form\UtilForm\Admin\FormAdmin_Word.resx">
       <DependentUpon>FormAdmin_Word.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\UtilForm\FormAdmin_Word_AddUpdate.resx">
+    <EmbeddedResource Include="Form\UtilForm\Admin\FormAdmin_Word_AddUpdate.resx">
       <DependentUpon>FormAdmin_Word_AddUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\UtilForm\FormPremium.resx">
@@ -301,10 +381,10 @@
     <EmbeddedResource Include="Form\ChildForm\FormSetting.resx">
       <DependentUpon>FormSetting.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\UtilForm\FormSignUp.resx">
+    <EmbeddedResource Include="Form\UtilForm\Login\FormSignUp.resx">
       <DependentUpon>FormSignUp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\UtilForm\FormSignIn.resx">
+    <EmbeddedResource Include="Form\UtilForm\Login\FormSignIn.resx">
       <DependentUpon>FormSignIn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\Base\LoginForm.resx">
@@ -319,30 +399,34 @@
     <EmbeddedResource Include="Form\UtilForm\FormTranslanteText.resx">
       <DependentUpon>FormTranslanteText.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\UtilForm\WordForm.resx">
+    <EmbeddedResource Include="Form\UtilForm\Word\WordForm.resx">
       <DependentUpon>WordForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\UtilForm\MessageBox.resx">
-      <DependentUpon>MessageBox.cs</DependentUpon>
+    <EmbeddedResource Include="Form\UtilForm\FormMessageBox.resx">
+      <DependentUpon>FormMessageBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\UtilForm\WordForm_Grammar.resx">
+    <EmbeddedResource Include="Form\UtilForm\Word\WordForm_Grammar.resx">
       <DependentUpon>WordForm_Grammar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\UtilForm\WordForm_Meaning.resx">
+    <EmbeddedResource Include="Form\UtilForm\Word\WordForm_Meaning.resx">
       <DependentUpon>WordForm_Meaning.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\UtilForm\WordForm_Synonym.resx">
+    <EmbeddedResource Include="Form\UtilForm\Word\WordForm_Synonym.resx">
       <DependentUpon>WordForm_Synonym.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\UtilForm\WordForm_None.resx">
+    <EmbeddedResource Include="Form\UtilForm\Word\WordForm_None.resx">
       <DependentUpon>WordForm_None.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{03ff7ce8-3993-479f-9f6a-76f268a8b66c}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CustomControls\CustomControls.csproj">
       <Project>{6c7a04a5-31d4-4159-9f31-fa2d8ec11e47}</Project>
       <Name>CustomControls</Name>
@@ -382,4 +466,10 @@
     <None Include="Resources\Theme.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.EntityFrameworkCore.Design.3.1.32\build\net461\Microsoft.EntityFrameworkCore.Design.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.EntityFrameworkCore.Design.3.1.32\build\net461\Microsoft.EntityFrameworkCore.Design.props'))" />
+  </Target>
 </Project>

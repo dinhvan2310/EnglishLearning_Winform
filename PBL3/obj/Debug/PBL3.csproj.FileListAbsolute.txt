@@ -67,3 +67,320 @@ D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormAdmin_Packet.resources
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormAdmin_Word.resources
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormAdmin_Account_AddUpdate.resources
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormAdmin_Word_AddUpdate.resources
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\PBL3.exe.config
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\PBL3.exe
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\PBL3.pdb
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\CircularProgressBar.dll
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\Control.Draggable.dll
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\CustomControls.dll
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\FontAwesome.Sharp.dll
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\LiveCharts.dll
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\LiveCharts.WinForms.dll
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\LiveCharts.Wpf.dll
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\MySql.Data.dll
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\Newtonsoft.Json.dll
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\PBLLibrary.dll
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\WinFormAnimation.dll
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\Google.Protobuf.dll
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\ZstdNet.dll
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\K4os.Compression.LZ4.Streams.dll
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\BouncyCastle.Crypto.dll
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\System.Memory.dll
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\System.Buffers.dll
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\K4os.Compression.LZ4.dll
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\K4os.Hash.xxHash.dll
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\System.Numerics.Vectors.dll
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\CustomControls.pdb
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\PBLLibrary.pdb
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\PBLLibrary.dll.config
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\CircularProgressBar.xml
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\LiveCharts.pdb
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\LiveCharts.xml
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\LiveCharts.WinForms.pdb
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\LiveCharts.WinForms.xml
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\LiveCharts.Wpf.pdb
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\LiveCharts.Wpf.xml
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\MySql.Data.xml
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\Newtonsoft.Json.xml
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.csproj.AssemblyReference.cache
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.exe.config
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.FormAdmin.resources
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.FormAdmin_Account.resources
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.FormAdmin_Account_AddUpdate.resources
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.FormAdmin_Packet.resources
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.FormAdmin_Word.resources
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.FormAdmin_Word_AddUpdate.resources
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.FormPremium.resources
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.FormSetGoal.resources
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.FormStatistic.resources
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.FormTopic.resources
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.FormNotebook.resources
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.FormProfile.resources
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.FormSetting.resources
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.FormSignUp.resources
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.FormSignIn.resources
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.LoginForm.resources
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.FormHome.resources
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.MainForm.resources
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.FormTranslanteText.resources
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.WordForm.resources
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.MessageBox.resources
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.Properties.Resources.resources
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.WordForm_Grammar.resources
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.WordForm_Meaning.resources
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.WordForm_Synonym.resources
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.WordForm_None.resources
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.csproj.GenerateResource.cache
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.csproj.CoreCompileInputs.cache
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.csproj.CopyComplete
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.exe
+D:\PBL3\pLB\PLB3\PBL3\obj\Debug\PBL3.pdb
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\BLL.exe
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\EntityFramework.dll
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\MySql.Data.EntityFramework.dll
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\BLL.pdb
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\BLL.exe.config
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\EntityFramework.xml
+D:\PBL3\pLB\PLB3\PBL3\bin\Debug\MySql.Data.EntityFramework.xml
+D:\PLB3\PBL3\obj\Debug\PBL3.csproj.AssemblyReference.cache
+D:\PLB3\PBL3\obj\Debug\PBL3.csproj.SuggestedBindingRedirects.cache
+D:\PLB3\PBL3\obj\Debug\PBL3.FormAdmin.resources
+D:\PLB3\PBL3\obj\Debug\PBL3.FormAdmin_Account.resources
+D:\PLB3\PBL3\obj\Debug\PBL3.FormAdmin_Account_AddUpdate.resources
+D:\PLB3\PBL3\obj\Debug\PBL3.FormAdmin_Packet.resources
+D:\PLB3\PBL3\obj\Debug\PBL3.FormAdmin_Word.resources
+D:\PLB3\PBL3\obj\Debug\PBL3.FormAdmin_Word_AddUpdate.resources
+D:\PLB3\PBL3\obj\Debug\PBL3.FormPremium.resources
+D:\PLB3\PBL3\obj\Debug\PBL3.FormSetGoal.resources
+D:\PLB3\PBL3\obj\Debug\PBL3.FormStatistic.resources
+D:\PLB3\PBL3\obj\Debug\PBL3.FormTopic.resources
+D:\PLB3\PBL3\obj\Debug\PBL3.FormNotebook.resources
+D:\PLB3\PBL3\obj\Debug\PBL3.FormProfile.resources
+D:\PLB3\PBL3\obj\Debug\PBL3.FormSetting.resources
+D:\PLB3\PBL3\obj\Debug\PBL3.FormSignUp.resources
+D:\PLB3\PBL3\obj\Debug\PBL3.FormSignIn.resources
+D:\PLB3\PBL3\obj\Debug\PBL3.LoginForm.resources
+D:\PLB3\PBL3\obj\Debug\PBL3.FormHome.resources
+D:\PLB3\PBL3\obj\Debug\PBL3.FormTranslanteText.resources
+D:\PLB3\PBL3\obj\Debug\PBL3.WordForm.resources
+D:\PLB3\PBL3\obj\Debug\PBL3.Properties.Resources.resources
+D:\PLB3\PBL3\obj\Debug\PBL3.WordForm_Grammar.resources
+D:\PLB3\PBL3\obj\Debug\PBL3.WordForm_Meaning.resources
+D:\PLB3\PBL3\obj\Debug\PBL3.WordForm_Synonym.resources
+D:\PLB3\PBL3\obj\Debug\PBL3.WordForm_None.resources
+D:\PLB3\PBL3\obj\Debug\PBL3.csproj.GenerateResource.cache
+D:\PLB3\PBL3\obj\Debug\PBL3.exe
+D:\PLB3\PBL3\obj\Debug\PBL3.pdb
+D:\PLB3\PBL3\bin\Debug\PBL3.exe.config
+D:\PLB3\PBL3\bin\Debug\PBL3.exe
+D:\PLB3\PBL3\bin\Debug\PBL3.pdb
+D:\PLB3\PBL3\bin\Debug\BLL.exe
+D:\PLB3\PBL3\bin\Debug\CircularProgressBar.dll
+D:\PLB3\PBL3\bin\Debug\Control.Draggable.dll
+D:\PLB3\PBL3\bin\Debug\CustomControls.dll
+D:\PLB3\PBL3\bin\Debug\FontAwesome.Sharp.dll
+D:\PLB3\PBL3\bin\Debug\LiveCharts.dll
+D:\PLB3\PBL3\bin\Debug\LiveCharts.WinForms.dll
+D:\PLB3\PBL3\bin\Debug\LiveCharts.Wpf.dll
+D:\PLB3\PBL3\bin\Debug\MySql.Data.dll
+D:\PLB3\PBL3\bin\Debug\Newtonsoft.Json.dll
+D:\PLB3\PBL3\bin\Debug\PBLLibrary.dll
+D:\PLB3\PBL3\bin\Debug\WinFormAnimation.dll
+D:\PLB3\PBL3\bin\Debug\EntityFramework.dll
+D:\PLB3\PBL3\bin\Debug\MySql.Data.EntityFramework.dll
+D:\PLB3\PBL3\bin\Debug\Google.Protobuf.dll
+D:\PLB3\PBL3\bin\Debug\ZstdNet.dll
+D:\PLB3\PBL3\bin\Debug\K4os.Compression.LZ4.Streams.dll
+D:\PLB3\PBL3\bin\Debug\BouncyCastle.Crypto.dll
+D:\PLB3\PBL3\bin\Debug\System.Memory.dll
+D:\PLB3\PBL3\bin\Debug\System.Buffers.dll
+D:\PLB3\PBL3\bin\Debug\K4os.Compression.LZ4.dll
+D:\PLB3\PBL3\bin\Debug\K4os.Hash.xxHash.dll
+D:\PLB3\PBL3\bin\Debug\System.Numerics.Vectors.dll
+D:\PLB3\PBL3\bin\Debug\BLL.pdb
+D:\PLB3\PBL3\bin\Debug\BLL.exe.config
+D:\PLB3\PBL3\bin\Debug\CustomControls.pdb
+D:\PLB3\PBL3\bin\Debug\PBLLibrary.pdb
+D:\PLB3\PBL3\bin\Debug\CircularProgressBar.xml
+D:\PLB3\PBL3\bin\Debug\LiveCharts.pdb
+D:\PLB3\PBL3\bin\Debug\LiveCharts.xml
+D:\PLB3\PBL3\bin\Debug\LiveCharts.WinForms.pdb
+D:\PLB3\PBL3\bin\Debug\LiveCharts.WinForms.xml
+D:\PLB3\PBL3\bin\Debug\LiveCharts.Wpf.pdb
+D:\PLB3\PBL3\bin\Debug\LiveCharts.Wpf.xml
+D:\PLB3\PBL3\bin\Debug\MySql.Data.xml
+D:\PLB3\PBL3\bin\Debug\Newtonsoft.Json.xml
+D:\PLB3\PBL3\bin\Debug\EntityFramework.xml
+D:\PLB3\PBL3\bin\Debug\MySql.Data.EntityFramework.xml
+D:\PLB3\PBL3\obj\Debug\PBL3.MainForm.resources
+D:\PLB3\PBL3\obj\Debug\PBL3.csproj.CoreCompileInputs.cache
+D:\PLB3\PBL3\obj\Debug\PBL3.csproj.CopyComplete
+D:\PLB3\PBL3\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\PLB3\PBL3\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\PLB3\PBL3\bin\Debug\Microsoft.Bcl.HashCode.dll
+D:\PLB3\PBL3\bin\Debug\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\PLB3\PBL3\bin\Debug\Microsoft.EntityFrameworkCore.Design.dll
+D:\PLB3\PBL3\bin\Debug\Microsoft.EntityFrameworkCore.dll
+D:\PLB3\PBL3\bin\Debug\Microsoft.EntityFrameworkCore.Relational.dll
+D:\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Caching.Abstractions.dll
+D:\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Caching.Memory.dll
+D:\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Configuration.Binder.dll
+D:\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Configuration.dll
+D:\PLB3\PBL3\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\PLB3\PBL3\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
+D:\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+D:\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Logging.dll
+D:\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Options.dll
+D:\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Primitives.dll
+D:\PLB3\PBL3\bin\Debug\System.Collections.Immutable.dll
+D:\PLB3\PBL3\bin\Debug\System.ComponentModel.Annotations.dll
+D:\PLB3\PBL3\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+D:\PLB3\PBL3\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\PLB3\PBL3\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\PLB3\PBL3\bin\Debug\Microsoft.Bcl.HashCode.xml
+D:\PLB3\PBL3\bin\Debug\Microsoft.EntityFrameworkCore.xml
+D:\PLB3\PBL3\bin\Debug\Microsoft.EntityFrameworkCore.Abstractions.xml
+D:\PLB3\PBL3\bin\Debug\Microsoft.EntityFrameworkCore.Design.xml
+D:\PLB3\PBL3\bin\Debug\Microsoft.EntityFrameworkCore.Relational.xml
+D:\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Caching.Abstractions.xml
+D:\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Caching.Memory.xml
+D:\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Configuration.xml
+D:\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+D:\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Configuration.Binder.xml
+D:\PLB3\PBL3\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
+D:\PLB3\PBL3\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+D:\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Logging.xml
+D:\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+D:\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Options.xml
+D:\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Primitives.xml
+D:\PLB3\PBL3\bin\Debug\System.Buffers.xml
+D:\PLB3\PBL3\bin\Debug\System.Collections.Immutable.xml
+D:\PLB3\PBL3\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+D:\PLB3\PBL3\bin\Debug\System.Memory.xml
+D:\PLB3\PBL3\bin\Debug\System.Numerics.Vectors.xml
+D:\PLB3\PBL3\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\PLB3\PBL3\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\PLB3\PBL3\obj\Debug\PBL3.exe.config
+D:\PLB3\PBL3\obj\Debug\PBL3.FormMessageBox.resources
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\PBL3.exe.config
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\PBL3.exe
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\PBL3.pdb
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\BLL.exe
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\CircularProgressBar.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Control.Draggable.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\CustomControls.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\FontAwesome.Sharp.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\LiveCharts.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\LiveCharts.WinForms.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\LiveCharts.Wpf.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.Bcl.HashCode.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.EntityFrameworkCore.Design.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.EntityFrameworkCore.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.EntityFrameworkCore.Relational.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Caching.Abstractions.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Caching.Memory.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Configuration.Binder.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Configuration.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Logging.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Options.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Primitives.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\MySql.Data.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Newtonsoft.Json.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\PBLLibrary.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\System.Buffers.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\System.Collections.Immutable.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\System.ComponentModel.Annotations.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\System.Memory.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\System.Numerics.Vectors.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\System.Threading.Tasks.Extensions.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\WinFormAnimation.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\EntityFramework.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\MySql.Data.EntityFramework.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Google.Protobuf.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\ZstdNet.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\K4os.Compression.LZ4.Streams.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\BouncyCastle.Crypto.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\K4os.Compression.LZ4.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\K4os.Hash.xxHash.dll
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\BLL.pdb
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\BLL.exe.config
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\CustomControls.pdb
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\PBLLibrary.pdb
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\CircularProgressBar.xml
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\LiveCharts.pdb
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\LiveCharts.xml
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\LiveCharts.WinForms.pdb
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\LiveCharts.WinForms.xml
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\LiveCharts.Wpf.pdb
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\LiveCharts.Wpf.xml
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.Bcl.HashCode.xml
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.EntityFrameworkCore.xml
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.EntityFrameworkCore.Abstractions.xml
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.EntityFrameworkCore.Design.xml
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.EntityFrameworkCore.Relational.xml
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Caching.Abstractions.xml
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Caching.Memory.xml
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Configuration.xml
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Configuration.Binder.xml
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Logging.xml
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Options.xml
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Microsoft.Extensions.Primitives.xml
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\MySql.Data.xml
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\Newtonsoft.Json.xml
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\System.Buffers.xml
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\System.Collections.Immutable.xml
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\System.Memory.xml
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\System.Numerics.Vectors.xml
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\System.Threading.Tasks.Extensions.xml
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\EntityFramework.xml
+D:\Source\Visual Studio\C#\PLB3\PBL3\bin\Debug\MySql.Data.EntityFramework.xml
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.csproj.AssemblyReference.cache
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.csproj.SuggestedBindingRedirects.cache
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.exe.config
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.FormAdmin.resources
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.FormAdmin_Account.resources
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.FormAdmin_Account_AddUpdate.resources
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.FormAdmin_Packet.resources
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.FormAdmin_Word.resources
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.FormAdmin_Word_AddUpdate.resources
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.FormPremium.resources
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.FormSetGoal.resources
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.FormStatistic.resources
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.FormTopic.resources
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.FormNotebook.resources
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.FormProfile.resources
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.FormSetting.resources
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.FormSignUp.resources
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.FormSignIn.resources
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.LoginForm.resources
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.FormHome.resources
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.MainForm.resources
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.FormTranslanteText.resources
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.WordForm.resources
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.FormMessageBox.resources
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.Properties.Resources.resources
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.WordForm_Grammar.resources
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.WordForm_Meaning.resources
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.WordForm_Synonym.resources
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.WordForm_None.resources
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.csproj.GenerateResource.cache
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.csproj.CoreCompileInputs.cache
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.csproj.CopyComplete
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.exe
+D:\Source\Visual Studio\C#\PLB3\PBL3\obj\Debug\PBL3.pdb

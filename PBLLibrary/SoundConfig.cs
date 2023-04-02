@@ -14,18 +14,18 @@ namespace PBLLibrary
             Male, Female
         }
 
-        private static SpeechSynthesizer _synthesizer = new SpeechSynthesizer();
+        private static SpeechSynthesizer _Synthesizer = new SpeechSynthesizer();
 
         public static bool IsSpeaking = false;
 
         public static void Speak(string sentence)
         {
-            _synthesizer.Speak(sentence);
+            _Synthesizer.Speak(sentence);
         }
 
         public static void ChangeVolumn(int volumn)
         {
-            _synthesizer.Volume = volumn;
+            _Synthesizer.Volume = volumn;
         }
 
         public static void ChangeVoice(Voice voice)
@@ -42,7 +42,7 @@ namespace PBLLibrary
 
             }
 
-            _synthesizer.SelectVoice(voiceString);
+            _Synthesizer.SelectVoice(voiceString);
         }
     }
 }

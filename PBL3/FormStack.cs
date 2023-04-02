@@ -18,28 +18,28 @@ namespace PBL3
 
         public static FormType CurrentFormType = FormType.Strong;
 
-        private static Stack<Form> _stack = new Stack<Form>();
+        private static Stack<Form> _Stack = new Stack<Form>();
 
         public static void Push(Form form)
         {
-            _stack.Push(form);
+            _Stack.Push(form);
         }
 
         public static Form Pop()
         {
             if (Count() == 0) return null;
-            return _stack.Pop();
+            return _Stack.Pop();
         }
 
         public static Form Peek()
         {
             if (Count() == 0) return null;
-            return _stack.Peek();
+            return _Stack.Peek();
         }
 
         public static int Count()
         {
-            return _stack.Count;
+            return _Stack.Count;
         }
 
     }

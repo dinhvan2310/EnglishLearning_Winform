@@ -1,4 +1,5 @@
-﻿using FontAwesome.Sharp;
+﻿using BLL.Workflows;
+using FontAwesome.Sharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,8 +15,8 @@ namespace PBL3
 {
     public partial class FormProfile : Form
     {
-        private Font _overFont;
-        private Font _primaryFont;
+        private Font _OverFont;
+        private Font _PrimaryFont;
 
         // TO-DO
         //private PersonModel ;
@@ -24,52 +25,23 @@ namespace PBL3
         {
             InitializeComponent();
 
-            _primaryFont = btnAdjust1.Font;
-            _overFont = new Font(_primaryFont.FontFamily, _primaryFont.Size, FontStyle.Underline);
+            _PrimaryFont = btnAdjust1.Font;
+            _OverFont = new Font(_PrimaryFont.FontFamily, _PrimaryFont.Size, FontStyle.Underline);
         }
 
-        private bool ValidateDate()
+        private DateTime? ValidateDate()
         {
-            string[] split = txtDate.Text.Split('/');
-            int[] date = new int[3];
-
-            if (split.Length != 3)
-            {
-                return false;
-            }
-            else
-            {
-                int i = 0;
-                foreach (string s in split)
-                {
-                    if (!int.TryParse(s, out date[i++]))
-                    {
-                        return false;
-                    }
-                }
-
-                try
-                {
-                    DateTime dateTime = new DateTime(date[2], date[1], date[0]);
-                }
-                catch
-                {
-                    return false;
-                }
-
-            }
-
-            return true;
+            return ProfileWorkflow.Instance.CheckDate(txtDate.Text);
         }
         private void btnAdjust1_MouseEnter(object sender, EventArgs e)
         {
-            ((IconButton)sender).Font = _overFont;
+            ((IconButton)sender).Font = _OverFont;
             ((IconButton)sender).IconColor = Color.FromArgb(240, 237, 254);
         }
 
         private void btnAdjust1_MouseLeave(object sender, EventArgs e)
         {
-            ((IconButton)sender).Font = _primaryFont;
+            ((IconButton)sender).Font = _PrimaryFont;
             ((IconButton)sender).IconColor = Color.Transparent;
         }
 
@@ -155,28 +127,18 @@ namespace PBL3
             {
                 return;
             }
-            
-            if (ValidateDate())
+
+            DateTime? date = ValidateDate();
+            if (date != null)
             {
-                string[] split = txtDate.Text.Split('/');
-                int[] date = new int[3];
-
-                int i = 0;
-                foreach (string s in split)
-                {
-
-                    date[i++] = Convert.ToInt32(s);
-                }
-
-                DateTime dateTime = new DateTime(date[2], date[1], date[0]);
-                datePicker.Value = dateTime;
+                datePicker.Value = (DateTime)date;
                 txtDate.ForeColor = Color.FromArgb(119, 112, 156);
                 txtDate.ReadOnly = true;
                 datePicker.Visible = false;
             }
             else
             {
-                Form messageBox = new MessageBox("NHẬP SAI", "Nhập Sai Ngày Sinh", MessageBox.MessageType.Info);
+                Form messageBox = new FormMessageBox("NHẬP SAI", "Nhập Sai Ngày Sinh", FormMessageBox.MessageType.Info);
                 messageBox.ShowDialog();
                 txtDate.Text = "01/01/2003";
             }
@@ -198,7 +160,7 @@ namespace PBL3
                 string[] splits = txtEmail.Text.Split('@');
                 if (splits.Length != 2)
                 {
-                    Form messageBox = new MessageBox("NHẬP SAI", "Nhập Sai Email", MessageBox.MessageType.Info);
+                    Form messageBox = new FormMessageBox("NHẬP SAI", "Nhập Sai Email", FormMessageBox.MessageType.Info);
                     messageBox.ShowDialog();
                     txtEmail.Text = "email@gmail.com";
                 }
@@ -221,14 +183,6 @@ namespace PBL3
         {
             txtGender.Text = cmbBoxGender.SelectedItem.ToString();
             cmbBoxGender.Visible = false;
-        }
-
-        private void btnChangeImage_MouseClick(object sender, MouseEventArgs e)
-        {
-            fileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png;";
-            if (fileDialog.ShowDialog() == DialogResult.OK)
-                btnImage.BackgroundImage = Image.FromStream(fileDialog.OpenFile());
-            
         }
     }
 }

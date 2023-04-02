@@ -1,5 +1,4 @@
 ﻿using PBLLibrary;
-using PBLLibrary.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,8 +18,6 @@ namespace PBL3
         [STAThread]
         static void Main(string[] args)
         {
-            GlobalConfig.InitializeConnection();
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 

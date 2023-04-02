@@ -15,7 +15,7 @@ namespace PBL3
     {
         public Form MainForm = null;
 
-        Form _currentChildForm;
+        Form _CurrentChildForm;
 
         public LoginForm()
         {
@@ -28,12 +28,12 @@ namespace PBL3
 
         public void OpenChildForm(Form childForm)
         {
-            if (_currentChildForm != null)
+            if (_CurrentChildForm != null)
             {
-                _currentChildForm.Dispose();
+                _CurrentChildForm.Dispose();
             }
 
-            _currentChildForm = childForm;
+            _CurrentChildForm = childForm;
             childForm.TopLevel = false;
             childForm.Dock = DockStyle.Fill;
             panelBase.Controls.Add(childForm);
@@ -59,5 +59,6 @@ namespace PBL3
             WindowState = FormWindowState.Minimized;
         }
 
+       
     }
 }

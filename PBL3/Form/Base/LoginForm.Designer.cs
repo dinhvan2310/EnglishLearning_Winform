@@ -45,8 +45,9 @@
             this.panelDrag.Controls.Add(this.btnExit);
             this.panelDrag.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelDrag.Location = new System.Drawing.Point(0, 0);
+            this.panelDrag.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelDrag.Name = "panelDrag";
-            this.panelDrag.Size = new System.Drawing.Size(550, 55);
+            this.panelDrag.Size = new System.Drawing.Size(412, 45);
             this.panelDrag.TabIndex = 0;
             this.panelDrag.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelDrag_MouseDown);
             // 
@@ -54,9 +55,10 @@
             // 
             this.label1.Font = new System.Drawing.Font("Bahnschrift", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
-            this.label1.Location = new System.Drawing.Point(166, 3);
+            this.label1.Location = new System.Drawing.Point(124, 2);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(220, 52);
+            this.label1.Size = new System.Drawing.Size(165, 42);
             this.label1.TabIndex = 7;
             this.label1.Text = "PBL3";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -73,9 +75,10 @@
             this.btnMinimize.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
             this.btnMinimize.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnMinimize.IconSize = 32;
-            this.btnMinimize.Location = new System.Drawing.Point(472, 10);
+            this.btnMinimize.Location = new System.Drawing.Point(354, 8);
+            this.btnMinimize.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(30, 30);
+            this.btnMinimize.Size = new System.Drawing.Size(22, 24);
             this.btnMinimize.TabIndex = 6;
             this.btnMinimize.TabStop = false;
             this.btnMinimize.UseVisualStyleBackColor = false;
@@ -92,9 +95,10 @@
             this.btnExit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
             this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnExit.IconSize = 32;
-            this.btnExit.Location = new System.Drawing.Point(508, 12);
+            this.btnExit.Location = new System.Drawing.Point(381, 10);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(30, 30);
+            this.btnExit.Size = new System.Drawing.Size(22, 24);
             this.btnExit.TabIndex = 5;
             this.btnExit.TabStop = false;
             this.btnExit.UseVisualStyleBackColor = false;
@@ -103,22 +107,24 @@
             // panelBase
             // 
             this.panelBase.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelBase.Location = new System.Drawing.Point(0, 55);
+            this.panelBase.Location = new System.Drawing.Point(0, 45);
+            this.panelBase.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelBase.Name = "panelBase";
-            this.panelBase.Size = new System.Drawing.Size(550, 467);
+            this.panelBase.Size = new System.Drawing.Size(412, 379);
             this.panelBase.TabIndex = 7;
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
-            this.ClientSize = new System.Drawing.Size(550, 522);
+            this.ClientSize = new System.Drawing.Size(412, 424);
             this.Controls.Add(this.panelBase);
             this.Controls.Add(this.panelDrag);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "LoginForm";
             this.Text = "LoginForm";
             this.panelDrag.ResumeLayout(false);

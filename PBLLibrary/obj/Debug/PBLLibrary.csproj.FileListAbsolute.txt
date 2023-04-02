@@ -20,3 +20,46 @@ D:\Source\Visual Studio\C#\PBL3\PBLLibrary\bin\Debug\System.Numerics.Vectors.dll
 D:\Source\Visual Studio\C#\PBL3\PBLLibrary\bin\Debug\MySql.Data.xml
 D:\Source\Visual Studio\C#\PBL3\PBLLibrary\bin\Debug\Newtonsoft.Json.dll
 D:\Source\Visual Studio\C#\PBL3\PBLLibrary\bin\Debug\Newtonsoft.Json.xml
+D:\PBL3\pLB\PLB3\PBLLibrary\bin\Debug\PBLLibrary.dll.config
+D:\PBL3\pLB\PLB3\PBLLibrary\bin\Debug\PBLLibrary.dll
+D:\PBL3\pLB\PLB3\PBLLibrary\bin\Debug\PBLLibrary.pdb
+D:\PBL3\pLB\PLB3\PBLLibrary\bin\Debug\FontAwesome.Sharp.dll
+D:\PBL3\pLB\PLB3\PBLLibrary\bin\Debug\MySql.Data.dll
+D:\PBL3\pLB\PLB3\PBLLibrary\bin\Debug\Newtonsoft.Json.dll
+D:\PBL3\pLB\PLB3\PBLLibrary\bin\Debug\Google.Protobuf.dll
+D:\PBL3\pLB\PLB3\PBLLibrary\bin\Debug\ZstdNet.dll
+D:\PBL3\pLB\PLB3\PBLLibrary\bin\Debug\K4os.Compression.LZ4.Streams.dll
+D:\PBL3\pLB\PLB3\PBLLibrary\bin\Debug\BouncyCastle.Crypto.dll
+D:\PBL3\pLB\PLB3\PBLLibrary\bin\Debug\System.Memory.dll
+D:\PBL3\pLB\PLB3\PBLLibrary\bin\Debug\System.Buffers.dll
+D:\PBL3\pLB\PLB3\PBLLibrary\bin\Debug\K4os.Compression.LZ4.dll
+D:\PBL3\pLB\PLB3\PBLLibrary\bin\Debug\K4os.Hash.xxHash.dll
+D:\PBL3\pLB\PLB3\PBLLibrary\bin\Debug\System.Numerics.Vectors.dll
+D:\PBL3\pLB\PLB3\PBLLibrary\bin\Debug\MySql.Data.xml
+D:\PBL3\pLB\PLB3\PBLLibrary\bin\Debug\Newtonsoft.Json.xml
+D:\PBL3\pLB\PLB3\PBLLibrary\obj\Debug\PBLLibrary.csproj.AssemblyReference.cache
+D:\PBL3\pLB\PLB3\PBLLibrary\obj\Debug\PBLLibrary.csproj.CoreCompileInputs.cache
+D:\PBL3\pLB\PLB3\PBLLibrary\obj\Debug\PBLLibrary.csproj.CopyComplete
+D:\PBL3\pLB\PLB3\PBLLibrary\obj\Debug\PBLLibrary.dll
+D:\PBL3\pLB\PLB3\PBLLibrary\obj\Debug\PBLLibrary.pdb
+D:\PLB3\PBLLibrary\obj\Debug\PBLLibrary.csproj.AssemblyReference.cache
+D:\PLB3\PBLLibrary\obj\Debug\PBLLibrary.csproj.CoreCompileInputs.cache
+D:\PLB3\PBLLibrary\obj\Debug\PBLLibrary.dll
+D:\PLB3\PBLLibrary\obj\Debug\PBLLibrary.pdb
+D:\PLB3\PBLLibrary\bin\Debug\PBLLibrary.dll
+D:\PLB3\PBLLibrary\bin\Debug\PBLLibrary.pdb
+D:\PLB3\PBLLibrary\bin\Debug\FontAwesome.Sharp.dll
+D:\PLB3\PBLLibrary\bin\Debug\MySql.Data.dll
+D:\PLB3\PBLLibrary\bin\Debug\Newtonsoft.Json.dll
+D:\PLB3\PBLLibrary\bin\Debug\Google.Protobuf.dll
+D:\PLB3\PBLLibrary\bin\Debug\ZstdNet.dll
+D:\PLB3\PBLLibrary\bin\Debug\K4os.Compression.LZ4.Streams.dll
+D:\PLB3\PBLLibrary\bin\Debug\BouncyCastle.Crypto.dll
+D:\PLB3\PBLLibrary\bin\Debug\System.Memory.dll
+D:\PLB3\PBLLibrary\bin\Debug\System.Buffers.dll
+D:\PLB3\PBLLibrary\bin\Debug\K4os.Compression.LZ4.dll
+D:\PLB3\PBLLibrary\bin\Debug\K4os.Hash.xxHash.dll
+D:\PLB3\PBLLibrary\bin\Debug\System.Numerics.Vectors.dll
+D:\PLB3\PBLLibrary\bin\Debug\MySql.Data.xml
+D:\PLB3\PBLLibrary\bin\Debug\Newtonsoft.Json.xml
+D:\PLB3\PBLLibrary\obj\Debug\PBLLibrary.csproj.CopyComplete

@@ -1,5 +1,4 @@
 ﻿using PBLLibrary;
-using PBLLibrary.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,29 +9,33 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using BLL.TransferObjects;
+using BLL.Workflows;
+
 namespace PBL3
 {
     public partial class FormHome : Form
     {
-        private const int _suggestedWordCount = 10;
+        private const int _SuggestedWordCount = 10;
 
-        private int _currentWordEveryDayIndex = 0;
-        private List<WordModel> _wordsEveryDay;
+        private int _CurrentWordEveryDayIndex = 0;
+        private List<WordModel> _WordsEveryDay;
 
-        private bool _reverseState = false;
+        private bool _ReverseState = false;
 
         public FormHome()
         {
             InitializeComponent();
             InitializeVariables();
 
-            btnSugWord.Text = _wordsEveryDay[0].Word;
+            btnSugWord.Text = _WordsEveryDay[0].Word;
         }
 
         private void InitializeVariables()
         {
-            _wordsEveryDay = GlobalConfig.GetWord_Random(_suggestedWordCount);
-            foreach (WordModel word in _wordsEveryDay)
+            var dataAccess = new DataManager();
+            _WordsEveryDay = dataAccess.DataEdictAccess.GetWord_Random(_SuggestedWordCount);
+            foreach (WordModel word in _WordsEveryDay)
             {
                 word.Word = word.Word.ToUpper().Replace('_', ' ');
             }
@@ -40,25 +43,25 @@ namespace PBL3
 
         private void swapWordAnim_Tick(object sender, EventArgs e)
         {
-            _currentWordEveryDayIndex = (_currentWordEveryDayIndex + 1) % _wordsEveryDay.Count;
+            _CurrentWordEveryDayIndex = (_CurrentWordEveryDayIndex + 1) % _WordsEveryDay.Count;
 
-            _reverseState = false;
+            _ReverseState = false;
             sugWordLeftAnim.Start();
         }
 
         private void btnForward_MouseClick(object sender, MouseEventArgs e)
         {
-            _currentWordEveryDayIndex = (_currentWordEveryDayIndex + 1) % _wordsEveryDay.Count;
+            _CurrentWordEveryDayIndex = (_CurrentWordEveryDayIndex + 1) % _WordsEveryDay.Count;
 
-            _reverseState = false;
+            _ReverseState = false;
             sugWordLeftAnim.Start();
         }
 
         private void btnBackward_MouseClick(object sender, MouseEventArgs e)
         {
-            _currentWordEveryDayIndex = (_currentWordEveryDayIndex - 1) < 0 ? _wordsEveryDay.Count - 1 : (_currentWordEveryDayIndex - 1);
+            _CurrentWordEveryDayIndex = (_CurrentWordEveryDayIndex - 1) < 0 ? _WordsEveryDay.Count - 1 : (_CurrentWordEveryDayIndex - 1);
 
-            _reverseState = false;
+            _ReverseState = false;
             sugWordRightAnim.Start();
         }
 
@@ -66,16 +69,16 @@ namespace PBL3
         {
             if (btnSugWord.Location.X <= -400)
             {
-                _reverseState = true;
+                _ReverseState = true;
                 btnSugWord.Location = new Point(400, 0);
-                btnSugWord.Text = _wordsEveryDay[_currentWordEveryDayIndex].Word;
+                btnSugWord.Text = _WordsEveryDay[_CurrentWordEveryDayIndex].Word;
             }
             else
             {
-                if (_reverseState && btnSugWord.Location.X == 0)
+                if (_ReverseState && btnSugWord.Location.X == 0)
                 {
                     sugWordLeftAnim.Stop();
-                    _reverseState = false;
+                    _ReverseState = false;
                     return;
                 }
                 btnSugWord.Location = new Point(btnSugWord.Location.X - 50, 0);
@@ -87,16 +90,16 @@ namespace PBL3
         {
             if (btnSugWord.Location.X >= 400)
             {
-                _reverseState = true;
+                _ReverseState = true;
                 btnSugWord.Location = new Point(-400, 0);
-                btnSugWord.Text = _wordsEveryDay[_currentWordEveryDayIndex].Word;
+                btnSugWord.Text = _WordsEveryDay[_CurrentWordEveryDayIndex].Word;
             }
             else
             {
-                if (_reverseState && btnSugWord.Location.X == 0)
+                if (_ReverseState && btnSugWord.Location.X == 0)
                 {
                     sugWordRightAnim.Stop();
-                    _reverseState = false;
+                    _ReverseState = false;
                     return;
                 }
                 btnSugWord.Location = new Point(btnSugWord.Location.X + 50, 0);
