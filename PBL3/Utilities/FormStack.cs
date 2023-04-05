@@ -7,14 +7,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PBL3
+namespace PBL3.Utilities
 {
     public static class FormStack
     {
-        public enum FormType
-        {
-            Strong, Weak, Neutral
-        }
 
         public static FormType CurrentFormType = FormType.Strong;
 

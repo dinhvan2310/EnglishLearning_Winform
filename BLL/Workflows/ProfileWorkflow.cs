@@ -21,13 +21,13 @@ namespace BLL.Workflows
 
         private static ProfileWorkflow _Instance;
 
-        private DataAccountManager _DataAccountAccess;
+        private AccountManager _DataAccountAccess;
         private Validator _Validator;
 
 
         private ProfileWorkflow()
         {
-            _DataAccountAccess = new DataAccountManager();
+            _DataAccountAccess = new AccountManager();
             _Validator = new Validator();
         }
 

@@ -1,4 +1,5 @@
 ﻿using CustomControls;
+using PBL3.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,8 +21,8 @@ namespace PBL3
 
         private void btnStatistic_MouseClick(object sender, MouseEventArgs e)
         {
-            ((MainForm)Application.OpenForms["MainForm"]).OpenChildForm(new FormStatistic(),
-                FormStack.FormType.Neutral);
+            GlobalForm.MainForm.OpenChildForm(new FormStatistic(),
+                FormType.Neutral);
         }
     }
 }

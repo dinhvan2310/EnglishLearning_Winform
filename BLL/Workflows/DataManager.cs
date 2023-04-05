@@ -10,11 +10,11 @@ namespace BLL.Workflows
 {
     public class DataManager
     {
-        public DataEDictMananger DataEdictAccess;
+        public EDictionaryMananger EDictionaryManager;
 
         public DataManager()
         {
-            DataEdictAccess = new DataEDictMananger();
+            EDictionaryManager = new EDictionaryMananger();
         }
 
     }

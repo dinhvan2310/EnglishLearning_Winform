@@ -44,7 +44,7 @@ namespace BLL
             dataGridView1.DataSource = dbContext.wn_word.ToList();
         }*/
             DataManager dataAccess = new DataManager();
-            dataGridView1.DataSource = dataAccess.DataEdictAccess.GetWord_ByFilter("ru", 10, true);
+            dataGridView1.DataSource = dataAccess.EDictionaryManager.GetWord_ByFilter("ru", 10, true);
 
             string pattern = @"^[0-9]{1,2}\/[0-9]{1,2}\/[0-9]{4}$";
             string input = "23/10/2003";

@@ -11,6 +11,8 @@ using System.Collections;
 using System.Net.Http;
 using Newtonsoft.Json;
 using Newtonsoft;
+using PBL3.Utilities;
+
 namespace PBL3
 {
     public partial class FormTranslanteText : Form
@@ -51,7 +53,7 @@ namespace PBL3
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            ((MainForm)Application.OpenForms["MainForm"]).OpenChildForm(FormStack.Pop(), FormStack.FormType.Strong);
+            GlobalForm.MainForm.OpenChildForm(FormStack.Pop(), FormType.Strong);
         }
     }
 }

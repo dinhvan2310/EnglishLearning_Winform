@@ -18,10 +18,10 @@ namespace PBL3
     public partial class WordForm_Meaning : Form
     {
 
-        private List<Label> _typeLabels = new List<Label>();
-        private List<RichTextBox> _definitionTextBoxes = new List<RichTextBox>();
+        private List<Label> _TypeLabels = new List<Label>();
+        private List<RichTextBox> _DefinitionTextBoxes = new List<RichTextBox>();
 
-        private int _currentTypeLabelIndex;
+        private int _CurrentTypeLabelIndex;
 
 
         public WordForm_Meaning(string rawWord, List<SynsetModel> synsets)
@@ -42,11 +42,6 @@ namespace PBL3
             {
                 btnFavorite.IconFont = FontAwesome.Sharp.IconFont.Regular;
             }
-        }
-
-        private void WordForm_Meaning_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Console.WriteLine("Hello");
         }
 
         [System.Runtime.InteropServices.DllImport("user32.dll")]
@@ -114,27 +109,27 @@ namespace PBL3
 
             if (verbText.Length > 0)
             {
-                _typeLabels.Add(InstanceTypeLabel("VERB", new System.Drawing.Point(12 + 200 * _typeLabels.Count, 14)));
-                _definitionTextBoxes.Add(InstanceDefinitionTB(verbText));
+                _TypeLabels.Add(InstanceTypeLabel("VERB", new System.Drawing.Point(12 + 200 * _TypeLabels.Count, 14)));
+                _DefinitionTextBoxes.Add(InstanceDefinitionTB(verbText));
             }
             if (nounText.Length > 0)
             {
-                _typeLabels.Add(InstanceTypeLabel("NOUN", new System.Drawing.Point(12 + 200 * _typeLabels.Count, 14)));
-                _definitionTextBoxes.Add(InstanceDefinitionTB(nounText));
+                _TypeLabels.Add(InstanceTypeLabel("NOUN", new System.Drawing.Point(12 + 200 * _TypeLabels.Count, 14)));
+                _DefinitionTextBoxes.Add(InstanceDefinitionTB(nounText));
             }
             if (adjText.Length > 0)
             {
-                _typeLabels.Add(InstanceTypeLabel("ADJECTIVE", new System.Drawing.Point(12 + 200 * _typeLabels.Count , 14)));
-                _definitionTextBoxes.Add(InstanceDefinitionTB(adjText));
+                _TypeLabels.Add(InstanceTypeLabel("ADJECTIVE", new System.Drawing.Point(12 + 200 * _TypeLabels.Count , 14)));
+                _DefinitionTextBoxes.Add(InstanceDefinitionTB(adjText));
             }
             if (advText.Length > 0)
             {
-                _typeLabels.Add(InstanceTypeLabel("ADVERB", new System.Drawing.Point(12 + 200 * _typeLabels.Count, 14)));
-                _definitionTextBoxes.Add(InstanceDefinitionTB(advText));
+                _TypeLabels.Add(InstanceTypeLabel("ADVERB", new System.Drawing.Point(12 + 200 * _TypeLabels.Count, 14)));
+                _DefinitionTextBoxes.Add(InstanceDefinitionTB(advText));
             }
 
-            _definitionTextBoxes[0].Visible = true;
-            _currentTypeLabelIndex = 0;
+            _DefinitionTextBoxes[0].Visible = true;
+            _CurrentTypeLabelIndex = 0;
 
         }
 
@@ -184,14 +179,14 @@ namespace PBL3
         private void LabelType_MouseClick(object sender, MouseEventArgs e)
         {
             string type = ((Label)sender).Text;
-            int indexInList = _typeLabels.FindIndex(a => a.Text == type);
+            int indexInList = _TypeLabels.FindIndex(a => a.Text == type);
 
-            if (indexInList != _currentTypeLabelIndex)
+            if (indexInList != _CurrentTypeLabelIndex)
             {
-                _definitionTextBoxes[indexInList].Visible = true;
-                _definitionTextBoxes[_currentTypeLabelIndex].Visible = false;
+                _DefinitionTextBoxes[indexInList].Visible = true;
+                _DefinitionTextBoxes[_CurrentTypeLabelIndex].Visible = false;
 
-                _currentTypeLabelIndex = indexInList;
+                _CurrentTypeLabelIndex = indexInList;
 
                 underlineBarAnim.Start();
             }
@@ -199,13 +194,13 @@ namespace PBL3
 
         private void underlineBarAnim_Tick(object sender, EventArgs e)
         {
-            if (underlineBar.Location.X == _currentTypeLabelIndex * 200 + 15)
+            if (underlineBar.Location.X == _CurrentTypeLabelIndex * 200 + 15)
             {
                 underlineBarAnim.Stop();
                 return;
             }
 
-            float smoothValue = (underlineBar.Location.X) * 0.75f + (_currentTypeLabelIndex * 200 + 15) * 0.25f;
+            float smoothValue = (underlineBar.Location.X) * 0.75f + (_CurrentTypeLabelIndex * 200 + 15) * 0.25f;
             underlineBar.Location = new System.Drawing.Point((int)smoothValue, underlineBar.Location.Y);
         }
 

@@ -1,5 +1,6 @@
 ﻿using BLL.TransferObjects;
 using BLL.Workflows;
+using PBL3.Utilities;
 using PBLLibrary;
 using System;
 using System.Collections.Generic;
@@ -36,7 +37,7 @@ namespace PBL3
             _LblWords[7] = lblWordFound8;
 
             var dataAccess = new DataManager();
-            List<WordModel> words = dataAccess.DataEdictAccess.GetWord_ByFilter_Random(rawWord[0] + "%", 8, true);
+            List<WordModel> words = dataAccess.EDictionaryManager.GetWord_ByFilter_Random(rawWord[0] + "%", 8, true);
 
             int i = 0;
             foreach (Label lbl in _LblWords)
@@ -48,13 +49,13 @@ namespace PBL3
 
         private void lblWordFound1_MouseClick(object sender, MouseEventArgs e)
         {
-            ((MainForm)Application.OpenForms["MainForm"]).OpenChildForm(new WordForm(((Label)sender).Text.Replace(' ', '_')),
-                FormStack.FormType.Neutral);
+            GlobalForm.MainForm.OpenChildForm(new WordForm(((Label)sender).Text.Replace(' ', '_')),
+                FormType.Neutral);
         }
 
         private void btnReturn_MouseClick(object sender, MouseEventArgs e)
         {
-            ((MainForm)Application.OpenForms["MainForm"]).OpenChildForm(FormStack.Pop(), FormStack.FormType.Strong);
+            GlobalForm.MainForm.OpenChildForm(FormStack.Pop(), FormType.Strong);
         }
     }
 }

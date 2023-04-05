@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PBL3
+namespace PBL3.Utilities
 {
     internal static class GlobalForm
     {

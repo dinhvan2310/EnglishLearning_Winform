@@ -7,6 +7,7 @@ using System.Reflection;
 
 using BLL.Workflows;
 using BLL.TransferObjects;
+using PBL3.Utilities;
 
 namespace PBL3
 {
@@ -43,7 +44,7 @@ namespace PBL3
 
             // FormHome for default
             ActivateButton(btnHome, Color.FromArgb(97, 110, 254));
-            OpenChildForm(HomeForm, FormStack.FormType.Strong);
+            OpenChildForm(HomeForm, FormType.Strong);
 
             //vScrollBar1.Value = flowLayoutPanel1.VerticalScroll.Value;
             //vScrollBar1.Minimum = flowLayoutPanel1.VerticalScroll.Minimum;
@@ -102,7 +103,7 @@ namespace PBL3
 
         }
 
-        public void OpenChildForm(Form childForm, /*StackType stackType = StackType.None*/FormStack.FormType formType = FormStack.FormType.Weak)
+        public void OpenChildForm(Form childForm, FormType formType = FormType.Weak)
         {
             if (_CurrentChildForm != null)
             {
@@ -112,30 +113,17 @@ namespace PBL3
                 }
 
                 _CurrentChildForm.Visible = false;
-                //switch (stackType)
-                //{
-                //    case StackType.Push:
-                //        FormStack.Push(_CurrentChildForm);
-                //        break;
-                //    case StackType.Replace:
-                //        FormStack.Pop();
-                //        FormStack.Push(_CurrentChildForm);
-                //        break;
-                //    case StackType.Dispose:
-                //        _CurrentChildForm.Close();
-                //        break;
-                //}
 
                 switch (FormStack.CurrentFormType)
                 {
-                    case FormStack.FormType.Strong:
+                    case FormType.Strong:
                         FormStack.Pop();
                         FormStack.Push(_CurrentChildForm);
                         break;
-                    case FormStack.FormType.Weak:
+                    case FormType.Weak:
                         FormStack.Push(_CurrentChildForm);
                         break;
-                    case FormStack.FormType.Neutral:
+                    case FormType.Neutral:
                         _CurrentChildForm.Close();
                         break;
                 }
@@ -284,19 +272,19 @@ namespace PBL3
         private void btnHome_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(97, 110, 254));
-            OpenChildForm(HomeForm, FormStack.FormType.Strong);
+            OpenChildForm(HomeForm, FormType.Strong);
         }
 
         private void btnTopic_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(83, 205, 216));
-            OpenChildForm(TopicForm, FormStack.FormType.Strong);
+            OpenChildForm(TopicForm, FormType.Strong);
         }
 
         private void btnNotebook_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(0, 191, 159));
-            OpenChildForm(NotebookForm, FormStack.FormType.Strong);
+            OpenChildForm(NotebookForm, FormType.Strong);
         }
 
         private void btnGame_Click(object sender, EventArgs e)
@@ -307,7 +295,7 @@ namespace PBL3
         private void btnSetting_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(255, 211, 137));
-            OpenChildForm(SettingForm, FormStack.FormType.Strong);
+            OpenChildForm(SettingForm, FormType.Strong);
         }
 
         private void collapseAnim_Tick(object sender, EventArgs e)
@@ -373,17 +361,6 @@ namespace PBL3
 
         }
 
-        private void chkStartup_CheckedChanged(object sender, EventArgs e)
-        {
-            //RegistryKey rk = Registry.CurrentUser.OpenSubKey
-            //    ("HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-
-            //if (chkStartup.Checked)
-            //    rk.SetValue("PBL3", Application.ExecutablePath);
-            //else
-            //    rk.DeleteValue("PBL3", false);
-        }
-
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             if (txtSearch.Text.Length == 0)
@@ -392,10 +369,10 @@ namespace PBL3
                 return;
             }
             var dataAccess = new DataManager();
-            List<WordModel> words = dataAccess.DataEdictAccess.GetWord_ByFilter(txtSearch.Text.Replace(' ', '_') + "%", 10, true);
+            List<WordModel> words = dataAccess.EDictionaryManager.GetWord_ByFilter(txtSearch.Text.Replace(' ', '_') + "%", 10, true);
             
 
-            if (words != null)
+            if (words.Count != 0)
             {
                 panelSearchFound.Size = new Size(panelSearchFound.Size.Width, 25 + 30 * words.Count);
 
@@ -447,14 +424,15 @@ namespace PBL3
                 e.SuppressKeyPress = true;
 
                 var dataAccess = new DataManager();
-                if (dataAccess.DataEdictAccess.GetWord_ByFilter(txtSearch.Text).Count == 0)
+                if (dataAccess.EDictionaryManager.GetWord_ByFilter(_SearchOptions[_CurrentSearchOptionIndex].
+                    Text.Replace(' ', '_')).Count == 0)
                 {
-                    OpenChildForm(new WordForm_None(txtSearch.Text.Replace(' ', '_')), FormStack.FormType.Neutral);
+                    OpenChildForm(new WordForm_None(txtSearch.Text.Replace(' ', '_')), FormType.Neutral);
                 }
                 else
                 {
                     OpenChildForm(new WordForm(_SearchOptions[_CurrentSearchOptionIndex].Text.Replace(' ', '_')),
-                        FormStack.FormType.Neutral);
+                        FormType.Neutral);
                 }
             }
 
@@ -486,13 +464,13 @@ namespace PBL3
         private void btnSearchFound_Click(object sender, EventArgs e)
         {
             var dataAccess = new DataManager();
-            if (dataAccess.DataEdictAccess.GetWord_ByFilter(_SearchOptions[_CurrentSearchOptionIndex].Text.Replace(' ', '_')) == null)
+            if (dataAccess.EDictionaryManager.GetWord_ByFilter(_SearchOptions[_CurrentSearchOptionIndex].Text.Replace(' ', '_')) == null)
             {
-                OpenChildForm(new WordForm_None(((IconButton)sender).Text.Replace(' ', '_')), FormStack.FormType.Neutral);
+                OpenChildForm(new WordForm_None(((IconButton)sender).Text.Replace(' ', '_')), FormType.Neutral);
             }
             else
             {
-                OpenChildForm(new WordForm(((IconButton)sender).Text.Replace(' ', '_')), FormStack.FormType.Neutral);
+                OpenChildForm(new WordForm(((IconButton)sender).Text.Replace(' ', '_')), FormType.Neutral);
             }
         }
 
@@ -532,21 +510,21 @@ namespace PBL3
             panelPersonal.Visible = false;
 
             ActivateButton(btnSetting, Color.FromArgb(255, 255, 127));
-            OpenChildForm(SettingForm, FormStack.FormType.Strong);
+            OpenChildForm(SettingForm, FormType.Strong);
         }
 
         private void btnLogo_MouseClick(object sender, MouseEventArgs e)
         {
             ActivateButton(btnHome, Color.FromArgb(97, 110, 254));
 
-            OpenChildForm(HomeForm, FormStack.FormType.Strong);
+            OpenChildForm(HomeForm, FormType.Strong);
         }
 
         private void btnPersonalInfo_MouseClick(object sender, MouseEventArgs e)
         {
             panelPersonal.Visible = false;
 
-            OpenChildForm(new FormProfile(), FormStack.FormType.Neutral);
+            OpenChildForm(new FormProfile(), FormType.Neutral);
         }
 
         private void btnPremium_MouseClick(object sender, MouseEventArgs e)
@@ -570,7 +548,7 @@ namespace PBL3
         private void btnTranslate_MouseClick(object sender, MouseEventArgs e)
         {
             Form form = new FormTranslanteText();
-            OpenChildForm(form, FormStack.FormType.Neutral);
+            OpenChildForm(form, FormType.Neutral);
         }
     }
 }

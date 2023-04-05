@@ -13,12 +13,52 @@ using Mysqlx.Crud;
 using PBLLibrary;
 using static System.Windows.Forms.LinkLabel;
 using System.Diagnostics;
+using BLL.Migrations;
+using Microsoft.EntityFrameworkCore.Internal;
 
 namespace BLL.Components
 {
-    public class DataEDictMananger
+    public class EDictionaryMananger
     {
-        
+        private string[] _VerbFrames = new string[]
+        {
+            "",
+            "Something ----s",
+            "Somebody ----s",
+            "It is ----ing",
+            "Something is ----ing PP",
+            "Something ----s something Adjective/Noun",
+            "Somebody ----s Adjective/Noun",
+            "Somebody ----s Adjective",
+            "Somebody ----s something",
+            "Somebody ----s somebody",
+            "Something ----s somebody",
+            "Something ----s something",
+            "Something ----s to somebody",
+            "Somebody ----s on something",
+            "Somebody ----s somebody something",
+            "Somebody ----s something to somebody",
+            "Somebody ----s something from somebody",
+            "Somebody ----s somebody with something",
+            "Somebody ----s somebody of something",
+            "Something ----s something on somebody",
+            "Somebody ----s somebody PP",
+            "Somebody ----s something PP",
+            "Somebody ----s PP",
+            "Somebody's (body part) ----s",
+            "Somebody ----s somebody to INFINITIVE",
+            "Somebody ----s somebody INFINITIVE",
+            "Somebody ----s that CLAUSE",
+            "Somebody ----s to somebody",
+            "Somebody ----s to INFINITIVE",
+            "Somebody ----s whether INFINITIVE",
+            "Somebody ----s somebody into V-ing something",
+            "Somebody ----s something with something",
+            "Somebody ----s INFINITIVE",
+            "Somebody ----s VERB-ing",
+            "It ----s that CLAUSE",
+            "Something ----s INFINITIVE"
+        };
         public List<WordModel> GetWord_Random(int limit = 10)
         {
             using (var dbContext = new DictionaryContext())
@@ -168,6 +208,108 @@ namespace BLL.Components
 
                 return results;
 
+            }
+        }
+
+        //public List<WordModel> GetWord_BySimilar(string word)
+        //{
+            
+        //}
+
+        public List<WordModel> GetWord_ByAntonym(string word)
+        {
+            using (var dbContext = new DictionaryContext())
+            {
+                List<WordModel> results = new List<WordModel>();
+
+                List<string> wn_words = new List<string>();
+                var temp = dbContext.wn_word
+                                .Where(p => p.word.Equals(word))
+                                .Join(
+                                    dbContext.wn_antonym,
+                                    w => w.synset_id,
+                                    a => a.synset_id_1,
+                                    (w, a) => new { a.synset_id_2 })
+                                .Join(
+                                    dbContext.wn_word,
+                                    wa => wa.synset_id_2,
+                                    w => w.synset_id,
+                                    (wa, w) => new { w.word })
+                                .Select(p => p.word)
+                                .ToList();
+
+                temp.ForEach(item =>
+                {
+                    wn_words.Add(item.ToString());
+                });
+
+                wn_words.ForEach(item =>
+                {
+                    results.Add(new WordModel(item.ToString()));
+                });
+                return results;
+            }
+        }
+
+        public List<string> GetVerbFrame_ByWord(string word)
+        {
+            using (var dbContext = new DictionaryContext())
+            {
+                List<string> results = new List<string>();
+
+                var temp = dbContext.wn_word
+                                .Where(p => p.word.Equals(word))
+                                .Join(
+                                    dbContext.wn_verb_frame,
+                                    w => w.synset_id,
+                                    a => a.synset_id_1,
+                                    (w, a) => new { W1 = a.w_num, W2 = w.w_num, F = a.f_num })
+                                .Where(p => p.W1 == p.W2)
+                                .Select(p => p.F)
+                                .ToList();
+
+                temp.ForEach(item =>
+                {
+                    results.Add(_VerbFrames[Convert.ToInt32(item.ToString())]);
+                });
+                return results;
+            }
+        }
+
+        public List<WordModel> GetWord_ByDerived(string word)
+        {
+            using (var dbContext = new DictionaryContext())
+            {
+                List<WordModel> results = new List<WordModel>();
+
+                List<string> wn_words = new List<string>();
+                var temp = dbContext.wn_word
+                                .Where(p => p.word.Equals(word))
+                                .Join(
+                                    dbContext.wn_derived,
+                                    w => w.synset_id,
+                                    a => a.synset_id_1,
+                                    (w, a) => new { a.synset_id_2 })
+                                .Join(
+                                    dbContext.wn_word,
+                                    wa => wa.synset_id_2,
+                                    w => w.synset_id,
+                                    (wa, w) => new { w.word })
+                                .Where(p => p.word.Contains(word))
+                                .Select(p => p.word)
+                                .Distinct()
+                                .ToList();
+
+                temp.ForEach(item =>
+                {
+                    wn_words.Add(item.ToString());
+                });
+
+                wn_words.ForEach(item =>
+                {
+                    results.Add(new WordModel(item.ToString()));
+                });
+                return results;
             }
         }
     }

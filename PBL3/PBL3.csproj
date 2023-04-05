@@ -176,7 +176,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExternalImport.cs" />
+    <Compile Include="Utilities\EnumCollection.cs" />
+    <Compile Include="Utilities\ExternalImport.cs" />
     <Compile Include="Form\ChildForm\FormAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,11 +190,11 @@
     <Compile Include="Form\UtilForm\Admin\FormAdmin_Account.Designer.cs">
       <DependentUpon>FormAdmin_Account.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\UtilForm\Admin\FormAdmin_Account_AddUpdate.cs">
+    <Compile Include="Form\UtilForm\Admin\FormAdmin_Account_Add.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\UtilForm\Admin\FormAdmin_Account_AddUpdate.Designer.cs">
-      <DependentUpon>FormAdmin_Account_AddUpdate.cs</DependentUpon>
+    <Compile Include="Form\UtilForm\Admin\FormAdmin_Account_Add.Designer.cs">
+      <DependentUpon>FormAdmin_Account_Add.cs</DependentUpon>
     </Compile>
     <Compile Include="Form\UtilForm\Admin\FormAdmin_Packet.cs">
       <SubType>Form</SubType>
@@ -255,7 +256,7 @@
     <Compile Include="Form\ChildForm\FormSetting.Designer.cs">
       <DependentUpon>FormSetting.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormStack.cs" />
+    <Compile Include="Utilities\FormStack.cs" />
     <Compile Include="Form\UtilForm\Login\FormSignUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -298,7 +299,7 @@
     <Compile Include="Form\UtilForm\FormMessageBox.Designer.cs">
       <DependentUpon>FormMessageBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="GlobalForm.cs" />
+    <Compile Include="Utilities\GlobalForm.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -348,8 +349,8 @@
     <EmbeddedResource Include="Form\UtilForm\Admin\FormAdmin_Account.resx">
       <DependentUpon>FormAdmin_Account.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\UtilForm\Admin\FormAdmin_Account_AddUpdate.resx">
-      <DependentUpon>FormAdmin_Account_AddUpdate.cs</DependentUpon>
+    <EmbeddedResource Include="Form\UtilForm\Admin\FormAdmin_Account_Add.resx">
+      <DependentUpon>FormAdmin_Account_Add.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\UtilForm\Admin\FormAdmin_Packet.resx">
       <DependentUpon>FormAdmin_Packet.cs</DependentUpon>

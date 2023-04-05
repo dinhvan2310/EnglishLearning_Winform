@@ -1,5 +1,6 @@
 ﻿using BLL.Workflows;
 using FontAwesome.Sharp;
+using PBL3.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -48,7 +49,7 @@ namespace PBL3
         private void btnReturn_MouseClick(object sender, MouseEventArgs e)
         {
             GlobalForm.MainForm.panelPersonal.Visible = false;
-            GlobalForm.MainForm.OpenChildForm(FormStack.Pop(), FormStack.FormType.Strong);
+            GlobalForm.MainForm.OpenChildForm(FormStack.Pop(), FormType.Strong);
         }
 
 

@@ -12,6 +12,7 @@ using System.Windows.Media.Media3D;
 
 using BLL.Workflows;
 using BLL.TransferObjects;
+using PBL3.Utilities;
 
 namespace PBL3
 {
@@ -32,7 +33,7 @@ namespace PBL3
             ActiveTag(btnMeaning);
 
             var dataAccess = new DataManager();
-            _Synsets = dataAccess.DataEdictAccess.GetSynset_ByWord(rawWord);
+            _Synsets = dataAccess.EDictionaryManager.GetSynset_ByWord(rawWord);
             OpenChildForm(new WordForm_Meaning(rawWord, _Synsets));
         }
 
@@ -94,18 +95,18 @@ namespace PBL3
         private void btnGrammar_Click(object sender, EventArgs e)
         {
             ActiveTag((Button)sender);
-            OpenChildForm(new WordForm_Grammar());
+            OpenChildForm(new WordForm_Grammar(_Word));
         }
 
         private void btnSynonym_Click(object sender, EventArgs e)
         {
             ActiveTag((Button)sender);
-            OpenChildForm(new WordForm_Synonym());
+            OpenChildForm(new WordForm_Synonym(_Word));
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
         {
-            ((MainForm)Application.OpenForms["MainForm"]).OpenChildForm(FormStack.Pop(), FormStack.FormType.Strong);
+            GlobalForm.MainForm.OpenChildForm(FormStack.Pop(), FormType.Strong);
         }
     }
 }

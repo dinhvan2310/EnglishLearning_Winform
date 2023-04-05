@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PBL3
+namespace PBL3.Utilities
 {
     internal static class ExternalImport
     {

@@ -1,6 +1,6 @@
 ﻿namespace PBL3
 {
-    partial class FormAdmin_Account_AddUpdate
+    partial class FormAdmin_Account_Add
     {
         /// <summary>
         /// Required designer variable.
@@ -46,19 +46,14 @@
             this.rjButton11 = new CustomControls.RJButton();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.rjButton12 = new CustomControls.RJButton();
-            this.rjButton13 = new CustomControls.RJButton();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.rjButton14 = new CustomControls.RJButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.rjButton15 = new CustomControls.RJButton();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.rjButton16 = new CustomControls.RJButton();
-            this.rjButton17 = new CustomControls.RJButton();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.iconButton8 = new FontAwesome.Sharp.IconButton();
-            this.iconButton7 = new FontAwesome.Sharp.IconButton();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.iconButton5 = new FontAwesome.Sharp.IconButton();
             this.iconButton6 = new FontAwesome.Sharp.IconButton();
@@ -66,6 +61,7 @@
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.btnUser = new FontAwesome.Sharp.IconButton();
             this.btnReturn = new FontAwesome.Sharp.IconButton();
+            this.btnAdd = new CustomControls.RJButton();
             this.SuspendLayout();
             // 
             // rjButton4
@@ -375,57 +371,6 @@
             this.rjButton12.TextColor = System.Drawing.Color.White;
             this.rjButton12.UseVisualStyleBackColor = false;
             // 
-            // rjButton13
-            // 
-            this.rjButton13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.rjButton13.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.rjButton13.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton13.BorderRadius = 2;
-            this.rjButton13.BorderSize = 0;
-            this.rjButton13.FlatAppearance.BorderSize = 0;
-            this.rjButton13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton13.ForeColor = System.Drawing.Color.White;
-            this.rjButton13.Location = new System.Drawing.Point(134, 64);
-            this.rjButton13.Name = "rjButton13";
-            this.rjButton13.Size = new System.Drawing.Size(3, 39);
-            this.rjButton13.TabIndex = 93;
-            this.rjButton13.TabStop = false;
-            this.rjButton13.Text = "rjButton13";
-            this.rjButton13.TextColor = System.Drawing.Color.White;
-            this.rjButton13.UseVisualStyleBackColor = false;
-            // 
-            // textBox6
-            // 
-            this.textBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox6.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
-            this.textBox6.Location = new System.Drawing.Point(144, 75);
-            this.textBox6.MinimumSize = new System.Drawing.Size(0, 30);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(300, 25);
-            this.textBox6.TabIndex = 90;
-            this.textBox6.Text = "Loại tài khoản";
-            // 
-            // rjButton14
-            // 
-            this.rjButton14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
-            this.rjButton14.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
-            this.rjButton14.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton14.BorderRadius = 25;
-            this.rjButton14.BorderSize = 0;
-            this.rjButton14.Enabled = false;
-            this.rjButton14.FlatAppearance.BorderSize = 0;
-            this.rjButton14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton14.ForeColor = System.Drawing.Color.White;
-            this.rjButton14.Location = new System.Drawing.Point(77, 57);
-            this.rjButton14.Name = "rjButton14";
-            this.rjButton14.Size = new System.Drawing.Size(430, 50);
-            this.rjButton14.TabIndex = 91;
-            this.rjButton14.TabStop = false;
-            this.rjButton14.TextColor = System.Drawing.Color.White;
-            this.rjButton14.UseVisualStyleBackColor = false;
-            // 
             // panel2
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -495,37 +440,16 @@
             this.rjButton16.TextColor = System.Drawing.Color.White;
             this.rjButton16.UseVisualStyleBackColor = false;
             // 
-            // rjButton17
-            // 
-            this.rjButton17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(191)))), ((int)(((byte)(159)))));
-            this.rjButton17.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(191)))), ((int)(((byte)(159)))));
-            this.rjButton17.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton17.BorderRadius = 15;
-            this.rjButton17.BorderSize = 0;
-            this.rjButton17.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rjButton17.FlatAppearance.BorderSize = 0;
-            this.rjButton17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton17.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
-            this.rjButton17.Location = new System.Drawing.Point(881, 327);
-            this.rjButton17.Name = "rjButton17";
-            this.rjButton17.Size = new System.Drawing.Size(153, 78);
-            this.rjButton17.TabIndex = 98;
-            this.rjButton17.TabStop = false;
-            this.rjButton17.Text = "Thêm";
-            this.rjButton17.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
-            this.rjButton17.UseVisualStyleBackColor = false;
-            // 
             // textBox8
             // 
             this.textBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
             this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox8.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
-            this.textBox8.Location = new System.Drawing.Point(138, 20);
+            this.textBox8.Location = new System.Drawing.Point(134, 86);
             this.textBox8.MinimumSize = new System.Drawing.Size(0, 30);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(249, 30);
+            this.textBox8.Size = new System.Drawing.Size(249, 25);
             this.textBox8.TabIndex = 99;
             this.textBox8.Text = "110100110";
             // 
@@ -534,7 +458,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bahnschrift", 13.8F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.label1.Location = new System.Drawing.Point(93, 15);
+            this.label1.Location = new System.Drawing.Point(80, 83);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 28);
             this.label1.TabIndex = 101;
@@ -556,23 +480,6 @@
             this.iconButton8.TabIndex = 96;
             this.iconButton8.TabStop = false;
             this.iconButton8.UseVisualStyleBackColor = false;
-            // 
-            // iconButton7
-            // 
-            this.iconButton7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
-            this.iconButton7.Enabled = false;
-            this.iconButton7.FlatAppearance.BorderSize = 0;
-            this.iconButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton7.IconChar = FontAwesome.Sharp.IconChar.User;
-            this.iconButton7.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
-            this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton7.IconSize = 25;
-            this.iconButton7.Location = new System.Drawing.Point(98, 69);
-            this.iconButton7.Name = "iconButton7";
-            this.iconButton7.Size = new System.Drawing.Size(39, 28);
-            this.iconButton7.TabIndex = 92;
-            this.iconButton7.TabStop = false;
-            this.iconButton7.UseVisualStyleBackColor = false;
             // 
             // iconButton4
             // 
@@ -696,25 +603,42 @@
             this.btnReturn.UseVisualStyleBackColor = true;
             this.btnReturn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnReturn_MouseClick);
             // 
-            // FormAdmin_Account_AddUpdate
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.btnAdd.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.btnAdd.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnAdd.BorderRadius = 40;
+            this.btnAdd.BorderSize = 0;
+            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Bahnschrift", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.btnAdd.Location = new System.Drawing.Point(859, 317);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(165, 98);
+            this.btnAdd.TabIndex = 102;
+            this.btnAdd.TabStop = false;
+            this.btnAdd.Text = "Thêm";
+            this.btnAdd.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.btnAdd.UseVisualStyleBackColor = false;
+            // 
+            // FormAdmin_Account_Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
             this.ClientSize = new System.Drawing.Size(1057, 436);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.rjButton17);
             this.Controls.Add(this.rjButton15);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.iconButton8);
             this.Controls.Add(this.rjButton16);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.rjButton13);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.iconButton7);
-            this.Controls.Add(this.rjButton14);
             this.Controls.Add(this.rjButton7);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.iconButton4);
@@ -741,7 +665,7 @@
             this.Controls.Add(this.rjButton1);
             this.Controls.Add(this.btnReturn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormAdmin_Account_AddUpdate";
+            this.Name = "FormAdmin_Account_Add";
             this.Text = "FormAdmin_Account_AddUpdate";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -775,18 +699,14 @@
         private System.Windows.Forms.TextBox textBox5;
         private FontAwesome.Sharp.IconButton iconButton6;
         private CustomControls.RJButton rjButton12;
-        private CustomControls.RJButton rjButton13;
-        private System.Windows.Forms.TextBox textBox6;
-        private FontAwesome.Sharp.IconButton iconButton7;
-        private CustomControls.RJButton rjButton14;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private CustomControls.RJButton rjButton15;
         private System.Windows.Forms.TextBox textBox7;
         private FontAwesome.Sharp.IconButton iconButton8;
         private CustomControls.RJButton rjButton16;
-        private CustomControls.RJButton rjButton17;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label1;
+        private CustomControls.RJButton btnAdd;
     }
 }

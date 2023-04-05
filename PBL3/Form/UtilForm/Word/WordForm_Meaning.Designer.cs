@@ -48,7 +48,7 @@
             this.lblWord.AutoSize = true;
             this.lblWord.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(41)))), ((int)(((byte)(74)))));
-            this.lblWord.Location = new System.Drawing.Point(71, 9);
+            this.lblWord.Location = new System.Drawing.Point(75, 21);
             this.lblWord.Name = "lblWord";
             this.lblWord.Size = new System.Drawing.Size(90, 37);
             this.lblWord.TabIndex = 5;
@@ -64,7 +64,7 @@
             this.btnSpeak.IconChar = FontAwesome.Sharp.IconChar.VolumeUp;
             this.btnSpeak.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(41)))), ((int)(((byte)(74)))));
             this.btnSpeak.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSpeak.Location = new System.Drawing.Point(15, 8);
+            this.btnSpeak.Location = new System.Drawing.Point(19, 20);
             this.btnSpeak.Name = "btnSpeak";
             this.btnSpeak.Size = new System.Drawing.Size(50, 50);
             this.btnSpeak.TabIndex = 4;
@@ -80,7 +80,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1005, 61);
+            this.panel2.Size = new System.Drawing.Size(1005, 72);
             this.panel2.TabIndex = 8;
             // 
             // btnFavorite
@@ -94,7 +94,7 @@
             this.btnFavorite.IconChar = FontAwesome.Sharp.IconChar.Star;
             this.btnFavorite.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(41)))), ((int)(((byte)(74)))));
             this.btnFavorite.IconFont = FontAwesome.Sharp.IconFont.Regular;
-            this.btnFavorite.Location = new System.Drawing.Point(943, 8);
+            this.btnFavorite.Location = new System.Drawing.Point(943, 19);
             this.btnFavorite.Name = "btnFavorite";
             this.btnFavorite.Size = new System.Drawing.Size(50, 50);
             this.btnFavorite.TabIndex = 3;
@@ -110,9 +110,9 @@
             this.panelInfo.Controls.Add(this.lblType);
             this.panelInfo.Controls.Add(this.underlineBar);
             this.panelInfo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelInfo.Location = new System.Drawing.Point(0, 61);
+            this.panelInfo.Location = new System.Drawing.Point(0, 72);
             this.panelInfo.Name = "panelInfo";
-            this.panelInfo.Size = new System.Drawing.Size(1005, 375);
+            this.panelInfo.Size = new System.Drawing.Size(1005, 364);
             this.panelInfo.TabIndex = 7;
             // 
             // txtDefinition
@@ -201,7 +201,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "WordForm_Meaning";
             this.Text = "WordForm_Meaning";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.WordForm_Meaning_FormClosed);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panelInfo.ResumeLayout(false);

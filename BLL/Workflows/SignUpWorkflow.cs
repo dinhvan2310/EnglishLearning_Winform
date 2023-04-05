@@ -26,7 +26,7 @@ namespace BLL.Workflows
 
         private int _UserID;
 
-        private DataAccountManager _DataAccountAccess;
+        private AccountManager _DataAccountAccess;
         private EmailManager _EmailManager;
         private Validator _Validator;
  
@@ -36,7 +36,7 @@ namespace BLL.Workflows
         {
             _UserID = -1;
 
-            _DataAccountAccess = new DataAccountManager();
+            _DataAccountAccess = new AccountManager();
             _EmailManager = new EmailManager();
             _Validator = new Validator();
         }

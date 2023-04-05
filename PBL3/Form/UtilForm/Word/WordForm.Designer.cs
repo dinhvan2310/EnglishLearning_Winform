@@ -85,7 +85,7 @@
             this.btnSynonym.Name = "btnSynonym";
             this.btnSynonym.Size = new System.Drawing.Size(190, 50);
             this.btnSynonym.TabIndex = 2;
-            this.btnSynonym.Text = "ĐỒNG NGHĨA";
+            this.btnSynonym.Text = "ĐỒNG - TRÁI NGHĨA";
             this.btnSynonym.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnSynonym.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
             this.btnSynonym.UseVisualStyleBackColor = false;

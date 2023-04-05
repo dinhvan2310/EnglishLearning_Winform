@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PBL3.Utilities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -22,7 +23,7 @@ namespace PBL3
 
         private void btnReturn_MouseClick(object sender, MouseEventArgs e)
         {
-            GlobalForm.MainForm.OpenChildForm(FormStack.Pop(), FormStack.FormType.Strong);
+            GlobalForm.MainForm.OpenChildForm(FormStack.Pop(), FormType.Strong);
         }
 
         private void btn5Min_MouseClick(object sender, MouseEventArgs e)

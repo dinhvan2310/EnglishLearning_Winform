@@ -5,7 +5,7 @@ using BLL.EntityFrameWork.Model;
 
 namespace BLL.Components
 {
-    public class DataAccountManager
+    public class AccountManager
     {
         
         public bool SaveAccount(string name, bool gender, DateTime? ngaySinh, string userName, string password, string email)

@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 using BLL.TransferObjects;
 using BLL.Workflows;
+using PBL3.Utilities;
 
 namespace PBL3
 {
@@ -34,7 +35,7 @@ namespace PBL3
         private void InitializeVariables()
         {
             var dataAccess = new DataManager();
-            _WordsEveryDay = dataAccess.DataEdictAccess.GetWord_Random(_SuggestedWordCount);
+            _WordsEveryDay = dataAccess.EDictionaryManager.GetWord_Random(_SuggestedWordCount);
             foreach (WordModel word in _WordsEveryDay)
             {
                 word.Word = word.Word.ToUpper().Replace('_', ' ');
@@ -109,7 +110,7 @@ namespace PBL3
         private void btnSugWord_MouseClick(object sender, MouseEventArgs e)
         {
             GlobalForm.MainForm.OpenChildForm(new WordForm(btnSugWord.Text.Replace(' ', '_').ToLower()),
-                FormStack.FormType.Neutral);
+                FormType.Neutral);
         }
 
         private void btnGotoNtebk_MouseClick(object sender, MouseEventArgs e)
@@ -119,7 +120,7 @@ namespace PBL3
                 Color.FromArgb(0, 191, 159));
             GlobalForm.MainForm.OpenChildForm(
                 GlobalForm.MainForm.NotebookForm,
-                FormStack.FormType.Strong);
+                FormType.Strong);
         }
 
         private void numericUpDown1_MouseClick(object sender, MouseEventArgs e)
@@ -139,7 +140,7 @@ namespace PBL3
 
         private void btnSetGoal_MouseClick(object sender, MouseEventArgs e)
         {
-            GlobalForm.MainForm.OpenChildForm(new FormSetGoal(), FormStack.FormType.Neutral);
+            GlobalForm.MainForm.OpenChildForm(new FormSetGoal(), FormType.Neutral);
         }
     }
 }

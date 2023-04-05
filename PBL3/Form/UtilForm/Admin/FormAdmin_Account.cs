@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PBL3.Utilities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,7 @@ namespace PBL3
 
         private void btnAdd_MouseClick(object sender, MouseEventArgs e)
         {
-            GlobalForm.AdminForm.OpenChildForm(new FormAdmin_Account_AddUpdate());
+            GlobalForm.AdminForm.OpenChildForm(new FormAdmin_Account_Add());
         }
     }
 }
