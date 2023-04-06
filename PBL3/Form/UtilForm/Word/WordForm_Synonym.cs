@@ -19,6 +19,7 @@ namespace PBL3
     public partial class WordForm_Synonym : Form
     {
         private int _CurrentTypeLabelIndex;
+        private List<WordModel> _Similars;
         private List<WordModel> _Antonyms;
 
         public WordForm_Synonym(string rawWord)
@@ -27,7 +28,31 @@ namespace PBL3
 
             DataManager dm = new DataManager();
 
-            _Antonyms = dm.EDictionaryManager.GetWord_ByAntonym(rawWord);
+            _Similars = dm.EDictionaryManager.GetSynonymWord_ByWord(rawWord);
+            _Antonyms = dm.EDictionaryManager.GetAntonymWord_ByWord(rawWord);
+
+            UpdatePanel();
+        }
+
+        private void UpdatePanel()
+        {
+            panelWords.Controls.Clear();
+            if (_CurrentTypeLabelIndex == 1)
+            {
+                foreach (WordModel w in _Antonyms)
+                {
+                    Label b = CreateLabelWord(w.Word.Replace('_', ' '));
+                    panelWords.Controls.Add(b);
+                }
+            }
+            else
+            {
+                foreach (WordModel w in _Similars)
+                {
+                    Label b = CreateLabelWord(w.Word.Replace('_', ' '));
+                    panelWords.Controls.Add(b);
+                }
+            }
         }
 
         private void underlineBarAnim_Tick(object sender, EventArgs e)
@@ -50,15 +75,7 @@ namespace PBL3
             if (indexInList != _CurrentTypeLabelIndex)
             {
                 _CurrentTypeLabelIndex = indexInList;
-                panelWords.Controls.Clear();
-                if (_CurrentTypeLabelIndex == 1)
-                {
-                    foreach (WordModel w in _Antonyms)
-                    {
-                        Label b = CreateLabelWord(w.Word.Replace('_', ' '));
-                        panelWords.Controls.Add(b);
-                    }
-                }
+                UpdatePanel();
 
                 underlineBarAnim.Start();
             }

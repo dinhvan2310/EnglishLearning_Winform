@@ -52,6 +52,8 @@ namespace PBL3
 
         private void btnForward_MouseClick(object sender, MouseEventArgs e)
         {
+            if (sugWordLeftAnim.Enabled || sugWordRightAnim.Enabled)
+                return;
             _CurrentWordEveryDayIndex = (_CurrentWordEveryDayIndex + 1) % _WordsEveryDay.Count;
 
             _ReverseState = false;
@@ -60,6 +62,8 @@ namespace PBL3
 
         private void btnBackward_MouseClick(object sender, MouseEventArgs e)
         {
+            if (sugWordLeftAnim.Enabled || sugWordRightAnim.Enabled)
+                return;
             _CurrentWordEveryDayIndex = (_CurrentWordEveryDayIndex - 1) < 0 ? _WordsEveryDay.Count - 1 : (_CurrentWordEveryDayIndex - 1);
 
             _ReverseState = false;

@@ -11,6 +11,16 @@ namespace BLL.EntityFrameWork.Model
     [Table("Account")]
     public class Account
     {
+        public Account()
+        {
+            DetailedInformation = new DetailedInformation();
+            InformationPerDays = new List<InformationPerDay>();
+            UserPacketInfos = new List<UserPacketInfo>();
+            Notebooks = new List<Notebook>();
+            HistoryEnglishContainer = new List<HistoryEnglishContainer>();
+            HistoryVietNameseContainer = new List<HistoryVietNameseContainer>();
+        }
+
         [Key]
         public int AccountID { get; set; }
         public string UserName { get; set; }
@@ -29,7 +39,7 @@ namespace BLL.EntityFrameWork.Model
         public virtual ICollection<InformationPerDay> InformationPerDays { get; set; }
         public virtual ICollection<UserPacketInfo> UserPacketInfos { get; set;} 
         public virtual ICollection<Notebook> Notebooks { set; get; }
-        public virtual ICollection<HistoryEnglishContainer> HistoryEnglishContainers { get; set; }
-        public virtual ICollection<HistoryVietNameseContainer> HistoryVietNameseContainers { get; set;}
+        public virtual ICollection<HistoryEnglishContainer> HistoryEnglishContainer { get; set; }
+        public virtual ICollection<HistoryVietNameseContainer> HistoryVietNameseContainer { get; set;}
     }
 }

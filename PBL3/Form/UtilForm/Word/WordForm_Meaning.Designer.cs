@@ -35,7 +35,6 @@
             this.btnFavorite = new FontAwesome.Sharp.IconButton();
             this.panelInfo = new System.Windows.Forms.Panel();
             this.txtDefinition = new System.Windows.Forms.RichTextBox();
-            this.rjButton1 = new CustomControls.RJButton();
             this.lblType = new System.Windows.Forms.Label();
             this.underlineBar = new CustomControls.RJButton();
             this.underlineBarAnim = new System.Windows.Forms.Timer(this.components);
@@ -106,7 +105,6 @@
             // 
             this.panelInfo.AutoScroll = true;
             this.panelInfo.Controls.Add(this.txtDefinition);
-            this.panelInfo.Controls.Add(this.rjButton1);
             this.panelInfo.Controls.Add(this.lblType);
             this.panelInfo.Controls.Add(this.underlineBar);
             this.panelInfo.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -132,24 +130,6 @@
             this.txtDefinition.Text = "\nDefinitions";
             this.txtDefinition.Visible = false;
             this.txtDefinition.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtDefSet_MouseClick);
-            // 
-            // rjButton1
-            // 
-            this.rjButton1.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjButton1.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton1.BorderRadius = 20;
-            this.rjButton1.BorderSize = 0;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(801, 14);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(150, 40);
-            this.rjButton1.TabIndex = 4;
-            this.rjButton1.Text = "rjButton1";
-            this.rjButton1.TextColor = System.Drawing.Color.White;
-            this.rjButton1.UseVisualStyleBackColor = false;
             // 
             // lblType
             // 
@@ -217,7 +197,6 @@
         private FontAwesome.Sharp.IconButton btnFavorite;
         private CustomControls.RJButton underlineBar;
         private System.Windows.Forms.Panel panelInfo;
-        private CustomControls.RJButton rjButton1;
         private System.Windows.Forms.RichTextBox txtDefinition;
         private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.Timer underlineBarAnim;

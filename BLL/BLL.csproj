@@ -167,6 +167,9 @@
     <Compile Include="Components\EDictionaryMananger.cs" />
     <Compile Include="Components\EmailManager.cs" />
     <Compile Include="Components\Validator.cs" />
+    <Compile Include="EnityFramework\Model\Topic.cs" />
+    <Compile Include="EnityFramework\Model\wn_hypernym.cs" />
+    <Compile Include="EnityFramework\Model\wn_similar.cs" />
     <Compile Include="TransferObjects\SynsetModel.cs" />
     <Compile Include="TransferObjects\WordModel.cs" />
     <Compile Include="Workflows\DataManager.cs" />

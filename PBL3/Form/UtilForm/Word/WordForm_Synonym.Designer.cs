@@ -33,9 +33,7 @@
             this.underlineBar = new CustomControls.RJButton();
             this.label1 = new System.Windows.Forms.Label();
             this.panelWords = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblWordFound1 = new System.Windows.Forms.Label();
             this.underlineBarAnim = new System.Windows.Forms.Timer(this.components);
-            this.panelWords.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblType
@@ -89,25 +87,13 @@
             // 
             // panelWords
             // 
-            this.panelWords.Controls.Add(this.lblWordFound1);
+            this.panelWords.AutoScroll = true;
+            this.panelWords.AutoScrollMinSize = new System.Drawing.Size(0, 100);
             this.panelWords.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.panelWords.Location = new System.Drawing.Point(65, 126);
+            this.panelWords.Location = new System.Drawing.Point(65, 123);
             this.panelWords.Name = "panelWords";
-            this.panelWords.Size = new System.Drawing.Size(853, 256);
+            this.panelWords.Size = new System.Drawing.Size(853, 264);
             this.panelWords.TabIndex = 8;
-            // 
-            // lblWordFound1
-            // 
-            this.lblWordFound1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblWordFound1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblWordFound1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.lblWordFound1.Font = new System.Drawing.Font("Bahnschrift Light", 13.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWordFound1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.lblWordFound1.Location = new System.Drawing.Point(3, 0);
-            this.lblWordFound1.Name = "lblWordFound1";
-            this.lblWordFound1.Size = new System.Drawing.Size(250, 30);
-            this.lblWordFound1.TabIndex = 1;
-            this.lblWordFound1.Text = "word";
             // 
             // underlineBarAnim
             // 
@@ -127,7 +113,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "WordForm_Synonym";
             this.Text = "WordForm_Synonym";
-            this.panelWords.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,7 +124,6 @@
         private CustomControls.RJButton underlineBar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel panelWords;
-        private System.Windows.Forms.Label lblWordFound1;
         private System.Windows.Forms.Timer underlineBarAnim;
     }
 }

@@ -11,6 +11,11 @@ namespace BLL.EntityFrameWork.Model
     [Table("UserPacket")]
     public class UserPacket
     {
+        public UserPacket()
+        {
+            UserPacketInfos = new List<UserPacketInfo>();
+        }
+
         [Key]
         public int PacketID { get; set; }
         public string Name { get; set; }

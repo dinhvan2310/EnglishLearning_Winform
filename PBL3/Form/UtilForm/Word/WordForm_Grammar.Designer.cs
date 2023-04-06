@@ -53,20 +53,20 @@
             // lblType
             // 
             this.lblType.AutoSize = true;
-            this.lblType.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblType.Cursor = System.Windows.Forms.Cursors.Default;
             this.lblType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.lblType.Font = new System.Drawing.Font("Bahnschrift", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(41)))), ((int)(((byte)(74)))));
             this.lblType.Location = new System.Drawing.Point(58, 69);
             this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(280, 34);
+            this.lblType.Size = new System.Drawing.Size(255, 34);
             this.lblType.TabIndex = 11;
-            this.lblType.Text = "TỪ VỰNG LIÊN QUAN";
+            this.lblType.Text = "TỪ VỰNG CÙNG HỌ";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Default;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.label1.Font = new System.Drawing.Font("Bahnschrift", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(41)))), ((int)(((byte)(74)))));

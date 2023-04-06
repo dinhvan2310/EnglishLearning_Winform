@@ -2,7 +2,7 @@ using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
-
+using BLL.EnityFramework.Model;
 using BLL.EntityFrameWork.Model;
 using PBLLibrary;
 
@@ -19,6 +19,8 @@ namespace BLL.EntityFrameWork
         }
 
         public virtual DbSet<wn_antonym> wn_antonym { get; set; }
+        public virtual DbSet<wn_similar> wn_similar { get; set; }
+        public virtual DbSet<wn_hypernym> wn_hypernym { get; set; }
         public virtual DbSet<wn_derived> wn_derived { get; set; }
         public virtual DbSet<wn_see_also> wn_see_also { get; set; }
         public virtual DbSet<wn_synset> wn_synset { get; set; }
@@ -33,6 +35,7 @@ namespace BLL.EntityFrameWork
         public virtual DbSet<UserPacket> userPacket { get; set; }
         public virtual DbSet<Notebook> notebook { get; set; }
         public virtual DbSet<HistoryEnglishContainer> historyEnglishContainer { get; set; }
+        public virtual DbSet<Topic> topic { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -50,6 +53,30 @@ namespace BLL.EntityFrameWork
 
             modelBuilder.Entity<wn_synset>()
                 .HasMany(e => e.wn_antonym1)
+                .WithRequired(e => e.wn_synset1)
+                .HasForeignKey(e => e.synset_id_2)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<wn_synset>()
+                .HasMany(e => e.wn_similar)
+                .WithRequired(e => e.wn_synset)
+                .HasForeignKey(e => e.synset_id_1)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<wn_synset>()
+                .HasMany(e => e.wn_similar1)
+                .WithRequired(e => e.wn_synset1)
+                .HasForeignKey(e => e.synset_id_2)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<wn_synset>()
+                .HasMany(e => e.wn_hypernym)
+                .WithRequired(e => e.wn_synset)
+                .HasForeignKey(e => e.synset_id_1)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<wn_synset>()
+                .HasMany(e => e.wn_hypernym1)
                 .WithRequired(e => e.wn_synset1)
                 .HasForeignKey(e => e.synset_id_2)
                 .WillCascadeOnDelete(false);
@@ -87,36 +114,59 @@ namespace BLL.EntityFrameWork
             modelBuilder.Entity<wn_synset>()
                 .HasMany(e => e.wn_word)
                 .WithRequired(e => e.wn_synset)
+                .HasForeignKey(e => e.synset_id)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<wn_synset>()
-                .HasMany(e => e.wn_synset1)
-                .WithMany(e => e.wn_synset2)
-                .Map(m => m.ToTable("wn_entails", "wn_pro_mysql").MapLeftKey("synset_id_1").MapRightKey("synset_id_2"));
+                .HasRequired(e => e.topic)
+                .WithRequiredPrincipal(e => e.wn_synset)
+                .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<wn_synset>()
-                .HasMany(e => e.wn_synset11)
-                .WithMany(e => e.wn_synset3)
-                .Map(m => m.ToTable("wn_hypernym", "wn_pro_mysql").MapLeftKey("synset_id_1").MapRightKey("synset_id_2"));
+            //modelBuilder.Entity<Notebook>()
+            //    .HasRequired(e => e.Wn_Word)
+            //    .WithMany(e => e.Notebooks)
+            //    .HasForeignKey(e => new { e.SynsetID, e.WordNum, e.AccountID })
+            //    .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<wn_synset>()
-                .HasMany(e => e.wn_synset12)
-                .WithMany(e => e.wn_synset4)
-                .Map(m => m.ToTable("wn_hyponym", "wn_pro_mysql").MapLeftKey("synset_id_1").MapRightKey("synset_id_2"));
+            //modelBuilder.Entity<Notebook>()
+            //    .HasRequired(e => e.Account)
+            //    .WithMany(e => e.Notebooks)
+            //    .HasForeignKey(e => new { e.SynsetID, e.WordNum, e.AccountID })
+            //    .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<wn_synset>()
-                .HasMany(e => e.wn_synset13)
-                .WithMany(e => e.wn_synset5)
-                .Map(m => m.ToTable("wn_similar", "wn_pro_mysql").MapLeftKey("synset_id_1").MapRightKey("synset_id_2"));
+            //modelBuilder.Entity<wn_word>()
+            //    .HasMany(e => e.Notebooks)
+            //    .WithRequired(e => e.Wn_Word)
+            //    .HasForeignKey(e => e.WordNum)
+            //    .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<wn_synset>()
-                .HasMany(e => e.wn_synset14)
-                .WithMany(e => e.wn_synset6)
-                .Map(m => m.ToTable("wn_verb_group").MapLeftKey("synset_id_1").MapRightKey("synset_id_2"));
+            //modelBuilder.Entity<wn_word>()
+            //    .HasMany(e => e.Notebooks)
+            //    .WithRequired(e => e.Wn_Word)
+            //    .HasForeignKey(e => e.SynsetID)
+            //    .WillCascadeOnDelete(false);
+
+            //modelBuilder.Entity<wn_word>()
+            //    .HasMany(e => e.HistoryContainer)
+            //    .WithRequired(e => e.Wn_Word)
+            //    .HasForeignKey(e => e.SynsetID)
+            //    .WillCascadeOnDelete(false);
+
+            //modelBuilder.Entity<wn_word>()
+            //    .HasMany(e => e.HistoryContainer)
+            //    .WithRequired(e => e.Wn_Word)
+            //    .HasForeignKey(e => e.WordNum)
+            //    .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<wn_word>()
                 .Property(e => e.word)
                 .IsUnicode(false);
+
+            //modelBuilder.Entity<word_viet>()
+            //    .HasMany(e => e.HistoryContainer)
+            //    .WithRequired(e => e.Word_Viet)
+            //    .HasForeignKey(e => e.WordID)
+            //    .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<word_viet>()
                 .Property(e => e.word)
@@ -125,6 +175,47 @@ namespace BLL.EntityFrameWork
             modelBuilder.Entity<word_viet>()
                 .Property(e => e.detail)
                 .IsUnicode(false);
+
+            //modelBuilder.Entity<UserPacket>()
+            //    .HasMany(e => e.UserPacketInfos)
+            //    .WithRequired(e => e.UserPacket)
+            //    .HasForeignKey(e => e.PacketID)
+            //    .WillCascadeOnDelete(false);
+
+            //modelBuilder.Entity<Account>()
+            //    .HasRequired(e => e.DetailedInformation)
+            //    .WithRequiredDependent(e => e.Account)
+            //    .WillCascadeOnDelete(false);
+
+            //modelBuilder.Entity<Account>()
+            //    .HasMany(e => e.HistoryEnglishContainer)
+            //    .WithRequired(e => e.Account)
+            //    .HasForeignKey(e => e.AccountID)
+            //    .WillCascadeOnDelete(false);
+
+            //modelBuilder.Entity<Account>()
+            //    .HasMany(e => e.HistoryVietNameseContainer)
+            //    .WithRequired(e => e.Account)
+            //    .HasForeignKey(e => e.AccountID)
+            //    .WillCascadeOnDelete(false);
+
+            //modelBuilder.Entity<Account>()
+            //    .HasMany(e => e.InformationPerDays)
+            //    .WithRequired(e => e.Account)
+            //    .HasForeignKey(e => e.AccountID)
+            //    .WillCascadeOnDelete(false);
+
+            //modelBuilder.Entity<Account>()
+            //    .HasMany(e => e.UserPacketInfos)
+            //    .WithRequired(e => e.Account)
+            //    .HasForeignKey(e => e.AccountID)
+            //    .WillCascadeOnDelete(false);
+
+            //modelBuilder.Entity<Account>()
+            //    .HasMany(e => e.Notebooks)
+            //    .WithRequired(e => e.Account)
+            //    .HasForeignKey(e => e.AccountID)
+            //    .WillCascadeOnDelete(false);
         }
     }
 }

@@ -23,7 +23,7 @@ namespace PBL3
 
             DataManager dm = new DataManager();
             _VerbFrames = dm.EDictionaryManager.GetVerbFrame_ByWord(rawWord);
-            _Deriveds = dm.EDictionaryManager.GetWord_ByDerived(rawWord);
+            _Deriveds = dm.EDictionaryManager.GetDerivedWord_ByWord(rawWord);
 
             SetupUI();
         }
@@ -32,14 +32,25 @@ namespace PBL3
         {
             foreach (string s in _VerbFrames)
             {
-                Label b = CreateLabel(s);
-                panelFrames.Controls.Add(b);
+                Label label = CreateLabel(s);
+                panelFrames.Controls.Add(label);
             }
 
-            foreach (WordModel d in _Deriveds)
+            foreach (WordModel w in _Deriveds)
             {
-                Label b = CreateLabel(d.Word.Replace('_', ' '), true);
-                panelDeriveds.Controls.Add(b);
+                Label label = CreateLabel(w.Word.Replace('_', ' '), true);
+                panelDeriveds.Controls.Add(label);
+            }
+
+            if (_VerbFrames.Count == 0)
+            {
+                Label label = CreateLabel("Không có!!");
+                panelFrames.Controls.Add(label);
+            }
+            if (_Deriveds.Count == 0)
+            {
+                Label label = CreateLabel("Không có!!");
+                panelDeriveds.Controls.Add(label);
             }
         }
 
@@ -57,6 +68,7 @@ namespace PBL3
             b.Text = txt;
             if (wordLabel)
             {
+                b.Font = new Font("Bahnschrift Light", 13.8f, FontStyle.Underline);
                 b.Cursor = Cursors.Hand;
                 b.MouseClick += WordFound;
             }

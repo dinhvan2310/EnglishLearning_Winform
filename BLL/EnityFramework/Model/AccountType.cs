@@ -9,6 +9,11 @@ namespace BLL.EntityFrameWork.Model
 {
     public class AccountType
     {
+        public AccountType()
+        {
+            Accounts = new List<Account>();
+        }
+
         [Key]
         public int ID { get; set; }
         public string Name { get; set; }

@@ -20,7 +20,7 @@ namespace BLL.Components
 {
     public class EDictionaryMananger
     {
-        private string[] _VerbFrames = new string[]
+        private readonly string[] _VerbFrames = new string[]
         {
             "",
             "Something ----s",
@@ -142,6 +142,69 @@ namespace BLL.Components
             }
         }
 
+        public List<WordModel> GetWord_BySynsetID(decimal id)
+        {
+            using (var dbContext = new DictionaryContext())
+            {
+                List<WordModel> results = new List<WordModel>();
+
+                List<string> wn_words = new List<string>();
+                var temp = dbContext.wn_word
+                                .Where(p => p.synset_id.Equals(id))
+                                .Select(p => p.word)
+                                .ToList();
+
+                temp.ForEach(item =>
+                {
+                    wn_words.Add(item.ToString());
+                });
+
+                wn_words.ForEach(item =>
+                {
+                    results.Add(new WordModel(item.ToString()));
+                });
+                return results;
+            }
+        }
+
+        /// <summary>
+        /// Including similar words and synset words family
+        /// </summary>
+        /// <param name="word"></param>
+        /// <returns></returns>
+        public List<WordModel> GetSynonymWord_ByWord(string word)
+        {
+            using (var dbContext = new DictionaryContext())
+            {
+                List<WordModel> results = new List<WordModel>();
+
+                List<SynsetModel> ss = GetSynset_ByWord(word);
+                List<string> wn_words = new List<string>();
+
+                foreach (SynsetModel s in ss)
+                {
+                    var temp = dbContext.wn_word
+                                    .Where(p => p.synset_id.Equals(s.ID))
+                                    .Select(p => p.word)
+                                    .ToList();
+
+                    temp.ForEach(item =>
+                    {
+                        wn_words.Add(item.ToString());
+                    });
+                }
+
+                wn_words = wn_words.Distinct().ToList();
+                // except base word
+                wn_words.Remove(word);
+                wn_words.ForEach(item =>
+                {
+                    results.Add(new WordModel(item.ToString()));
+                });
+                return results;
+            }
+        }
+
         public List<SynsetModel> GetSynset_ByWord(string word)
         {
             using (var dbContext = new DictionaryContext())
@@ -211,12 +274,42 @@ namespace BLL.Components
             }
         }
 
-        //public List<WordModel> GetWord_BySimilar(string word)
-        //{
-            
-        //}
+        public List<WordModel> GetSimilarWord_ByWord(string word)
+        {
+            using (var dbContext = new DictionaryContext())
+            {
+                List<WordModel> results = new List<WordModel>();
 
-        public List<WordModel> GetWord_ByAntonym(string word)
+                List<string> wn_words = new List<string>();
+                var temp = dbContext.wn_word
+                                .Where(p => p.word.Equals(word))
+                                .Join(
+                                    dbContext.wn_similar,
+                                    w => w.synset_id,
+                                    a => a.synset_id_1,
+                                    (w, a) => new { a.synset_id_2 })
+                                .Join(
+                                    dbContext.wn_word,
+                                    wa => wa.synset_id_2,
+                                    w => w.synset_id,
+                                    (wa, w) => new { w.word })
+                                .Select(p => p.word)
+                                .ToList();
+
+                temp.ForEach(item =>
+                {
+                    wn_words.Add(item.ToString());
+                });
+
+                wn_words.ForEach(item =>
+                {
+                    results.Add(new WordModel(item.ToString()));
+                });
+                return results;
+            }
+        }
+
+        public List<WordModel> GetAntonymWord_ByWord(string word)
         {
             using (var dbContext = new DictionaryContext())
             {
@@ -276,7 +369,44 @@ namespace BLL.Components
             }
         }
 
-        public List<WordModel> GetWord_ByDerived(string word)
+        public List<WordModel> GetDerivedWord_ByWord(string word)
+        {
+            using (var dbContext = new DictionaryContext())
+            {
+                List<WordModel> results = new List<WordModel>();
+
+                List<string> wn_words = new List<string>();
+                var temp = dbContext.wn_word
+                                .Where(p => p.word.Equals(word))
+                                .Join(
+                                    dbContext.wn_derived,
+                                    w => w.synset_id,
+                                    a => a.synset_id_1,
+                                    (w, a) => new { a.synset_id_2 })
+                                .Join(
+                                    dbContext.wn_word,
+                                    wa => wa.synset_id_2,
+                                    w => w.synset_id,
+                                    (wa, w) => new { w.word })
+                                .Where(p => p.word.Contains(word))
+                                .Select(p => p.word)
+                                .Distinct()
+                                .ToList();
+
+                temp.ForEach(item =>
+                {
+                    wn_words.Add(item.ToString());
+                });
+
+                wn_words.ForEach(item =>
+                {
+                    results.Add(new WordModel(item.ToString()));
+                });
+                return results;
+            }
+        }
+
+        public List<WordModel> GetHypernymWord_ByWord(string word)
         {
             using (var dbContext = new DictionaryContext())
             {

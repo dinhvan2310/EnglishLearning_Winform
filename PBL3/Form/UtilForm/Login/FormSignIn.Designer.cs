@@ -31,16 +31,12 @@ namespace PBL3
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSignIn));
-            this.btnLogo = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
-            this.btnUser = new FontAwesome.Sharp.IconButton();
             this.txtPasswrd = new System.Windows.Forms.TextBox();
-            this.btnPassword = new FontAwesome.Sharp.IconButton();
-            this.btnShow = new FontAwesome.Sharp.IconButton();
             this.fakeTabStop = new System.Windows.Forms.TextBox();
             this.rjButton6 = new CustomControls.RJButton();
             this.rjButton4 = new CustomControls.RJButton();
@@ -50,23 +46,12 @@ namespace PBL3
             this.rjToggleButton1 = new CustomControls.RJToggleButton();
             this.btnSignUp = new CustomControls.RJButton();
             this.btnLogin = new CustomControls.RJButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnShow = new FontAwesome.Sharp.IconButton();
+            this.btnUser = new FontAwesome.Sharp.IconButton();
+            this.btnPassword = new FontAwesome.Sharp.IconButton();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnLogo
-            // 
-            this.btnLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnLogo.BackgroundImage")));
-            this.btnLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnLogo.Enabled = false;
-            this.btnLogo.FlatAppearance.BorderSize = 0;
-            this.btnLogo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
-            this.btnLogo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
-            this.btnLogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogo.Location = new System.Drawing.Point(119, 1);
-            this.btnLogo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnLogo.Name = "btnLogo";
-            this.btnLogo.Size = new System.Drawing.Size(293, 144);
-            this.btnLogo.TabIndex = 1;
-            this.btnLogo.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -95,7 +80,7 @@ namespace PBL3
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
-            this.label2.Location = new System.Drawing.Point(128, 298);
+            this.label2.Location = new System.Drawing.Point(134, 316);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 20);
             this.label2.TabIndex = 27;
@@ -118,33 +103,16 @@ namespace PBL3
             this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsername.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
-            this.txtUsername.Location = new System.Drawing.Point(129, 167);
+            this.txtUsername.Location = new System.Drawing.Point(129, 206);
             this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUsername.MinimumSize = new System.Drawing.Size(0, 30);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(300, 25);
+            this.txtUsername.Size = new System.Drawing.Size(300, 30);
             this.txtUsername.TabIndex = 1;
             this.txtUsername.Text = "Tên Đăng Nhập";
+            this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
             this.txtUsername.Enter += new System.EventHandler(this.txtPH_Enter);
             this.txtUsername.Leave += new System.EventHandler(this.txtPH_Leave);
-            // 
-            // btnUser
-            // 
-            this.btnUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
-            this.btnUser.Enabled = false;
-            this.btnUser.FlatAppearance.BorderSize = 0;
-            this.btnUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUser.IconChar = FontAwesome.Sharp.IconChar.User;
-            this.btnUser.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
-            this.btnUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnUser.IconSize = 25;
-            this.btnUser.Location = new System.Drawing.Point(83, 161);
-            this.btnUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnUser.Name = "btnUser";
-            this.btnUser.Size = new System.Drawing.Size(39, 28);
-            this.btnUser.TabIndex = 43;
-            this.btnUser.TabStop = false;
-            this.btnUser.UseVisualStyleBackColor = false;
             // 
             // txtPasswrd
             // 
@@ -152,7 +120,7 @@ namespace PBL3
             this.txtPasswrd.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPasswrd.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPasswrd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
-            this.txtPasswrd.Location = new System.Drawing.Point(129, 225);
+            this.txtPasswrd.Location = new System.Drawing.Point(129, 264);
             this.txtPasswrd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPasswrd.MinimumSize = new System.Drawing.Size(0, 30);
             this.txtPasswrd.Name = "txtPasswrd";
@@ -161,45 +129,6 @@ namespace PBL3
             this.txtPasswrd.Text = "Mật Khẩu";
             this.txtPasswrd.Enter += new System.EventHandler(this.txtPH_Enter);
             this.txtPasswrd.Leave += new System.EventHandler(this.txtPH_Leave);
-            // 
-            // btnPassword
-            // 
-            this.btnPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
-            this.btnPassword.Enabled = false;
-            this.btnPassword.FlatAppearance.BorderSize = 0;
-            this.btnPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPassword.IconChar = FontAwesome.Sharp.IconChar.Lock;
-            this.btnPassword.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
-            this.btnPassword.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnPassword.IconSize = 25;
-            this.btnPassword.Location = new System.Drawing.Point(84, 219);
-            this.btnPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnPassword.Name = "btnPassword";
-            this.btnPassword.Size = new System.Drawing.Size(39, 28);
-            this.btnPassword.TabIndex = 45;
-            this.btnPassword.TabStop = false;
-            this.btnPassword.UseVisualStyleBackColor = false;
-            // 
-            // btnShow
-            // 
-            this.btnShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
-            this.btnShow.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnShow.FlatAppearance.BorderSize = 0;
-            this.btnShow.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
-            this.btnShow.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
-            this.btnShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShow.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
-            this.btnShow.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
-            this.btnShow.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnShow.IconSize = 25;
-            this.btnShow.Location = new System.Drawing.Point(439, 222);
-            this.btnShow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(29, 28);
-            this.btnShow.TabIndex = 48;
-            this.btnShow.TabStop = false;
-            this.btnShow.UseVisualStyleBackColor = false;
-            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
             // fakeTabStop
             // 
@@ -219,7 +148,7 @@ namespace PBL3
             this.rjButton6.FlatAppearance.BorderSize = 0;
             this.rjButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton6.ForeColor = System.Drawing.Color.White;
-            this.rjButton6.Location = new System.Drawing.Point(120, 213);
+            this.rjButton6.Location = new System.Drawing.Point(120, 252);
             this.rjButton6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rjButton6.Name = "rjButton6";
             this.rjButton6.Size = new System.Drawing.Size(3, 39);
@@ -239,7 +168,7 @@ namespace PBL3
             this.rjButton4.FlatAppearance.BorderSize = 0;
             this.rjButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton4.ForeColor = System.Drawing.Color.White;
-            this.rjButton4.Location = new System.Drawing.Point(119, 156);
+            this.rjButton4.Location = new System.Drawing.Point(119, 195);
             this.rjButton4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rjButton4.Name = "rjButton4";
             this.rjButton4.Size = new System.Drawing.Size(3, 39);
@@ -260,7 +189,7 @@ namespace PBL3
             this.rjButton1.FlatAppearance.BorderSize = 0;
             this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(61, 149);
+            this.rjButton1.Location = new System.Drawing.Point(61, 188);
             this.rjButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rjButton1.Name = "rjButton1";
             this.rjButton1.Size = new System.Drawing.Size(429, 50);
@@ -280,7 +209,7 @@ namespace PBL3
             this.rjButton2.FlatAppearance.BorderSize = 0;
             this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton2.ForeColor = System.Drawing.Color.White;
-            this.rjButton2.Location = new System.Drawing.Point(63, 208);
+            this.rjButton2.Location = new System.Drawing.Point(63, 247);
             this.rjButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rjButton2.Name = "rjButton2";
             this.rjButton2.Size = new System.Drawing.Size(429, 50);
@@ -312,7 +241,7 @@ namespace PBL3
             // rjToggleButton1
             // 
             this.rjToggleButton1.AutoSize = true;
-            this.rjToggleButton1.Location = new System.Drawing.Point(78, 298);
+            this.rjToggleButton1.Location = new System.Drawing.Point(84, 316);
             this.rjToggleButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rjToggleButton1.MinimumSize = new System.Drawing.Size(45, 22);
             this.rjToggleButton1.Name = "rjToggleButton1";
@@ -358,7 +287,7 @@ namespace PBL3
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Bahnschrift", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
-            this.btnLogin.Location = new System.Drawing.Point(319, 275);
+            this.btnLogin.Location = new System.Drawing.Point(321, 304);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(171, 60);
@@ -369,12 +298,80 @@ namespace PBL3
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Image = global::PBL3.Properties.Resources.debut;
+            this.pictureBox1.Location = new System.Drawing.Point(185, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(191, 177);
+            this.pictureBox1.TabIndex = 49;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnShow
+            // 
+            this.btnShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.btnShow.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnShow.FlatAppearance.BorderSize = 0;
+            this.btnShow.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.btnShow.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.btnShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShow.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            this.btnShow.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
+            this.btnShow.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnShow.IconSize = 25;
+            this.btnShow.Location = new System.Drawing.Point(439, 261);
+            this.btnShow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnShow.Name = "btnShow";
+            this.btnShow.Size = new System.Drawing.Size(29, 28);
+            this.btnShow.TabIndex = 48;
+            this.btnShow.TabStop = false;
+            this.btnShow.UseVisualStyleBackColor = false;
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
+            // 
+            // btnUser
+            // 
+            this.btnUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.btnUser.Enabled = false;
+            this.btnUser.FlatAppearance.BorderSize = 0;
+            this.btnUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUser.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.btnUser.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
+            this.btnUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnUser.IconSize = 25;
+            this.btnUser.Location = new System.Drawing.Point(83, 200);
+            this.btnUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnUser.Name = "btnUser";
+            this.btnUser.Size = new System.Drawing.Size(39, 28);
+            this.btnUser.TabIndex = 43;
+            this.btnUser.TabStop = false;
+            this.btnUser.UseVisualStyleBackColor = false;
+            // 
+            // btnPassword
+            // 
+            this.btnPassword.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.btnPassword.Enabled = false;
+            this.btnPassword.FlatAppearance.BorderSize = 0;
+            this.btnPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPassword.IconChar = FontAwesome.Sharp.IconChar.Lock;
+            this.btnPassword.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
+            this.btnPassword.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnPassword.IconSize = 25;
+            this.btnPassword.Location = new System.Drawing.Point(84, 258);
+            this.btnPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPassword.Name = "btnPassword";
+            this.btnPassword.Size = new System.Drawing.Size(39, 28);
+            this.btnPassword.TabIndex = 45;
+            this.btnPassword.TabStop = false;
+            this.btnPassword.UseVisualStyleBackColor = false;
+            // 
             // FormSignIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
             this.ClientSize = new System.Drawing.Size(549, 466);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnShow);
             this.Controls.Add(this.rjButton6);
             this.Controls.Add(this.rjButton4);
@@ -392,7 +389,6 @@ namespace PBL3
             this.Controls.Add(this.btnSignUp);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnLogo);
             this.Controls.Add(this.fakeTabStop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -400,13 +396,13 @@ namespace PBL3
             this.Name = "FormSignIn";
             this.Text = "FormSignUp";
             this.MouseCaptureChanged += new System.EventHandler(this.FormSignIn_MouseCaptureChanged);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button btnLogo;
         private System.Windows.Forms.Label label4;
         private CustomControls.RJButton rjButton5;
         private System.Windows.Forms.Label label3;
@@ -425,5 +421,6 @@ namespace PBL3
         private CustomControls.RJButton rjButton6;
         private FontAwesome.Sharp.IconButton btnShow;
         private System.Windows.Forms.TextBox fakeTabStop;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

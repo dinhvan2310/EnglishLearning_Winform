@@ -1,5 +1,6 @@
 namespace BLL.EntityFrameWork.Model
 {
+    using BLL.EnityFramework.Model;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -14,22 +15,17 @@ namespace BLL.EntityFrameWork.Model
         {
             wn_antonym = new HashSet<wn_antonym>();
             wn_antonym1 = new HashSet<wn_antonym>();
+            wn_similar = new HashSet<wn_similar>();
+            wn_similar1 = new HashSet<wn_similar>();
+            wn_hypernym = new HashSet<wn_hypernym>();
+            wn_hypernym1 = new HashSet<wn_hypernym>();
             wn_derived = new HashSet<wn_derived>();
             wn_derived1 = new HashSet<wn_derived>();
             wn_see_also = new HashSet<wn_see_also>();
             wn_see_also1 = new HashSet<wn_see_also>();
             wn_verb_frame = new HashSet<wn_verb_frame>();
             wn_word = new HashSet<wn_word>();
-            wn_synset1 = new HashSet<wn_synset>();
-            wn_synset2 = new HashSet<wn_synset>();
-            wn_synset11 = new HashSet<wn_synset>();
-            wn_synset3 = new HashSet<wn_synset>();
-            wn_synset12 = new HashSet<wn_synset>();
-            wn_synset4 = new HashSet<wn_synset>();
-            wn_synset13 = new HashSet<wn_synset>();
-            wn_synset5 = new HashSet<wn_synset>();
-            wn_synset14 = new HashSet<wn_synset>();
-            wn_synset6 = new HashSet<wn_synset>();
+            topic = new Topic();
         }
 
         [Key]
@@ -43,6 +39,18 @@ namespace BLL.EntityFrameWork.Model
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<wn_antonym> wn_antonym1 { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<wn_similar> wn_similar { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<wn_similar> wn_similar1 { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<wn_hypernym> wn_hypernym { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<wn_hypernym> wn_hypernym1 { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<wn_derived> wn_derived { get; set; }
@@ -63,33 +71,6 @@ namespace BLL.EntityFrameWork.Model
         public virtual ICollection<wn_word> wn_word { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<wn_synset> wn_synset1 { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<wn_synset> wn_synset2 { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<wn_synset> wn_synset11 { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<wn_synset> wn_synset3 { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<wn_synset> wn_synset12 { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<wn_synset> wn_synset4 { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<wn_synset> wn_synset13 { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<wn_synset> wn_synset5 { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<wn_synset> wn_synset14 { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<wn_synset> wn_synset6 { get; set; }
+        public virtual Topic topic { get; set; }
     }
 }
