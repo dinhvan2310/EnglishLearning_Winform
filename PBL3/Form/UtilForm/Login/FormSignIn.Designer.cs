@@ -107,7 +107,7 @@ namespace PBL3
             this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtUsername.MinimumSize = new System.Drawing.Size(0, 30);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(300, 30);
+            this.txtUsername.Size = new System.Drawing.Size(300, 25);
             this.txtUsername.TabIndex = 1;
             this.txtUsername.Text = "Tên Đăng Nhập";
             this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
@@ -124,7 +124,7 @@ namespace PBL3
             this.txtPasswrd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPasswrd.MinimumSize = new System.Drawing.Size(0, 30);
             this.txtPasswrd.Name = "txtPasswrd";
-            this.txtPasswrd.Size = new System.Drawing.Size(300, 30);
+            this.txtPasswrd.Size = new System.Drawing.Size(300, 25);
             this.txtPasswrd.TabIndex = 2;
             this.txtPasswrd.Text = "Mật Khẩu";
             this.txtPasswrd.Enter += new System.EventHandler(this.txtPH_Enter);
@@ -300,7 +300,7 @@ namespace PBL3
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Image = global::PBL3.Properties.Resources.debut;
             this.pictureBox1.Location = new System.Drawing.Point(185, 6);
             this.pictureBox1.Name = "pictureBox1";

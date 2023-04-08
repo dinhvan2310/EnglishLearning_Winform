@@ -410,3 +410,4 @@ D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\EFramework.pdb
 D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\EFramework.dll.config
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormTopic_Branch.resources
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormTopic_List.resources
+D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormGuest.resources

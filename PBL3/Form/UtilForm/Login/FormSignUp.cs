@@ -1,4 +1,8 @@
 ﻿using BLL.Workflows;
+using CustomControls;
+using EFramework.Model;
+using FontAwesome.Sharp;
+using PBL3.Utilities;
 using PBLLibrary;
 using System;
 using System.Collections.Generic;
@@ -12,6 +16,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using System.Windows.Forms.VisualStyles;
 using System.Windows.Media.Media3D;
 
@@ -34,10 +39,6 @@ namespace PBL3
         private bool isValidPassword = false;
         private bool isValidEmail = false;*/
 
-
-
-        private Form _ParentForm;
-
         private Panel _CurrentPage;
 
         private bool[] _BarIsDirtys = new bool[8];
@@ -49,19 +50,16 @@ namespace PBL3
 
         private string _VerifyCode;
 
-        public FormSignUp(Form parentForm)
+        public FormSignUp()
         {
             InitializeComponent();
 
-            _ParentForm = parentForm;
+            SetupUI();
+            InitVariables();
+        }
 
-            panelBase.Controls.Add(panelPage1);
-            panelBase.Controls.Add(panelPage2);
-            panelBase.Controls.Add(panelEmail);
-
-            panelEmail.Location = new Point(0, 0);
-            panelPage1.Location = new Point(0, 0);
-
+        private void InitVariables()
+        {
             _TxtPHHolders[0] = txtName;
             _TxtPHHolders[1] = null;
             _TxtPHHolders[2] = txtDate;
@@ -70,8 +68,16 @@ namespace PBL3
             _TxtPHHolders[5] = txtConPasswrd;
             _TxtPHHolders[6] = txtEmail;
             _TxtPHHolders[7] = txtVerify;
+        }
 
-            
+        private void SetupUI()
+        {
+            panelBase.Controls.Add(panelPage1);
+            panelBase.Controls.Add(panelPage2);
+            panelBase.Controls.Add(panelEmail);
+
+            panelEmail.Location = new Point(0, 0);
+            panelPage1.Location = new Point(0, 0);
         }
 
         private void SwapPanel()
@@ -113,7 +119,7 @@ namespace PBL3
         /// <returns>true/false</returns>
         private bool ValidateEmail()
         {
-            return SignUpWorkflow.Instance.CheckEmail(txtEmail.Text);
+            return LoginWorkflow.Instance.CheckEmail(txtEmail.Text);
         }
 
         /// <summary>
@@ -122,12 +128,12 @@ namespace PBL3
         /// <returns>null/DateTime</returns>
         private DateTime? ValidateDate()
         {
-            return SignUpWorkflow.Instance.CheckDate(txtDate.Text);
+            return LoginWorkflow.Instance.CheckDate(txtDate.Text);
         }
 
         private void rjButton4_Click(object sender, EventArgs e)
         {
-            ((LoginForm)_ParentForm).OpenChildForm(new FormSignIn(_ParentForm));
+            GlobalForm.LoginForm.OpenChildForm(new FormSignIn());
         }
 
         private void btnPage1_CheckedChanged(object sender, EventArgs e)
@@ -163,20 +169,22 @@ namespace PBL3
         private void txtPH_Enter(object sender, EventArgs e)
         {
             int index = ((TextBox)sender).TabIndex - 1;
-            
-            if (index == 3)
+
+            // validate color
+            switch (index)
             {
-                iconUser.BackColor = Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
-            }
-            if (index == 4)
-            {
-                iconPassword.BackColor = Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
-            }
-            if (index == 5)
-            {
-                iconConfirmPassword.BackColor = Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+                case 3:
+                    iconUser.BackColor = Color.FromArgb(75, 65, 114);
+                    break;
+                case 4:
+                    iconPassword.BackColor = Color.FromArgb(75, 65, 114);
+                    break;
+                case 5:
+                    iconConfirmPassword.BackColor = Color.FromArgb(75, 65, 114);
+                    break;
             }
 
+            // not dirty
             if (!_BarIsDirtys[index])
             {
                 _TxtPHHolders[index].Text = string.Empty;
@@ -204,92 +212,85 @@ namespace PBL3
                 _TxtPHHolders[index].Text = _BarStrings[index];
                 _TxtPHHolders[index].ForeColor = Color.FromArgb(119, 112, 156);
 
-                if (index == 3)
+                switch (index)
                 {
-                    _TxtPHHolders[index].PasswordChar = '\0';
+                    case 3:
+                        _TxtPHHolders[index].PasswordChar = '\0';
+                        break;
+                    case 4:
+                        _TxtPHHolders[index].PasswordChar = '\0';
+                        break;
                 }
-                if (index == 4)
-                {
-                    _TxtPHHolders[index].PasswordChar = '\0';
-                }
+
             }
             else
             {
-                // username
-                if (index == 3)
+                switch (index)
                 {
-                    if (!SignUpWorkflow.Instance.CheckUsername(txtUname.Text))
-                    {
-                        iconUser.BackColor = Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
-                    }
+                    case 3: // username
+                        if (!LoginWorkflow.Instance.CheckUsername(txtUname.Text))
+                        {
+                            iconUser.BackColor = Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
+                        }
+                        break;
+                    case 4: // password
+                        if (!LoginWorkflow.Instance.CheckPassword(txtPasswrd.Text))
+                        {
+                            iconPassword.BackColor = Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
+                        }
+                        break;
+                    case 5: // confirmed Password
+                        if (txtPasswrd.Text != txtConPasswrd.Text)
+                        {
+                            iconConfirmPassword.BackColor = Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
+                        }
+                        break;
+                    case 2: // datetime
+                        DateTime? dateTime = ValidateDate();
+                        if (dateTime != null)
+                        {
+                            datePicker.Value = (DateTime)dateTime;
+                        }
+                        else
+                        {
+                            txtDate.Text = _BarStrings[2];
+                            _BarIsDirtys[2] = false;
+                            Form messageBox = new FormMessageBox("NHẬP SAI", "Nhập Sai Ngày Sinh", FormMessageBox.MessageType.Info);
+                            messageBox.ShowDialog();
+                        }
+                        break;
+                    // email
+                    case 6:
+                        if (txtEmail.ReadOnly)
+                            break;
+                        if (ValidateEmail())
+                        {
+                            _VerifyCode = GlobalConfig.Instance.GenerateVerifyCode();
+                            LoginWorkflow.Instance.SendMessage(txtEmail.Text, "Verify Code",
+                                "Mã Xác Thực cho tài khoản English Learning là: " + _VerifyCode);
+
+                            _TxtPHHolders[index].ReadOnly = true;
+                            _TxtPHHolders[index].ForeColor = Color.FromArgb(119, 112, 156);
+
+                            panelVerify.Location = new Point(-474, panelVerify.Location.Y);
+                            panelVerify.Visible = true;
+                            childSlideAnim.Start();
+                        }
+                        else
+                        {
+                            Form messageBox = new FormMessageBox("NHẬP SAI", "Nhập Sai Email", FormMessageBox.MessageType.Info);
+                            messageBox.ShowDialog();
+                        }
+                        break;
+                    case 0:
+                        {
+                            if (txtName.Text == String.Empty)
+                            {
+                                iconName.ForeColor = Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+                            }
+                        }
+                        break;
                 }
-                // password
-                if (index == 4)
-                {
-                    if (!SignUpWorkflow.Instance.CheckPassword(txtPasswrd.Text))
-                    {
-                        iconPassword.BackColor = Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
-                    }
-                }
-                // confirmed Password
-                if (index == 5)
-                {
-                    if (txtPasswrd.Text != txtConPasswrd.Text)
-                    {
-                        iconConfirmPassword.BackColor = Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(76)))), ((int)(((byte)(60)))));
-                    }
-                }
-                // datetime
-                if (index == 2)
-                {
-                    DateTime? dateTime = ValidateDate();
-                    if (dateTime != null)
-                    {
-                        datePicker.Value = (DateTime)dateTime;
-                    }
-                    else
-                    {
-                        txtDate.Text = _BarStrings[2];
-                        _BarIsDirtys[2] = false;
-                        Form messageBox = new FormMessageBox("NHẬP SAI", "Nhập Sai Ngày Sinh", FormMessageBox.MessageType.Info);
-                        messageBox.ShowDialog();
-                    }
-                    
-
-                }
-
-                // email
-                if (index == 6 && !txtEmail.ReadOnly)
-                {
-                    if (ValidateEmail())
-                    {
-                        _VerifyCode = GlobalConfig.Instance.GenerateVerifyCode();
-                        SignUpWorkflow.Instance.SendMessage(txtEmail.Text, "Verify Code",
-                            "Mã Xác Thực cho tài khoản English Learning là: " + _VerifyCode);
-
-                        _TxtPHHolders[index].ReadOnly = true;
-                        _TxtPHHolders[index].ForeColor = Color.FromArgb(119, 112, 156);
-
-                        panelVerify.Location = new Point(-474, panelVerify.Location.Y);
-                        panelVerify.Visible = true;
-                        childSlideAnim.Start();
-                    }
-                    else
-                    {
-                        Form messageBox = new FormMessageBox("NHẬP SAI", "Nhập Sai Email", FormMessageBox.MessageType.Info);
-                        messageBox.ShowDialog();
-                    }
-
-                }    
-
-                if (index == 0)
-                {
-                    if (txtName.Text == String.Empty)
-                    {
-                        iconName.ForeColor = Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
-                    }
-                }
-
             }
         }
 
@@ -310,39 +311,23 @@ namespace PBL3
 
         private void btnShow_Click(object sender, EventArgs e)
         {
-            if (!_BarIsDirtys[4])
+            IconButton button = (IconButton)sender;
+            int index = button.TabIndex - 1;
+
+            if (!_BarIsDirtys[index])
             {
                 return;
             }
 
-            if (_TxtPHHolders[4].PasswordChar == '*')
+            if (_TxtPHHolders[index].PasswordChar == '*')
             {
-                btnShow.IconChar = FontAwesome.Sharp.IconChar.Eye;
-                _TxtPHHolders[4].PasswordChar = '\0';
+                button.IconChar = FontAwesome.Sharp.IconChar.Eye;
+                _TxtPHHolders[index].PasswordChar = '\0';
             }
             else
             {
-                btnShow.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
-                _TxtPHHolders[4].PasswordChar = '*';
-            }
-        }
-
-        private void btnConfirmShow_Click(object sender, EventArgs e)
-        {
-            if (!_BarIsDirtys[5])
-            {
-                return;
-            }
-
-            if (_TxtPHHolders[5].PasswordChar == '*')
-            {
-                btnConfirmShow.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
-                _TxtPHHolders[5].PasswordChar = '\0';
-            }
-            else
-            {
-                btnConfirmShow.IconChar = FontAwesome.Sharp.IconChar.Eye;
-                _TxtPHHolders[5].PasswordChar = '*';
+                button.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+                _TxtPHHolders[index].PasswordChar = '*';
             }
         }
 
@@ -439,8 +424,8 @@ namespace PBL3
                 _BarIsDirtys[0],    //Name
                 _BarIsDirtys[1],    //Gender
                 _BarIsDirtys[2],    //Birthday
-                (_BarIsDirtys[3] && SignUpWorkflow.Instance.CheckUsername(userName) && !SignUpWorkflow.Instance.CheckExsitAccount(userName)),    //UserName
-                (_BarIsDirtys[4] && SignUpWorkflow.Instance.CheckPassword(passWord) && passWord == confirmPass),  //Password
+                (_BarIsDirtys[3] && LoginWorkflow.Instance.CheckUsername(userName) && !LoginWorkflow.Instance.CheckExsitAccount(userName)),    //UserName
+                (_BarIsDirtys[4] && LoginWorkflow.Instance.CheckPassword(passWord) && passWord == confirmPass),  //Password
                 (_BarIsDirtys[5]),  //Email
             };
 
@@ -449,9 +434,17 @@ namespace PBL3
 
             if (isValids[0] && isValids[1] && isValids[2] && isValids[3] && isValids[4] && isValids[5])
             {
-                if (SignUpWorkflow.Instance.SaveAccount(name, gender, birthDay, userName, passWord, email))
+                if (LoginWorkflow.Instance.SaveAccount(new Account()
                 {
-                    ((LoginForm)_ParentForm).OpenChildForm(new FormSignIn(_ParentForm));
+                    Name = name,
+                    Gender = gender,
+                    BirthDate = birthDay,
+                    UserName = userName,
+                    Password = passWord,
+                    Email = email,
+                }))
+                {
+                    GlobalForm.LoginForm.OpenChildForm(new FormSignIn());
                 }
                 else
                 {

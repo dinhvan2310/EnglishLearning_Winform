@@ -13,6 +13,7 @@ using System.Windows.Media.Media3D;
 using BLL.Workflows;
 using BLL.TransferObjects;
 using PBL3.Utilities;
+using BLL.Components;
 
 namespace PBL3
 {
@@ -32,8 +33,8 @@ namespace PBL3
 
             ActiveTag(btnMeaning);
 
-            var dataAccess = new DataManager();
-            _Synsets = dataAccess.EDictionaryManager.GetSynset_ByWord(rawWord);
+            DataManager dm = new DataManager();
+            _Synsets = dm.EDictionaryManager.GetSynset_ByWord(rawWord);
             OpenChildForm(new WordForm_Meaning(rawWord, _Synsets));
         }
 

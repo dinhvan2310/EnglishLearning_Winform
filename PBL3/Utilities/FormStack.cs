@@ -37,15 +37,16 @@ namespace PBL3.Utilities
 
         public static void Clear()
         {
+            int i = 1;
             foreach (Form form in _Stack)
             {
-                if (_Stack.Count == 1) // if base form
+                if (_Stack.Count == i) // if base form
                 {
                     form.Hide();
                     continue;
                 }
                 form.Close();
-                
+                i++;
             }
             _Stack.Clear();
         }

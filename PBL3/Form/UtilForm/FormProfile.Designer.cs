@@ -45,7 +45,7 @@
             this.btnAdjust4 = new FontAwesome.Sharp.IconButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.rjButton3 = new CustomControls.RJButton();
+            this.btnUpdate = new CustomControls.RJButton();
             this.datePicker = new CustomControls.RJDatePicker();
             this.cmbBoxGender = new CustomControls.RJComboBox();
             this.fileDialog = new System.Windows.Forms.OpenFileDialog();
@@ -299,26 +299,27 @@
             this.panel2.Size = new System.Drawing.Size(609, 5);
             this.panel2.TabIndex = 22;
             // 
-            // rjButton3
+            // btnUpdate
             // 
-            this.rjButton3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.rjButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.rjButton3.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.rjButton3.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton3.BorderRadius = 30;
-            this.rjButton3.BorderSize = 0;
-            this.rjButton3.FlatAppearance.BorderSize = 0;
-            this.rjButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton3.Font = new System.Drawing.Font("Bahnschrift", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
-            this.rjButton3.Location = new System.Drawing.Point(820, 410);
-            this.rjButton3.Name = "rjButton3";
-            this.rjButton3.Size = new System.Drawing.Size(208, 60);
-            this.rjButton3.TabIndex = 56;
-            this.rjButton3.TabStop = false;
-            this.rjButton3.Text = "LƯU THÔNG TIN";
-            this.rjButton3.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
-            this.rjButton3.UseVisualStyleBackColor = false;
+            this.btnUpdate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.btnUpdate.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.btnUpdate.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnUpdate.BorderRadius = 30;
+            this.btnUpdate.BorderSize = 0;
+            this.btnUpdate.FlatAppearance.BorderSize = 0;
+            this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUpdate.Font = new System.Drawing.Font("Bahnschrift", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
+            this.btnUpdate.Location = new System.Drawing.Point(820, 410);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(208, 60);
+            this.btnUpdate.TabIndex = 56;
+            this.btnUpdate.TabStop = false;
+            this.btnUpdate.Text = "LƯU THÔNG TIN";
+            this.btnUpdate.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
+            this.btnUpdate.UseVisualStyleBackColor = false;
+            this.btnUpdate.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnUpdate_MouseClick);
             // 
             // datePicker
             // 
@@ -380,7 +381,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
             this.ClientSize = new System.Drawing.Size(1057, 496);
-            this.Controls.Add(this.rjButton3);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.datePicker);
             this.Controls.Add(this.cmbBoxGender);
             this.Controls.Add(this.panel2);
@@ -428,7 +429,7 @@
         private System.Windows.Forms.Panel panel2;
         private CustomControls.RJComboBox cmbBoxGender;
         private CustomControls.RJDatePicker datePicker;
-        private CustomControls.RJButton rjButton3;
+        private CustomControls.RJButton btnUpdate;
         private System.Windows.Forms.OpenFileDialog fileDialog;
         private System.Windows.Forms.Panel panel3;
     }

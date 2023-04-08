@@ -130,6 +130,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormGuest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGuest.Designer.cs">
+      <DependentUpon>FormGuest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form\UtilForm\FormTopic_Branch.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -309,6 +315,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="FormGuest.resx">
+      <DependentUpon>FormGuest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\UtilForm\FormTopic_Branch.resx">
       <DependentUpon>FormTopic_Branch.cs</DependentUpon>
     </EmbeddedResource>
@@ -403,6 +412,10 @@
     <ProjectReference Include="..\CustomControls\CustomControls.csproj">
       <Project>{6c7a04a5-31d4-4159-9f31-fa2d8ec11e47}</Project>
       <Name>CustomControls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EFramework\EFramework.csproj">
+      <Project>{2EB5A798-CF40-486D-9851-FED76EE3CFA5}</Project>
+      <Name>EFramework</Name>
     </ProjectReference>
     <ProjectReference Include="..\PBLLibrary\PBLLibrary.csproj">
       <Project>{24530946-4023-4a8d-97d3-42235e6d1f85}</Project>

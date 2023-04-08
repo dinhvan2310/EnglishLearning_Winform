@@ -1,4 +1,5 @@
-﻿using BLL.TransferObjects;
+﻿using BLL.Components;
+using BLL.TransferObjects;
 using BLL.Workflows;
 using PBL3.Utilities;
 using PBLLibrary;
@@ -36,8 +37,8 @@ namespace PBL3
             _LblWords[6] = lblWordFound7;
             _LblWords[7] = lblWordFound8;
 
-            var dataAccess = new DataManager();
-            List<WordModel> words = dataAccess.EDictionaryManager.GetWord_ByFilter_Random(rawWord[0] + "%", 8, true);
+            DataManager dm = new DataManager();
+            List<WordModel> words = dm.EDictionaryManager.GetWord_ByFilter_Random(rawWord[0] + "%", 8, true);
 
             int i = 0;
             foreach (Label lbl in _LblWords)

@@ -13,8 +13,6 @@ namespace PBL3
 {
     public partial class MainForm : Form
     {
-
-        public LoginForm LoginForm { get; private set; }
         public FormHome HomeForm { get; private set; }
         public FormAdmin AdminForm { get; private set; }
         public FormTopic TopicForm { get; private set; }
@@ -54,6 +52,7 @@ namespace PBL3
 
         private void InitializeChildForm()
         {
+            AdminForm = new FormAdmin();
             HomeForm = new FormHome();
             TopicForm = new FormTopic();
             NotebookForm = new FormNotebook();
@@ -298,12 +297,28 @@ namespace PBL3
         private void btnNotebook_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(0, 191, 159));
-            OpenChildForm(NotebookForm, FormType.Strong);
+
+            if (LoginWorkflow.Instance.IsLoggedIn())
+            {
+                OpenChildForm(NotebookForm, FormType.Strong);
+            }
+            else
+            {
+                OpenChildForm(new FormGuest(), FormType.Strong);
+            }
         }
 
         private void btnGame_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(255, 108, 131));
+            if (LoginWorkflow.Instance.IsLoggedIn())
+            {
+            
+            }
+            else
+            {
+                OpenChildForm(new FormGuest(), FormType.Strong);
+            }
         }
 
         private void btnSetting_Click(object sender, EventArgs e)
@@ -382,7 +397,7 @@ namespace PBL3
                 panelSearchFound.Visible = false;
                 return;
             }
-            var dataAccess = new DataManager();
+            DataManager dataAccess = new DataManager();
             List<WordModel> words = dataAccess.EDictionaryManager.GetWord_ByFilter(txtSearch.Text.Replace(' ', '_') + "%", 10, true);
             
 
@@ -437,7 +452,7 @@ namespace PBL3
                 e.Handled = true;
                 e.SuppressKeyPress = true;
 
-                var dataAccess = new DataManager();
+                DataManager dataAccess = new DataManager();
                 if (dataAccess.EDictionaryManager.GetWord_ByFilter(_SearchOptions[_CurrentSearchOptionIndex].
                     Text.Replace(' ', '_')).Count == 0)
                 {
@@ -477,7 +492,7 @@ namespace PBL3
         }
         private void btnSearchFound_Click(object sender, EventArgs e)
         {
-            var dataAccess = new DataManager();
+            DataManager dataAccess = new DataManager();
             if (dataAccess.EDictionaryManager.GetWord_ByFilter(_SearchOptions[_CurrentSearchOptionIndex].Text.Replace(' ', '_')) == null)
             {
                 OpenChildForm(new WordForm_None(((IconButton)sender).Text.Replace(' ', '_')), FormType.Weak);
@@ -502,14 +517,7 @@ namespace PBL3
         {
             panelPersonal.Visible = false;
 
-            if (LoginForm == null)
-            {
-                LoginForm = new LoginForm();
-                ((LoginForm)LoginForm).MainForm = this;
-            }
-
-            LoginForm.Show();
-
+            GlobalForm.LoginForm.Show();
             this.Hide();
         }
 
@@ -538,7 +546,11 @@ namespace PBL3
         {
             panelPersonal.Visible = false;
 
-            OpenChildForm(new FormProfile(), FormType.Weak);
+            if (LoginWorkflow.Instance.IsLoggedIn())
+                OpenChildForm(new FormProfile(), FormType.Weak);
+            else
+                OpenChildForm(new FormGuest(), FormType.Strong);
+
         }
 
         private void btnPremium_MouseClick(object sender, MouseEventArgs e)

@@ -9,27 +9,27 @@ namespace PBL3.Utilities
 {
     internal static class GlobalForm
     {
-        private static FormAdmin _AdminForm;
         private static MainForm _MainForm;
-
-        public static FormAdmin AdminForm
-        {
-            get
-            {
-                if (_AdminForm == null)
-                    _AdminForm = (FormAdmin)Application.OpenForms["FormAdmin"];
-                return _AdminForm;
-            }
-            private set { }
-        }
+        private static LoginForm _LoginForm;
 
         public static MainForm MainForm
         {
             get
             {
                 if (_MainForm == null)
-                    _MainForm = (MainForm)Application.OpenForms["MainForm"];
+                    _MainForm = new MainForm();
                 return _MainForm;
+            }
+            private set { }
+        }
+
+        public static LoginForm LoginForm
+        {
+            get
+            {
+                if (_LoginForm == null)
+                    _LoginForm = new LoginForm();
+                return _LoginForm;
             }
             private set { }
         }

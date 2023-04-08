@@ -10,6 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.Remoting;
+using PBL3.Utilities;
 
 namespace PBL3
 {
@@ -21,8 +22,7 @@ namespace PBL3
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            MainForm mainForm = new MainForm();
-            mainForm.Show();
+            GlobalForm.MainForm.Show();
             Application.Run();
         }
     }

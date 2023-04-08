@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using BLL.TransferObjects;
 using BLL.Workflows;
 using PBL3.Utilities;
+using BLL.Components;
 
 namespace PBL3
 {
@@ -34,8 +35,8 @@ namespace PBL3
 
         private void InitializeVariables()
         {
-            var dataAccess = new DataManager();
-            _WordsEveryDay = dataAccess.EDictionaryManager.GetWord_Random(_SuggestedWordCount);
+            DataManager dm = new DataManager();
+            _WordsEveryDay = dm.EDictionaryManager.GetWord_Random(_SuggestedWordCount);
             foreach (WordModel word in _WordsEveryDay)
             {
                 word.Word = word.Word.ToUpper().Replace('_', ' ');

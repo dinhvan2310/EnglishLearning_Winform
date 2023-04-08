@@ -11,17 +11,18 @@ using System.Windows.Forms;
 
 namespace PBL3
 {
-    public partial class FormAdmin_Account : Form
+    public partial class FormGuest : Form
     {
-        public FormAdmin_Account()
+        public FormGuest()
         {
             InitializeComponent();
         }
 
-        private void btnAdd_MouseClick(object sender, MouseEventArgs e)
+        private void btnLogin_MouseClick(object sender, MouseEventArgs e)
         {
-            FormAdmin_Account_Add form = new FormAdmin_Account_Add();
-            form.ShowDialog();
+            GlobalForm.LoginForm.Show();
+
+            GlobalForm.MainForm.Hide();
         }
     }
 }

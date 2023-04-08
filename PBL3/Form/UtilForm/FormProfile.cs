@@ -1,4 +1,5 @@
 ﻿using BLL.Workflows;
+using EFramework.Model;
 using FontAwesome.Sharp;
 using PBL3.Utilities;
 using System;
@@ -18,6 +19,7 @@ namespace PBL3
     {
         private Font _OverFont;
         private Font _PrimaryFont;
+        private Account _Account;
 
         // TO-DO
         //private PersonModel ;
@@ -28,11 +30,22 @@ namespace PBL3
 
             _PrimaryFont = btnAdjust1.Font;
             _OverFont = new Font(_PrimaryFont.FontFamily, _PrimaryFont.Size, FontStyle.Underline);
+            _Account = LoginWorkflow.Instance.GetAccount();
+
+            SetupUI();
+        }
+
+        private void SetupUI()
+        {
+            txtName.Text = _Account.Name;
+            txtDate.Text = _Account.BirthDate.ToString();
+            txtEmail.Text = _Account.Email;
+            txtGender.Text = _Account.Gender ? "Nam" : "Nữ";
         }
 
         private DateTime? ValidateDate()
         {
-            return ProfileWorkflow.Instance.CheckDate(txtDate.Text);
+            return LoginWorkflow.Instance.CheckDate(txtDate.Text);
         }
         private void btnAdjust1_MouseEnter(object sender, EventArgs e)
         {
@@ -184,6 +197,11 @@ namespace PBL3
         {
             txtGender.Text = cmbBoxGender.SelectedItem.ToString();
             cmbBoxGender.Visible = false;
+        }
+
+        private void btnUpdate_MouseClick(object sender, MouseEventArgs e)
+        {
+            LoginWorkflow.Instance.UpdateAccount(txtName.Text, datePicker.Value, txtGender.Text == "Nam", txtEmail.Text);
         }
     }
 }

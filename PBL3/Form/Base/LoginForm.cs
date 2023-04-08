@@ -14,8 +14,6 @@ namespace PBL3
 {
     public partial class LoginForm : Form
     {
-        public Form MainForm = null;
-
         Form _CurrentChildForm;
 
         public LoginForm()
@@ -24,7 +22,7 @@ namespace PBL3
             this.Region = System.Drawing.Region.FromHrgn(ExternalImport.CreateRoundRectRgn(0, 0, Width, Height, 50, 50));
 
             StartPosition = FormStartPosition.CenterScreen;
-            OpenChildForm(new FormSignIn(this));
+            OpenChildForm(new FormSignIn());
         }
 
         public void OpenChildForm(Form childForm)

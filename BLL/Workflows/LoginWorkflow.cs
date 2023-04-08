@@ -10,15 +10,15 @@ using EFramework.Model;
 
 namespace BLL.Workflows
 {
-    public class SignUpWorkflow
+    public class LoginWorkflow
     {
-        public static SignUpWorkflow Instance
+        public static LoginWorkflow Instance
         {
             get
             {
                 if (_Instance == null)
                 {
-                    _Instance = new SignUpWorkflow();
+                    _Instance = new LoginWorkflow();
                 }
                 return _Instance;
             }
@@ -26,17 +26,17 @@ namespace BLL.Workflows
 
         private int _UserID;
 
-        private AccountManager _DataAccountAccess;
+        private AccountManager _AccountManager;
         private EmailManager _EmailManager;
         private Validator _Validator;
  
-        private static SignUpWorkflow _Instance;
+        private static LoginWorkflow _Instance;
 
-        private SignUpWorkflow()
+        private LoginWorkflow()
         {
             _UserID = -1;
 
-            _DataAccountAccess = new AccountManager();
+            _AccountManager = new AccountManager();
             _EmailManager = new EmailManager();
             _Validator = new Validator();
         }
@@ -59,10 +59,29 @@ namespace BLL.Workflows
             }
         }
 
-        public bool SaveAccount(string name, bool gender, DateTime? ngaySinh, string userName, string password, string email)
+        public bool SaveAccount(Account account)
         {
-            password = CreateMD5(password);
-            return _DataAccountAccess.SaveAccount(name, gender, ngaySinh, userName, password, email);
+            account.Password = CreateMD5(account.Password);
+            return _AccountManager.SaveAccount(account);
+        }
+        public void UpdateAccount(string name, DateTime birthdate, bool gender, string email)
+        {
+            _AccountManager.UpdateAccount(new Account()
+            {
+                Name = name,
+                BirthDate = birthdate,
+                Gender = gender,
+                Email = email,
+                AccountID = _UserID
+            });
+        }
+        public Account GetAccount()
+        {
+            return _AccountManager.GetAccount(_UserID);
+        }
+        public bool IsLoggedIn()
+        {
+            return _UserID != -1;
         }
         public void SendMessage(string desEmail, string subject, string body)
         {

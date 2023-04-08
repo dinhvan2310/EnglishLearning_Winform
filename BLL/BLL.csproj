@@ -118,8 +118,7 @@
     <Compile Include="TransferObjects\SynsetModel.cs" />
     <Compile Include="TransferObjects\WordModel.cs" />
     <Compile Include="Workflows\DataManager.cs" />
-    <Compile Include="Workflows\ProfileWorkflow.cs" />
-    <Compile Include="Workflows\SignUpWorkflow.cs" />
+    <Compile Include="Workflows\LoginWorkflow.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

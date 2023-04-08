@@ -172,7 +172,7 @@ namespace PBL3
             this.panelPage2.Controls.Add(this.txtPasswrd);
             this.panelPage2.Controls.Add(this.rjButton2);
             this.panelPage2.Controls.Add(this.rjButton6);
-            this.panelPage2.Location = new System.Drawing.Point(521, 116);
+            this.panelPage2.Location = new System.Drawing.Point(17, 45);
             this.panelPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelPage2.Name = "panelPage2";
             this.panelPage2.Size = new System.Drawing.Size(453, 198);
@@ -314,10 +314,10 @@ namespace PBL3
             this.btnConfirmShow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnConfirmShow.Name = "btnConfirmShow";
             this.btnConfirmShow.Size = new System.Drawing.Size(29, 28);
-            this.btnConfirmShow.TabIndex = 45;
+            this.btnConfirmShow.TabIndex = 6;
             this.btnConfirmShow.TabStop = false;
             this.btnConfirmShow.UseVisualStyleBackColor = false;
-            this.btnConfirmShow.Click += new System.EventHandler(this.btnConfirmShow_Click);
+            this.btnConfirmShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
             // iconConfirmPassword
             // 
@@ -353,7 +353,7 @@ namespace PBL3
             this.btnShow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(29, 28);
-            this.btnShow.TabIndex = 44;
+            this.btnShow.TabIndex = 5;
             this.btnShow.TabStop = false;
             this.btnShow.UseVisualStyleBackColor = false;
             this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
@@ -413,7 +413,7 @@ namespace PBL3
             this.panelPage1.Controls.Add(this.iconName);
             this.panelPage1.Controls.Add(this.rjButton11);
             this.panelPage1.Controls.Add(this.rjButton14);
-            this.panelPage1.Location = new System.Drawing.Point(13, 304);
+            this.panelPage1.Location = new System.Drawing.Point(37, -37);
             this.panelPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelPage1.Name = "panelPage1";
             this.panelPage1.Size = new System.Drawing.Size(453, 210);
@@ -798,7 +798,7 @@ namespace PBL3
             // 
             this.panelEmail.Controls.Add(this.panelVerify);
             this.panelEmail.Controls.Add(this.panelSlideEmail);
-            this.panelEmail.Location = new System.Drawing.Point(37, 23);
+            this.panelEmail.Location = new System.Drawing.Point(14, 200);
             this.panelEmail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelEmail.Name = "panelEmail";
             this.panelEmail.Size = new System.Drawing.Size(453, 210);
@@ -894,7 +894,7 @@ namespace PBL3
             this.txtVerify.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtVerify.MinimumSize = new System.Drawing.Size(0, 30);
             this.txtVerify.Name = "txtVerify";
-            this.txtVerify.Size = new System.Drawing.Size(247, 30);
+            this.txtVerify.Size = new System.Drawing.Size(247, 28);
             this.txtVerify.TabIndex = 8;
             this.txtVerify.Text = "Nhập mã xác thực";
             this.txtVerify.TextChanged += new System.EventHandler(this.txtVerify_TextChanged);
@@ -938,6 +938,8 @@ namespace PBL3
             this.rjButton17.TabStop = false;
             this.rjButton17.TextColor = System.Drawing.Color.White;
             this.rjButton17.UseVisualStyleBackColor = false;
+            this.rjButton17.Enter += new System.EventHandler(this.txtPH_Enter);
+            this.rjButton17.Leave += new System.EventHandler(this.txtPH_Leave);
             // 
             // panelSlideEmail
             // 

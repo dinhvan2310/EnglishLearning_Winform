@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PBL3.Utilities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,11 @@ namespace PBL3
         public FormAdmin_Account_Add()
         {
             InitializeComponent();
+
+            this.Region = System.Drawing.Region.FromHrgn(ExternalImport.CreateRoundRectRgn(0, 0, Width, Height, 50, 50));
+
+            // Reduce Flicker
+            this.DoubleBuffered = true;
         }
 
         private void txtUsername_TextChanged(object sender, EventArgs e)
@@ -31,6 +37,12 @@ namespace PBL3
         {
             FormAdmin baseForm = (FormAdmin)Application.OpenForms["FormAdmin"];
             (baseForm).OpenChildForm(baseForm.AccountForm);
+        }
+
+        private void FormAdmin_Account_Add_MouseDown(object sender, MouseEventArgs e)
+        {
+            ExternalImport.ReleaseCapture();
+            ExternalImport.SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }
