@@ -301,13 +301,13 @@ D:\Source\Visual Studio\C#\PBL3\BLL\bin\Debug\System.Runtime.CompilerServices.Un
 D:\Source\Visual Studio\C#\PBL3\BLL\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\Source\Visual Studio\C#\PBL3\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
 D:\Source\Visual Studio\C#\PBL3\BLL\obj\Debug\BLL.csproj.SuggestedBindingRedirects.cache
-D:\Source\Visual Studio\C#\PBL3\BLL\obj\Debug\BLL.exe.config
 D:\Source\Visual Studio\C#\PBL3\BLL\obj\Debug\BLL.Form1.resources
-D:\Source\Visual Studio\C#\PBL3\BLL\obj\Debug\BLL.Migrations.itit.resources
-D:\Source\Visual Studio\C#\PBL3\BLL\obj\Debug\BLL.Migrations.ititit.resources
 D:\Source\Visual Studio\C#\PBL3\BLL\obj\Debug\BLL.Properties.Resources.resources
 D:\Source\Visual Studio\C#\PBL3\BLL\obj\Debug\BLL.csproj.GenerateResource.cache
 D:\Source\Visual Studio\C#\PBL3\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
 D:\Source\Visual Studio\C#\PBL3\BLL\obj\Debug\BLL.csproj.CopyComplete
 D:\Source\Visual Studio\C#\PBL3\BLL\obj\Debug\BLL.exe
 D:\Source\Visual Studio\C#\PBL3\BLL\obj\Debug\BLL.pdb
+D:\Source\Visual Studio\C#\PBL3\BLL\bin\Debug\EFramework.dll
+D:\Source\Visual Studio\C#\PBL3\BLL\bin\Debug\EFramework.pdb
+D:\Source\Visual Studio\C#\PBL3\BLL\bin\Debug\EFramework.dll.config

@@ -36,15 +36,20 @@ namespace PBL3
             this.sugWordLeftAnim = new System.Windows.Forms.Timer(this.components);
             this.sugWordRightAnim = new System.Windows.Forms.Timer(this.components);
             this.rjPanel5 = new CustomControls.RJPanel();
+            this.iconButton7 = new FontAwesome.Sharp.IconButton();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.rjPanel2 = new CustomControls.RJPanel();
+            this.iconButton6 = new FontAwesome.Sharp.IconButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.rjPanel3 = new CustomControls.RJPanel();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.rjPanel8 = new CustomControls.RJPanel();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.btnSetGoal = new FontAwesome.Sharp.IconButton();
             this.rjPanel9 = new CustomControls.RJPanel();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -55,19 +60,14 @@ namespace PBL3
             this.circularProgressBar2 = new CircularProgressBar.CircularProgressBar();
             this.rjPanel6 = new CustomControls.RJPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.rjPanel1 = new CustomControls.RJPanel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.iconButton7 = new FontAwesome.Sharp.IconButton();
-            this.iconButton6 = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.btnSetGoal = new FontAwesome.Sharp.IconButton();
             this.btnSugWord = new CustomControls.RJButton();
             this.btnBackward = new FontAwesome.Sharp.IconButton();
             this.btnForward = new FontAwesome.Sharp.IconButton();
+            this.label8 = new System.Windows.Forms.Label();
+            this.rjPanel1 = new CustomControls.RJPanel();
             this.btnGotoNtebk = new FontAwesome.Sharp.IconButton();
+            this.label7 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.rjButton1 = new CustomControls.RJButton();
             this.rjButton2 = new CustomControls.RJButton();
             this.rjButton3 = new CustomControls.RJButton();
@@ -122,6 +122,25 @@ namespace PBL3
             this.rjPanel5.Size = new System.Drawing.Size(175, 120);
             this.rjPanel5.TabIndex = 35;
             // 
+            // iconButton7
+            // 
+            this.iconButton7.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButton7.FlatAppearance.BorderSize = 0;
+            this.iconButton7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.iconButton7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.iconButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton7.IconChar = FontAwesome.Sharp.IconChar.Edit;
+            this.iconButton7.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(110)))), ((int)(((byte)(254)))));
+            this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.iconButton7.IconSize = 50;
+            this.iconButton7.Location = new System.Drawing.Point(8, 28);
+            this.iconButton7.Name = "iconButton7";
+            this.iconButton7.Size = new System.Drawing.Size(64, 70);
+            this.iconButton7.TabIndex = 8;
+            this.iconButton7.TabStop = false;
+            this.iconButton7.UseVisualStyleBackColor = false;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -165,6 +184,26 @@ namespace PBL3
             this.rjPanel2.Size = new System.Drawing.Size(175, 120);
             this.rjPanel2.TabIndex = 34;
             // 
+            // iconButton6
+            // 
+            this.iconButton6.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButton6.FlatAppearance.BorderSize = 0;
+            this.iconButton6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.iconButton6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.iconButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton6.IconChar = FontAwesome.Sharp.IconChar.Clock;
+            this.iconButton6.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(110)))), ((int)(((byte)(254)))));
+            this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.iconButton6.IconSize = 50;
+            this.iconButton6.Location = new System.Drawing.Point(10, 28);
+            this.iconButton6.Name = "iconButton6";
+            this.iconButton6.Size = new System.Drawing.Size(64, 70);
+            this.iconButton6.TabIndex = 8;
+            this.iconButton6.TabStop = false;
+            this.iconButton6.Text = "`";
+            this.iconButton6.UseVisualStyleBackColor = false;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -207,6 +246,25 @@ namespace PBL3
             this.rjPanel3.Name = "rjPanel3";
             this.rjPanel3.Size = new System.Drawing.Size(175, 120);
             this.rjPanel3.TabIndex = 33;
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.BackColor = System.Drawing.Color.Transparent;
+            this.iconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.iconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Tasks;
+            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(110)))), ((int)(((byte)(254)))));
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.iconButton1.IconSize = 50;
+            this.iconButton1.Location = new System.Drawing.Point(6, 35);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(59, 56);
+            this.iconButton1.TabIndex = 5;
+            this.iconButton1.TabStop = false;
+            this.iconButton1.UseVisualStyleBackColor = false;
             // 
             // label9
             // 
@@ -257,6 +315,46 @@ namespace PBL3
             this.rjPanel8.Name = "rjPanel8";
             this.rjPanel8.Size = new System.Drawing.Size(415, 241);
             this.rjPanel8.TabIndex = 33;
+            // 
+            // iconButton2
+            // 
+            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.iconButton2.FlatAppearance.BorderSize = 0;
+            this.iconButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.iconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.Font = new System.Drawing.Font("Aquire", 18F, System.Drawing.FontStyle.Bold);
+            this.iconButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Fire;
+            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(108)))), ((int)(((byte)(131)))));
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton2.Location = new System.Drawing.Point(82, 77);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(84, 94);
+            this.iconButton2.TabIndex = 43;
+            this.iconButton2.Text = "75%";
+            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.iconButton2.UseVisualStyleBackColor = false;
+            // 
+            // btnSetGoal
+            // 
+            this.btnSetGoal.BackColor = System.Drawing.Color.Transparent;
+            this.btnSetGoal.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSetGoal.FlatAppearance.BorderSize = 0;
+            this.btnSetGoal.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnSetGoal.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnSetGoal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSetGoal.IconChar = FontAwesome.Sharp.IconChar.Ellipsis;
+            this.btnSetGoal.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.btnSetGoal.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnSetGoal.IconSize = 30;
+            this.btnSetGoal.Location = new System.Drawing.Point(359, 24);
+            this.btnSetGoal.Name = "btnSetGoal";
+            this.btnSetGoal.Size = new System.Drawing.Size(34, 31);
+            this.btnSetGoal.TabIndex = 33;
+            this.btnSetGoal.TabStop = false;
+            this.btnSetGoal.UseVisualStyleBackColor = false;
+            this.btnSetGoal.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnSetGoal_MouseClick);
             // 
             // rjPanel9
             // 
@@ -407,164 +505,6 @@ namespace PBL3
             this.panel1.Size = new System.Drawing.Size(377, 103);
             this.panel1.TabIndex = 33;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.label8.Location = new System.Drawing.Point(25, 28);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(202, 28);
-            this.label8.TabIndex = 29;
-            this.label8.Text = "TỪ VỰNG HẰNG NGÀY";
-            // 
-            // rjPanel1
-            // 
-            this.rjPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rjPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.rjPanel1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
-            this.rjPanel1.BorderRadius = 30;
-            this.rjPanel1.Controls.Add(this.btnGotoNtebk);
-            this.rjPanel1.Controls.Add(this.label7);
-            this.rjPanel1.Controls.Add(this.flowLayoutPanel1);
-            this.rjPanel1.ForeColor = System.Drawing.Color.Black;
-            this.rjPanel1.GradientAngle = 0F;
-            this.rjPanel1.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.rjPanel1.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.rjPanel1.Location = new System.Drawing.Point(29, 158);
-            this.rjPanel1.Name = "rjPanel1";
-            this.rjPanel1.Size = new System.Drawing.Size(569, 298);
-            this.rjPanel1.TabIndex = 21;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.label7.Location = new System.Drawing.Point(28, 21);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(162, 28);
-            this.label7.TabIndex = 28;
-            this.label7.Text = "ÔN TẬP TỪ VỰNG";
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.flowLayoutPanel1.Controls.Add(this.rjButton1);
-            this.flowLayoutPanel1.Controls.Add(this.rjButton2);
-            this.flowLayoutPanel1.Controls.Add(this.rjButton3);
-            this.flowLayoutPanel1.Controls.Add(this.rjButton5);
-            this.flowLayoutPanel1.Controls.Add(this.rjButton4);
-            this.flowLayoutPanel1.Controls.Add(this.rjButton7);
-            this.flowLayoutPanel1.Controls.Add(this.rjButton8);
-            this.flowLayoutPanel1.Controls.Add(this.rjButton9);
-            this.flowLayoutPanel1.Controls.Add(this.rjButton6);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(29, 54);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(511, 222);
-            this.flowLayoutPanel1.TabIndex = 15;
-            // 
-            // iconButton7
-            // 
-            this.iconButton7.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton7.FlatAppearance.BorderSize = 0;
-            this.iconButton7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.iconButton7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.iconButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton7.IconChar = FontAwesome.Sharp.IconChar.Edit;
-            this.iconButton7.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(110)))), ((int)(((byte)(254)))));
-            this.iconButton7.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.iconButton7.IconSize = 50;
-            this.iconButton7.Location = new System.Drawing.Point(8, 28);
-            this.iconButton7.Name = "iconButton7";
-            this.iconButton7.Size = new System.Drawing.Size(64, 70);
-            this.iconButton7.TabIndex = 8;
-            this.iconButton7.TabStop = false;
-            this.iconButton7.UseVisualStyleBackColor = false;
-            // 
-            // iconButton6
-            // 
-            this.iconButton6.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton6.FlatAppearance.BorderSize = 0;
-            this.iconButton6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.iconButton6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.iconButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton6.IconChar = FontAwesome.Sharp.IconChar.Clock;
-            this.iconButton6.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(110)))), ((int)(((byte)(254)))));
-            this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.iconButton6.IconSize = 50;
-            this.iconButton6.Location = new System.Drawing.Point(10, 28);
-            this.iconButton6.Name = "iconButton6";
-            this.iconButton6.Size = new System.Drawing.Size(64, 70);
-            this.iconButton6.TabIndex = 8;
-            this.iconButton6.TabStop = false;
-            this.iconButton6.Text = "`";
-            this.iconButton6.UseVisualStyleBackColor = false;
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.BackColor = System.Drawing.Color.Transparent;
-            this.iconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.iconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.Tasks;
-            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(110)))), ((int)(((byte)(254)))));
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.iconButton1.IconSize = 50;
-            this.iconButton1.Location = new System.Drawing.Point(6, 35);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(59, 56);
-            this.iconButton1.TabIndex = 5;
-            this.iconButton1.TabStop = false;
-            this.iconButton1.UseVisualStyleBackColor = false;
-            // 
-            // iconButton2
-            // 
-            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.iconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Font = new System.Drawing.Font("Aquire", 18F, System.Drawing.FontStyle.Bold);
-            this.iconButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Fire;
-            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(108)))), ((int)(((byte)(131)))));
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.Location = new System.Drawing.Point(82, 77);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(84, 94);
-            this.iconButton2.TabIndex = 43;
-            this.iconButton2.Text = "75%";
-            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.iconButton2.UseVisualStyleBackColor = false;
-            // 
-            // btnSetGoal
-            // 
-            this.btnSetGoal.BackColor = System.Drawing.Color.Transparent;
-            this.btnSetGoal.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSetGoal.FlatAppearance.BorderSize = 0;
-            this.btnSetGoal.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnSetGoal.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnSetGoal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSetGoal.IconChar = FontAwesome.Sharp.IconChar.Ellipsis;
-            this.btnSetGoal.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.btnSetGoal.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnSetGoal.IconSize = 30;
-            this.btnSetGoal.Location = new System.Drawing.Point(359, 24);
-            this.btnSetGoal.Name = "btnSetGoal";
-            this.btnSetGoal.Size = new System.Drawing.Size(34, 31);
-            this.btnSetGoal.TabIndex = 33;
-            this.btnSetGoal.TabStop = false;
-            this.btnSetGoal.UseVisualStyleBackColor = false;
-            this.btnSetGoal.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnSetGoal_MouseClick);
-            // 
             // btnSugWord
             // 
             this.btnSugWord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(108)))), ((int)(((byte)(131)))));
@@ -629,6 +569,36 @@ namespace PBL3
             this.btnForward.UseVisualStyleBackColor = false;
             this.btnForward.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnForward_MouseClick);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.label8.Location = new System.Drawing.Point(25, 28);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(202, 28);
+            this.label8.TabIndex = 29;
+            this.label8.Text = "TỪ VỰNG HẰNG NGÀY";
+            // 
+            // rjPanel1
+            // 
+            this.rjPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rjPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.rjPanel1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
+            this.rjPanel1.BorderRadius = 30;
+            this.rjPanel1.Controls.Add(this.btnGotoNtebk);
+            this.rjPanel1.Controls.Add(this.label7);
+            this.rjPanel1.Controls.Add(this.flowLayoutPanel1);
+            this.rjPanel1.ForeColor = System.Drawing.Color.Black;
+            this.rjPanel1.GradientAngle = 0F;
+            this.rjPanel1.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.rjPanel1.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.rjPanel1.Location = new System.Drawing.Point(29, 158);
+            this.rjPanel1.Name = "rjPanel1";
+            this.rjPanel1.Size = new System.Drawing.Size(569, 298);
+            this.rjPanel1.TabIndex = 21;
+            // 
             // btnGotoNtebk
             // 
             this.btnGotoNtebk.BackColor = System.Drawing.Color.Transparent;
@@ -648,6 +618,36 @@ namespace PBL3
             this.btnGotoNtebk.TabStop = false;
             this.btnGotoNtebk.UseVisualStyleBackColor = false;
             this.btnGotoNtebk.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnGotoNtebk_MouseClick);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Transparent;
+            this.label7.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.label7.Location = new System.Drawing.Point(28, 21);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(162, 28);
+            this.label7.TabIndex = 28;
+            this.label7.Text = "ÔN TẬP TỪ VỰNG";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.flowLayoutPanel1.Controls.Add(this.rjButton1);
+            this.flowLayoutPanel1.Controls.Add(this.rjButton2);
+            this.flowLayoutPanel1.Controls.Add(this.rjButton3);
+            this.flowLayoutPanel1.Controls.Add(this.rjButton5);
+            this.flowLayoutPanel1.Controls.Add(this.rjButton4);
+            this.flowLayoutPanel1.Controls.Add(this.rjButton7);
+            this.flowLayoutPanel1.Controls.Add(this.rjButton8);
+            this.flowLayoutPanel1.Controls.Add(this.rjButton9);
+            this.flowLayoutPanel1.Controls.Add(this.rjButton6);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(29, 54);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(511, 222);
+            this.flowLayoutPanel1.TabIndex = 15;
             // 
             // rjButton1
             // 
@@ -700,7 +700,7 @@ namespace PBL3
             this.rjButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(41)))), ((int)(((byte)(74)))));
             this.rjButton3.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(41)))), ((int)(((byte)(74)))));
             this.rjButton3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("rjButton3.BackgroundImage")));
-            this.rjButton3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.rjButton3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.rjButton3.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.rjButton3.BorderRadius = 20;
             this.rjButton3.BorderSize = 0;

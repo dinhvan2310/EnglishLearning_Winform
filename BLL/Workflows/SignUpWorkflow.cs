@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL.Components;
-using BLL.EntityFrameWork;
-using BLL.EntityFrameWork.Model;
+using EFramework;
+using EFramework.Model;
 
 namespace BLL.Workflows
 {

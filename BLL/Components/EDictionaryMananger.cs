@@ -5,8 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 
-using BLL.EntityFrameWork;
-using BLL.EntityFrameWork.Model;
 using BLL.TransferObjects;
 using MySqlX.XDevAPI.Common;
 using Mysqlx.Crud;
@@ -14,6 +12,9 @@ using PBLLibrary;
 using static System.Windows.Forms.LinkLabel;
 using System.Diagnostics;
 using BLL.Migrations;
+using EFramework;
+using EFramework.Model;
+using System.Collections;
 
 namespace BLL.Components
 {
@@ -437,6 +438,46 @@ namespace BLL.Components
                 wn_words.ForEach(item =>
                 {
                     results.Add(new WordModel(item.ToString()));
+                });
+                return results;
+            }
+        }
+        
+        public List<string> GetTopicName_All()
+        {
+            using (var dbContext = new DictionaryContext())
+            {
+                List<string> results = new List<string>();
+
+                var temp = dbContext.topic
+                                .Select(p => p.TopicName)
+                                .ToList();
+
+                temp.ForEach(item =>
+                {
+                    string first = item.Split('-')[0].Replace('_', ' ');
+                    results.Add(first);
+                });
+                return results.Distinct().ToList();
+            }
+        }
+
+        public List<string> GetBranchName_ByTopic(string topic)
+        {
+            using (var dbContext = new DictionaryContext())
+            {
+                List<string> results = new List<string>();
+
+                topic = topic.Replace(' ', '_');
+                var temp = dbContext.topic
+                                .Where(p => p.TopicName.Contains(topic))
+                                .Select(p => p.TopicName)
+                                .ToList();
+
+                temp.ForEach(item =>
+                {
+                    string second = item.Split('-')[1].Replace('_', ' ');
+                    results.Add(second);
                 });
                 return results;
             }

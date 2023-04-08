@@ -8,7 +8,9 @@ namespace PBL3.Utilities
 {
     public enum FormType
     {
-        Strong, Weak, Neutral
+        Strong, // Clear all form in stack and take place in stack
+        Weak, // Only take place in stack
+        Neutral // Do nothing
     }
 
 }

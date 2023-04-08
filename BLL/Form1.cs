@@ -8,8 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using BLL.EntityFrameWork;
-using BLL.EntityFrameWork.Model;
+using EFramework;
+using EFramework.Model;
 using BLL.Workflows;
 using System.Text.RegularExpressions;
 

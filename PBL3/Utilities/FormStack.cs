@@ -38,5 +38,10 @@ namespace PBL3.Utilities
             return _Stack.Count;
         }
 
+        public static void Clear()
+        {
+            _Stack.Clear();
+        }
+
     }
 }

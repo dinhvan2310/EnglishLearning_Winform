@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
-using BLL.EntityFrameWork;
-using BLL.EntityFrameWork.Model;
+using EFramework;
+using EFramework.Model;
 
 namespace BLL.Components
 {

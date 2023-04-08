@@ -405,3 +405,8 @@ D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\EntityFramework.xml
 D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\MySql.Data.EntityFramework.xml
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormMessageBox.resources
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormAdmin_Account_Add.resources
+D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\EFramework.dll
+D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\EFramework.pdb
+D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\EFramework.dll.config
+D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormTopic_Branch.resources
+D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormTopic_List.resources
