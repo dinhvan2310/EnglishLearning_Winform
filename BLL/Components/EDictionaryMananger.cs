@@ -14,7 +14,6 @@ using PBLLibrary;
 using static System.Windows.Forms.LinkLabel;
 using System.Diagnostics;
 using BLL.Migrations;
-using Microsoft.EntityFrameworkCore.Internal;
 
 namespace BLL.Components
 {
