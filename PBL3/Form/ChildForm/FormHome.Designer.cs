@@ -65,7 +65,6 @@ namespace PBL3
             this.btnForward = new FontAwesome.Sharp.IconButton();
             this.label8 = new System.Windows.Forms.Label();
             this.rjPanel1 = new CustomControls.RJPanel();
-            this.btnGotoNtebk = new FontAwesome.Sharp.IconButton();
             this.label7 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.rjButton1 = new CustomControls.RJButton();
@@ -587,7 +586,6 @@ namespace PBL3
             this.rjPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
             this.rjPanel1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
             this.rjPanel1.BorderRadius = 30;
-            this.rjPanel1.Controls.Add(this.btnGotoNtebk);
             this.rjPanel1.Controls.Add(this.label7);
             this.rjPanel1.Controls.Add(this.flowLayoutPanel1);
             this.rjPanel1.ForeColor = System.Drawing.Color.Black;
@@ -598,26 +596,6 @@ namespace PBL3
             this.rjPanel1.Name = "rjPanel1";
             this.rjPanel1.Size = new System.Drawing.Size(569, 298);
             this.rjPanel1.TabIndex = 21;
-            // 
-            // btnGotoNtebk
-            // 
-            this.btnGotoNtebk.BackColor = System.Drawing.Color.Transparent;
-            this.btnGotoNtebk.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGotoNtebk.FlatAppearance.BorderSize = 0;
-            this.btnGotoNtebk.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnGotoNtebk.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnGotoNtebk.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGotoNtebk.IconChar = FontAwesome.Sharp.IconChar.ArrowRight;
-            this.btnGotoNtebk.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.btnGotoNtebk.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnGotoNtebk.IconSize = 30;
-            this.btnGotoNtebk.Location = new System.Drawing.Point(506, 17);
-            this.btnGotoNtebk.Name = "btnGotoNtebk";
-            this.btnGotoNtebk.Size = new System.Drawing.Size(34, 31);
-            this.btnGotoNtebk.TabIndex = 33;
-            this.btnGotoNtebk.TabStop = false;
-            this.btnGotoNtebk.UseVisualStyleBackColor = false;
-            this.btnGotoNtebk.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnGotoNtebk_MouseClick);
             // 
             // label7
             // 
@@ -930,7 +908,6 @@ namespace PBL3
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private FontAwesome.Sharp.IconButton btnSetGoal;
-        private FontAwesome.Sharp.IconButton btnGotoNtebk;
         private System.Windows.Forms.Timer swapWordAnim;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Timer sugWordLeftAnim;

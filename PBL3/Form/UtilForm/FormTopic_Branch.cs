@@ -63,13 +63,12 @@ namespace PBL3
         private void OnList(object sender, MouseEventArgs e)
         {
             FormTopic_List form = new FormTopic_List(((Button)sender).Text);
-            GlobalForm.MainForm.OpenChildForm(form, FormType.Weak);
+            GlobalForm.MainForm.SwitchForm(form, FormType.Weak);
         }
 
         private void btnReturn_MouseClick(object sender, MouseEventArgs e)
         {
-            //GlobalForm.MainForm.OpenChildForm(FormStack.Pop(), FormStack.CurrentFormType == FormType.Strong
-            //    ? FormType.Strong : FormType.Neutral);
+            GlobalForm.MainForm.GoBack();
         }
     }
 }

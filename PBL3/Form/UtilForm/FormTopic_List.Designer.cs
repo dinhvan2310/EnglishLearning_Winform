@@ -34,6 +34,7 @@
             this.panelWord = new System.Windows.Forms.FlowLayoutPanel();
             this.rjButton1 = new CustomControls.RJButton();
             this.btnReturn = new FontAwesome.Sharp.IconButton();
+            this.rjButton2 = new CustomControls.RJButton();
             this.rjPanel1.SuspendLayout();
             this.panelWord.SuspendLayout();
             this.SuspendLayout();
@@ -41,11 +42,12 @@
             // lblBranch
             // 
             this.lblBranch.AutoSize = true;
-            this.lblBranch.Font = new System.Drawing.Font("Bahnschrift", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBranch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.lblBranch.Location = new System.Drawing.Point(42, 50);
+            this.lblBranch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(205)))), ((int)(((byte)(216)))));
+            this.lblBranch.Font = new System.Drawing.Font("Bauhaus 93", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBranch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.lblBranch.Location = new System.Drawing.Point(124, 22);
             this.lblBranch.Name = "lblBranch";
-            this.lblBranch.Size = new System.Drawing.Size(98, 34);
+            this.lblBranch.Size = new System.Drawing.Size(116, 39);
             this.lblBranch.TabIndex = 27;
             this.lblBranch.Text = "Nhánh";
             // 
@@ -116,6 +118,24 @@
             this.btnReturn.UseVisualStyleBackColor = true;
             this.btnReturn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnReturn_MouseClick);
             // 
+            // rjButton2
+            // 
+            this.rjButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(205)))), ((int)(((byte)(216)))));
+            this.rjButton2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(205)))), ((int)(((byte)(216)))));
+            this.rjButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.rjButton2.BorderRadius = 33;
+            this.rjButton2.BorderSize = 0;
+            this.rjButton2.Enabled = false;
+            this.rjButton2.FlatAppearance.BorderSize = 0;
+            this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rjButton2.ForeColor = System.Drawing.Color.White;
+            this.rjButton2.Location = new System.Drawing.Point(97, 9);
+            this.rjButton2.Name = "rjButton2";
+            this.rjButton2.Size = new System.Drawing.Size(468, 66);
+            this.rjButton2.TabIndex = 29;
+            this.rjButton2.TextColor = System.Drawing.Color.White;
+            this.rjButton2.UseVisualStyleBackColor = false;
+            // 
             // FormTopic_List
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -125,6 +145,7 @@
             this.Controls.Add(this.rjPanel1);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.lblBranch);
+            this.Controls.Add(this.rjButton2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormTopic_List";
             this.Text = "FormTopic_List";
@@ -142,5 +163,6 @@
         private CustomControls.RJPanel rjPanel1;
         private System.Windows.Forms.FlowLayoutPanel panelWord;
         private CustomControls.RJButton rjButton1;
+        private CustomControls.RJButton rjButton2;
     }
 }

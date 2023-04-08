@@ -130,16 +130,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormTopic_Branch.cs">
+    <Compile Include="Form\UtilForm\FormTopic_Branch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormTopic_Branch.Designer.cs">
+    <Compile Include="Form\UtilForm\FormTopic_Branch.Designer.cs">
       <DependentUpon>FormTopic_Branch.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormTopic_List.cs">
+    <Compile Include="Form\UtilForm\FormTopic_List.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormTopic_List.Designer.cs">
+    <Compile Include="Form\UtilForm\FormTopic_List.Designer.cs">
       <DependentUpon>FormTopic_List.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources1.Designer.cs">
@@ -309,10 +309,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FormTopic_Branch.resx">
+    <EmbeddedResource Include="Form\UtilForm\FormTopic_Branch.resx">
       <DependentUpon>FormTopic_Branch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormTopic_List.resx">
+    <EmbeddedResource Include="Form\UtilForm\FormTopic_List.resx">
       <DependentUpon>FormTopic_List.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\ChildForm\FormAdmin.resx">

@@ -62,7 +62,7 @@ namespace PBL3
         {
             FormTopic_Branch form = new FormTopic_Branch(((Button)sender).Text);
 
-            GlobalForm.MainForm.OpenChildForm(form, FormType.Weak);
+            GlobalForm.MainForm.SwitchForm(form, FormType.Weak);
         }
     }
 }

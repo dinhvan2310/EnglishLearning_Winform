@@ -49,13 +49,13 @@ namespace PBL3
 
         private void lblWordFound1_MouseClick(object sender, MouseEventArgs e)
         {
-            GlobalForm.MainForm.OpenChildForm(new WordForm(((Label)sender).Text.Replace(' ', '_')),
-                FormType.Neutral);
+            GlobalForm.MainForm.SwitchForm(new WordForm(((Label)sender).Text.Replace(' ', '_')),
+                FormType.Weak);
         }
 
         private void btnReturn_MouseClick(object sender, MouseEventArgs e)
         {
-            GlobalForm.MainForm.OpenChildForm(FormStack.Pop(), FormType.Strong);
+            GlobalForm.MainForm.GoBack();
         }
     }
 }

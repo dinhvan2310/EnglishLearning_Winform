@@ -100,8 +100,8 @@ namespace PBL3
 
         private void WordFound(object sender, MouseEventArgs e)
         {
-            GlobalForm.MainForm.OpenChildForm(new WordForm(((Label)sender).Text.Replace(' ', '_')),
-                 FormType.Neutral);
+            GlobalForm.MainForm.SwitchForm(new WordForm(((Label)sender).Text.Replace(' ', '_')),
+                 FormType.Weak);
         }
     }
 }

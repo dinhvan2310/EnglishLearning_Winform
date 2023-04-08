@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Windows.Media;
@@ -24,7 +25,7 @@ namespace PBL3
 
         private void btnReturn_MouseClick(object sender, MouseEventArgs e)
         {
-            GlobalForm.MainForm.OpenChildForm(FormStack.Pop(), FormType.Strong);
+            GlobalForm.MainForm.GoBack();
         }
 
         private void FormStatistic_Load(object sender, EventArgs e)

@@ -11,9 +11,6 @@ namespace PBL3.Utilities
 {
     public static class FormStack
     {
-
-        public static FormType CurrentFormType = FormType.Strong;
-
         private static Stack<Form> _Stack = new Stack<Form>();
 
         public static void Push(Form form)
@@ -40,6 +37,16 @@ namespace PBL3.Utilities
 
         public static void Clear()
         {
+            foreach (Form form in _Stack)
+            {
+                if (_Stack.Count == 1) // if base form
+                {
+                    form.Hide();
+                    continue;
+                }
+                form.Close();
+                
+            }
             _Stack.Clear();
         }
 

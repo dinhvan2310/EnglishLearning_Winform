@@ -21,8 +21,8 @@ namespace PBL3
 
         private void btnStatistic_MouseClick(object sender, MouseEventArgs e)
         {
-            GlobalForm.MainForm.OpenChildForm(new FormStatistic(),
-                FormType.Neutral);
+            GlobalForm.MainForm.SwitchForm(new FormStatistic(),
+                FormType.Weak);
         }
     }
 }

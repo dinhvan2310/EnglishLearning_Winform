@@ -53,7 +53,7 @@ namespace PBL3
 
         private void iconButton1_Click(object sender, EventArgs e)
         {
-            GlobalForm.MainForm.OpenChildForm(FormStack.Pop(), FormType.Strong);
+            GlobalForm.MainForm.GoBack();
         }
     }
 }

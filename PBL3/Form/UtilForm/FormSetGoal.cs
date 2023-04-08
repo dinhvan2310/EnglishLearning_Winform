@@ -23,7 +23,7 @@ namespace PBL3
 
         private void btnReturn_MouseClick(object sender, MouseEventArgs e)
         {
-            GlobalForm.MainForm.OpenChildForm(FormStack.Pop(), FormType.Strong);
+            GlobalForm.MainForm.GoBack();
         }
 
         private void btn5Min_MouseClick(object sender, MouseEventArgs e)

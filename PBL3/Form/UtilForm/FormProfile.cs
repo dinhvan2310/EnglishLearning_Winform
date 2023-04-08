@@ -49,7 +49,7 @@ namespace PBL3
         private void btnReturn_MouseClick(object sender, MouseEventArgs e)
         {
             GlobalForm.MainForm.panelPersonal.Visible = false;
-            GlobalForm.MainForm.OpenChildForm(FormStack.Pop(), FormType.Strong);
+            GlobalForm.MainForm.GoBack();
         }
 
 

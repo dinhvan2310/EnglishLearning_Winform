@@ -32,8 +32,7 @@ namespace PBL3
 
         private void btnReturn_MouseClick(object sender, MouseEventArgs e)
         {
-            //GlobalForm.MainForm.OpenChildForm(FormStack.Pop(), FormStack.CurrentFormType == FormType.Strong
-            //    ? FormType.Strong : FormType.Neutral);
+            GlobalForm.MainForm.GoBack();
         }
     }
 }

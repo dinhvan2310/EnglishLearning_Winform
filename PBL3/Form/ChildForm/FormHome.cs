@@ -113,38 +113,13 @@ namespace PBL3
 
         private void btnSugWord_MouseClick(object sender, MouseEventArgs e)
         {
-            GlobalForm.MainForm.OpenChildForm(new WordForm(btnSugWord.Text.Replace(' ', '_').ToLower()),
-                FormType.Neutral);
-        }
-
-        private void btnGotoNtebk_MouseClick(object sender, MouseEventArgs e)
-        {
-            GlobalForm.MainForm.ActivateButton(
-                GlobalForm.MainForm.btnNotebook,
-                Color.FromArgb(0, 191, 159));
-            GlobalForm.MainForm.OpenChildForm(
-                GlobalForm.MainForm.NotebookForm,
-                FormType.Strong);
-        }
-
-        private void numericUpDown1_MouseClick(object sender, MouseEventArgs e)
-        {
-            ExternalImport.HideCaret(((NumericUpDown)sender).Handle);
-        }
-
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
-        {
-            ActiveControl = null;
-        }
-
-        private void numericUpDown1_MouseClick_1(object sender, MouseEventArgs e)
-        {
-            ActiveControl = null;
+            GlobalForm.MainForm.SwitchForm(new WordForm(btnSugWord.Text.Replace(' ', '_').ToLower()),
+                FormType.Weak);
         }
 
         private void btnSetGoal_MouseClick(object sender, MouseEventArgs e)
         {
-            GlobalForm.MainForm.OpenChildForm(new FormSetGoal(), FormType.Neutral);
+            GlobalForm.MainForm.SwitchForm(new FormSetGoal(), FormType.Weak);
         }
     }
 }
