@@ -201,7 +201,13 @@ namespace PBL3
 
         private void btnUpdate_MouseClick(object sender, MouseEventArgs e)
         {
-            LoginWorkflow.Instance.UpdateAccount(txtName.Text, datePicker.Value, txtGender.Text == "Nam", txtEmail.Text);
+            LoginWorkflow.Instance.UpdateAccount(new Account()
+            {
+                Email = txtEmail.Text,
+                Name = txtName.Text,
+                Gender = txtGender.Text == "Nam",
+                BirthDate = datePicker.Value
+            });
         }
     }
 }

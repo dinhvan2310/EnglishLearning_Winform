@@ -64,20 +64,18 @@ namespace BLL.Workflows
             account.Password = CreateMD5(account.Password);
             return _AccountManager.SaveAccount(account);
         }
-        public void UpdateAccount(string name, DateTime birthdate, bool gender, string email)
+        public void UpdateAccount(Account account)
         {
-            _AccountManager.UpdateAccount(new Account()
-            {
-                Name = name,
-                BirthDate = birthdate,
-                Gender = gender,
-                Email = email,
-                AccountID = _UserID
-            });
+            account.AccountID = _UserID;
+            _AccountManager.UpdateAccount(account);
         }
         public Account GetAccount()
         {
             return _AccountManager.GetAccount(_UserID);
+        }
+        public DetailedInformation GetAccountDetail()
+        {
+            return _AccountManager.GetAccountDetail(_UserID);
         }
         public bool IsLoggedIn()
         {

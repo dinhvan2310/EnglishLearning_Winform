@@ -59,13 +59,16 @@ namespace PBL3
             this.panelSearchFound = new System.Windows.Forms.Panel();
             this.btnFilledSearchFound = new FontAwesome.Sharp.IconButton();
             this.lblSearchType = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblBalance = new System.Windows.Forms.Label();
             this.rjButton2 = new CustomControls.RJButton();
             this.panelPersonal = new CustomControls.RJPanel();
             this.iconLogin = new FontAwesome.Sharp.IconButton();
+            this.iconSetting = new FontAwesome.Sharp.IconButton();
             this.iconPersonal = new FontAwesome.Sharp.IconButton();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.btnPersonalLogin = new CustomControls.RJButton();
+            this.btnPersonalSetting = new CustomControls.RJButton();
             this.btnPersonalInfo = new CustomControls.RJButton();
             this.btnPersonal = new CustomControls.RJButton();
             this.btnAnnounce = new CustomControls.RJButton();
@@ -82,9 +85,6 @@ namespace PBL3
             this.rightPanelAnim = new System.Windows.Forms.Timer(this.components);
             this.fadeInFormAnim = new System.Windows.Forms.Timer(this.components);
             this.fadeOutFormAnim = new System.Windows.Forms.Timer(this.components);
-            this.button2 = new System.Windows.Forms.Button();
-            this.iconSetting = new FontAwesome.Sharp.IconButton();
-            this.btnPersonalSetting = new CustomControls.RJButton();
             this.panelButton.SuspendLayout();
             this.panelLogo.SuspendLayout();
             this.panelBase.SuspendLayout();
@@ -399,7 +399,7 @@ namespace PBL3
             this.panelBase.Controls.Add(this.panelSearch);
             this.panelBase.Controls.Add(this.panelSearchFound);
             this.panelBase.Controls.Add(this.lblSearchType);
-            this.panelBase.Controls.Add(this.label3);
+            this.panelBase.Controls.Add(this.lblBalance);
             this.panelBase.Controls.Add(this.rjButton2);
             this.panelBase.Controls.Add(this.panelPersonal);
             this.panelBase.Controls.Add(this.btnPersonal);
@@ -592,17 +592,17 @@ namespace PBL3
             this.lblSearchType.TabIndex = 50;
             this.lblSearchType.Text = "ANH - ANH";
             // 
-            // label3
+            // lblBalance
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.Font = new System.Drawing.Font("Aquire", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.label3.Location = new System.Drawing.Point(820, 87);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 20);
-            this.label3.TabIndex = 25;
-            this.label3.Text = "123";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblBalance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblBalance.Font = new System.Drawing.Font("Aquire", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBalance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.lblBalance.Location = new System.Drawing.Point(820, 87);
+            this.lblBalance.Name = "lblBalance";
+            this.lblBalance.Size = new System.Drawing.Size(71, 20);
+            this.lblBalance.TabIndex = 25;
+            this.lblBalance.Text = "123";
+            this.lblBalance.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // rjButton2
             // 
@@ -668,6 +668,22 @@ namespace PBL3
             this.iconLogin.TabStop = false;
             this.iconLogin.UseVisualStyleBackColor = true;
             // 
+            // iconSetting
+            // 
+            this.iconSetting.Enabled = false;
+            this.iconSetting.FlatAppearance.BorderSize = 0;
+            this.iconSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconSetting.IconChar = FontAwesome.Sharp.IconChar.Gear;
+            this.iconSetting.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
+            this.iconSetting.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconSetting.IconSize = 32;
+            this.iconSetting.Location = new System.Drawing.Point(156, 88);
+            this.iconSetting.Name = "iconSetting";
+            this.iconSetting.Size = new System.Drawing.Size(30, 30);
+            this.iconSetting.TabIndex = 29;
+            this.iconSetting.TabStop = false;
+            this.iconSetting.UseVisualStyleBackColor = true;
+            // 
             // iconPersonal
             // 
             this.iconPersonal.Enabled = false;
@@ -683,6 +699,19 @@ namespace PBL3
             this.iconPersonal.TabIndex = 28;
             this.iconPersonal.TabStop = false;
             this.iconPersonal.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(149)))), ((int)(((byte)(191)))));
+            this.button2.Enabled = false;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(22, 134);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(175, 1);
+            this.button2.TabIndex = 27;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // button1
             // 
@@ -719,6 +748,29 @@ namespace PBL3
             this.btnPersonalLogin.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
             this.btnPersonalLogin.UseVisualStyleBackColor = false;
             this.btnPersonalLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // btnPersonalSetting
+            // 
+            this.btnPersonalSetting.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(49)))), ((int)(((byte)(91)))));
+            this.btnPersonalSetting.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(49)))), ((int)(((byte)(91)))));
+            this.btnPersonalSetting.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(41)))), ((int)(((byte)(74)))));
+            this.btnPersonalSetting.BorderRadius = 8;
+            this.btnPersonalSetting.BorderSize = 0;
+            this.btnPersonalSetting.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPersonalSetting.FlatAppearance.BorderSize = 0;
+            this.btnPersonalSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPersonalSetting.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPersonalSetting.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
+            this.btnPersonalSetting.Location = new System.Drawing.Point(22, 80);
+            this.btnPersonalSetting.Name = "btnPersonalSetting";
+            this.btnPersonalSetting.Size = new System.Drawing.Size(128, 42);
+            this.btnPersonalSetting.TabIndex = 24;
+            this.btnPersonalSetting.TabStop = false;
+            this.btnPersonalSetting.Text = "Cài Đặt";
+            this.btnPersonalSetting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPersonalSetting.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
+            this.btnPersonalSetting.UseVisualStyleBackColor = false;
+            this.btnPersonalSetting.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnPersonalSetting_MouseClick);
             // 
             // btnPersonalInfo
             // 
@@ -936,58 +988,6 @@ namespace PBL3
             this.fadeOutFormAnim.Interval = 40;
             this.fadeOutFormAnim.Tick += new System.EventHandler(this.fadeOutFormAnim_Tick);
             // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(149)))), ((int)(((byte)(191)))));
-            this.button2.Enabled = false;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(22, 134);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(175, 1);
-            this.button2.TabIndex = 27;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // iconSetting
-            // 
-            this.iconSetting.Enabled = false;
-            this.iconSetting.FlatAppearance.BorderSize = 0;
-            this.iconSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconSetting.IconChar = FontAwesome.Sharp.IconChar.Gear;
-            this.iconSetting.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
-            this.iconSetting.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconSetting.IconSize = 32;
-            this.iconSetting.Location = new System.Drawing.Point(156, 88);
-            this.iconSetting.Name = "iconSetting";
-            this.iconSetting.Size = new System.Drawing.Size(30, 30);
-            this.iconSetting.TabIndex = 29;
-            this.iconSetting.TabStop = false;
-            this.iconSetting.UseVisualStyleBackColor = true;
-            // 
-            // btnPersonalSetting
-            // 
-            this.btnPersonalSetting.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(49)))), ((int)(((byte)(91)))));
-            this.btnPersonalSetting.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(49)))), ((int)(((byte)(91)))));
-            this.btnPersonalSetting.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(41)))), ((int)(((byte)(74)))));
-            this.btnPersonalSetting.BorderRadius = 8;
-            this.btnPersonalSetting.BorderSize = 0;
-            this.btnPersonalSetting.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPersonalSetting.FlatAppearance.BorderSize = 0;
-            this.btnPersonalSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPersonalSetting.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPersonalSetting.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
-            this.btnPersonalSetting.Location = new System.Drawing.Point(22, 80);
-            this.btnPersonalSetting.Name = "btnPersonalSetting";
-            this.btnPersonalSetting.Size = new System.Drawing.Size(128, 42);
-            this.btnPersonalSetting.TabIndex = 24;
-            this.btnPersonalSetting.TabStop = false;
-            this.btnPersonalSetting.Text = "Cài Đặt";
-            this.btnPersonalSetting.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPersonalSetting.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
-            this.btnPersonalSetting.UseVisualStyleBackColor = false;
-            this.btnPersonalSetting.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnPersonalSetting_MouseClick);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1003,6 +1003,7 @@ namespace PBL3
             this.Opacity = 0D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
+            this.VisibleChanged += new System.EventHandler(this.MainForm_VisibleChanged);
             this.panelButton.ResumeLayout(false);
             this.panelButton.PerformLayout();
             this.panelLogo.ResumeLayout(false);
@@ -1056,7 +1057,7 @@ namespace PBL3
         private CustomControls.RJButton btnPremium;
         private System.Windows.Forms.Label lblVersion;
         private CustomControls.RJButton rjButton2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblBalance;
         private FontAwesome.Sharp.IconButton iconSub;
         public FontAwesome.Sharp.IconButton btnHome;
         public FontAwesome.Sharp.IconButton btnSetting;

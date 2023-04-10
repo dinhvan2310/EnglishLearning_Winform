@@ -15,6 +15,7 @@ using BLL.Migrations;
 using EFramework;
 using EFramework.Model;
 using System.Collections;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
 
 namespace BLL.Components
 {
@@ -67,15 +68,16 @@ namespace BLL.Components
                 Random r = new Random();
 
                 List<string> wn_words = new List<string>();
+
                 var temp = dbContext.wn_word
+                                .Shuffle(r)
+                                .Select(x => x.synset_id)
+                                .Take(limit * 4)
                                 .Join(
-                                    dbContext.wn_word
-                                        .Shuffle(r)
-                                        .Select(x => x.synset_id)
-                                        .Take(limit * 4),
-                                    w => w.synset_id,
+                                    dbContext.wn_word,
                                     s => s,
-                                    (w, s) => new { Word = w, SynsetId = s })
+                                    w => w.synset_id,
+                                    (s, w) => new { Word = w, SynsetId = s })
                                 .Select(w => new { w.Word.word, w.Word.w_num })
                                 .ToList();
 
@@ -405,43 +407,6 @@ namespace BLL.Components
                 return results;
             }
         }
-
-        public List<WordModel> GetHypernymWord_ByWord(string word)
-        {
-            using (var dbContext = new DictionaryContext())
-            {
-                List<WordModel> results = new List<WordModel>();
-
-                List<string> wn_words = new List<string>();
-                var temp = dbContext.wn_word
-                                .Where(p => p.word.Equals(word))
-                                .Join(
-                                    dbContext.wn_derived,
-                                    w => w.synset_id,
-                                    a => a.synset_id_1,
-                                    (w, a) => new { a.synset_id_2 })
-                                .Join(
-                                    dbContext.wn_word,
-                                    wa => wa.synset_id_2,
-                                    w => w.synset_id,
-                                    (wa, w) => new { w.word })
-                                .Where(p => p.word.Contains(word))
-                                .Select(p => p.word)
-                                .Distinct()
-                                .ToList();
-
-                temp.ForEach(item =>
-                {
-                    wn_words.Add(item.ToString());
-                });
-
-                wn_words.ForEach(item =>
-                {
-                    results.Add(new WordModel(item.ToString()));
-                });
-                return results;
-            }
-        }
         
         public List<string> GetTopicName_All()
         {
@@ -481,6 +446,97 @@ namespace BLL.Components
                 });
                 return results;
             }
+        }
+
+        public List<WordModel> GetTopicWord_ByBranch(string branch)
+        {
+            using (DictionaryContext dbContext = new DictionaryContext())
+            {
+                List<WordModel> results = new List<WordModel>();
+
+                List<string> temp = new List<string>();
+                branch = branch.Replace(' ', '_');
+
+                decimal synsetID = dbContext.topic
+                            .Single(p => p.TopicName.Contains(branch))
+                            .SynsetID;
+
+                List<decimal> s1s = GetHypernymSynsetID_BySynsetID_Recur(synsetID);
+
+                temp = dbContext.wn_word
+                            .Where(p => s1s.Contains(p.synset_id))
+                            .Select(p => p.word)
+                            .Distinct()
+                            .ToList();
+
+                temp.ForEach(item =>
+                {
+                    results.Add(new WordModel(item.ToString().Replace('_', ' ')));
+                });
+
+                return results;
+            }
+        }
+
+        public List<decimal> GetHypernymSynsetID_BySynsetID_Recur(decimal id)
+        {
+            using (DictionaryContext dbContext = new DictionaryContext())
+            {
+                List<decimal> results = new List<decimal>();
+
+                results = dbContext.wn_hypernym
+                            .Where(p => p.synset_id_2 == id)
+                            .Select(p => p.synset_id_1)
+                            .ToList();
+
+                foreach (decimal s in results)
+                {
+                    results.Union(GetHypernymSynsetID_BySynsetID_Recur(s));
+                }
+
+                return results;
+            }
+        }
+
+        public List<string> GetDefinition_ByWord(string word)
+        {
+            word = word.Replace(' ', '_');
+
+            string txtString = string.Empty;
+            string[] result = new string[4] { "", "", "", "" }; // 0 : verb, 1: noun, 2: adj, 3: adv
+            foreach (SynsetModel ss in GetSynset_ByWord(word))
+            {
+                int j = 0;
+                int i = ss.Definition.IndexOf(';');
+                if (i == -1)
+                    txtString += ss.Definition + ".\n\n";
+                else
+                    txtString += ss.Definition.Substring(j, i) + ".\n\n";
+
+                while (i != -1)
+                {
+                    j = i;
+                    i = ss.Definition.IndexOf(';', j + 1);
+
+                    string sentence = "";
+                    if (i == -1)
+                        sentence = ss.Definition.Substring(j + 2);
+                    else
+                        sentence = ss.Definition.Substring(j + 2, i - j - 2);
+
+                    if (sentence.Contains(word))
+                    {
+                        txtString += "\t• " + sentence.Trim('"') + ".\n\n";
+                    }
+                }
+
+                int synsetType = (int)ss.ID / 100000000;
+                result[synsetType - 1] += txtString;
+
+                txtString = string.Empty;
+            }
+
+            return result.ToList();
         }
     }
 }

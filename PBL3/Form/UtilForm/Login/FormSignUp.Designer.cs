@@ -413,7 +413,7 @@ namespace PBL3
             this.panelPage1.Controls.Add(this.iconName);
             this.panelPage1.Controls.Add(this.rjButton11);
             this.panelPage1.Controls.Add(this.rjButton14);
-            this.panelPage1.Location = new System.Drawing.Point(37, -37);
+            this.panelPage1.Location = new System.Drawing.Point(476, 87);
             this.panelPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelPage1.Name = "panelPage1";
             this.panelPage1.Size = new System.Drawing.Size(453, 210);

@@ -28,8 +28,19 @@ namespace PBL3
         public FormHome()
         {
             InitializeComponent();
-            InitializeVariables();
 
+            SetupForm();
+            SetupUI();
+
+        }
+
+        #region HELPER FUNCTIONS
+        private void SetupForm()
+        {
+            InitializeVariables();
+        }
+        private void SetupUI()
+        {
             btnSugWord.Text = _WordsEveryDay[0].Word;
         }
 
@@ -43,17 +54,16 @@ namespace PBL3
             }
         }
 
-        private void swapWordAnim_Tick(object sender, EventArgs e)
+        private bool IsSuggestWordAnimation()
         {
-            _CurrentWordEveryDayIndex = (_CurrentWordEveryDayIndex + 1) % _WordsEveryDay.Count;
-
-            _ReverseState = false;
-            sugWordLeftAnim.Start();
+            return sugWordLeftAnim.Enabled || sugWordRightAnim.Enabled;
         }
+        #endregion
 
+        #region EVENTS
         private void btnForward_MouseClick(object sender, MouseEventArgs e)
         {
-            if (sugWordLeftAnim.Enabled || sugWordRightAnim.Enabled)
+            if (IsSuggestWordAnimation())
                 return;
             _CurrentWordEveryDayIndex = (_CurrentWordEveryDayIndex + 1) % _WordsEveryDay.Count;
 
@@ -63,14 +73,37 @@ namespace PBL3
 
         private void btnBackward_MouseClick(object sender, MouseEventArgs e)
         {
-            if (sugWordLeftAnim.Enabled || sugWordRightAnim.Enabled)
+            if (IsSuggestWordAnimation())
                 return;
             _CurrentWordEveryDayIndex = (_CurrentWordEveryDayIndex - 1) < 0 ? _WordsEveryDay.Count - 1 : (_CurrentWordEveryDayIndex - 1);
 
             _ReverseState = false;
             sugWordRightAnim.Start();
         }
+        private void btnSugWord_MouseClick(object sender, MouseEventArgs e)
+        {
+            GlobalForm.MainForm.SwitchForm(new WordForm(btnSugWord.Text.Replace(' ', '_').ToLower()),
+                FormType.Weak);
+        }
 
+        private void btnSetGoal_MouseClick(object sender, MouseEventArgs e)
+        {
+            GlobalForm.MainForm.SwitchForm(new FormSetGoal(), FormType.Weak);
+        }
+        #endregion
+
+        #region ANIMATIONS
+        private void swapWordAnim_Tick(object sender, EventArgs e)
+        {
+            if (IsSuggestWordAnimation())
+                return;
+            _CurrentWordEveryDayIndex = (_CurrentWordEveryDayIndex + 1) % _WordsEveryDay.Count;
+
+            _ReverseState = false;
+            sugWordLeftAnim.Start();
+        }
+
+        
         private void sugWordLeftAnim_Tick(object sender, EventArgs e)
         {
             if (btnSugWord.Location.X <= -400)
@@ -111,16 +144,7 @@ namespace PBL3
                 btnSugWord.Location = new Point(btnSugWord.Location.X + 50, 0);
             }
         }
+        #endregion
 
-        private void btnSugWord_MouseClick(object sender, MouseEventArgs e)
-        {
-            GlobalForm.MainForm.SwitchForm(new WordForm(btnSugWord.Text.Replace(' ', '_').ToLower()),
-                FormType.Weak);
-        }
-
-        private void btnSetGoal_MouseClick(object sender, MouseEventArgs e)
-        {
-            GlobalForm.MainForm.SwitchForm(new FormSetGoal(), FormType.Weak);
-        }
     }
 }

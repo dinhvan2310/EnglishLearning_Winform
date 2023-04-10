@@ -12,6 +12,8 @@ using System.Windows.Forms;
 using PBLLibrary;
 
 using BLL.TransferObjects;
+using PBL3.Utilities;
+using BLL.Workflows;
 
 namespace PBL3
 {
@@ -23,114 +25,37 @@ namespace PBL3
 
         private int _CurrentTypeLabelIndex;
 
+        readonly private string[] _PartOfSpeech = new string[] { "VERB", "NOUN", "ADJECTIVE", "ADVERB" };
 
-        public WordForm_Meaning(string rawWord, List<SynsetModel> synsets)
+
+        public WordForm_Meaning(string rawWord)
         {
             InitializeComponent();
 
-            SetupForm(rawWord, synsets);
+            SetupForm(rawWord);
         }
 
+        #region HELPER FUNCTIONS
 
-        private void btnFavorite_Click(object sender, EventArgs e)
-        {
-            if (btnFavorite.IconFont == FontAwesome.Sharp.IconFont.Regular)
-            {
-                btnFavorite.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            }
-            else
-            {
-                btnFavorite.IconFont = FontAwesome.Sharp.IconFont.Regular;
-            }
-        }
-
-        [System.Runtime.InteropServices.DllImport("user32.dll")]
-        static extern bool HideCaret(IntPtr hWnd);
-
-        private void txtDefSet_MouseClick(object sender, MouseEventArgs e)
-        {
-            HideCaret(((RichTextBox)sender).Handle);
-        }
-
-        private void SetupForm(string rawWord, List<SynsetModel> synsets)
+        private void SetupForm(string rawWord)
         {
             lblWord.Text = rawWord.Replace('_', ' ');
 
-            string txtString = string.Empty;
-            string verbText = string.Empty;
-            string nounText = string.Empty;
-            string adjText = string.Empty;
-            string advText = string.Empty;
-            foreach (SynsetModel ss in synsets)
-            {
-                int j = 0;
-                int i = ss.Definition.IndexOf(';');
-                if (i == -1)
-                    txtString += ss.Definition + ".\n\n";
-                else
-                    txtString += ss.Definition.Substring(j, i) + ".\n\n";
+            DataManager dm = new DataManager();
+            List<string> definition = dm.EDictionaryManager.GetDefinition_ByWord(rawWord);
 
-                while (i != -1)
+            for (int i = 0; i < 4; ++i)
+            {
+                if (definition[i].Length > 0)
                 {
-                    j = i;
-                    i = ss.Definition.IndexOf(';', j + 1);
-
-                    string sentence = "";
-                    if (i == -1)
-                        sentence = ss.Definition.Substring(j + 2);
-                    else
-                        sentence = ss.Definition.Substring(j + 2, i - j - 2);
-
-                    if (sentence.Contains(rawWord))
-                    {
-                        txtString += "\t• " + sentence.Trim('"') + ".\n\n";
-                    }
+                    _TypeLabels.Add(InstanceTypeLabel(_PartOfSpeech[i],
+                        new System.Drawing.Point(12 + 200 * _TypeLabels.Count, 14)));
+                    _DefinitionTextBoxes.Add(InstanceDefinitionTB(definition[i]));
                 }
-
-                int synsetType = (int)ss.ID / 100000000;
-                switch (synsetType)
-                {
-                    case 1:
-                        nounText += txtString;
-                        break;
-                    case 2:
-                        verbText += txtString;
-                        break;
-                    case 3:
-                        adjText += txtString;
-                        break;
-                    case 4:
-                        advText += txtString;
-                        break;
-                }
-
-                txtString = string.Empty;
-            }
-
-            if (verbText.Length > 0)
-            {
-                _TypeLabels.Add(InstanceTypeLabel("VERB", new System.Drawing.Point(12 + 200 * _TypeLabels.Count, 14)));
-                _DefinitionTextBoxes.Add(InstanceDefinitionTB(verbText));
-            }
-            if (nounText.Length > 0)
-            {
-                _TypeLabels.Add(InstanceTypeLabel("NOUN", new System.Drawing.Point(12 + 200 * _TypeLabels.Count, 14)));
-                _DefinitionTextBoxes.Add(InstanceDefinitionTB(nounText));
-            }
-            if (adjText.Length > 0)
-            {
-                _TypeLabels.Add(InstanceTypeLabel("ADJECTIVE", new System.Drawing.Point(12 + 200 * _TypeLabels.Count , 14)));
-                _DefinitionTextBoxes.Add(InstanceDefinitionTB(adjText));
-            }
-            if (advText.Length > 0)
-            {
-                _TypeLabels.Add(InstanceTypeLabel("ADVERB", new System.Drawing.Point(12 + 200 * _TypeLabels.Count, 14)));
-                _DefinitionTextBoxes.Add(InstanceDefinitionTB(advText));
             }
 
             _DefinitionTextBoxes[0].Visible = true;
             _CurrentTypeLabelIndex = 0;
-
         }
 
         private Label InstanceTypeLabel(string name, System.Drawing.Point location)
@@ -175,6 +100,25 @@ namespace PBL3
             return result;
         }
 
+        #endregion
+
+        #region EVENTS
+        private void btnFavorite_Click(object sender, EventArgs e)
+        {
+            if (btnFavorite.IconFont == FontAwesome.Sharp.IconFont.Regular)
+            {
+                btnFavorite.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            }
+            else
+            {
+                btnFavorite.IconFont = FontAwesome.Sharp.IconFont.Regular;
+            }
+        }
+
+        private void txtDefSet_MouseClick(object sender, MouseEventArgs e)
+        {
+            ExternalImport.HideCaret(((RichTextBox)sender).Handle);
+        }
 
         private void LabelType_MouseClick(object sender, MouseEventArgs e)
         {
@@ -192,18 +136,6 @@ namespace PBL3
             }
         }
 
-        private void underlineBarAnim_Tick(object sender, EventArgs e)
-        {
-            if (underlineBar.Location.X == _CurrentTypeLabelIndex * 200 + 15)
-            {
-                underlineBarAnim.Stop();
-                return;
-            }
-
-            float smoothValue = (underlineBar.Location.X) * 0.75f + (_CurrentTypeLabelIndex * 200 + 15) * 0.25f;
-            underlineBar.Location = new System.Drawing.Point((int)smoothValue, underlineBar.Location.Y);
-        }
-
         private void btnSpeak_Click(object sender, EventArgs e)
         {
             if (SoundConfig.IsSpeaking)
@@ -217,6 +149,22 @@ namespace PBL3
                 SoundConfig.IsSpeaking = false;
             });
         }
+
+        #endregion
+
+        #region ANIMATIONS
+        private void underlineBarAnim_Tick(object sender, EventArgs e)
+        {
+            if (underlineBar.Location.X == _CurrentTypeLabelIndex * 200 + 15)
+            {
+                underlineBarAnim.Stop();
+                return;
+            }
+
+            float smoothValue = (underlineBar.Location.X) * 0.75f + (_CurrentTypeLabelIndex * 200 + 15) * 0.25f;
+            underlineBar.Location = new System.Drawing.Point((int)smoothValue, underlineBar.Location.Y);
+        }
+        #endregion
 
     }
 }

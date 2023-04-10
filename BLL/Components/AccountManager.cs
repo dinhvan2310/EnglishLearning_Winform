@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data.Entity;
 using System.Linq;
 using System.Security.Principal;
 using System.Windows.Forms;
@@ -34,12 +35,14 @@ namespace BLL.Components
         {
             using (var dbContext = new DictionaryContext())
             {
-                Account old = dbContext.account.Single(p => p.AccountID == account.AccountID);
+                Account old = dbContext.account.SingleOrDefault(p => p.AccountID == account.AccountID);
 
                 old.Name = account.Name;
                 old.Email = account.Email;
                 old.BirthDate = account.BirthDate;
                 old.Gender = account.Gender;
+
+                dbContext.Entry(old.DetailedInformation).State = EntityState.Modified;
 
                 dbContext.SaveChanges();
             }
@@ -50,6 +53,14 @@ namespace BLL.Components
             using (var dbContext = new DictionaryContext())
             {
                 return dbContext.account.Single(p => p.AccountID == accountID);
+            }
+        }
+
+        public DetailedInformation GetAccountDetail(int accountID)
+        {
+            using (var dbContext = new DictionaryContext())
+            {
+                return dbContext.detailedInformation.Single(p => p.AccountID == accountID);
             }
         }
 

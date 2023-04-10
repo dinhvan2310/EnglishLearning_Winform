@@ -30,15 +30,38 @@ namespace PBL3
         public MainForm()
         {
             InitializeComponent();
-            SettingFormProperties();
-            InitializeChildForm();
-            InitializeFoundButton();
+
+            SetupForm();
+            SetupUI();
+        }
+
+        #region HELPER FUNCTIONS
+        private void SetupUI()
+        {
+            if (LoginWorkflow.Instance.IsLoggedIn())
+            {
+                lblBalance.Text = LoginWorkflow.Instance.GetAccountDetail().Balance.ToString();
+                btnPersonalLogin.Text = "Đăng Xuất";
+                OpenChildForm(HomeForm, FormType.Strong);
+            }
+            else
+            {
+                lblBalance.Text = "∞";
+                btnPersonalLogin.Text = "Đăng Nhập";
+                OpenChildForm(new FormGuest(), FormType.Strong);
+            }
 
             fadeInFormAnim.Start();
 
             // FormHome for default
             ActivateButton(btnHome, Color.FromArgb(97, 110, 254));
-            OpenChildForm(HomeForm, FormType.Strong);
+        }
+
+        private void SetupForm()
+        {
+            SettingFormProperties();
+            InitializeChildForm();
+            InitializeFoundButton();
         }
         public void GoBack()
         {
@@ -155,6 +178,16 @@ namespace PBL3
 
         }
 
+        private void ActiveSearchOption()
+        {
+            _SearchOptions[_CurrentSearchOptionIndex].BackColor = Color.FromArgb(50, 40, 80);
+        }
+
+        private void ResetSearchOption()
+        {
+            _SearchOptions[_CurrentSearchOptionIndex].BackColor = Color.FromArgb(60, 50, 99);
+        }
+
         private Button CreateSearchButton(int index)
         {
             IconButton b = new IconButton();
@@ -188,6 +221,9 @@ namespace PBL3
                 BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic,
                 null, panelDrag, new object[] { true });
         }
+        #endregion
+
+        #region EVENTS
         private void panelDrag_MouseDown(object sender, MouseEventArgs e)
         {
             ExternalImport.ReleaseCapture();
@@ -285,7 +321,16 @@ namespace PBL3
         private void btnHome_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(97, 110, 254));
-            OpenChildForm(HomeForm, FormType.Strong);
+
+            if (LoginWorkflow.Instance.IsLoggedIn())
+            {
+                OpenChildForm(HomeForm, FormType.Strong);
+            }
+            else
+            {
+                OpenChildForm(new FormGuest(), FormType.Strong);
+            }
+
         }
 
         private void btnTopic_Click(object sender, EventArgs e)
@@ -313,7 +358,7 @@ namespace PBL3
             ActivateButton(sender, Color.FromArgb(255, 108, 131));
             if (LoginWorkflow.Instance.IsLoggedIn())
             {
-            
+
             }
             else
             {
@@ -327,69 +372,6 @@ namespace PBL3
             OpenChildForm(SettingForm, FormType.Strong);
         }
 
-        private void collapseAnim_Tick(object sender, EventArgs e)
-        {
-            if (panelButton.Size.Width > 80)
-            {
-                panelButton.Size = new Size(panelButton.Size.Width - 20, panelButton.Size.Height);
-            }
-            else
-            {
-                collapseAnim.Stop();
-                iconSub.Visible = true;
-            }
-        }
-        private void expandAnim_Tick(object sender, EventArgs e)
-        {
-            if (panelButton.Size.Width < 200)
-            {
-                panelButton.Size = new Size(panelButton.Size.Width + 20, panelButton.Size.Height);
-            }
-            else
-            {
-                expandAnim.Stop();
-                btnLogo.Visible = true;
-                btnHome.Text = "Trang Chủ";
-                btnTopic.Text = "Chủ Đề";
-                btnNotebook.Text = "Sổ Tay";
-                btnGame.Text = "Trò Chơi";
-                btnSetting.Text = "Cài Đặt";
-
-                lblChildForm.Text = _CurrentBtn.Text.ToUpper();
-            }
-        }
-        private void rightPanelAnim_Tick(object sender, EventArgs e)
-        {
-            if (rightPanelBtn.Location.X > 60)
-            {
-                rightPanelBtn.Location = new Point(rightPanelBtn.Location.X - 10, rightPanelBtn.Location.Y);
-            }
-            else
-            {
-                rightPanelAnim.Stop();
-            }
-        }
-
-        private void fadeInFormAnim_Tick(object sender, EventArgs e)
-        {
-            if (Opacity < 1)
-                Opacity += 0.2;
-            else
-                fadeInFormAnim.Stop();
-        }
-
-        private void fadeOutFormAnim_Tick(object sender, EventArgs e)
-        {
-            if (Opacity > 0)
-                Opacity -= 0.2;
-            else
-            {
-                fadeInFormAnim.Stop();
-                Application.Exit();
-            }
-
-        }
-
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             if (txtSearch.Text.Length == 0)
@@ -399,7 +381,7 @@ namespace PBL3
             }
             DataManager dataAccess = new DataManager();
             List<WordModel> words = dataAccess.EDictionaryManager.GetWord_ByFilter(txtSearch.Text.Replace(' ', '_') + "%", 10, true);
-            
+
 
             if (words.Count != 0)
             {
@@ -423,6 +405,7 @@ namespace PBL3
             panelSearchFound.Visible = true;
 
         }
+
         private void txtSearch_Leave(object sender, EventArgs e)
         {
             _SearchBarIsDirty = txtSearch.Text.Length != 0;
@@ -434,7 +417,6 @@ namespace PBL3
 
             panelSearchFound.Visible = false;
         }
-
 
         private void txtSearch_KeyDown(object sender, KeyEventArgs e)
         {
@@ -481,15 +463,6 @@ namespace PBL3
 
         }
 
-        private void ActiveSearchOption()
-        {
-            _SearchOptions[_CurrentSearchOptionIndex].BackColor = Color.FromArgb(50, 40, 80);
-        }
-
-        private void ResetSearchOption()
-        {
-            _SearchOptions[_CurrentSearchOptionIndex].BackColor = Color.FromArgb(60, 50, 99);
-        }
         private void btnSearchFound_Click(object sender, EventArgs e)
         {
             DataManager dataAccess = new DataManager();
@@ -511,7 +484,6 @@ namespace PBL3
                 txtSearch.ForeColor = Color.FromArgb(240, 237, 252);
             }
         }
-
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -537,9 +509,7 @@ namespace PBL3
 
         private void btnLogo_MouseClick(object sender, MouseEventArgs e)
         {
-            ActivateButton(btnHome, Color.FromArgb(97, 110, 254));
-
-            OpenChildForm(HomeForm, FormType.Strong);
+            btnHome_Click(btnHome, e);
         }
 
         private void btnPersonalInfo_MouseClick(object sender, MouseEventArgs e)
@@ -564,7 +534,7 @@ namespace PBL3
             if (lblSearchType.Text.CompareTo("ANH - ANH") == 0)
             {
                 lblSearchType.Text = "ANH - VIET";
-            }    
+            }
             else
             {
                 lblSearchType.Text = "ANH - ANH";
@@ -576,5 +546,80 @@ namespace PBL3
             Form form = new FormTranslanteText();
             OpenChildForm(form, FormType.Weak);
         }
+
+        private void MainForm_VisibleChanged(object sender, EventArgs e)
+        {
+            SetupUI();
+        }
+
+        #endregion
+
+        #region ANIMATION
+        private void collapseAnim_Tick(object sender, EventArgs e)
+        {
+            if (panelButton.Size.Width > 80)
+            {
+                panelButton.Size = new Size(panelButton.Size.Width - 20, panelButton.Size.Height);
+            }
+            else
+            {
+                collapseAnim.Stop();
+                iconSub.Visible = true;
+            }
+        }
+
+        private void expandAnim_Tick(object sender, EventArgs e)
+        {
+            if (panelButton.Size.Width < 200)
+            {
+                panelButton.Size = new Size(panelButton.Size.Width + 20, panelButton.Size.Height);
+            }
+            else
+            {
+                expandAnim.Stop();
+                btnLogo.Visible = true;
+                btnHome.Text = "Trang Chủ";
+                btnTopic.Text = "Chủ Đề";
+                btnNotebook.Text = "Sổ Tay";
+                btnGame.Text = "Trò Chơi";
+                btnSetting.Text = "Cài Đặt";
+
+                lblChildForm.Text = _CurrentBtn.Text.ToUpper();
+            }
+        }
+
+        private void rightPanelAnim_Tick(object sender, EventArgs e)
+        {
+            if (rightPanelBtn.Location.X > 60)
+            {
+                rightPanelBtn.Location = new Point(rightPanelBtn.Location.X - 10, rightPanelBtn.Location.Y);
+            }
+            else
+            {
+                rightPanelAnim.Stop();
+            }
+        }
+
+        private void fadeInFormAnim_Tick(object sender, EventArgs e)
+        {
+            if (Opacity < 1)
+                Opacity += 0.2;
+            else
+                fadeInFormAnim.Stop();
+        }
+
+        private void fadeOutFormAnim_Tick(object sender, EventArgs e)
+        {
+            if (Opacity > 0)
+                Opacity -= 0.2;
+            else
+            {
+                fadeInFormAnim.Stop();
+                Application.Exit();
+            }
+
+        }
+
+        #endregion
     }
 }

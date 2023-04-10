@@ -28,15 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTopic_List));
             this.lblBranch = new System.Windows.Forms.Label();
             this.rjPanel1 = new CustomControls.RJPanel();
             this.panelWord = new System.Windows.Forms.FlowLayoutPanel();
-            this.rjButton1 = new CustomControls.RJButton();
             this.btnReturn = new FontAwesome.Sharp.IconButton();
             this.rjButton2 = new CustomControls.RJButton();
             this.rjPanel1.SuspendLayout();
-            this.panelWord.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblBranch
@@ -47,7 +44,7 @@
             this.lblBranch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
             this.lblBranch.Location = new System.Drawing.Point(124, 22);
             this.lblBranch.Name = "lblBranch";
-            this.lblBranch.Size = new System.Drawing.Size(116, 39);
+            this.lblBranch.Size = new System.Drawing.Size(114, 38);
             this.lblBranch.TabIndex = 27;
             this.lblBranch.Text = "Nhánh";
             // 
@@ -71,34 +68,10 @@
             // 
             this.panelWord.AutoScroll = true;
             this.panelWord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.panelWord.Controls.Add(this.rjButton1);
             this.panelWord.Location = new System.Drawing.Point(29, 27);
             this.panelWord.Name = "panelWord";
             this.panelWord.Size = new System.Drawing.Size(881, 328);
             this.panelWord.TabIndex = 15;
-            // 
-            // rjButton1
-            // 
-            this.rjButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(41)))), ((int)(((byte)(74)))));
-            this.rjButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(41)))), ((int)(((byte)(74)))));
-            this.rjButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("rjButton1.BackgroundImage")));
-            this.rjButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.rjButton1.BorderRadius = 20;
-            this.rjButton1.BorderSize = 0;
-            this.rjButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.Font = new System.Drawing.Font("Bahnschrift", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rjButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.rjButton1.Location = new System.Drawing.Point(3, 3);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(150, 100);
-            this.rjButton1.TabIndex = 0;
-            this.rjButton1.TabStop = false;
-            this.rjButton1.Text = "Test";
-            this.rjButton1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.rjButton1.UseVisualStyleBackColor = false;
             // 
             // btnReturn
             // 
@@ -150,7 +123,6 @@
             this.Name = "FormTopic_List";
             this.Text = "FormTopic_List";
             this.rjPanel1.ResumeLayout(false);
-            this.panelWord.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -162,7 +134,6 @@
         private System.Windows.Forms.Label lblBranch;
         private CustomControls.RJPanel rjPanel1;
         private System.Windows.Forms.FlowLayoutPanel panelWord;
-        private CustomControls.RJButton rjButton1;
         private CustomControls.RJButton rjButton2;
     }
 }

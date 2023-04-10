@@ -114,6 +114,7 @@
     <Compile Include="Components\AccountManager.cs" />
     <Compile Include="Components\EDictionaryMananger.cs" />
     <Compile Include="Components\EmailManager.cs" />
+    <Compile Include="Components\PackageManager.cs" />
     <Compile Include="Components\Validator.cs" />
     <Compile Include="TransferObjects\SynsetModel.cs" />
     <Compile Include="TransferObjects\WordModel.cs" />

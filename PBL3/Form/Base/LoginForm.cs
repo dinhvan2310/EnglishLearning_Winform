@@ -25,6 +25,8 @@ namespace PBL3
             OpenChildForm(new FormSignIn());
         }
 
+        #region HELPER FUNCTIONS
+
         public void OpenChildForm(Form childForm)
         {
             if (_CurrentChildForm != null)
@@ -40,6 +42,10 @@ namespace PBL3
             childForm.SendToBack();
             childForm.Show();
         }
+
+        #endregion
+
+        #region EVENTS
 
         private void panelDrag_MouseDown(object sender, MouseEventArgs e)
         {
@@ -57,7 +63,7 @@ namespace PBL3
         {
             WindowState = FormWindowState.Minimized;
         }
+        #endregion
 
-       
     }
 }

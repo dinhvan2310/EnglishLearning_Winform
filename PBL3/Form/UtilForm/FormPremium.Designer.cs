@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPremium));
             this.btnExit = new FontAwesome.Sharp.IconButton();
-            this.rjButton1 = new CustomControls.RJButton();
+            this.btnBuy = new CustomControls.RJButton();
             this.SuspendLayout();
             // 
             // btnExit
@@ -55,25 +55,30 @@
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnExit_MouseClick);
             // 
-            // rjButton1
+            // btnBuy
             // 
-            this.rjButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.rjButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.rjButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("rjButton1.BackgroundImage")));
-            this.rjButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.rjButton1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.rjButton1.BorderRadius = 17;
-            this.rjButton1.BorderSize = 0;
-            this.rjButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rjButton1.FlatAppearance.BorderSize = 0;
-            this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(122, 363);
-            this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(150, 50);
-            this.rjButton1.TabIndex = 9;
-            this.rjButton1.TextColor = System.Drawing.Color.White;
-            this.rjButton1.UseVisualStyleBackColor = false;
+            this.btnBuy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.btnBuy.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.btnBuy.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBuy.BackgroundImage")));
+            this.btnBuy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBuy.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.btnBuy.BorderRadius = 17;
+            this.btnBuy.BorderSize = 0;
+            this.btnBuy.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuy.FlatAppearance.BorderSize = 0;
+            this.btnBuy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuy.Font = new System.Drawing.Font("Cooper Black", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuy.ForeColor = System.Drawing.Color.White;
+            this.btnBuy.Location = new System.Drawing.Point(122, 363);
+            this.btnBuy.Name = "btnBuy";
+            this.btnBuy.Padding = new System.Windows.Forms.Padding(0, 0, 30, 0);
+            this.btnBuy.Size = new System.Drawing.Size(150, 50);
+            this.btnBuy.TabIndex = 9;
+            this.btnBuy.Text = "65";
+            this.btnBuy.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuy.TextColor = System.Drawing.Color.White;
+            this.btnBuy.UseVisualStyleBackColor = false;
+            this.btnBuy.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnBuy_MouseClick);
             // 
             // FormPremium
             // 
@@ -83,7 +88,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(400, 425);
-            this.Controls.Add(this.rjButton1);
+            this.Controls.Add(this.btnBuy);
             this.Controls.Add(this.btnExit);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -98,6 +103,6 @@
         #endregion
 
         private FontAwesome.Sharp.IconButton btnExit;
-        private CustomControls.RJButton rjButton1;
+        private CustomControls.RJButton btnBuy;
     }
 }

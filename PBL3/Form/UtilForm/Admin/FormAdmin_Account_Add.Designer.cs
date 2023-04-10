@@ -76,7 +76,7 @@
             this.rjButton4.FlatAppearance.BorderSize = 0;
             this.rjButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton4.ForeColor = System.Drawing.Color.White;
-            this.rjButton4.Location = new System.Drawing.Point(134, 141);
+            this.rjButton4.Location = new System.Drawing.Point(137, 114);
             this.rjButton4.Name = "rjButton4";
             this.rjButton4.Size = new System.Drawing.Size(3, 39);
             this.rjButton4.TabIndex = 69;
@@ -91,10 +91,10 @@
             this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsername.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
-            this.txtUsername.Location = new System.Drawing.Point(144, 152);
+            this.txtUsername.Location = new System.Drawing.Point(147, 125);
             this.txtUsername.MinimumSize = new System.Drawing.Size(0, 30);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(300, 25);
+            this.txtUsername.Size = new System.Drawing.Size(300, 30);
             this.txtUsername.TabIndex = 66;
             this.txtUsername.Text = "Email";
             this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
@@ -110,7 +110,7 @@
             this.rjButton1.FlatAppearance.BorderSize = 0;
             this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(77, 134);
+            this.rjButton1.Location = new System.Drawing.Point(80, 107);
             this.rjButton1.Name = "rjButton1";
             this.rjButton1.Size = new System.Drawing.Size(430, 50);
             this.rjButton1.TabIndex = 67;
@@ -128,7 +128,7 @@
             this.rjButton2.FlatAppearance.BorderSize = 0;
             this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton2.ForeColor = System.Drawing.Color.White;
-            this.rjButton2.Location = new System.Drawing.Point(134, 200);
+            this.rjButton2.Location = new System.Drawing.Point(137, 173);
             this.rjButton2.Name = "rjButton2";
             this.rjButton2.Size = new System.Drawing.Size(3, 39);
             this.rjButton2.TabIndex = 73;
@@ -143,10 +143,10 @@
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
-            this.textBox1.Location = new System.Drawing.Point(144, 211);
+            this.textBox1.Location = new System.Drawing.Point(147, 184);
             this.textBox1.MinimumSize = new System.Drawing.Size(0, 30);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(300, 25);
+            this.textBox1.Size = new System.Drawing.Size(300, 30);
             this.textBox1.TabIndex = 70;
             this.textBox1.Text = "Tên Đăng Nhập";
             // 
@@ -161,7 +161,7 @@
             this.rjButton3.FlatAppearance.BorderSize = 0;
             this.rjButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton3.ForeColor = System.Drawing.Color.White;
-            this.rjButton3.Location = new System.Drawing.Point(77, 193);
+            this.rjButton3.Location = new System.Drawing.Point(80, 166);
             this.rjButton3.Name = "rjButton3";
             this.rjButton3.Size = new System.Drawing.Size(430, 50);
             this.rjButton3.TabIndex = 71;
@@ -179,7 +179,7 @@
             this.rjButton5.FlatAppearance.BorderSize = 0;
             this.rjButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton5.ForeColor = System.Drawing.Color.White;
-            this.rjButton5.Location = new System.Drawing.Point(134, 259);
+            this.rjButton5.Location = new System.Drawing.Point(137, 232);
             this.rjButton5.Name = "rjButton5";
             this.rjButton5.Size = new System.Drawing.Size(3, 39);
             this.rjButton5.TabIndex = 77;
@@ -194,10 +194,10 @@
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
-            this.textBox2.Location = new System.Drawing.Point(144, 270);
+            this.textBox2.Location = new System.Drawing.Point(147, 243);
             this.textBox2.MinimumSize = new System.Drawing.Size(0, 30);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(300, 25);
+            this.textBox2.Size = new System.Drawing.Size(300, 30);
             this.textBox2.TabIndex = 74;
             this.textBox2.Text = "Mật khẩu";
             // 
@@ -212,7 +212,7 @@
             this.rjButton6.FlatAppearance.BorderSize = 0;
             this.rjButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton6.ForeColor = System.Drawing.Color.White;
-            this.rjButton6.Location = new System.Drawing.Point(77, 252);
+            this.rjButton6.Location = new System.Drawing.Point(80, 225);
             this.rjButton6.Name = "rjButton6";
             this.rjButton6.Size = new System.Drawing.Size(430, 50);
             this.rjButton6.TabIndex = 75;
@@ -230,7 +230,7 @@
             this.rjButton7.FlatAppearance.BorderSize = 0;
             this.rjButton7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton7.ForeColor = System.Drawing.Color.White;
-            this.rjButton7.Location = new System.Drawing.Point(580, 261);
+            this.rjButton7.Location = new System.Drawing.Point(583, 234);
             this.rjButton7.Name = "rjButton7";
             this.rjButton7.Size = new System.Drawing.Size(3, 39);
             this.rjButton7.TabIndex = 89;
@@ -245,10 +245,10 @@
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox3.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
-            this.textBox3.Location = new System.Drawing.Point(590, 272);
+            this.textBox3.Location = new System.Drawing.Point(593, 245);
             this.textBox3.MinimumSize = new System.Drawing.Size(0, 30);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(249, 25);
+            this.textBox3.Size = new System.Drawing.Size(249, 30);
             this.textBox3.TabIndex = 86;
             this.textBox3.Text = "Giới tính";
             // 
@@ -263,7 +263,7 @@
             this.rjButton8.FlatAppearance.BorderSize = 0;
             this.rjButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton8.ForeColor = System.Drawing.Color.White;
-            this.rjButton8.Location = new System.Drawing.Point(523, 254);
+            this.rjButton8.Location = new System.Drawing.Point(526, 227);
             this.rjButton8.Name = "rjButton8";
             this.rjButton8.Size = new System.Drawing.Size(352, 50);
             this.rjButton8.TabIndex = 87;
@@ -281,7 +281,7 @@
             this.rjButton9.FlatAppearance.BorderSize = 0;
             this.rjButton9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton9.ForeColor = System.Drawing.Color.White;
-            this.rjButton9.Location = new System.Drawing.Point(580, 202);
+            this.rjButton9.Location = new System.Drawing.Point(583, 175);
             this.rjButton9.Name = "rjButton9";
             this.rjButton9.Size = new System.Drawing.Size(3, 39);
             this.rjButton9.TabIndex = 85;
@@ -296,10 +296,10 @@
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox4.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
-            this.textBox4.Location = new System.Drawing.Point(590, 213);
+            this.textBox4.Location = new System.Drawing.Point(593, 186);
             this.textBox4.MinimumSize = new System.Drawing.Size(0, 30);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(249, 25);
+            this.textBox4.Size = new System.Drawing.Size(249, 30);
             this.textBox4.TabIndex = 82;
             this.textBox4.Text = "Ngày sinh";
             // 
@@ -314,7 +314,7 @@
             this.rjButton10.FlatAppearance.BorderSize = 0;
             this.rjButton10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton10.ForeColor = System.Drawing.Color.White;
-            this.rjButton10.Location = new System.Drawing.Point(523, 195);
+            this.rjButton10.Location = new System.Drawing.Point(526, 168);
             this.rjButton10.Name = "rjButton10";
             this.rjButton10.Size = new System.Drawing.Size(352, 50);
             this.rjButton10.TabIndex = 83;
@@ -332,7 +332,7 @@
             this.rjButton11.FlatAppearance.BorderSize = 0;
             this.rjButton11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton11.ForeColor = System.Drawing.Color.White;
-            this.rjButton11.Location = new System.Drawing.Point(580, 143);
+            this.rjButton11.Location = new System.Drawing.Point(583, 116);
             this.rjButton11.Name = "rjButton11";
             this.rjButton11.Size = new System.Drawing.Size(3, 39);
             this.rjButton11.TabIndex = 81;
@@ -347,10 +347,10 @@
             this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox5.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
-            this.textBox5.Location = new System.Drawing.Point(590, 154);
+            this.textBox5.Location = new System.Drawing.Point(593, 127);
             this.textBox5.MinimumSize = new System.Drawing.Size(0, 30);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(249, 25);
+            this.textBox5.Size = new System.Drawing.Size(249, 30);
             this.textBox5.TabIndex = 78;
             this.textBox5.Text = "Họ và Tên";
             // 
@@ -365,7 +365,7 @@
             this.rjButton12.FlatAppearance.BorderSize = 0;
             this.rjButton12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton12.ForeColor = System.Drawing.Color.White;
-            this.rjButton12.Location = new System.Drawing.Point(523, 136);
+            this.rjButton12.Location = new System.Drawing.Point(526, 109);
             this.rjButton12.Name = "rjButton12";
             this.rjButton12.Size = new System.Drawing.Size(352, 50);
             this.rjButton12.TabIndex = 79;
@@ -377,7 +377,7 @@
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.panel2.Location = new System.Drawing.Point(77, 123);
+            this.panel2.Location = new System.Drawing.Point(80, 96);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(691, 5);
             this.panel2.TabIndex = 25;
@@ -386,7 +386,7 @@
             // 
             this.panel3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.panel3.Location = new System.Drawing.Point(77, 326);
+            this.panel3.Location = new System.Drawing.Point(80, 299);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(691, 5);
             this.panel3.TabIndex = 26;
@@ -401,7 +401,7 @@
             this.rjButton15.FlatAppearance.BorderSize = 0;
             this.rjButton15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton15.ForeColor = System.Drawing.Color.White;
-            this.rjButton15.Location = new System.Drawing.Point(134, 343);
+            this.rjButton15.Location = new System.Drawing.Point(137, 316);
             this.rjButton15.Name = "rjButton15";
             this.rjButton15.Size = new System.Drawing.Size(3, 39);
             this.rjButton15.TabIndex = 97;
@@ -416,10 +416,10 @@
             this.textBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox7.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
-            this.textBox7.Location = new System.Drawing.Point(144, 354);
+            this.textBox7.Location = new System.Drawing.Point(147, 327);
             this.textBox7.MinimumSize = new System.Drawing.Size(0, 30);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(300, 25);
+            this.textBox7.Size = new System.Drawing.Size(300, 30);
             this.textBox7.TabIndex = 94;
             this.textBox7.Text = "Số xu";
             // 
@@ -434,7 +434,7 @@
             this.rjButton16.FlatAppearance.BorderSize = 0;
             this.rjButton16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton16.ForeColor = System.Drawing.Color.White;
-            this.rjButton16.Location = new System.Drawing.Point(77, 336);
+            this.rjButton16.Location = new System.Drawing.Point(80, 309);
             this.rjButton16.Name = "rjButton16";
             this.rjButton16.Size = new System.Drawing.Size(430, 50);
             this.rjButton16.TabIndex = 95;
@@ -448,10 +448,10 @@
             this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox8.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
-            this.textBox8.Location = new System.Drawing.Point(134, 86);
+            this.textBox8.Location = new System.Drawing.Point(137, 59);
             this.textBox8.MinimumSize = new System.Drawing.Size(0, 30);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(249, 25);
+            this.textBox8.Size = new System.Drawing.Size(249, 30);
             this.textBox8.TabIndex = 99;
             this.textBox8.Text = "110100110";
             // 
@@ -460,7 +460,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bahnschrift", 13.8F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.label1.Location = new System.Drawing.Point(80, 83);
+            this.label1.Location = new System.Drawing.Point(83, 56);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 28);
             this.label1.TabIndex = 101;
@@ -472,11 +472,11 @@
             this.iconButton8.Enabled = false;
             this.iconButton8.FlatAppearance.BorderSize = 0;
             this.iconButton8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton8.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.iconButton8.IconChar = FontAwesome.Sharp.IconChar.Coins;
             this.iconButton8.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
             this.iconButton8.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton8.IconSize = 25;
-            this.iconButton8.Location = new System.Drawing.Point(98, 348);
+            this.iconButton8.Location = new System.Drawing.Point(101, 321);
             this.iconButton8.Name = "iconButton8";
             this.iconButton8.Size = new System.Drawing.Size(39, 28);
             this.iconButton8.TabIndex = 96;
@@ -489,11 +489,11 @@
             this.iconButton4.Enabled = false;
             this.iconButton4.FlatAppearance.BorderSize = 0;
             this.iconButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.iconButton4.IconChar = FontAwesome.Sharp.IconChar.Table;
             this.iconButton4.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
             this.iconButton4.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton4.IconSize = 25;
-            this.iconButton4.Location = new System.Drawing.Point(544, 266);
+            this.iconButton4.Location = new System.Drawing.Point(547, 239);
             this.iconButton4.Name = "iconButton4";
             this.iconButton4.Size = new System.Drawing.Size(39, 28);
             this.iconButton4.TabIndex = 88;
@@ -506,11 +506,11 @@
             this.iconButton5.Enabled = false;
             this.iconButton5.FlatAppearance.BorderSize = 0;
             this.iconButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.iconButton5.IconChar = FontAwesome.Sharp.IconChar.Genderless;
             this.iconButton5.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
             this.iconButton5.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton5.IconSize = 25;
-            this.iconButton5.Location = new System.Drawing.Point(544, 207);
+            this.iconButton5.Location = new System.Drawing.Point(547, 180);
             this.iconButton5.Name = "iconButton5";
             this.iconButton5.Size = new System.Drawing.Size(39, 28);
             this.iconButton5.TabIndex = 84;
@@ -523,11 +523,11 @@
             this.iconButton6.Enabled = false;
             this.iconButton6.FlatAppearance.BorderSize = 0;
             this.iconButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton6.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.iconButton6.IconChar = FontAwesome.Sharp.IconChar.Feather;
             this.iconButton6.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
             this.iconButton6.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton6.IconSize = 25;
-            this.iconButton6.Location = new System.Drawing.Point(544, 148);
+            this.iconButton6.Location = new System.Drawing.Point(547, 121);
             this.iconButton6.Name = "iconButton6";
             this.iconButton6.Size = new System.Drawing.Size(39, 28);
             this.iconButton6.TabIndex = 80;
@@ -540,11 +540,11 @@
             this.iconButton3.Enabled = false;
             this.iconButton3.FlatAppearance.BorderSize = 0;
             this.iconButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.iconButton3.IconChar = FontAwesome.Sharp.IconChar.Lock;
             this.iconButton3.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
             this.iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton3.IconSize = 25;
-            this.iconButton3.Location = new System.Drawing.Point(98, 264);
+            this.iconButton3.Location = new System.Drawing.Point(101, 237);
             this.iconButton3.Name = "iconButton3";
             this.iconButton3.Size = new System.Drawing.Size(39, 28);
             this.iconButton3.TabIndex = 76;
@@ -561,7 +561,7 @@
             this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
             this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton2.IconSize = 25;
-            this.iconButton2.Location = new System.Drawing.Point(98, 205);
+            this.iconButton2.Location = new System.Drawing.Point(101, 178);
             this.iconButton2.Name = "iconButton2";
             this.iconButton2.Size = new System.Drawing.Size(39, 28);
             this.iconButton2.TabIndex = 72;
@@ -574,11 +574,11 @@
             this.btnUser.Enabled = false;
             this.btnUser.FlatAppearance.BorderSize = 0;
             this.btnUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUser.IconChar = FontAwesome.Sharp.IconChar.User;
+            this.btnUser.IconChar = FontAwesome.Sharp.IconChar.Envelope;
             this.btnUser.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
             this.btnUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnUser.IconSize = 25;
-            this.btnUser.Location = new System.Drawing.Point(98, 146);
+            this.btnUser.Location = new System.Drawing.Point(101, 119);
             this.btnUser.Name = "btnUser";
             this.btnUser.Size = new System.Drawing.Size(39, 28);
             this.btnUser.TabIndex = 68;

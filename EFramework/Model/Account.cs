@@ -31,10 +31,12 @@ namespace EFramework.Model
         public bool Gender { get; set; }
         public string ProfilePicture { get; set; }
 
-        [ForeignKey(nameof(AccountType))]
         public int TypeID { get; set; }
 
+        [ForeignKey("TypeID")]
         public virtual AccountType AccountType { get; set; }
+
+        [ForeignKey("AccountID")]
         public virtual DetailedInformation DetailedInformation { get; set;}
         public virtual ICollection<InformationPerDay> InformationPerDays { get; set; }
         public virtual ICollection<UserPacketInfo> UserPacketInfos { get; set;} 

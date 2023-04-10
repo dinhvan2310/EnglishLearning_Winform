@@ -14,6 +14,7 @@ using BLL.Workflows;
 using BLL.TransferObjects;
 using PBL3.Utilities;
 using BLL.Components;
+using System.Dynamic;
 
 namespace PBL3
 {
@@ -23,7 +24,6 @@ namespace PBL3
         private Form _CurrentChildForm;
 
         private string _Word;
-        private List<SynsetModel> _Synsets;
 
         public WordForm(string rawWord)
         {
@@ -31,21 +31,16 @@ namespace PBL3
 
             InitializeComponent();
 
-            ActiveTag(btnMeaning);
-
-            DataManager dm = new DataManager();
-            _Synsets = dm.EDictionaryManager.GetSynset_ByWord(rawWord);
-            OpenChildForm(new WordForm_Meaning(rawWord, _Synsets));
+            SetupForm();
         }
 
-        public void CloseChildForms()
+        #region HELPER FUNCTIONS
+
+        private void SetupForm()
         {
-            if (_CurrentChildForm != null)
-            {
-                _CurrentChildForm.Close();
-            }
+            ActiveTag(btnMeaning);
+            OpenChildForm(new WordForm_Meaning(_Word));
         }
-
         private void ActiveTag(Button tag)
         {
             if (_CurrentTag != null) 
@@ -86,11 +81,14 @@ namespace PBL3
             childForm.SendToBack();
             childForm.Show();
         }
+        #endregion
+
+        #region EVENTS
 
         private void btnMeaning_Click(object sender, EventArgs e)
         {
             ActiveTag((Button)sender);
-            OpenChildForm(new WordForm_Meaning(_Word, _Synsets));
+            OpenChildForm(new WordForm_Meaning(_Word));
         }
 
         private void btnGrammar_Click(object sender, EventArgs e)
@@ -109,5 +107,7 @@ namespace PBL3
         {
             GlobalForm.MainForm.GoBack();
         }
+
+        #endregion
     }
 }
