@@ -379,8 +379,18 @@ namespace PBL3
                 panelSearchFound.Visible = false;
                 return;
             }
-            DataManager dataAccess = new DataManager();
-            List<WordModel> words = dataAccess.EDictionaryManager.GetWord_ByFilter(txtSearch.Text.Replace(' ', '_') + "%", 10, true);
+
+            List<WordModel> words = null;
+            DataManager dm = new DataManager();
+
+            if (btnSearchType.Checked)
+            {
+                words = dm.VDictionaryManager.GetWord_ByFilter(txtSearch.Text.Replace(' ', '_') + "%", 10);
+            }
+            else
+            {
+                words = dm.EDictionaryManager.GetWord_ByFilter(txtSearch.Text.Replace(' ', '_') + "%", 10, true);
+            }
 
 
             if (words.Count != 0)
@@ -434,16 +444,34 @@ namespace PBL3
                 e.Handled = true;
                 e.SuppressKeyPress = true;
 
-                DataManager dataAccess = new DataManager();
-                if (dataAccess.EDictionaryManager.GetWord_ByFilter(_SearchOptions[_CurrentSearchOptionIndex].
-                    Text.Replace(' ', '_')).Count == 0)
+                DataManager dm = new DataManager();
+
+                // Anh - Viet
+                if (btnSearchType.Checked)
                 {
-                    OpenChildForm(new WordForm_None(txtSearch.Text.Replace(' ', '_')), FormType.Weak);
+                    if (dm.VDictionaryManager.GetWord_ByFilter(_SearchOptions[_CurrentSearchOptionIndex].
+                        Text.Replace(' ', '_')).Count == 0)
+                    {
+                        OpenChildForm(new WordForm_None(txtSearch.Text.Replace(' ', '_'), false), FormType.Weak);
+                    }
+                    else
+                    {
+                        OpenChildForm(new WordForm(_SearchOptions[_CurrentSearchOptionIndex].Text.Replace(' ', '_'), false),
+                            FormType.Weak);
+                    }
                 }
-                else
+                else // Anh - Anh
                 {
-                    OpenChildForm(new WordForm(_SearchOptions[_CurrentSearchOptionIndex].Text.Replace(' ', '_')),
-                        FormType.Weak);
+                    if (dm.EDictionaryManager.GetWord_ByFilter(_SearchOptions[_CurrentSearchOptionIndex].
+                        Text.Replace(' ', '_')).Count == 0)
+                    {
+                        OpenChildForm(new WordForm_None(txtSearch.Text.Replace(' ', '_')), FormType.Weak);
+                    }
+                    else
+                    {
+                        OpenChildForm(new WordForm(_SearchOptions[_CurrentSearchOptionIndex].Text.Replace(' ', '_')),
+                            FormType.Weak);
+                    }
                 }
             }
 

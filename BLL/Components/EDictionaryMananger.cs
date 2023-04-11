@@ -137,7 +137,7 @@ namespace BLL.Components
                                          .Take(limit).ToList();
                     wn_words.ForEach(item =>
                     {
-                        results.Add(new WordModel(item.word));
+                        results.Add(new WordModel(item.word.Replace('_', ' ')));
                     });
                 }
                 return results;
@@ -513,10 +513,13 @@ namespace BLL.Components
                 else
                     txtString += ss.Definition.Substring(j, i) + ".\n\n";
 
-                while (i != -1)
+                while (true)
                 {
                     j = i;
-                    i = ss.Definition.IndexOf(';', j + 1);
+                    i = ss.Definition.IndexOf(';', i + 1);
+
+                    if (i == -1)
+                        break;
 
                     string sentence = "";
                     if (i == -1)

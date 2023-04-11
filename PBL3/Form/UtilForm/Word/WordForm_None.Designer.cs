@@ -34,19 +34,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblWord = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblWordFound8 = new System.Windows.Forms.Label();
-            this.lblWordFound7 = new System.Windows.Forms.Label();
-            this.lblWordFound6 = new System.Windows.Forms.Label();
-            this.lblWordFound5 = new System.Windows.Forms.Label();
-            this.lblWordFound4 = new System.Windows.Forms.Label();
-            this.lblWordFound3 = new System.Windows.Forms.Label();
-            this.lblWordFound2 = new System.Windows.Forms.Label();
-            this.lblWordFound1 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblType = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panelTop.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelTop
@@ -102,123 +93,11 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.lblWordFound8);
-            this.panel1.Controls.Add(this.lblWordFound7);
-            this.panel1.Controls.Add(this.lblWordFound6);
-            this.panel1.Controls.Add(this.lblWordFound5);
-            this.panel1.Controls.Add(this.lblWordFound4);
-            this.panel1.Controls.Add(this.lblWordFound3);
-            this.panel1.Controls.Add(this.lblWordFound2);
-            this.panel1.Controls.Add(this.lblWordFound1);
             this.panel1.Location = new System.Drawing.Point(133, 206);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(467, 249);
             this.panel1.TabIndex = 19;
-            // 
-            // lblWordFound8
-            // 
-            this.lblWordFound8.AutoSize = true;
-            this.lblWordFound8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblWordFound8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblWordFound8.Font = new System.Drawing.Font("Bahnschrift Light", 13.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWordFound8.Location = new System.Drawing.Point(0, 196);
-            this.lblWordFound8.Name = "lblWordFound8";
-            this.lblWordFound8.Size = new System.Drawing.Size(65, 28);
-            this.lblWordFound8.TabIndex = 7;
-            this.lblWordFound8.Text = "word";
-            this.lblWordFound8.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lblWordFound1_MouseClick);
-            // 
-            // lblWordFound7
-            // 
-            this.lblWordFound7.AutoSize = true;
-            this.lblWordFound7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblWordFound7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblWordFound7.Font = new System.Drawing.Font("Bahnschrift Light", 13.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWordFound7.Location = new System.Drawing.Point(0, 168);
-            this.lblWordFound7.Name = "lblWordFound7";
-            this.lblWordFound7.Size = new System.Drawing.Size(65, 28);
-            this.lblWordFound7.TabIndex = 6;
-            this.lblWordFound7.Text = "word";
-            this.lblWordFound7.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lblWordFound1_MouseClick);
-            // 
-            // lblWordFound6
-            // 
-            this.lblWordFound6.AutoSize = true;
-            this.lblWordFound6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblWordFound6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblWordFound6.Font = new System.Drawing.Font("Bahnschrift Light", 13.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWordFound6.Location = new System.Drawing.Point(0, 140);
-            this.lblWordFound6.Name = "lblWordFound6";
-            this.lblWordFound6.Size = new System.Drawing.Size(65, 28);
-            this.lblWordFound6.TabIndex = 5;
-            this.lblWordFound6.Text = "word";
-            this.lblWordFound6.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lblWordFound1_MouseClick);
-            // 
-            // lblWordFound5
-            // 
-            this.lblWordFound5.AutoSize = true;
-            this.lblWordFound5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblWordFound5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblWordFound5.Font = new System.Drawing.Font("Bahnschrift Light", 13.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWordFound5.Location = new System.Drawing.Point(0, 112);
-            this.lblWordFound5.Name = "lblWordFound5";
-            this.lblWordFound5.Size = new System.Drawing.Size(65, 28);
-            this.lblWordFound5.TabIndex = 4;
-            this.lblWordFound5.Text = "word";
-            this.lblWordFound5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lblWordFound1_MouseClick);
-            // 
-            // lblWordFound4
-            // 
-            this.lblWordFound4.AutoSize = true;
-            this.lblWordFound4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblWordFound4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblWordFound4.Font = new System.Drawing.Font("Bahnschrift Light", 13.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWordFound4.Location = new System.Drawing.Point(0, 84);
-            this.lblWordFound4.Name = "lblWordFound4";
-            this.lblWordFound4.Size = new System.Drawing.Size(65, 28);
-            this.lblWordFound4.TabIndex = 3;
-            this.lblWordFound4.Text = "word";
-            this.lblWordFound4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lblWordFound1_MouseClick);
-            // 
-            // lblWordFound3
-            // 
-            this.lblWordFound3.AutoSize = true;
-            this.lblWordFound3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblWordFound3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblWordFound3.Font = new System.Drawing.Font("Bahnschrift Light", 13.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWordFound3.Location = new System.Drawing.Point(0, 56);
-            this.lblWordFound3.Name = "lblWordFound3";
-            this.lblWordFound3.Size = new System.Drawing.Size(65, 28);
-            this.lblWordFound3.TabIndex = 2;
-            this.lblWordFound3.Text = "word";
-            this.lblWordFound3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lblWordFound1_MouseClick);
-            // 
-            // lblWordFound2
-            // 
-            this.lblWordFound2.AutoSize = true;
-            this.lblWordFound2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblWordFound2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblWordFound2.Font = new System.Drawing.Font("Bahnschrift Light", 13.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWordFound2.Location = new System.Drawing.Point(0, 28);
-            this.lblWordFound2.Name = "lblWordFound2";
-            this.lblWordFound2.Size = new System.Drawing.Size(65, 28);
-            this.lblWordFound2.TabIndex = 1;
-            this.lblWordFound2.Text = "word";
-            this.lblWordFound2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lblWordFound1_MouseClick);
-            // 
-            // lblWordFound1
-            // 
-            this.lblWordFound1.AutoSize = true;
-            this.lblWordFound1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblWordFound1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblWordFound1.Font = new System.Drawing.Font("Bahnschrift Light", 13.8F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWordFound1.Location = new System.Drawing.Point(0, 0);
-            this.lblWordFound1.Name = "lblWordFound1";
-            this.lblWordFound1.Size = new System.Drawing.Size(65, 28);
-            this.lblWordFound1.TabIndex = 0;
-            this.lblWordFound1.Text = "word";
-            this.lblWordFound1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lblWordFound1_MouseClick);
             // 
             // label1
             // 
@@ -273,8 +152,6 @@
             this.Name = "WordForm_None";
             this.Text = "WordForm_None";
             this.panelTop.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -287,14 +164,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lblWord;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label lblWordFound8;
-        private System.Windows.Forms.Label lblWordFound7;
-        private System.Windows.Forms.Label lblWordFound6;
-        private System.Windows.Forms.Label lblWordFound5;
-        private System.Windows.Forms.Label lblWordFound4;
-        private System.Windows.Forms.Label lblWordFound3;
-        private System.Windows.Forms.Label lblWordFound2;
-        private System.Windows.Forms.Label lblWordFound1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.Panel panel3;

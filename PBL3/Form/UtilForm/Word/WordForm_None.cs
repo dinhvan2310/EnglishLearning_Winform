@@ -11,43 +11,70 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Documents;
+using System.Windows;
 using System.Windows.Forms;
+using System.Windows.Media.Media3D;
 
 namespace PBL3
 {
     public partial class WordForm_None : Form
     {
         private string _RawWord;
+        private bool _IsEE;
 
-        private Label[] _LblWords = new Label[8];
-        public WordForm_None( string rawWord)
+        private List<WordModel> _Words;
+
+        public WordForm_None( string rawWord, bool isEE = true)
         {
+            _RawWord = rawWord;
+            _IsEE = isEE;
+
             InitializeComponent();
 
-            _RawWord = rawWord;
-
-            lblWord.Text = rawWord;
-
-            _LblWords[0] = lblWordFound1;
-            _LblWords[1] = lblWordFound2;
-            _LblWords[2] = lblWordFound3;
-            _LblWords[3] = lblWordFound4;
-            _LblWords[4] = lblWordFound5;
-            _LblWords[5] = lblWordFound6;
-            _LblWords[6] = lblWordFound7;
-            _LblWords[7] = lblWordFound8;
-
-            DataManager dm = new DataManager();
-            List<WordModel> words = dm.EDictionaryManager.GetWord_ByFilter_Random(rawWord[0] + "%", 8, true);
-
-            int i = 0;
-            foreach (Label lbl in _LblWords)
-            {
-                lbl.Text = words[i++].Word.Replace('_', ' ');
-            }
-
+            SetupForm();
+            SetupUI();
         }
 
+        #region HELPER FUNCTIONS
+        private void SetupForm()
+        {
+            DataManager dm = new DataManager();
+            if (_IsEE)
+                _Words = dm.EDictionaryManager.GetWord_ByFilter_Random(_RawWord[0] + "%", 8, true);
+            else
+                _Words = dm.VDictionaryManager.GetWord_ByFilter(_RawWord[0] + "%", 8);
+        }
+
+        private void SetupUI()
+        {
+            lblWord.Text = _RawWord;
+
+            int i = 0;
+            foreach (WordModel w in _Words)
+            {
+                panel1.Controls.Add(CreateLabelWord(_Words[i++].Word));
+            }
+        }
+
+        private Label CreateLabelWord(string text)
+        {
+            Label l = new Label();
+
+            l.BackColor = Color.FromArgb(240, 237, 254);
+            l.ForeColor = Color.FromArgb(48, 48, 87);
+            l.Font = new Font("Bahnschrift Light", 13.8f, System.Drawing.FontStyle.Underline);
+            l.Text = text;
+            l.Cursor = Cursors.Hand;
+            l.AutoSize = true;
+            l.Dock = DockStyle.Top;
+
+            return l;
+        }
+
+        #endregion
+
+        #region EVENTS
         private void lblWordFound1_MouseClick(object sender, MouseEventArgs e)
         {
             GlobalForm.MainForm.SwitchForm(new WordForm(((Label)sender).Text.Replace(' ', '_')),
@@ -58,5 +85,7 @@ namespace PBL3
         {
             GlobalForm.MainForm.GoBack();
         }
+
+        #endregion
     }
 }

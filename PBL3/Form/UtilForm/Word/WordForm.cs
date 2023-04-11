@@ -24,14 +24,17 @@ namespace PBL3
         private Form _CurrentChildForm;
 
         private string _Word;
+        private bool _IsEE;
 
-        public WordForm(string rawWord)
+        public WordForm(string rawWord, bool isEE = true)
         {
             _Word = rawWord;
+            _IsEE = isEE;
 
             InitializeComponent();
 
             SetupForm();
+            SetupUI();
         }
 
         #region HELPER FUNCTIONS
@@ -39,7 +42,13 @@ namespace PBL3
         private void SetupForm()
         {
             ActiveTag(btnMeaning);
-            OpenChildForm(new WordForm_Meaning(_Word));
+            OpenChildForm(new WordForm_Meaning(_Word, _IsEE));
+        }
+
+        private void SetupUI()
+        {
+            btnGrammar.Visible = _IsEE;
+            btnSynonym.Visible = _IsEE;
         }
         private void ActiveTag(Button tag)
         {
