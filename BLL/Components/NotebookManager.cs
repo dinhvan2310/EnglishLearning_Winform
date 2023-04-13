@@ -121,5 +121,13 @@ namespace BLL.Components
             }
 
         }
+
+        public int GetNotebookCount(int userID)
+        {
+            using (var db = new DictionaryContext())
+            {
+                return db.notebook.Count();
+            }
+        }
     }
 }

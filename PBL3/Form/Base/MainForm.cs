@@ -235,7 +235,8 @@ namespace PBL3
             Form messageBox = new FormMessageBox("XÁC NHẬN", "Muốn Rời Khỏi?", FormMessageBox.MessageType.Option);
 
             messageBox.StartPosition = FormStartPosition.CenterScreen;
-            messageBox.ShowDialog();
+            if (messageBox.ShowDialog() == DialogResult.OK)
+                Application.Exit();
         }
 
         private void btnMaximize_Click(object sender, EventArgs e)

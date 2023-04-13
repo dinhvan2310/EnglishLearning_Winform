@@ -29,7 +29,7 @@ namespace PBL3
         private int _CurrentTypeLabelIndex;
 
         readonly private string[] _EPoS = new string[] { "VERB", "NOUN", "ADJECTIVE", "ADVERB" };
-        readonly private string[] _VPoS = new string[] { "DANH TỪ", "NỘI ĐỘNG TỪ", "NGOẠI ĐỘNG TỪ", "TÍNH TỪ", "PHÓ TỪ" };
+        readonly private string[] _VPoS = new string[] { "DANH TỪ", "ĐỘNG TỪ", "TÍNH TỪ", "PHÓ TỪ", "THÁN TỪ" };
 
 
         public WordForm_Meaning(string rawWord, bool isEE = true)
@@ -150,18 +150,40 @@ namespace PBL3
 
                 return;
             }
-
             DataManager dm = new DataManager();
 
-            if (btnFavorite.IconFont == FontAwesome.Sharp.IconFont.Regular) // not yet
+            int UID = LoginWorkflow.Instance.GetAccount().AccountID;
+
+            if (dm.NotebookManager.GetNotebookCount(UID) >= 50)
+            {
+                FormMessageBox form = new FormMessageBox(
+                    "Sổ tay đầy",
+                    "Sổ tay của bạn đã đến giới hạn",
+                    FormMessageBox.MessageType.Info);
+
+                form.ShowDialog();
+
+                return;
+            }
+            
+
+            if (btnFavorite.IconFont == FontAwesome.Sharp.IconFont.Regular) // favorite
             {
                 btnFavorite.IconFont = FontAwesome.Sharp.IconFont.Solid;
-                dm.NotebookManager.AddWord(LoginWorkflow.Instance.GetAccount().AccountID, _RawWord);
+                dm.NotebookManager.AddWord(UID, _RawWord);
             }
-            else // favorited
+            else // unfavorite
             {
+                FormMessageBox form = new FormMessageBox(
+                    "Xác nhận xoá",
+                    "Bạn có muốn xoá khỏi Notebook không?",
+                    FormMessageBox.MessageType.Option);
+
+                if (form.ShowDialog() != DialogResult.OK)
+                    return;
+
                 btnFavorite.IconFont = FontAwesome.Sharp.IconFont.Regular;
-                dm.NotebookManager.RemoveWord(LoginWorkflow.Instance.GetAccount().AccountID, _RawWord);
+                dm.NotebookManager.RemoveWord(UID, _RawWord);
             }
         }
 

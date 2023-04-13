@@ -17,11 +17,12 @@ namespace BLL.Components
             using (DictionaryContext dbContext = new DictionaryContext())
             {
                 //danh từ       00
-                //nội động từ   01
-                //ngoại động từ 02
-                //tính từ       03
-                //phó từ        04
+                //động từ       01
+                //tính từ       02
+                //phó từ        03
+                //thán từ       04
                 List<string> results = new List<string>() { "", "", "", "", "" };
+                List<string> listString = new List<string>();
 
                 string HTMLCode = (dbContext.word_viet.Where(i => i.word == word).FirstOrDefault().detail);
 
@@ -47,35 +48,47 @@ namespace BLL.Components
                 text = text.Replace("\n\n@", "%\n\n@");
 
 
-                string pattern = @"((\*|!)?\s?(danh từ|nội động từ|ngoại động từ|tính từ|phó từ)( & (danh từ|nội động từ|ngoại động từ|tính từ|phó từ))*([\w\s\,]+)?\n[-=]([^%]+(?=%|$)))";
+                string pattern = @"((\*){1}\s([^\n]+)\n[-=!]([^%]+(?=%|$)))";
 
                 foreach (Match item in Regex.Matches(text, pattern))
                 {
-                    string temp = Regex.Replace(item.Value, @"-", "");
-                    temp = Regex.Replace(temp, @"=", "\t•");
-                    temp = Regex.Replace(temp, @"!", "Cụm từ: ");
-                    if (temp.Contains("danh từ"))
+                    if (Regex.IsMatch(item.Value, @"^\*[^=-]+danh từ"))
                     {
-                        results[0] = temp;
+                        string temp = Regex.Replace(item.Value, @"-", "");
+                        temp = Regex.Replace(temp, @"=", "\t•");
+                        temp = Regex.Replace(temp, @"!", "Cụm từ: ");
+                        results[0] += temp + "\n";
                     }
-                    if (temp.Contains("nội động từ"))
+                    if (Regex.IsMatch(item.Value, @"^\*[^=-]+động từ"))
                     {
-                        results[1] = temp;
+                        string temp = Regex.Replace(item.Value, @"-", "");
+                        temp = Regex.Replace(temp, @"=", "\t•");
+                        temp = Regex.Replace(temp, @"!", "Cụm từ: ");
+                        results[1] += temp + "\n";
                     }
-                    if (temp.Contains("ngoại động từ"))
+                    if (Regex.IsMatch(item.Value, @"^\*[^=-]+tính từ"))
                     {
-                        results[2] = temp;
+                        string temp = Regex.Replace(item.Value, @"-", "");
+                        temp = Regex.Replace(temp, @"=", "\t•");
+                        temp = Regex.Replace(temp, @"!", "Cụm từ: ");
+                        results[2] += temp + "\n";
                     }
-                    if (temp.Contains("tính từ"))
+                    if (Regex.IsMatch(item.Value, @"^\*[^=-]+phó từ"))
                     {
-                        results[3] = temp;
+                        string temp = Regex.Replace(item.Value, @"-", "");
+                        temp = Regex.Replace(temp, @"=", "\t•");
+                        temp = Regex.Replace(temp, @"!", "Cụm từ: ");
+                        results[3] += temp + "\n";
                     }
-                    if (temp.Contains("phó từ"))
+                    if (Regex.IsMatch(item.Value, @"^\*[^=-]+thán từ"))
                     {
-                        results[4] = temp;
+                        string temp = Regex.Replace(item.Value, @"-", "");
+                        temp = Regex.Replace(temp, @"=", "\t•");
+                        temp = Regex.Replace(temp, @"!", "Cụm từ: ");
+                        results[3] += temp + "\n";
                     }
-                }
 
+                }
                 return results;
             }
         }
