@@ -18,12 +18,12 @@ namespace EFramework.Model
         [Key]
         [Column(Order = 1)]
         [ForeignKey(nameof(Wn_Word))]
-        public decimal WordNum { set; get; }
+        public decimal SynsetID { set; get; }
         [Key]
         [Column(Order = 2)]
         [ForeignKey(nameof(Wn_Word))]
-        public decimal SynsetID { set; get;}
-        public int LearnedPercent { set; get;}
+        public decimal WordNum { set; get; }
+        public int LearnedPercent { set; get; }
 
         public virtual Account Account { set; get; }
         public virtual wn_word Wn_Word { set; get; }

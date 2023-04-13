@@ -63,7 +63,7 @@ namespace BLL.Components
                 using (var db = new DictionaryContext())
                 {
                     var rs = db.notebook
-                        .Where(p => p.AccountID == userID)
+                        .Where(p => p.Wn_Word.word.Equals(word) && p.AccountID == userID)
                         .ToList();
                     db.notebook.RemoveRange(rs);
                     db.SaveChanges();
