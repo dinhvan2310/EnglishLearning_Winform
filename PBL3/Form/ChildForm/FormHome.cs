@@ -13,6 +13,7 @@ using BLL.TransferObjects;
 using BLL.Workflows;
 using PBL3.Utilities;
 using BLL.Components;
+using CustomControls;
 
 namespace PBL3
 {
@@ -43,7 +44,38 @@ namespace PBL3
         {
             btnSugWord.Text = _WordsEveryDay[0].Word;
         }
+        private void UpdateNotebook()
+        {
+            panelNotebook.Controls.Clear();
 
+            DataManager dm = new DataManager();
+            List<NotebookCard> words = dm.NotebookManager.GetNotebookWord_All(LoginWorkflow.Instance.GetAccount().AccountID);
+            words.ForEach(w =>
+            {
+                panelNotebook.Controls.Add(CreateButtonWord(w.Word, w.LearnedPercent));
+            });
+        }
+
+        private Button CreateButtonWord(string word, int learnedPercent)
+        {
+            RJButton btn = new RJButton();
+
+            btn.Text = word;
+            btn.Name = word;
+            btn.BackgroundImageLayout = ImageLayout.Stretch;
+            btn.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject(
+                "Theme3_" + learnedPercent / 20);
+            btn.BorderRadius = 20;
+            btn.ForeColor = Color.FromArgb(240, 237, 254);
+            btn.BackColor = Color.FromArgb(44, 41, 74);
+            btn.BackgroundColor = Color.FromArgb(44, 41, 74);
+            btn.Font = new Font("Bahnschrift", 13.8f, FontStyle.Bold);
+            btn.Cursor = Cursors.Hand;
+            btn.MouseClick += WordFound_MouseClick;
+            panelNotebook.Controls.Add(btn);
+
+            return btn;
+        }
         private void InitializeVariables()
         {
             DataManager dm = new DataManager();
@@ -89,6 +121,19 @@ namespace PBL3
         private void btnSetGoal_MouseClick(object sender, MouseEventArgs e)
         {
             GlobalForm.MainForm.SwitchForm(new FormSetGoal(), FormType.Weak);
+        }
+
+        private void FormHome_VisibleChanged(object sender, EventArgs e)
+        {
+            if (!this.Visible)
+                return;
+
+            UpdateNotebook();
+        }
+
+        private void WordFound_MouseClick(object sender, EventArgs e)
+        {
+            GlobalForm.MainForm.SwitchForm(new WordForm(((Button)sender).Text.Replace(' ', '_')), FormType.Weak);
         }
         #endregion
 

@@ -66,7 +66,7 @@ namespace PBL3
             this.label8 = new System.Windows.Forms.Label();
             this.rjPanel1 = new CustomControls.RJPanel();
             this.label7 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panelNotebook = new System.Windows.Forms.FlowLayoutPanel();
             this.rjButton1 = new CustomControls.RJButton();
             this.rjButton2 = new CustomControls.RJButton();
             this.rjButton3 = new CustomControls.RJButton();
@@ -83,7 +83,7 @@ namespace PBL3
             this.rjPanel6.SuspendLayout();
             this.panel1.SuspendLayout();
             this.rjPanel1.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.panelNotebook.SuspendLayout();
             this.SuspendLayout();
             // 
             // swapWordAnim
@@ -587,7 +587,7 @@ namespace PBL3
             this.rjPanel1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
             this.rjPanel1.BorderRadius = 30;
             this.rjPanel1.Controls.Add(this.label7);
-            this.rjPanel1.Controls.Add(this.flowLayoutPanel1);
+            this.rjPanel1.Controls.Add(this.panelNotebook);
             this.rjPanel1.ForeColor = System.Drawing.Color.Black;
             this.rjPanel1.GradientAngle = 0F;
             this.rjPanel1.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
@@ -609,23 +609,23 @@ namespace PBL3
             this.label7.TabIndex = 28;
             this.label7.Text = "ÔN TẬP TỪ VỰNG";
             // 
-            // flowLayoutPanel1
+            // panelNotebook
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.flowLayoutPanel1.Controls.Add(this.rjButton1);
-            this.flowLayoutPanel1.Controls.Add(this.rjButton2);
-            this.flowLayoutPanel1.Controls.Add(this.rjButton3);
-            this.flowLayoutPanel1.Controls.Add(this.rjButton5);
-            this.flowLayoutPanel1.Controls.Add(this.rjButton4);
-            this.flowLayoutPanel1.Controls.Add(this.rjButton7);
-            this.flowLayoutPanel1.Controls.Add(this.rjButton8);
-            this.flowLayoutPanel1.Controls.Add(this.rjButton9);
-            this.flowLayoutPanel1.Controls.Add(this.rjButton6);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(29, 54);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(511, 222);
-            this.flowLayoutPanel1.TabIndex = 15;
+            this.panelNotebook.AutoScroll = true;
+            this.panelNotebook.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.panelNotebook.Controls.Add(this.rjButton1);
+            this.panelNotebook.Controls.Add(this.rjButton2);
+            this.panelNotebook.Controls.Add(this.rjButton3);
+            this.panelNotebook.Controls.Add(this.rjButton5);
+            this.panelNotebook.Controls.Add(this.rjButton4);
+            this.panelNotebook.Controls.Add(this.rjButton7);
+            this.panelNotebook.Controls.Add(this.rjButton8);
+            this.panelNotebook.Controls.Add(this.rjButton9);
+            this.panelNotebook.Controls.Add(this.rjButton6);
+            this.panelNotebook.Location = new System.Drawing.Point(29, 54);
+            this.panelNotebook.Name = "panelNotebook";
+            this.panelNotebook.Size = new System.Drawing.Size(511, 222);
+            this.panelNotebook.TabIndex = 15;
             // 
             // rjButton1
             // 
@@ -850,6 +850,7 @@ namespace PBL3
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormHome";
             this.Text = "FormHome";
+            this.VisibleChanged += new System.EventHandler(this.FormHome_VisibleChanged);
             this.rjPanel5.ResumeLayout(false);
             this.rjPanel5.PerformLayout();
             this.rjPanel2.ResumeLayout(false);
@@ -863,14 +864,14 @@ namespace PBL3
             this.panel1.ResumeLayout(false);
             this.rjPanel1.ResumeLayout(false);
             this.rjPanel1.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
+            this.panelNotebook.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private RJPanel rjPanel1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel panelNotebook;
         private RJPanel rjPanel6;
         private System.Windows.Forms.Label label7;
         private CustomControls.RJButton rjButton1;

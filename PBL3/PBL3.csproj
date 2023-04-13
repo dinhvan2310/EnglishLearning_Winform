@@ -441,6 +441,12 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Theme3_5.png" />
+    <None Include="Resources\Theme3_4.png" />
+    <None Include="Resources\Theme3_3.png" />
+    <None Include="Resources\Theme3_2.png" />
+    <None Include="Resources\Theme3_1.png" />
+    <None Include="Resources\Theme3_0.png" />
     <None Include="Resources\Theme6.png" />
     <None Include="Resources\Animal.png" />
     <None Include="Resources\Art.png" />

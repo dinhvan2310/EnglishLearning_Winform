@@ -1,4 +1,6 @@
-﻿using LiveCharts;
+﻿using BLL.TransferObjects;
+using BLL.Workflows;
+using LiveCharts;
 using LiveCharts.Wpf;
 using PBL3.Utilities;
 using System;
@@ -21,39 +23,50 @@ namespace PBL3
         public FormStatistic()
         {
             InitializeComponent();
+
+            SetupUI();
         }
 
-        private void btnReturn_MouseClick(object sender, MouseEventArgs e)
-        {
-            GlobalForm.MainForm.GoBack();
-        }
 
-        private void FormStatistic_Load(object sender, EventArgs e)
+        #region HELPER FUNCTIONS
+        private void SetupUI()
         {
             chart.AxisX.Add(new LiveCharts.Wpf.Axis
             {
                 Title = "Ngày",
-                LabelFormatter = value => value.ToString()
+                LabelFormatter = value => (value + 1).ToString("00"),
+                MinValue = 0
             });
 
             chart.AxisY.Add(new LiveCharts.Wpf.Axis
             {
                 Title = "Từ hoặc Giờ",
-                LabelFormatter = value => value.ToString()
+                LabelFormatter = value => value.ToString(),
+                MinValue = 0
             });
 
             chart.Zoom = ZoomingOptions.X;
 
             chart.Series.Clear();
             LiveCharts.SeriesCollection series = new LiveCharts.SeriesCollection();
-            var v = new List<double> { 1, 2, 3, 4, 5, 8,2,5,21,4,7 };
-            var i = new List<int> { 6, 5, 2, 1, 7,8,4,2,1,7,4 };
-            series.Add(new LineSeries { Title = "Từ", Values = new ChartValues<double>(v),
+            DataManager dm = new DataManager();
+            LearningStats stats = dm.AccountManager.GetLearningStats_ByUID(LoginWorkflow.Instance.GetAccount().AccountID);
+
+
+            series.Add(new LineSeries
+            {
+                Title = "Từ",
+                Values = new ChartValues<int>(stats.WordStats),
                 Fill = new LinearGradientBrush(System.Windows.Media.Color.FromArgb(150, 0, 255, 191),
                     System.Windows.Media.Color.FromArgb(50, 0, 255, 191), 90),
                 Stroke = new SolidColorBrush(System.Windows.Media.Color.FromRgb(0, 255, 191)),
             });
-            series.Add(new LineSeries { Title = "Giờ", Values = new ChartValues<int>(i),
+
+
+            series.Add(new LineSeries
+            {
+                Title = "Giờ",
+                Values = new ChartValues<int>(stats.TimeStats),
                 Fill = new LinearGradientBrush(System.Windows.Media.Color.FromArgb(150, 255, 191, 0),
                         System.Windows.Media.Color.FromArgb(50, 255, 191, 0), 90),
                 Stroke = new SolidColorBrush(System.Windows.Media.Color.FromRgb(255, 191, 0))
@@ -61,5 +74,15 @@ namespace PBL3
 
             chart.Series = series;
         }
+        #endregion
+
+        #region EVENTS
+        private void btnReturn_MouseClick(object sender, MouseEventArgs e)
+        {
+            GlobalForm.MainForm.GoBack();
+        }
+
+ 
+        #endregion
     }
 }

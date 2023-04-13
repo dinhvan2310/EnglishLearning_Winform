@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.Entity;
+using System.Globalization;
 using System.Linq;
 using System.Security.Principal;
 using System.Windows.Forms;
@@ -70,21 +71,21 @@ namespace BLL.Components
         /// <summary>
         /// lưu thời gian học và số từ học trong 1 ngày
         /// </summary>
-        /// <param name="wordNumber"></param>
+        /// <param name="learnedWord"></param>
         /// <param name="learnedTime"></param>
-        public void UpdateLearningStat(InformationPerDay stat)
+        public void UpdateLearningStat(int userID, int learnedTime, int learnedWord)
         {
             using (var db = new DictionaryContext())
             {
                 var today = Convert.ToInt32(DateTime.Today.ToString("yyyyMMdd"));
 
-                var rs = db.informationPerDay.SingleOrDefault(p => p.AccountID == stat.AccountID && p.DayID == today);
+                var rs = db.informationPerDay.SingleOrDefault(p => p.AccountID == userID && p.DayID == today);
 
                 if (rs == null)
                 {
                     var infor = new InformationPerDay()
                     {
-                        AccountID = stat.AccountID,
+                        AccountID = userID,
                         NumberOfLearnedWord = 0,
                         OnlineHour = 0,
                         DayID = today
@@ -95,8 +96,8 @@ namespace BLL.Components
                 else
                 {
 
-                    rs.NumberOfLearnedWord += stat.NumberOfLearnedWord;
-                    rs.OnlineHour += stat.OnlineHour;
+                    rs.NumberOfLearnedWord += learnedWord;
+                    rs.OnlineHour += learnedTime;
                     db.SaveChanges();
                 }
             }
@@ -108,13 +109,29 @@ namespace BLL.Components
             {
                 LearningStats result = new LearningStats();
 
-                var rs = db.informationPerDay.Where(p => p.AccountID == userID).
-                                              OrderBy(p => p.DayID).
-                                              Select(p => new { p.NumberOfLearnedWord, p.OnlineHour });
+                var rs = db.informationPerDay
+                                    .Where(p => p.AccountID == userID)
+                                    .OrderBy(p => p.DayID)
+                                    .ToList();
+
+                int lastDate = -1;
                 foreach (var i in rs)
                 {
+                    if (lastDate != -1)
+                    {
+                        int offset = (int)(DateTime.ParseExact(i.DayID.ToString(), "yyyyMMdd", CultureInfo.InvariantCulture)
+                            - DateTime.ParseExact(lastDate.ToString(), "yyyyMMdd", CultureInfo.InvariantCulture)).TotalDays;
+
+                        for (int k = 0; k < offset; ++k)
+                        {
+                            result.WordStats.Add(0);
+                            result.TimeStats.Add(0);
+                        }    
+                    }
                     result.WordStats.Add(i.NumberOfLearnedWord);
                     result.TimeStats.Add((int)i.OnlineHour);
+
+                    lastDate = i.DayID;
                 }
 
                 return result;

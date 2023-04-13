@@ -64,73 +64,57 @@ namespace BLL.Components
                 {
                     var rs = db.notebook
                         .Where(p => p.Wn_Word.word.Equals(word) && p.AccountID == userID)
-                        .ToList();
-                    db.notebook.RemoveRange(rs);
+                        .FirstOrDefault();
+                    db.notebook.Remove(rs);
                     db.SaveChanges();
                 }
             }
         }
 
-        public List<WordModel> GetNotebookWord_All(int userID)
+        public List<NotebookCard> GetNotebookWord_All(int userID)
         {
-
             using (var db = new DictionaryContext())
             {
-                List<WordModel> result = new List<WordModel>();
+                List<NotebookCard> result = new List<NotebookCard>();
 
-                List<string> words = db.notebook
+                List<Notebook> temps = db.notebook
                     .Where(p => p.AccountID == userID)
-                    .Select(p => p.Wn_Word.word.ToLower())
                     .ToList();
 
-                words.ForEach(item =>
+                temps.ForEach(item =>
                 {
-                    result.Add(new WordModel(item.ToString()));
+                    result.Add(new NotebookCard() { Word = item.Wn_Word.word, LearnedPercent = item.LearnedPercent });
                 });
 
                 return result;
             }
         }
 
-        public List<WordModel> GetSortedWord_ByPercentLearning(int userID, string order)
+        public List<NotebookCard> GetSortedWord_ByPercentLearning(int userID, string order)
         {
             using (var db = new DictionaryContext())
             {
-                List<WordModel> result = new List<WordModel>();
-                List<string> list = new List<string>();
+                List<NotebookCard> result = new List<NotebookCard>();
+                List<Notebook> temps = new List<Notebook>();
 
                 if (order == "ascending")
                 {
-                    var rs = db.notebook
+                    temps = db.notebook
                         .Where(w => w.AccountID == userID)
                         .OrderBy(w => w.LearnedPercent)
                         .ToList();
-                    foreach (var i in rs)
-                    {
-                        var word = db.wn_word
-                            .Where(w => w.synset_id == i.SynsetID && w.w_num == i.WordNum)
-                            .Select(w => w.word.ToLower());
-                        list.AddRange(word);
-                    }
 
                 }
                 else
                 {
-                    var rs = db.notebook.Where(w => w.AccountID == userID)
+                    temps = db.notebook.Where(w => w.AccountID == userID)
                         .OrderByDescending(w => w.LearnedPercent)
                         .ToList();
-                    foreach (var i in rs)
-                    {
-                        var word = db.wn_word
-                            .Where(w => w.synset_id == i.SynsetID && w.w_num == i.WordNum)
-                            .Select(w => w.word.ToLower());
-                        list.AddRange(word);
-                    }
                 }
 
-                list.ForEach(item =>
+                temps.ForEach(item =>
                 {
-                    result.Add(new WordModel(item.ToString()));
+                    result.Add(new NotebookCard() { Word = item.Wn_Word.word, LearnedPercent = item.LearnedPercent });
                 });
 
                 return result;

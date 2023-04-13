@@ -153,7 +153,7 @@ namespace BLL.Workflows
                         {
                             _UserID = account.AccountID;
 
-                            _AccountManager.UpdateLearningStat(new InformationPerDay() { AccountID = _UserID });
+                            _AccountManager.UpdateLearningStat(_UserID, 0, 0);
                             return true;
                         }
                         return false;

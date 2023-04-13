@@ -164,7 +164,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormStatistic";
             this.Text = "FormStatistic";
-            this.Load += new System.EventHandler(this.FormStatistic_Load);
             this.rjPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

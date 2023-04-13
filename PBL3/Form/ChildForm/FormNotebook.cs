@@ -1,8 +1,10 @@
-﻿using CustomControls;
+﻿using BLL.TransferObjects;
+using BLL.Workflows;
+using CustomControls;
+using EFramework.Model;
 using PBL3.Utilities;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -20,6 +22,39 @@ namespace PBL3
         }
 
         #region HELPER FUNCTIONS
+        private void UpdateNotebook()
+        {
+            panelNotebook.Controls.Clear();
+
+            DataManager dm = new DataManager();
+            List<NotebookCard> words = dm.NotebookManager.GetNotebookWord_All(LoginWorkflow.Instance.GetAccount().AccountID);
+            words.ForEach(w =>
+            {
+                panelNotebook.Controls.Add(CreateButtonWord(w.Word, w.LearnedPercent));
+            });
+        }
+
+        private Button CreateButtonWord(string word, int learnedPercent)
+        {
+            RJButton btn = new RJButton();
+
+            btn.Text = word;
+            btn.Name = word;
+            btn.BackgroundImageLayout = ImageLayout.Stretch;
+            btn.Size = new Size(150 + Math.Max(0, word.Length - 8) * 15, 100);
+            btn.BorderRadius = 20;
+            btn.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject(
+                "Theme3_" + learnedPercent / 20);
+            btn.ForeColor = Color.FromArgb(240, 237, 254);
+            btn.BackColor = Color.FromArgb(44, 41, 74);
+            btn.BackgroundColor = Color.FromArgb(44, 41, 74);
+            btn.Font = new Font("Bahnschrift", 13.8f, FontStyle.Bold);
+            btn.Cursor = Cursors.Hand;
+            btn.MouseClick += WordFound_MouseClick;
+            panelNotebook.Controls.Add(btn);
+
+            return btn;
+        }
         #endregion
 
         #region EVENTS
@@ -33,8 +68,30 @@ namespace PBL3
         {
             if (!this.Visible)
                 return;
+
+            UpdateNotebook();
+        }
+
+        private void WordFound_MouseClick(object sender, EventArgs e)
+        {
+            GlobalForm.MainForm.SwitchForm(new WordForm(((Button)sender).Text.Replace(' ', '_')), FormType.Weak);
         }
 
         #endregion
+
+        private void Sort_MouseClick(object sender, MouseEventArgs e)
+        {
+            panelNotebook.Controls.Clear();
+
+            DataManager dm = new DataManager();
+            List<NotebookCard> words = dm.NotebookManager.GetSortedWord_ByPercentLearning(
+                LoginWorkflow.Instance.GetAccount().AccountID,
+                ((Button)sender).Name);
+
+            words.ForEach(w =>
+            {
+                panelNotebook.Controls.Add(CreateButtonWord(w.Word, w.LearnedPercent));
+            });
+        }
     }
 }

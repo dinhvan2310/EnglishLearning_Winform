@@ -253,4 +253,22 @@
   <data name="Theme6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Theme6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Theme3_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Theme3_0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Theme3_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Theme3_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Theme3_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Theme3_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Theme3_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Theme3_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Theme3_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Theme3_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Theme3_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Theme3_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>
