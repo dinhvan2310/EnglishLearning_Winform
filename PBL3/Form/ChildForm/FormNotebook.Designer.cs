@@ -31,11 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNotebook));
             this.rjPanel1 = new CustomControls.RJPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.rjPanel5 = new CustomControls.RJPanel();
-            this.rjPanel2 = new CustomControls.RJPanel();
-            this.rjPanel3 = new CustomControls.RJPanel();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
-            this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.rjButton1 = new CustomControls.RJButton();
             this.rjButton2 = new CustomControls.RJButton();
             this.rjButton3 = new CustomControls.RJButton();
@@ -45,7 +40,12 @@
             this.rjButton8 = new CustomControls.RJButton();
             this.rjButton9 = new CustomControls.RJButton();
             this.rjButton6 = new CustomControls.RJButton();
+            this.rjPanel5 = new CustomControls.RJPanel();
             this.btnStatistic = new FontAwesome.Sharp.IconButton();
+            this.rjPanel2 = new CustomControls.RJPanel();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.rjPanel3 = new CustomControls.RJPanel();
+            this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.rjPanel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.rjPanel5.SuspendLayout();
@@ -86,99 +86,6 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(820, 399);
             this.flowLayoutPanel1.TabIndex = 15;
-            // 
-            // rjPanel5
-            // 
-            this.rjPanel5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rjPanel5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.rjPanel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
-            this.rjPanel5.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
-            this.rjPanel5.BorderRadius = 30;
-            this.rjPanel5.Controls.Add(this.btnStatistic);
-            this.rjPanel5.ForeColor = System.Drawing.Color.Black;
-            this.rjPanel5.GradientAngle = 90F;
-            this.rjPanel5.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.rjPanel5.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.rjPanel5.Location = new System.Drawing.Point(909, 346);
-            this.rjPanel5.Name = "rjPanel5";
-            this.rjPanel5.Size = new System.Drawing.Size(136, 120);
-            this.rjPanel5.TabIndex = 36;
-            // 
-            // rjPanel2
-            // 
-            this.rjPanel2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rjPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.rjPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
-            this.rjPanel2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
-            this.rjPanel2.BorderRadius = 30;
-            this.rjPanel2.Controls.Add(this.iconButton1);
-            this.rjPanel2.ForeColor = System.Drawing.Color.Black;
-            this.rjPanel2.GradientAngle = 90F;
-            this.rjPanel2.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.rjPanel2.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.rjPanel2.Location = new System.Drawing.Point(909, 17);
-            this.rjPanel2.Name = "rjPanel2";
-            this.rjPanel2.Size = new System.Drawing.Size(136, 120);
-            this.rjPanel2.TabIndex = 37;
-            // 
-            // rjPanel3
-            // 
-            this.rjPanel3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.rjPanel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.rjPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
-            this.rjPanel3.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
-            this.rjPanel3.BorderRadius = 30;
-            this.rjPanel3.Controls.Add(this.iconButton2);
-            this.rjPanel3.ForeColor = System.Drawing.Color.Black;
-            this.rjPanel3.GradientAngle = 90F;
-            this.rjPanel3.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.rjPanel3.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.rjPanel3.Location = new System.Drawing.Point(909, 143);
-            this.rjPanel3.Name = "rjPanel3";
-            this.rjPanel3.Size = new System.Drawing.Size(136, 120);
-            this.rjPanel3.TabIndex = 38;
-            // 
-            // iconButton2
-            // 
-            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.iconButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.SortAmountAsc;
-            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(191)))), ((int)(((byte)(159)))));
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.iconButton2.IconSize = 100;
-            this.iconButton2.Location = new System.Drawing.Point(0, 0);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(136, 120);
-            this.iconButton2.TabIndex = 8;
-            this.iconButton2.TabStop = false;
-            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.iconButton2.UseVisualStyleBackColor = false;
-            // 
-            // iconButton1
-            // 
-            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.iconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.iconButton1.FlatAppearance.BorderSize = 0;
-            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton1.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iconButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.SortAmountUp;
-            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(191)))), ((int)(((byte)(159)))));
-            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.iconButton1.IconSize = 100;
-            this.iconButton1.Location = new System.Drawing.Point(0, 0);
-            this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(136, 120);
-            this.iconButton1.TabIndex = 8;
-            this.iconButton1.TabStop = false;
-            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.iconButton1.UseVisualStyleBackColor = false;
             // 
             // rjButton1
             // 
@@ -387,6 +294,23 @@
             this.rjButton6.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
             this.rjButton6.UseVisualStyleBackColor = false;
             // 
+            // rjPanel5
+            // 
+            this.rjPanel5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rjPanel5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.rjPanel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
+            this.rjPanel5.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
+            this.rjPanel5.BorderRadius = 30;
+            this.rjPanel5.Controls.Add(this.btnStatistic);
+            this.rjPanel5.ForeColor = System.Drawing.Color.Black;
+            this.rjPanel5.GradientAngle = 90F;
+            this.rjPanel5.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.rjPanel5.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.rjPanel5.Location = new System.Drawing.Point(909, 346);
+            this.rjPanel5.Name = "rjPanel5";
+            this.rjPanel5.Size = new System.Drawing.Size(136, 120);
+            this.rjPanel5.TabIndex = 36;
+            // 
             // btnStatistic
             // 
             this.btnStatistic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
@@ -410,6 +334,82 @@
             this.btnStatistic.UseVisualStyleBackColor = false;
             this.btnStatistic.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnStatistic_MouseClick);
             // 
+            // rjPanel2
+            // 
+            this.rjPanel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rjPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.rjPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
+            this.rjPanel2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
+            this.rjPanel2.BorderRadius = 30;
+            this.rjPanel2.Controls.Add(this.iconButton1);
+            this.rjPanel2.ForeColor = System.Drawing.Color.Black;
+            this.rjPanel2.GradientAngle = 90F;
+            this.rjPanel2.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.rjPanel2.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.rjPanel2.Location = new System.Drawing.Point(909, 17);
+            this.rjPanel2.Name = "rjPanel2";
+            this.rjPanel2.Size = new System.Drawing.Size(136, 120);
+            this.rjPanel2.TabIndex = 37;
+            // 
+            // iconButton1
+            // 
+            this.iconButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.iconButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.SortAmountUp;
+            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(191)))), ((int)(((byte)(159)))));
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.iconButton1.IconSize = 100;
+            this.iconButton1.Location = new System.Drawing.Point(0, 0);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Size = new System.Drawing.Size(136, 120);
+            this.iconButton1.TabIndex = 8;
+            this.iconButton1.TabStop = false;
+            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.iconButton1.UseVisualStyleBackColor = false;
+            // 
+            // rjPanel3
+            // 
+            this.rjPanel3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.rjPanel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.rjPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
+            this.rjPanel3.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
+            this.rjPanel3.BorderRadius = 30;
+            this.rjPanel3.Controls.Add(this.iconButton2);
+            this.rjPanel3.ForeColor = System.Drawing.Color.Black;
+            this.rjPanel3.GradientAngle = 90F;
+            this.rjPanel3.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.rjPanel3.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.rjPanel3.Location = new System.Drawing.Point(909, 143);
+            this.rjPanel3.Name = "rjPanel3";
+            this.rjPanel3.Size = new System.Drawing.Size(136, 120);
+            this.rjPanel3.TabIndex = 38;
+            // 
+            // iconButton2
+            // 
+            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.iconButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.iconButton2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.iconButton2.FlatAppearance.BorderSize = 0;
+            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton2.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.SortAmountAsc;
+            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(191)))), ((int)(((byte)(159)))));
+            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.iconButton2.IconSize = 100;
+            this.iconButton2.Location = new System.Drawing.Point(0, 0);
+            this.iconButton2.Name = "iconButton2";
+            this.iconButton2.Size = new System.Drawing.Size(136, 120);
+            this.iconButton2.TabIndex = 8;
+            this.iconButton2.TabStop = false;
+            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.iconButton2.UseVisualStyleBackColor = false;
+            // 
             // FormNotebook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -423,6 +423,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormNotebook";
             this.Text = "FormNotebook";
+            this.VisibleChanged += new System.EventHandler(this.FormNotebook_VisibleChanged);
             this.rjPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.rjPanel5.ResumeLayout(false);

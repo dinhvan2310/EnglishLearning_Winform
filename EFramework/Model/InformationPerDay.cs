@@ -19,7 +19,7 @@ namespace EFramework.Model
         [ForeignKey(nameof(Account))]
         public int AccountID { get; set; }
         public int NumberOfLearnedWord { set; get; }
-        public int OnlineHour { set; get; }
+        public float OnlineHour { set; get; }
 
         public virtual Account Account { get; set; }
     }

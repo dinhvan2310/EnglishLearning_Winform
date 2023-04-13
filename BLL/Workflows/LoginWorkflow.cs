@@ -152,6 +152,8 @@ namespace BLL.Workflows
                         if (account.Password == pass)
                         {
                             _UserID = account.AccountID;
+
+                            _AccountManager.UpdateLearningStat(new InformationPerDay() { AccountID = _UserID });
                             return true;
                         }
                         return false;

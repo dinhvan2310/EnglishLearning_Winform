@@ -40,6 +40,7 @@ namespace PBL3
             InitializeComponent();
 
             SetupForm();
+            SetupUI();
         }
 
         #region HELPER FUNCTIONS
@@ -73,6 +74,20 @@ namespace PBL3
         private void SetupUI()
         {
             btnFavorite.Visible = _IsEE;
+
+            if (!_IsEE)
+                return;
+
+            if (LoginWorkflow.Instance.IsLoggedIn())
+            {   
+                DataManager dm = new DataManager();
+                if (dm.NotebookManager.CheckWordIsExistInNotebook(
+                    LoginWorkflow.Instance.GetAccount().AccountID,
+                    _RawWord))
+                {
+                    btnFavorite.IconFont = FontAwesome.Sharp.IconFont.Solid;
+                }
+            }
         }
 
         private Label InstanceTypeLabel(string name, System.Drawing.Point location)
@@ -124,13 +139,29 @@ namespace PBL3
         #region EVENTS
         private void btnFavorite_Click(object sender, EventArgs e)
         {
-            if (btnFavorite.IconFont == FontAwesome.Sharp.IconFont.Regular)
+            if (!LoginWorkflow.Instance.IsLoggedIn())
+            {
+                FormMessageBox form = new FormMessageBox(
+                    "Chưa đăng nhập",
+                    "Vui lòng đăng nhập để sử dụng",
+                    FormMessageBox.MessageType.Info);
+
+                form.ShowDialog();
+
+                return;
+            }
+
+            DataManager dm = new DataManager();
+
+            if (btnFavorite.IconFont == FontAwesome.Sharp.IconFont.Regular) // not yet
             {
                 btnFavorite.IconFont = FontAwesome.Sharp.IconFont.Solid;
+                dm.NotebookManager.AddWord(LoginWorkflow.Instance.GetAccount().AccountID, _RawWord);
             }
-            else
+            else // favorited
             {
                 btnFavorite.IconFont = FontAwesome.Sharp.IconFont.Regular;
+                dm.NotebookManager.RemoveWord(LoginWorkflow.Instance.GetAccount().AccountID, _RawWord);
             }
         }
 

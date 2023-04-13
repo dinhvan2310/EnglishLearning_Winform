@@ -15,6 +15,7 @@ namespace BLL.Workflows
         public VDictionaryManager VDictionaryManager { get; private set; }
         public AccountManager AccountManager { get; private set; }
         public PackageManager PackageManager { get; private set; }
+        public NotebookManager NotebookManager { get; private set; }
 
         public DataManager()
         {
@@ -22,6 +23,7 @@ namespace BLL.Workflows
             VDictionaryManager = new VDictionaryManager();
             AccountManager = new AccountManager();
             PackageManager = new PackageManager();
+            NotebookManager = new NotebookManager();
         }
 
     }

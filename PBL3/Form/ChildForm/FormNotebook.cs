@@ -19,10 +19,22 @@ namespace PBL3
             InitializeComponent();
         }
 
+        #region HELPER FUNCTIONS
+        #endregion
+
+        #region EVENTS
         private void btnStatistic_MouseClick(object sender, MouseEventArgs e)
         {
             GlobalForm.MainForm.SwitchForm(new FormStatistic(),
                 FormType.Weak);
         }
+
+        private void FormNotebook_VisibleChanged(object sender, EventArgs e)
+        {
+            if (!this.Visible)
+                return;
+        }
+
+        #endregion
     }
 }
