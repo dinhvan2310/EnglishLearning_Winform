@@ -56,7 +56,7 @@ namespace BLL.Components
         {
             using (var dbContext = new DictionaryContext())
             {
-                return dbContext.account.Single(p => p.AccountID == accountID);
+                return dbContext.account.SingleOrDefault(p => p.AccountID == accountID);
             }
         }
 

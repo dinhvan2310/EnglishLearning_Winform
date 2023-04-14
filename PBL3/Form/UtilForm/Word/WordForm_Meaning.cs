@@ -29,7 +29,7 @@ namespace PBL3
         private int _CurrentTypeLabelIndex;
 
         readonly private string[] _EPoS = new string[] { "VERB", "NOUN", "ADJECTIVE", "ADVERB" };
-        readonly private string[] _VPoS = new string[] { "DANH TỪ", "ĐỘNG TỪ", "TÍNH TỪ", "PHÓ TỪ", "THÁN TỪ" };
+        readonly private string[] _VPoS = new string[] { "DANH TỪ", "ĐỘNG TỪ", "TÍNH TỪ", "PHÓ TỪ", "THÁN TỪ", "MẠO TỪ", "GIỚI TỪ","KHÁC"};
 
 
         public WordForm_Meaning(string rawWord, bool isEE = true)
@@ -56,7 +56,7 @@ namespace PBL3
             else
                 definition = dm.VDictionaryManager.GetDefinition_ByWord(_RawWord);
 
-            int count = _IsEE ? 4 : 5;
+            int count = _IsEE ? 4 : 8;
             for (int i = 0; i < count; ++i)
             {
                 if (definition[i].Length > 0)

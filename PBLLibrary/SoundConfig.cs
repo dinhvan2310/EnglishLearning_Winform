@@ -14,6 +14,7 @@ namespace PBLLibrary
             Male, Female
         }
 
+
         private static SpeechSynthesizer _Synthesizer = new SpeechSynthesizer();
 
         public static bool IsSpeaking = false;

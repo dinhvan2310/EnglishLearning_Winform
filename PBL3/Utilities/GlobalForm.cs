@@ -27,8 +27,7 @@ namespace PBL3.Utilities
         {
             get
             {
-                if (_LoginForm == null)
-                    _LoginForm = new LoginForm();
+                _LoginForm = new LoginForm();
                 return _LoginForm;
             }
             private set { }

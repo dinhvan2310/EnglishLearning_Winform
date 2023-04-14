@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,6 +37,16 @@ namespace PBLLibrary
         public string ConnectionString(string name)
         {
             return ConfigurationManager.ConnectionStrings[name].ConnectionString;
+        }
+
+        public string PathFileAppSettings()
+        {
+            return Directory.GetCurrentDirectory() + @"\..\..\..\PBL3\AppSettings\";
+        }
+
+        public string PathFileRememberMeLogin()
+        {
+            return Directory.GetCurrentDirectory() + @"\..\..\..\BLL\RememberMeLogin\";
         }
     }
 }

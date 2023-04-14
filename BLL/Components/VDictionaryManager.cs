@@ -21,7 +21,10 @@ namespace BLL.Components
                 //tính từ       02
                 //phó từ        03
                 //thán từ       04
-                List<string> results = new List<string>() { "", "", "", "", "" };
+                //mạo từ        05
+                //giới từ       06
+                //khác          07
+                List<string> results = new List<string>() { "", "", "", "", "", "", "", ""};
                 List<string> listString = new List<string>();
 
                 string HTMLCode = (dbContext.word_viet.Where(i => i.word == word).FirstOrDefault().detail);
@@ -49,45 +52,75 @@ namespace BLL.Components
 
 
                 string pattern = @"((\*){1}\s([^\n]+)\n[-=!]([^%]+(?=%|$)))";
-
-                foreach (Match item in Regex.Matches(text, pattern))
+                MatchCollection matchCollection = Regex.Matches(text, pattern);
+                if (matchCollection.Count > 0)
                 {
-                    if (Regex.IsMatch(item.Value, @"^\*[^=-]+danh từ"))
+                    foreach (Match item in matchCollection)
                     {
-                        string temp = Regex.Replace(item.Value, @"-", "");
-                        temp = Regex.Replace(temp, @"=", "\t•");
-                        temp = Regex.Replace(temp, @"!", "Cụm từ: ");
-                        results[0] += temp + "\n";
+                        if (Regex.IsMatch(item.Value, @"^\*[^=-]+danh từ"))
+                        {
+                            string temp = Regex.Replace(item.Value, @"-", "");
+                            temp = Regex.Replace(temp, @"=", "\t•");
+                            temp = Regex.Replace(temp, @"!", "Cụm từ: ");
+                            results[0] += temp + "\n";
+                        }
+                        else if (Regex.IsMatch(item.Value, @"^\*[^=-]+động từ"))
+                        {
+                            string temp = Regex.Replace(item.Value, @"-", "");
+                            temp = Regex.Replace(temp, @"=", "\t•");
+                            temp = Regex.Replace(temp, @"!", "Cụm từ: ");
+                            results[1] += temp + "\n";
+                        }
+                        else if (Regex.IsMatch(item.Value, @"^\*[^=-]+tính từ"))
+                        {
+                            string temp = Regex.Replace(item.Value, @"-", "");
+                            temp = Regex.Replace(temp, @"=", "\t•");
+                            temp = Regex.Replace(temp, @"!", "Cụm từ: ");
+                            results[2] += temp + "\n";
+                        }
+                        else if (Regex.IsMatch(item.Value, @"^\*[^=-]+phó từ"))
+                        {
+                            string temp = Regex.Replace(item.Value, @"-", "");
+                            temp = Regex.Replace(temp, @"=", "\t•");
+                            temp = Regex.Replace(temp, @"!", "Cụm từ: ");
+                            results[3] += temp + "\n";
+                        }
+                        else if (Regex.IsMatch(item.Value, @"^\*[^=-]+thán từ"))
+                        {
+                            string temp = Regex.Replace(item.Value, @"-", "");
+                            temp = Regex.Replace(temp, @"=", "\t•");
+                            temp = Regex.Replace(temp, @"!", "Cụm từ: ");
+                            results[4] += temp + "\n";
+                        }
+                        else if (Regex.IsMatch(item.Value, @"^\*[^=-]+mạo từ"))
+                        {
+                            string temp = Regex.Replace(item.Value, @"-", "");
+                            temp = Regex.Replace(temp, @"=", "\t•");
+                            temp = Regex.Replace(temp, @"!", "Cụm từ: ");
+                            results[5] += temp + "\n";
+                        }
+                        else if (Regex.IsMatch(item.Value, @"^\*[^=-]+giới từ"))
+                        {
+                            string temp = Regex.Replace(item.Value, @"-", "");
+                            temp = Regex.Replace(temp, @"=", "\t•");
+                            temp = Regex.Replace(temp, @"!", "Cụm từ: ");
+                            results[6] += temp + "\n";
+                        }
+                        else
+                        {
+                            string temp = Regex.Replace(item.Value, @"-", "");
+                            temp = Regex.Replace(temp, @"=", "\t•");
+                            temp = Regex.Replace(temp, @"!", "Cụm từ: ");
+                            results[7] += temp + "\n";
+                        }
                     }
-                    if (Regex.IsMatch(item.Value, @"^\*[^=-]+động từ"))
-                    {
-                        string temp = Regex.Replace(item.Value, @"-", "");
-                        temp = Regex.Replace(temp, @"=", "\t•");
-                        temp = Regex.Replace(temp, @"!", "Cụm từ: ");
-                        results[1] += temp + "\n";
-                    }
-                    if (Regex.IsMatch(item.Value, @"^\*[^=-]+tính từ"))
-                    {
-                        string temp = Regex.Replace(item.Value, @"-", "");
-                        temp = Regex.Replace(temp, @"=", "\t•");
-                        temp = Regex.Replace(temp, @"!", "Cụm từ: ");
-                        results[2] += temp + "\n";
-                    }
-                    if (Regex.IsMatch(item.Value, @"^\*[^=-]+phó từ"))
-                    {
-                        string temp = Regex.Replace(item.Value, @"-", "");
-                        temp = Regex.Replace(temp, @"=", "\t•");
-                        temp = Regex.Replace(temp, @"!", "Cụm từ: ");
-                        results[3] += temp + "\n";
-                    }
-                    if (Regex.IsMatch(item.Value, @"^\*[^=-]+thán từ"))
-                    {
-                        string temp = Regex.Replace(item.Value, @"-", "");
-                        temp = Regex.Replace(temp, @"=", "\t•");
-                        temp = Regex.Replace(temp, @"!", "Cụm từ: ");
-                        results[3] += temp + "\n";
-                    }
-
+                }
+                else
+                {
+                    string temp = Regex.Replace(text, @"-", "");
+                    temp = Regex.Replace(temp, @"=", "\t•");
+                    temp = Regex.Replace(temp, @"!", "Cụm từ: ");
+                    results[7] += temp + "\n";
                 }
                 return results;
             }

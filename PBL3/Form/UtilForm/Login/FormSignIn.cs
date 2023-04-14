@@ -116,6 +116,17 @@ namespace PBL3
             {
                 if (LoginWorkflow.Instance.Login(txtUsername.Text, txtPasswrd.Text))
                 {
+                    if (rjToggleButton1.Checked)
+                    {
+                        LoginWorkflow.Instance.ActiveRememberMeLogin(txtUsername.Text, txtPasswrd.Text);
+                    }
+                    else
+                    {
+                        LoginWorkflow.Instance.DisableRememberMeLogin();
+                    }
+
+                    AppSettings.ApplyUserSettings(LoginWorkflow.Instance.GetAccount().AccountID);
+
                     GlobalForm.MainForm.StartPosition = FormStartPosition.CenterScreen;
                     GlobalForm.MainForm.Show();
 
@@ -149,5 +160,7 @@ namespace PBL3
                                 : "textbox_user_" + txtUsername.Text.Length);
             }
         }
+
+        
     }
 }

@@ -8,6 +8,9 @@ using System.Reflection;
 using BLL.Workflows;
 using BLL.TransferObjects;
 using PBL3.Utilities;
+using System.IO;
+using Newtonsoft.Json;
+using PBLLibrary;
 
 namespace PBL3
 {
@@ -18,7 +21,7 @@ namespace PBL3
         public FormTopic TopicForm { get; private set; }
         public FormNotebook NotebookForm { get; private set; }
         public Form MinigameForm { get; private set; }
-        public FormSetting SettingForm { get; private set; }
+        /*public FormSetting SettingForm { get; private set; }*/
 
         private IconButton _CurrentBtn;
 
@@ -30,9 +33,33 @@ namespace PBL3
         public MainForm()
         {
             InitializeComponent();
-
+            AutoLogin();
             SetupForm();
             SetupUI();
+        }
+
+        
+
+        private void AutoLogin()
+        {
+            string fileFullPath = GlobalConfig.Instance.PathFileRememberMeLogin() + "RememberMeLogin.json";
+            string json = File.ReadAllText(fileFullPath);
+            dynamic jsonObj = JsonConvert.DeserializeObject(json);
+            string userNameHash = jsonObj["UserName"].ToString();
+            string passwordHash = jsonObj["Password"].ToString();
+
+            if(userNameHash != "" && passwordHash != "")
+            {
+                if(LoginWorkflow.Instance.Login(LoginWorkflow.Instance.Decrypt(userNameHash), LoginWorkflow.Instance.Decrypt(passwordHash)))
+                {
+                    AppSettings.ApplyUserSettings(LoginWorkflow.Instance.GetAccount().AccountID);
+                }
+                else
+                {
+                    LoginWorkflow.Instance.DisableRememberMeLogin();
+                }
+                
+            }
         }
 
         #region HELPER FUNCTIONS
@@ -79,7 +106,7 @@ namespace PBL3
             HomeForm = new FormHome();
             TopicForm = new FormTopic();
             NotebookForm = new FormNotebook();
-            SettingForm = new FormSetting();
+            /*SettingForm = new FormSetting();*/
         }
 
         private void InitializeFoundButton()
@@ -201,7 +228,6 @@ namespace PBL3
             b.Location = new Point(0, 25 + 30 * index);
             b.Size = new Size(443, 30);
             b.Padding = new Padding(15, 0, 0, 0);
-
             return b;
         }
 
@@ -370,7 +396,7 @@ namespace PBL3
         private void btnSetting_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(255, 211, 137));
-            OpenChildForm(SettingForm, FormType.Strong);
+            OpenChildForm(new FormSetting(), FormType.Strong);
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
@@ -429,6 +455,7 @@ namespace PBL3
             panelSearchFound.Visible = false;
         }
 
+        
         private void txtSearch_KeyDown(object sender, KeyEventArgs e)
         {
             if (txtSearch.Text.Length == 0)
@@ -451,13 +478,13 @@ namespace PBL3
                 if (btnSearchType.Checked)
                 {
                     if (dm.VDictionaryManager.GetWord_ByFilter(_SearchOptions[_CurrentSearchOptionIndex].
-                        Text.Replace(' ', '_')).Count == 0)
+                        Text).Count == 0)
                     {
-                        OpenChildForm(new WordForm_None(txtSearch.Text.Replace(' ', '_'), false), FormType.Weak);
+                        OpenChildForm(new WordForm_None(txtSearch.Text, false), FormType.Weak);
                     }
                     else
                     {
-                        OpenChildForm(new WordForm(_SearchOptions[_CurrentSearchOptionIndex].Text.Replace(' ', '_'), false),
+                        OpenChildForm(new WordForm(_SearchOptions[_CurrentSearchOptionIndex].Text, false),
                             FormType.Weak);
                     }
                 }
@@ -492,6 +519,7 @@ namespace PBL3
 
         }
 
+
         private void btnSearchFound_Click(object sender, EventArgs e)
         {
             DataManager dataAccess = new DataManager();
@@ -517,7 +545,7 @@ namespace PBL3
         private void btnLogin_Click(object sender, EventArgs e)
         {
             panelPersonal.Visible = false;
-
+            LoginWorkflow.Instance.DisableRememberMeLogin();
             GlobalForm.LoginForm.Show();
             this.Hide();
         }
@@ -533,7 +561,7 @@ namespace PBL3
             panelPersonal.Visible = false;
 
             ActivateButton(btnSetting, Color.FromArgb(255, 255, 127));
-            OpenChildForm(SettingForm, FormType.Strong);
+            OpenChildForm(new FormSetting(), FormType.Strong);
         }
 
         private void btnLogo_MouseClick(object sender, MouseEventArgs e)
