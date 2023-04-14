@@ -1,6 +1,6 @@
 ﻿namespace PBL3
 {
-    partial class FormAdmin_Word_AddUpdate
+    partial class FormAdmin_Topic_AddUpdate
     {
         /// <summary>
         /// Required designer variable.

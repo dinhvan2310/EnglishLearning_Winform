@@ -178,17 +178,17 @@
     <Compile Include="Form\UtilForm\Admin\FormAdmin_Packet.Designer.cs">
       <DependentUpon>FormAdmin_Packet.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\UtilForm\Admin\FormAdmin_Word.cs">
+    <Compile Include="Form\UtilForm\Admin\FormAdmin_Topic.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\UtilForm\Admin\FormAdmin_Word.Designer.cs">
-      <DependentUpon>FormAdmin_Word.cs</DependentUpon>
+    <Compile Include="Form\UtilForm\Admin\FormAdmin_Topic.Designer.cs">
+      <DependentUpon>FormAdmin_Topic.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\UtilForm\Admin\FormAdmin_Word_AddUpdate.cs">
+    <Compile Include="Form\UtilForm\Admin\FormAdmin_Topic_AddUpdate.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\UtilForm\Admin\FormAdmin_Word_AddUpdate.Designer.cs">
-      <DependentUpon>FormAdmin_Word_AddUpdate.cs</DependentUpon>
+    <Compile Include="Form\UtilForm\Admin\FormAdmin_Topic_AddUpdate.Designer.cs">
+      <DependentUpon>FormAdmin_Topic_AddUpdate.cs</DependentUpon>
     </Compile>
     <Compile Include="Form\UtilForm\FormPremium.cs">
       <SubType>Form</SubType>
@@ -335,11 +335,11 @@
     <EmbeddedResource Include="Form\UtilForm\Admin\FormAdmin_Packet.resx">
       <DependentUpon>FormAdmin_Packet.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\UtilForm\Admin\FormAdmin_Word.resx">
-      <DependentUpon>FormAdmin_Word.cs</DependentUpon>
+    <EmbeddedResource Include="Form\UtilForm\Admin\FormAdmin_Topic.resx">
+      <DependentUpon>FormAdmin_Topic.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\UtilForm\Admin\FormAdmin_Word_AddUpdate.resx">
-      <DependentUpon>FormAdmin_Word_AddUpdate.cs</DependentUpon>
+    <EmbeddedResource Include="Form\UtilForm\Admin\FormAdmin_Topic_AddUpdate.resx">
+      <DependentUpon>FormAdmin_Topic_AddUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\UtilForm\FormPremium.resx">
       <DependentUpon>FormPremium.cs</DependentUpon>

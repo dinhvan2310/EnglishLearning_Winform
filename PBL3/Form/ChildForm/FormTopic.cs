@@ -29,6 +29,7 @@ namespace PBL3
             SetupUI();
         }
 
+        #region HELPER FUNCTIONS
         private void SetupUI()
         {
             foreach (string t in _TopicName)
@@ -65,5 +66,7 @@ namespace PBL3
 
             GlobalForm.MainForm.SwitchForm(form, FormType.Weak);
         }
+
+        #endregion
     }
 }

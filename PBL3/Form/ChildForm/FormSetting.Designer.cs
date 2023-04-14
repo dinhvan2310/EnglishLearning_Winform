@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.trkVolumn = new System.Windows.Forms.TrackBar();
             this.label3 = new System.Windows.Forms.Label();
@@ -42,17 +41,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.trkVolumn)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bahnschrift", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.label1.Location = new System.Drawing.Point(93, 61);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(271, 34);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Chỉnh Sửa Giao Diện";
             // 
             // label2
             // 
@@ -178,10 +166,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.trkVolumn);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormSetting";
             this.Text = "FormSetting";
+            this.VisibleChanged += new System.EventHandler(this.FormSetting_VisibleChanged);
             ((System.ComponentModel.ISupportInitialize)(this.trkVolumn)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -190,8 +178,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TrackBar trkVolumn;
         private System.Windows.Forms.Label label3;

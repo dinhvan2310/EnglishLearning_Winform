@@ -59,8 +59,6 @@ D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\Newtonsoft.Json.dll
 D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\Newtonsoft.Json.xml
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormAdmin_Account.resources
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormAdmin_Packet.resources
-D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormAdmin_Word.resources
-D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormAdmin_Word_AddUpdate.resources
 D:\PBL3\pLB\PLB3\PBL3\bin\Debug\PBL3.exe.config
 D:\PBL3\pLB\PLB3\PBL3\bin\Debug\PBL3.exe
 D:\PBL3\pLB\PLB3\PBL3\bin\Debug\PBL3.pdb
@@ -506,3 +504,5 @@ D:\PBL3\PBL_Khoa\PLB3\PLB3\PBL3\obj\Debug\PBL3.exe
 D:\PBL3\PBL_Khoa\PLB3\PLB3\PBL3\obj\Debug\PBL3.pdb
 D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\Library.dll
 D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\Library.pdb
+D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormAdmin_Topic.resources
+D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormAdmin_Topic_AddUpdate.resources

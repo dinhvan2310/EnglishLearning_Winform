@@ -19,27 +19,9 @@ namespace PBL3
         public FormSetting()
         {
             InitializeComponent();
-
-            cmbVoice.Items.Add("Male - David");
-            cmbVoice.Items.Add("Female - Zira");
-
-            cmbVoice.Text = "Male - David";
-
-            if (LoginWorkflow.Instance.IsLoggedIn())
-            {
-                UserSetting us = SettingWorkflow.Instance.GetUserSettings(LoginWorkflow.Instance.GetAccount().AccountID);
-                if (us != null)
-                {
-                    trkVolumn.Value = us.Volume;
-                    SettingWorkflow.Instance.ChangeVolumn(trkVolumn.Value * 10);
-                    label4.Text = (us.Volume * 10).ToString();
-                    cmbVoice.SelectedIndex = (us.Voice == false) ? 0 : 1;
-                    SettingWorkflow.Instance.ChangeVoice(cmbVoice.SelectedIndex == 0 ? Voice.Male : Voice.Female);
-                }
-            }
         }
 
-        
+        #region EVENTS
 
         private void trkVolumn_Scroll(object sender, EventArgs e)
         {
@@ -60,5 +42,30 @@ namespace PBL3
             SettingWorkflow.Instance.ChangeVoice(cmbVoice.SelectedIndex == 0 ? Voice.Male : Voice.Female);
         }
 
+        private void FormSetting_VisibleChanged(object sender, EventArgs e)
+        {
+            if (!this.Visible)
+                return;
+
+            cmbVoice.Items.Add("Male - David");
+            cmbVoice.Items.Add("Female - Zira");
+
+            cmbVoice.Text = "Male - David";
+
+            if (LoginWorkflow.Instance.IsLoggedIn())
+            {
+                UserSetting us = SettingWorkflow.Instance.GetUserSettings(LoginWorkflow.Instance.GetAccount().AccountID);
+                if (us != null)
+                {
+                    trkVolumn.Value = us.Volume;
+                    SettingWorkflow.Instance.ChangeVolumn(trkVolumn.Value * 10);
+                    label4.Text = (us.Volume * 10).ToString();
+                    cmbVoice.SelectedIndex = (us.Voice == false) ? 0 : 1;
+                    SettingWorkflow.Instance.ChangeVoice(cmbVoice.SelectedIndex == 0 ? Voice.Male : Voice.Female);
+                }
+            }
+        }
+
+        #endregion
     }
 }

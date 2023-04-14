@@ -16,12 +16,11 @@ namespace PBL3
 {
     public partial class MainForm : Form
     {
-        public FormHome HomeForm { get; private set; }
-        public FormAdmin AdminForm { get; private set; }
+        public Form HomeForm { get; private set; }
         public FormTopic TopicForm { get; private set; }
         public FormNotebook NotebookForm { get; private set; }
         public Form MinigameForm { get; private set; }
-        /*public FormSetting SettingForm { get; private set; }*/
+        public FormSetting SettingForm { get; private set; }
 
         private IconButton _CurrentBtn;
 
@@ -92,11 +91,13 @@ namespace PBL3
         }
         private void InitializeChildForm()
         {
-            AdminForm = new FormAdmin();
-            HomeForm = new FormHome();
+            if (LoginWorkflow.Instance.IsLoggedIn() && LoginWorkflow.Instance.GetAccount().TypeID == 5)
+                HomeForm = new FormAdmin();
+            else
+                HomeForm = new FormHome();
             TopicForm = new FormTopic();
             NotebookForm = new FormNotebook();
-            /*SettingForm = new FormSetting();*/
+            SettingForm = new FormSetting();
         }
 
         private void InitializeFoundButton()
@@ -386,7 +387,7 @@ namespace PBL3
         private void btnSetting_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(255, 211, 137));
-            OpenChildForm(new FormSetting(), FormType.Strong);
+            OpenChildForm(SettingForm, FormType.Strong);
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)

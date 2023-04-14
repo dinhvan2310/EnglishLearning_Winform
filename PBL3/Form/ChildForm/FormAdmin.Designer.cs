@@ -30,10 +30,10 @@
         {
             this.panelBase = new System.Windows.Forms.Panel();
             this.panelTop = new System.Windows.Forms.Panel();
-            this.btnPacket = new CustomControls.RJButton();
-            this.btnWord = new CustomControls.RJButton();
-            this.btnAccount = new CustomControls.RJButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnPacket = new CustomControls.RJButton();
+            this.btnAccount = new CustomControls.RJButton();
+            this.btnTopic = new CustomControls.RJButton();
             this.panelTop.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -51,13 +51,21 @@
             this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
             this.panelTop.Controls.Add(this.panel2);
             this.panelTop.Controls.Add(this.btnPacket);
-            this.panelTop.Controls.Add(this.btnWord);
+            this.panelTop.Controls.Add(this.btnTopic);
             this.panelTop.Controls.Add(this.btnAccount);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(1057, 60);
             this.panelTop.TabIndex = 9;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.panel2.Location = new System.Drawing.Point(37, 56);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(885, 5);
+            this.panel2.TabIndex = 60;
             // 
             // btnPacket
             // 
@@ -71,7 +79,7 @@
             this.btnPacket.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPacket.Font = new System.Drawing.Font("Bahnschrift", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPacket.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.btnPacket.Location = new System.Drawing.Point(462, 29);
+            this.btnPacket.Location = new System.Drawing.Point(256, 29);
             this.btnPacket.Name = "btnPacket";
             this.btnPacket.Size = new System.Drawing.Size(190, 50);
             this.btnPacket.TabIndex = 2;
@@ -80,28 +88,6 @@
             this.btnPacket.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
             this.btnPacket.UseVisualStyleBackColor = false;
             this.btnPacket.Click += new System.EventHandler(this.btnPacket_Click);
-            // 
-            // btnWord
-            // 
-            this.btnWord.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.btnWord.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.btnWord.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnWord.BorderRadius = 20;
-            this.btnWord.BorderSize = 0;
-            this.btnWord.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnWord.FlatAppearance.BorderSize = 0;
-            this.btnWord.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWord.Font = new System.Drawing.Font("Bahnschrift", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnWord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.btnWord.Location = new System.Drawing.Point(254, 29);
-            this.btnWord.Name = "btnWord";
-            this.btnWord.Size = new System.Drawing.Size(190, 50);
-            this.btnWord.TabIndex = 1;
-            this.btnWord.Text = "TỪ VỰNG";
-            this.btnWord.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnWord.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.btnWord.UseVisualStyleBackColor = false;
-            this.btnWord.Click += new System.EventHandler(this.btnWord_Click);
             // 
             // btnAccount
             // 
@@ -125,13 +111,27 @@
             this.btnAccount.UseVisualStyleBackColor = false;
             this.btnAccount.Click += new System.EventHandler(this.btnAccount_Click);
             // 
-            // panel2
+            // btnTopic
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.panel2.Location = new System.Drawing.Point(37, 56);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(885, 5);
-            this.panel2.TabIndex = 60;
+            this.btnTopic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.btnTopic.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.btnTopic.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnTopic.BorderRadius = 20;
+            this.btnTopic.BorderSize = 0;
+            this.btnTopic.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTopic.FlatAppearance.BorderSize = 0;
+            this.btnTopic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTopic.Font = new System.Drawing.Font("Bahnschrift", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTopic.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.btnTopic.Location = new System.Drawing.Point(462, 29);
+            this.btnTopic.Name = "btnTopic";
+            this.btnTopic.Size = new System.Drawing.Size(190, 50);
+            this.btnTopic.TabIndex = 1;
+            this.btnTopic.Text = "CHỦ ĐỀ TỪ VỰNG";
+            this.btnTopic.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnTopic.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.btnTopic.UseVisualStyleBackColor = false;
+            this.btnTopic.Click += new System.EventHandler(this.btnWord_Click);
             // 
             // FormAdmin
             // 
@@ -152,9 +152,9 @@
         #endregion
         private System.Windows.Forms.Panel panelBase;
         private System.Windows.Forms.Panel panelTop;
-        private CustomControls.RJButton btnWord;
         private CustomControls.RJButton btnAccount;
         private CustomControls.RJButton btnPacket;
         private System.Windows.Forms.Panel panel2;
+        private CustomControls.RJButton btnTopic;
     }
 }

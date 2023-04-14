@@ -17,7 +17,7 @@ namespace PBL3
         private Form _CurrentChildForm;
 
         public FormAdmin_Account AccountForm { get; private set; }
-        public FormAdmin_Word WordForm { get; private set; }
+        public FormAdmin_Topic WordForm { get; private set; }
         public FormAdmin_Packet PacketForm { get; private set; }
 
         public FormAdmin()
@@ -25,7 +25,7 @@ namespace PBL3
             InitializeComponent();
 
             AccountForm = new FormAdmin_Account();
-            WordForm = new FormAdmin_Word();
+            WordForm = new FormAdmin_Topic();
             PacketForm = new FormAdmin_Packet();
 
 
