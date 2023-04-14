@@ -1,5 +1,4 @@
 ﻿using PBL3.Utilities;
-using PBLLibrary;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -78,7 +77,7 @@ namespace PBL3
             btn.FlatAppearance.BorderSize = 0;
             btn.Text = name;
             btn.BackColor = color;
-            btn.ForeColor = ColorConfig.DarkTextColor;
+            btn.ForeColor = Color.FromArgb(44, 41, 74);
             btn.Size = new Size(width, 53);
             btn.Font = new Font("Bahnschrift", 13.8f, FontStyle.Bold);
 

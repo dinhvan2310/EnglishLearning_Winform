@@ -5,31 +5,29 @@ using System.Speech.Synthesis;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PBLLibrary
+namespace BLL.Components
 {
-    public static class SoundConfig
+    public class SoundManager
     {
-        public enum Voice
+
+
+        private SpeechSynthesizer _Synthesizer = new SpeechSynthesizer();
+
+        public bool IsSpeaking = false;
+
+        public void Speak(string sentence)
         {
-            Male, Female
-        }
-
-
-        private static SpeechSynthesizer _Synthesizer = new SpeechSynthesizer();
-
-        public static bool IsSpeaking = false;
-
-        public static void Speak(string sentence)
-        {
+            IsSpeaking = true;
             _Synthesizer.Speak(sentence);
+            IsSpeaking = false;
         }
 
-        public static void ChangeVolumn(int volumn)
+        public void ChangeVolumn(int volumn)
         {
             _Synthesizer.Volume = volumn;
         }
 
-        public static void ChangeVoice(Voice voice)
+        public void ChangeVoice(Voice voice)
         {
             string voiceString = "";
             switch (voice)
@@ -45,5 +43,10 @@ namespace PBLLibrary
 
             _Synthesizer.SelectVoice(voiceString);
         }
+    }
+
+    public enum Voice
+    {
+        Male, Female
     }
 }

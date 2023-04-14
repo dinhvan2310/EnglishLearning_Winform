@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using BLL.EnityFramework.Model;
 using EFramework.Model;
-using PBLLibrary;
+using Library;
 
 namespace EFramework
 {
@@ -18,24 +18,24 @@ namespace EFramework
             //Database.SetInitializer(initializer);
         }
 
-        public virtual DbSet<wn_antonym> wn_antonym { get; set; }
-        public virtual DbSet<wn_similar> wn_similar { get; set; }
-        public virtual DbSet<wn_hypernym> wn_hypernym { get; set; }
-        public virtual DbSet<wn_derived> wn_derived { get; set; }
-        public virtual DbSet<wn_see_also> wn_see_also { get; set; }
-        public virtual DbSet<wn_synset> wn_synset { get; set; }
-        public virtual DbSet<wn_verb_frame> wn_verb_frame { get; set; }
-        public virtual DbSet<wn_word> wn_word { get; set; }
-        public virtual DbSet<word_viet> word_viet { get; set; }
+        public virtual DbSet<wn_antonym> Wn_antonym { get; set; }
+        public virtual DbSet<wn_similar> Wn_similar { get; set; }
+        public virtual DbSet<wn_hypernym> Wn_hypernym { get; set; }
+        public virtual DbSet<wn_derived> Wn_derived { get; set; }
+        public virtual DbSet<wn_see_also> Wn_see_also { get; set; }
+        public virtual DbSet<wn_synset> Wn_synset { get; set; }
+        public virtual DbSet<wn_verb_frame> Wn_verb_frame { get; set; }
+        public virtual DbSet<wn_word> Wn_word { get; set; }
+        public virtual DbSet<word_viet> Word_viet { get; set; }
 
-        public virtual DbSet<Account> account { get; set; }
-        public virtual DbSet<DetailedInformation> detailedInformation { get; set; }
-        public virtual DbSet<InformationPerDay> informationPerDay { get; set; }
-        public virtual DbSet<UserPacketInfo> userPacketInfo { get; set; }
-        public virtual DbSet<UserPacket> userPacket { get; set; }
-        public virtual DbSet<Notebook> notebook { get; set; }
-        public virtual DbSet<HistoryEnglishContainer> historyEnglishContainer { get; set; }
-        public virtual DbSet<Topic> topic { get; set; }
+        public virtual DbSet<Account> Account { get; set; }
+        public virtual DbSet<DetailedInformation> DetailedInformation { get; set; }
+        public virtual DbSet<InformationPerDay> InformationPerDay { get; set; }
+        public virtual DbSet<UserPacketInfo> UserPacketInfo { get; set; }
+        public virtual DbSet<UserPacket> UserPacket { get; set; }
+        public virtual DbSet<Notebook> Notebook { get; set; }
+        public virtual DbSet<HistoryEnglishContainer> HistoryEnglishContainer { get; set; }
+        public virtual DbSet<Topic> Topic { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -46,80 +46,80 @@ namespace EFramework
                 .IsUnicode(false);
 
             modelBuilder.Entity<wn_synset>()
-                .HasMany(e => e.wn_antonym)
-                .WithRequired(e => e.wn_synset)
+                .HasMany(e => e.Wn_antonym)
+                .WithRequired(e => e.Wn_synset)
                 .HasForeignKey(e => e.synset_id_1)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<wn_synset>()
-                .HasMany(e => e.wn_antonym1)
-                .WithRequired(e => e.wn_synset1)
+                .HasMany(e => e.Wn_antonym1)
+                .WithRequired(e => e.Wn_synset1)
                 .HasForeignKey(e => e.synset_id_2)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<wn_synset>()
-                .HasMany(e => e.wn_similar)
-                .WithRequired(e => e.wn_synset)
+                .HasMany(e => e.Wn_similar)
+                .WithRequired(e => e.Wn_synset)
                 .HasForeignKey(e => e.synset_id_1)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<wn_synset>()
-                .HasMany(e => e.wn_similar1)
-                .WithRequired(e => e.wn_synset1)
+                .HasMany(e => e.Wn_similar1)
+                .WithRequired(e => e.Wn_synset1)
                 .HasForeignKey(e => e.synset_id_2)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<wn_synset>()
-                .HasMany(e => e.wn_hypernym)
-                .WithRequired(e => e.wn_synset)
+                .HasMany(e => e.Wn_hypernym)
+                .WithRequired(e => e.Wn_synset)
                 .HasForeignKey(e => e.synset_id_1)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<wn_synset>()
-                .HasMany(e => e.wn_hypernym1)
-                .WithRequired(e => e.wn_synset1)
+                .HasMany(e => e.Wn_hypernym1)
+                .WithRequired(e => e.Wn_synset1)
                 .HasForeignKey(e => e.synset_id_2)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<wn_synset>()
-                .HasMany(e => e.wn_derived)
-                .WithRequired(e => e.wn_synset)
+                .HasMany(e => e.Wn_derived)
+                .WithRequired(e => e.Wn_synset)
                 .HasForeignKey(e => e.synset_id_1)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<wn_synset>()
-                .HasMany(e => e.wn_derived1)
-                .WithRequired(e => e.wn_synset1)
+                .HasMany(e => e.Wn_derived1)
+                .WithRequired(e => e.Wn_synset1)
                 .HasForeignKey(e => e.synset_id_2)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<wn_synset>()
-                .HasMany(e => e.wn_see_also)
-                .WithRequired(e => e.wn_synset)
+                .HasMany(e => e.Wn_see_also)
+                .WithRequired(e => e.Wn_synset)
                 .HasForeignKey(e => e.synset_id_1)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<wn_synset>()
-                .HasMany(e => e.wn_see_also1)
-                .WithRequired(e => e.wn_synset1)
+                .HasMany(e => e.Wn_see_also1)
+                .WithRequired(e => e.Wn_synset1)
                 .HasForeignKey(e => e.synset_id_2)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<wn_synset>()
-                .HasMany(e => e.wn_verb_frame)
-                .WithRequired(e => e.wn_synset)
+                .HasMany(e => e.Wn_verb_frame)
+                .WithRequired(e => e.Wn_synset)
                 .HasForeignKey(e => e.synset_id_1)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<wn_synset>()
-                .HasMany(e => e.wn_word)
-                .WithRequired(e => e.wn_synset)
+                .HasMany(e => e.Wn_word)
+                .WithRequired(e => e.Wn_synset)
                 .HasForeignKey(e => e.synset_id)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<wn_synset>()
                 .HasRequired(e => e.topic)
-                .WithRequiredPrincipal(e => e.wn_synset)
+                .WithRequiredPrincipal(e => e.Wn_synset)
                 .WillCascadeOnDelete(false);
 
             //modelBuilder.Entity<Notebook>()
@@ -134,25 +134,25 @@ namespace EFramework
             //    .HasForeignKey(e => new { e.SynsetID, e.WordNum, e.AccountID })
             //    .WillCascadeOnDelete(false);
 
-            //modelBuilder.Entity<wn_word>()
+            //modelBuilder.Entity<Wn_word>()
             //    .HasMany(e => e.Notebooks)
             //    .WithRequired(e => e.Wn_Word)
             //    .HasForeignKey(e => e.WordNum)
             //    .WillCascadeOnDelete(false);
 
-            //modelBuilder.Entity<wn_word>()
+            //modelBuilder.Entity<Wn_word>()
             //    .HasMany(e => e.Notebooks)
             //    .WithRequired(e => e.Wn_Word)
             //    .HasForeignKey(e => e.SynsetID)
             //    .WillCascadeOnDelete(false);
 
-            //modelBuilder.Entity<wn_word>()
+            //modelBuilder.Entity<Wn_word>()
             //    .HasMany(e => e.HistoryContainer)
             //    .WithRequired(e => e.Wn_Word)
             //    .HasForeignKey(e => e.SynsetID)
             //    .WillCascadeOnDelete(false);
 
-            //modelBuilder.Entity<wn_word>()
+            //modelBuilder.Entity<Wn_word>()
             //    .HasMany(e => e.HistoryContainer)
             //    .WithRequired(e => e.Wn_Word)
             //    .HasForeignKey(e => e.WordNum)

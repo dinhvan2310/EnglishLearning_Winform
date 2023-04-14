@@ -1,4 +1,3 @@
-D:\Source\Visual Studio\C#\PBL3\PBLLibrary\bin\Debug\PBLLibrary.dll.config
 D:\Source\Visual Studio\C#\PBL3\PBLLibrary\bin\Debug\PBLLibrary.dll
 D:\Source\Visual Studio\C#\PBL3\PBLLibrary\bin\Debug\PBLLibrary.pdb
 D:\Source\Visual Studio\C#\PBL3\PBLLibrary\bin\Debug\FontAwesome.Sharp.dll

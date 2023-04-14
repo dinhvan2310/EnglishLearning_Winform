@@ -8,7 +8,6 @@ using System.Data.Entity;
 using BLL.TransferObjects;
 using MySqlX.XDevAPI.Common;
 using Mysqlx.Crud;
-using PBLLibrary;
 using static System.Windows.Forms.LinkLabel;
 using System.Diagnostics;
 using BLL.Migrations;
@@ -16,6 +15,7 @@ using EFramework;
 using EFramework.Model;
 using System.Collections;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
+using PBLLibrary;
 
 namespace BLL.Components
 {
@@ -67,14 +67,14 @@ namespace BLL.Components
                 List<WordModel> results = new List<WordModel>();
                 Random r = new Random();
 
-                List<string> wn_words = new List<string>();
+                List<string> Wn_words = new List<string>();
 
-                var temp = dbContext.wn_word
+                var temp = dbContext.Wn_word
                                 .Shuffle(r)
                                 .Select(x => x.synset_id)
                                 .Take(limit * 4)
                                 .Join(
-                                    dbContext.wn_word,
+                                    dbContext.Wn_word,
                                     s => s,
                                     w => w.synset_id,
                                     (s, w) => new { Word = w, SynsetId = s })
@@ -83,13 +83,13 @@ namespace BLL.Components
 
                 temp.ForEach(item =>
                 {
-                    if (wn_words.Count < limit && (double)item.w_num == Math.Ceiling(r.NextDouble() * 6))
+                    if (Wn_words.Count < limit && (double)item.w_num == Math.Ceiling(r.NextDouble() * 6))
                     {
-                        wn_words.Add(item.word.ToString());
+                        Wn_words.Add(item.word.ToString());
                     }
                 });
 
-                wn_words.ForEach(item =>
+                Wn_words.ForEach(item =>
                 {
                     results.Add(new WordModel(item.ToString()));
                 });
@@ -110,7 +110,7 @@ namespace BLL.Components
 
                 if (distinct)
                 {
-                    List<string> words = dbContext.wn_word
+                    List<string> words = dbContext.Wn_word
                                          .Where(w =>
                                              startWith && endWith ? w.word.Contains(filter) :
                                              startWith ? w.word.StartsWith(filter) :
@@ -127,7 +127,7 @@ namespace BLL.Components
                 }
                 else
                 {
-                    List<wn_word> wn_words = dbContext.wn_word
+                    List<wn_word> Wn_words = dbContext.Wn_word
                                          .Where(w =>
                                              startWith && endWith ? w.word.Contains(filter) :
                                              startWith ? w.word.StartsWith(filter) :
@@ -135,7 +135,7 @@ namespace BLL.Components
                                              w.word.Equals(filter))
                                          .OrderBy(w => Guid.NewGuid())
                                          .Take(limit).ToList();
-                    wn_words.ForEach(item =>
+                    Wn_words.ForEach(item =>
                     {
                         results.Add(new WordModel(item.word.Replace('_', ' ')));
                     });
@@ -150,18 +150,18 @@ namespace BLL.Components
             {
                 List<WordModel> results = new List<WordModel>();
 
-                List<string> wn_words = new List<string>();
-                var temp = dbContext.wn_word
+                List<string> Wn_words = new List<string>();
+                var temp = dbContext.Wn_word
                                 .Where(p => p.synset_id.Equals(id))
                                 .Select(p => p.word)
                                 .ToList();
 
                 temp.ForEach(item =>
                 {
-                    wn_words.Add(item.ToString());
+                    Wn_words.Add(item.ToString());
                 });
 
-                wn_words.ForEach(item =>
+                Wn_words.ForEach(item =>
                 {
                     results.Add(new WordModel(item.ToString()));
                 });
@@ -181,25 +181,25 @@ namespace BLL.Components
                 List<WordModel> results = new List<WordModel>();
 
                 List<SynsetModel> ss = GetSynset_ByWord(word);
-                List<string> wn_words = new List<string>();
+                List<string> Wn_words = new List<string>();
 
                 foreach (SynsetModel s in ss)
                 {
-                    var temp = dbContext.wn_word
+                    var temp = dbContext.Wn_word
                                     .Where(p => p.synset_id.Equals(s.ID))
                                     .Select(p => p.word)
                                     .ToList();
 
                     temp.ForEach(item =>
                     {
-                        wn_words.Add(item.ToString());
+                        Wn_words.Add(item.ToString());
                     });
                 }
 
-                wn_words = wn_words.Distinct().ToList();
+                Wn_words = Wn_words.Distinct().ToList();
                 // except base word
-                wn_words.Remove(word);
-                wn_words.ForEach(item =>
+                Wn_words.Remove(word);
+                Wn_words.ForEach(item =>
                 {
                     results.Add(new WordModel(item.ToString()));
                 });
@@ -212,12 +212,12 @@ namespace BLL.Components
             using (var dbContext = new DictionaryContext())
             {
                 List<SynsetModel> results = null;
-                var synsets = dbContext.wn_word.Where(i => i.word == word)
-                    .Include(p => p.wn_synset).ToList();
+                var synsets = dbContext.Wn_word.Where(i => i.word == word)
+                    .Include(p => p.Wn_synset).ToList();
                 results = synsets.Select(i => new SynsetModel()
                 {
                     ID = i.synset_id,
-                    Definition = i.wn_synset.definition,
+                    Definition = i.Wn_synset.definition,
                     Words = new List<WordModel>
                     {
                         new WordModel(i.word)
@@ -239,7 +239,7 @@ namespace BLL.Components
 
                 if (distinct)
                 {
-                    List<string> words = dbContext.wn_word
+                    List<string> words = dbContext.Wn_word
                                          .Where(w =>
                                              startWith && endWith ? w.word.Contains(filter) :
                                              startWith ? w.word.StartsWith(filter) :
@@ -256,7 +256,7 @@ namespace BLL.Components
                 }
                 else
                 {
-                    List<wn_word> wn_words = dbContext.wn_word
+                    List<wn_word> Wn_words = dbContext.Wn_word
                                          .Where(w =>
                                              startWith && endWith ? w.word.Contains(filter) :
                                              startWith ? w.word.StartsWith(filter) :
@@ -265,7 +265,7 @@ namespace BLL.Components
                                          .Take(limit)
                                          .ToList();
 
-                    wn_words.ForEach(item =>
+                    Wn_words.ForEach(item =>
                     {
                         results.Add(new WordModel(item.word));
                     });
@@ -282,16 +282,16 @@ namespace BLL.Components
             {
                 List<WordModel> results = new List<WordModel>();
 
-                List<string> wn_words = new List<string>();
-                var temp = dbContext.wn_word
+                List<string> Wn_words = new List<string>();
+                var temp = dbContext.Wn_word
                                 .Where(p => p.word.Equals(word))
                                 .Join(
-                                    dbContext.wn_similar,
+                                    dbContext.Wn_similar,
                                     w => w.synset_id,
                                     a => a.synset_id_1,
                                     (w, a) => new { a.synset_id_2 })
                                 .Join(
-                                    dbContext.wn_word,
+                                    dbContext.Wn_word,
                                     wa => wa.synset_id_2,
                                     w => w.synset_id,
                                     (wa, w) => new { w.word })
@@ -300,10 +300,10 @@ namespace BLL.Components
 
                 temp.ForEach(item =>
                 {
-                    wn_words.Add(item.ToString());
+                    Wn_words.Add(item.ToString());
                 });
 
-                wn_words.ForEach(item =>
+                Wn_words.ForEach(item =>
                 {
                     results.Add(new WordModel(item.ToString()));
                 });
@@ -317,16 +317,16 @@ namespace BLL.Components
             {
                 List<WordModel> results = new List<WordModel>();
 
-                List<string> wn_words = new List<string>();
-                var temp = dbContext.wn_word
+                List<string> Wn_words = new List<string>();
+                var temp = dbContext.Wn_word
                                 .Where(p => p.word.Equals(word))
                                 .Join(
-                                    dbContext.wn_antonym,
+                                    dbContext.Wn_antonym,
                                     w => w.synset_id,
                                     a => a.synset_id_1,
                                     (w, a) => new { a.synset_id_2 })
                                 .Join(
-                                    dbContext.wn_word,
+                                    dbContext.Wn_word,
                                     wa => wa.synset_id_2,
                                     w => w.synset_id,
                                     (wa, w) => new { w.word })
@@ -335,10 +335,10 @@ namespace BLL.Components
 
                 temp.ForEach(item =>
                 {
-                    wn_words.Add(item.ToString());
+                    Wn_words.Add(item.ToString());
                 });
 
-                wn_words.ForEach(item =>
+                Wn_words.ForEach(item =>
                 {
                     results.Add(new WordModel(item.ToString()));
                 });
@@ -352,10 +352,10 @@ namespace BLL.Components
             {
                 List<string> results = new List<string>();
 
-                var temp = dbContext.wn_word
+                var temp = dbContext.Wn_word
                                 .Where(p => p.word.Equals(word))
                                 .Join(
-                                    dbContext.wn_verb_frame,
+                                    dbContext.Wn_verb_frame,
                                     w => w.synset_id,
                                     a => a.synset_id_1,
                                     (w, a) => new { W1 = a.w_num, W2 = w.w_num, F = a.f_num })
@@ -377,16 +377,16 @@ namespace BLL.Components
             {
                 List<WordModel> results = new List<WordModel>();
 
-                List<string> wn_words = new List<string>();
-                var temp = dbContext.wn_word
+                List<string> Wn_words = new List<string>();
+                var temp = dbContext.Wn_word
                                 .Where(p => p.word.Equals(word))
                                 .Join(
-                                    dbContext.wn_derived,
+                                    dbContext.Wn_derived,
                                     w => w.synset_id,
                                     a => a.synset_id_1,
                                     (w, a) => new { a.synset_id_2 })
                                 .Join(
-                                    dbContext.wn_word,
+                                    dbContext.Wn_word,
                                     wa => wa.synset_id_2,
                                     w => w.synset_id,
                                     (wa, w) => new { w.word })
@@ -397,10 +397,10 @@ namespace BLL.Components
 
                 temp.ForEach(item =>
                 {
-                    wn_words.Add(item.ToString());
+                    Wn_words.Add(item.ToString());
                 });
 
-                wn_words.ForEach(item =>
+                Wn_words.ForEach(item =>
                 {
                     results.Add(new WordModel(item.ToString()));
                 });
@@ -414,7 +414,7 @@ namespace BLL.Components
             {
                 List<string> results = new List<string>();
 
-                var temp = dbContext.topic
+                var temp = dbContext.Topic
                                 .Select(p => p.TopicName)
                                 .ToList();
 
@@ -434,7 +434,7 @@ namespace BLL.Components
                 List<string> results = new List<string>();
 
                 topic = topic.Replace(' ', '_');
-                var temp = dbContext.topic
+                var temp = dbContext.Topic
                                 .Where(p => p.TopicName.Contains(topic))
                                 .Select(p => p.TopicName)
                                 .ToList();
@@ -457,13 +457,13 @@ namespace BLL.Components
                 List<string> temp = new List<string>();
                 branch = branch.Replace(' ', '_');
 
-                decimal synsetID = dbContext.topic
+                decimal synsetID = dbContext.Topic
                             .Single(p => p.TopicName.Contains(branch))
                             .SynsetID;
 
                 List<decimal> s1s = GetHypernymSynsetID_BySynsetID_Recur(synsetID);
 
-                temp = dbContext.wn_word
+                temp = dbContext.Wn_word
                             .Where(p => s1s.Contains(p.synset_id))
                             .Select(p => p.word)
                             .Distinct()
@@ -484,7 +484,7 @@ namespace BLL.Components
             {
                 List<decimal> results = new List<decimal>();
 
-                results = dbContext.wn_hypernym
+                results = dbContext.Wn_hypernym
                             .Where(p => p.synset_id_2 == id)
                             .Select(p => p.synset_id_1)
                             .ToList();

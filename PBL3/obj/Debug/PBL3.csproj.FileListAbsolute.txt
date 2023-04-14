@@ -10,8 +10,6 @@ D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.csproj.CopyComplete
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.exe
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.pdb
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.MainForm.resources
-D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\PBLLibrary.dll
-D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\PBLLibrary.pdb
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.Properties.Resources.resources
 D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\CircularProgressBar.dll
 D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\WinFormAnimation.dll
@@ -506,3 +504,5 @@ D:\PBL3\PBL_Khoa\PLB3\PLB3\PBL3\obj\Debug\PBL3.csproj.CoreCompileInputs.cache
 D:\PBL3\PBL_Khoa\PLB3\PLB3\PBL3\obj\Debug\PBL3.csproj.CopyComplete
 D:\PBL3\PBL_Khoa\PLB3\PLB3\PBL3\obj\Debug\PBL3.exe
 D:\PBL3\PBL_Khoa\PLB3\PLB3\PBL3\obj\Debug\PBL3.pdb
+D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\Library.dll
+D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\Library.pdb

@@ -33,34 +33,12 @@ namespace PBL3
         public MainForm()
         {
             InitializeComponent();
-            AutoLogin();
+
+            AutoLogin(); // success if login already remembered
             SetupForm();
             SetupUI();
         }
 
-        
-
-        private void AutoLogin()
-        {
-            string fileFullPath = GlobalConfig.Instance.PathFileRememberMeLogin() + "RememberMeLogin.json";
-            string json = File.ReadAllText(fileFullPath);
-            dynamic jsonObj = JsonConvert.DeserializeObject(json);
-            string userNameHash = jsonObj["UserName"].ToString();
-            string passwordHash = jsonObj["Password"].ToString();
-
-            if(userNameHash != "" && passwordHash != "")
-            {
-                if(LoginWorkflow.Instance.Login(LoginWorkflow.Instance.Decrypt(userNameHash), LoginWorkflow.Instance.Decrypt(passwordHash)))
-                {
-                    AppSettings.ApplyUserSettings(LoginWorkflow.Instance.GetAccount().AccountID);
-                }
-                else
-                {
-                    LoginWorkflow.Instance.DisableRememberMeLogin();
-                }
-                
-            }
-        }
 
         #region HELPER FUNCTIONS
         private void SetupUI()
@@ -100,6 +78,18 @@ namespace PBL3
             OpenChildForm(form, formType);
         }
 
+        private void AutoLogin()
+        {
+            if (LoginWorkflow.Instance.Login())
+            {
+                SettingWorkflow.Instance.ApplyUserSettings(LoginWorkflow.Instance.GetAccount().AccountID);
+            }
+            else
+            {
+                LoginWorkflow.Instance.DisableRememberMeLogin();
+            }
+
+        }
         private void InitializeChildForm()
         {
             AdminForm = new FormAdmin();

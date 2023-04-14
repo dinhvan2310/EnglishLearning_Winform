@@ -58,12 +58,12 @@
                     })
                 .PrimaryKey(t => new { t.AccountID, t.WordNum, t.SynsetID })
                 .ForeignKey("dbo.Account", t => t.AccountID, cascadeDelete: true)
-                .ForeignKey("dbo.wn_word", t => new { t.WordNum, t.SynsetID }, cascadeDelete: true)
+                .ForeignKey("dbo.Wn_word", t => new { t.WordNum, t.SynsetID }, cascadeDelete: true)
                 .Index(t => t.AccountID)
                 .Index(t => new { t.WordNum, t.SynsetID });
             
             /*CreateTable(
-                "dbo.wn_word",
+                "dbo.Wn_word",
                 c => new
                     {
                         synset_id = c.Decimal(nullable: false, precision: 18, scale: 2),
@@ -71,11 +71,11 @@
                         word = c.String(maxLength: 50, unicode: false),
                     })
                 .PrimaryKey(t => new { t.synset_id, t.w_num })
-                .ForeignKey("dbo.wn_synset", t => t.synset_id)
+                .ForeignKey("dbo.Wn_synset", t => t.synset_id)
                 .Index(t => t.synset_id);
             
             CreateTable(
-                "dbo.wn_synset",
+                "dbo.Wn_synset",
                 c => new
                     {
                         synset_id = c.Decimal(nullable: false, precision: 18, scale: 2),
@@ -84,7 +84,7 @@
                 .PrimaryKey(t => t.synset_id);
             
             CreateTable(
-                "dbo.wn_antonym",
+                "dbo.Wn_antonym",
                 c => new
                     {
                         synset_id_1 = c.Decimal(nullable: false, precision: 18, scale: 2),
@@ -93,13 +93,13 @@
                         wnum_2 = c.Decimal(nullable: false, precision: 18, scale: 2),
                     })
                 .PrimaryKey(t => new { t.synset_id_1, t.wnum_1, t.synset_id_2, t.wnum_2 })
-                .ForeignKey("dbo.wn_synset", t => t.synset_id_1)
-                .ForeignKey("dbo.wn_synset", t => t.synset_id_2)
+                .ForeignKey("dbo.Wn_synset", t => t.synset_id_1)
+                .ForeignKey("dbo.Wn_synset", t => t.synset_id_2)
                 .Index(t => t.synset_id_1)
                 .Index(t => t.synset_id_2);
             
             CreateTable(
-                "dbo.wn_derived",
+                "dbo.Wn_derived",
                 c => new
                     {
                         synset_id_1 = c.Decimal(nullable: false, precision: 18, scale: 2),
@@ -108,13 +108,13 @@
                         wnum_2 = c.Decimal(nullable: false, precision: 18, scale: 2),
                     })
                 .PrimaryKey(t => new { t.synset_id_1, t.wnum_1, t.synset_id_2, t.wnum_2 })
-                .ForeignKey("dbo.wn_synset", t => t.synset_id_1)
-                .ForeignKey("dbo.wn_synset", t => t.synset_id_2)
+                .ForeignKey("dbo.Wn_synset", t => t.synset_id_1)
+                .ForeignKey("dbo.Wn_synset", t => t.synset_id_2)
                 .Index(t => t.synset_id_1)
                 .Index(t => t.synset_id_2);
             
             CreateTable(
-                "dbo.wn_see_also",
+                "dbo.Wn_see_also",
                 c => new
                     {
                         synset_id_1 = c.Decimal(nullable: false, precision: 18, scale: 2),
@@ -123,13 +123,13 @@
                         wnum_2 = c.Decimal(nullable: false, precision: 18, scale: 2),
                     })
                 .PrimaryKey(t => new { t.synset_id_1, t.wnum_1, t.synset_id_2, t.wnum_2 })
-                .ForeignKey("dbo.wn_synset", t => t.synset_id_1)
-                .ForeignKey("dbo.wn_synset", t => t.synset_id_2)
+                .ForeignKey("dbo.Wn_synset", t => t.synset_id_1)
+                .ForeignKey("dbo.Wn_synset", t => t.synset_id_2)
                 .Index(t => t.synset_id_1)
                 .Index(t => t.synset_id_2);
             
             CreateTable(
-                "dbo.wn_verb_frame",
+                "dbo.Wn_verb_frame",
                 c => new
                     {
                         synset_id_1 = c.Decimal(nullable: false, precision: 18, scale: 2),
@@ -137,7 +137,7 @@
                         w_num = c.Decimal(nullable: false, precision: 18, scale: 2),
                     })
                 .PrimaryKey(t => new { t.synset_id_1, t.f_num, t.w_num })
-                .ForeignKey("dbo.wn_synset", t => t.synset_id_1)
+                .ForeignKey("dbo.Wn_synset", t => t.synset_id_1)
                 .Index(t => t.synset_id_1);*/
             
             CreateTable(
@@ -187,7 +187,7 @@
                     })
                 .PrimaryKey(t => new { t.AccountID, t.WordNum, t.SynsetID })
                 .ForeignKey("dbo.Account", t => t.AccountID, cascadeDelete: true)
-                .ForeignKey("dbo.wn_word", t => new { t.WordNum, t.SynsetID }, cascadeDelete: true)
+                .ForeignKey("dbo.Wn_word", t => new { t.WordNum, t.SynsetID }, cascadeDelete: true)
                 .Index(t => t.AccountID)
                 .Index(t => new { t.WordNum, t.SynsetID });
             
@@ -217,67 +217,67 @@
                 .PrimaryKey(t => t.PacketID);
             
             /*CreateTable(
-                "pbl3.wn_entails",
+                "pbl3.Wn_entails",
                 c => new
                     {
                         synset_id_1 = c.Decimal(nullable: false, precision: 18, scale: 2),
                         synset_id_2 = c.Decimal(nullable: false, precision: 18, scale: 2),
                     })
                 .PrimaryKey(t => new { t.synset_id_1, t.synset_id_2 })
-                .ForeignKey("dbo.wn_synset", t => t.synset_id_1)
-                .ForeignKey("dbo.wn_synset", t => t.synset_id_2)
+                .ForeignKey("dbo.Wn_synset", t => t.synset_id_1)
+                .ForeignKey("dbo.Wn_synset", t => t.synset_id_2)
                 .Index(t => t.synset_id_1)
                 .Index(t => t.synset_id_2);
             
             CreateTable(
-                "pbl3.wn_hypernym",
+                "pbl3.Wn_hypernym",
                 c => new
                     {
                         synset_id_1 = c.Decimal(nullable: false, precision: 18, scale: 2),
                         synset_id_2 = c.Decimal(nullable: false, precision: 18, scale: 2),
                     })
                 .PrimaryKey(t => new { t.synset_id_1, t.synset_id_2 })
-                .ForeignKey("dbo.wn_synset", t => t.synset_id_1)
-                .ForeignKey("dbo.wn_synset", t => t.synset_id_2)
+                .ForeignKey("dbo.Wn_synset", t => t.synset_id_1)
+                .ForeignKey("dbo.Wn_synset", t => t.synset_id_2)
                 .Index(t => t.synset_id_1)
                 .Index(t => t.synset_id_2);
             
             CreateTable(
-                "pbl3.wn_hyponym",
+                "pbl3.Wn_hyponym",
                 c => new
                     {
                         synset_id_1 = c.Decimal(nullable: false, precision: 18, scale: 2),
                         synset_id_2 = c.Decimal(nullable: false, precision: 18, scale: 2),
                     })
                 .PrimaryKey(t => new { t.synset_id_1, t.synset_id_2 })
-                .ForeignKey("dbo.wn_synset", t => t.synset_id_1)
-                .ForeignKey("dbo.wn_synset", t => t.synset_id_2)
+                .ForeignKey("dbo.Wn_synset", t => t.synset_id_1)
+                .ForeignKey("dbo.Wn_synset", t => t.synset_id_2)
                 .Index(t => t.synset_id_1)
                 .Index(t => t.synset_id_2);
             
             CreateTable(
-                "pbl3.wn_similar",
+                "pbl3.Wn_similar",
                 c => new
                     {
                         synset_id_1 = c.Decimal(nullable: false, precision: 18, scale: 2),
                         synset_id_2 = c.Decimal(nullable: false, precision: 18, scale: 2),
                     })
                 .PrimaryKey(t => new { t.synset_id_1, t.synset_id_2 })
-                .ForeignKey("dbo.wn_synset", t => t.synset_id_1)
-                .ForeignKey("dbo.wn_synset", t => t.synset_id_2)
+                .ForeignKey("dbo.Wn_synset", t => t.synset_id_1)
+                .ForeignKey("dbo.Wn_synset", t => t.synset_id_2)
                 .Index(t => t.synset_id_1)
                 .Index(t => t.synset_id_2);
             
             CreateTable(
-                "dbo.wn_verb_group",
+                "dbo.Wn_verb_group",
                 c => new
                     {
                         synset_id_1 = c.Decimal(nullable: false, precision: 18, scale: 2),
                         synset_id_2 = c.Decimal(nullable: false, precision: 18, scale: 2),
                     })
                 .PrimaryKey(t => new { t.synset_id_1, t.synset_id_2 })
-                .ForeignKey("dbo.wn_synset", t => t.synset_id_1)
-                .ForeignKey("dbo.wn_synset", t => t.synset_id_2)
+                .ForeignKey("dbo.Wn_synset", t => t.synset_id_1)
+                .ForeignKey("dbo.Wn_synset", t => t.synset_id_2)
                 .Index(t => t.synset_id_1)
                 .Index(t => t.synset_id_2);
          */   
@@ -287,43 +287,43 @@
         {
             DropForeignKey("dbo.UserPacketInfo", "PacketID", "dbo.UserPacket");
             DropForeignKey("dbo.UserPacketInfo", "AccountID", "dbo.Account");
-            DropForeignKey("dbo.Notebook", new[] { "WordNum", "SynsetID" }, "dbo.wn_word");
+            DropForeignKey("dbo.Notebook", new[] { "WordNum", "SynsetID" }, "dbo.Wn_word");
             DropForeignKey("dbo.Notebook", "AccountID", "dbo.Account");
             DropForeignKey("dbo.InformationPerDay", "AccountID", "dbo.Account");
             DropForeignKey("dbo.HistoryVietNameseContainer", "WordID", "dbo.word_viet");
             DropForeignKey("dbo.HistoryVietNameseContainer", "AccountID", "dbo.Account");
-            DropForeignKey("dbo.HistoryEnglishContainer", new[] { "WordNum", "SynsetID" }, "dbo.wn_word");
-            DropForeignKey("dbo.wn_word", "synset_id", "dbo.wn_synset");
-            DropForeignKey("dbo.wn_verb_frame", "synset_id_1", "dbo.wn_synset");
-            DropForeignKey("dbo.wn_verb_group", "synset_id_2", "dbo.wn_synset");
-            DropForeignKey("dbo.wn_verb_group", "synset_id_1", "dbo.wn_synset");
-            DropForeignKey("wn_pro_mysql.wn_similar", "synset_id_2", "dbo.wn_synset");
-            DropForeignKey("wn_pro_mysql.wn_similar", "synset_id_1", "dbo.wn_synset");
-            DropForeignKey("wn_pro_mysql.wn_hyponym", "synset_id_2", "dbo.wn_synset");
-            DropForeignKey("wn_pro_mysql.wn_hyponym", "synset_id_1", "dbo.wn_synset");
-            DropForeignKey("wn_pro_mysql.wn_hypernym", "synset_id_2", "dbo.wn_synset");
-            DropForeignKey("wn_pro_mysql.wn_hypernym", "synset_id_1", "dbo.wn_synset");
-            DropForeignKey("wn_pro_mysql.wn_entails", "synset_id_2", "dbo.wn_synset");
-            DropForeignKey("wn_pro_mysql.wn_entails", "synset_id_1", "dbo.wn_synset");
-            DropForeignKey("dbo.wn_see_also", "synset_id_2", "dbo.wn_synset");
-            DropForeignKey("dbo.wn_see_also", "synset_id_1", "dbo.wn_synset");
-            DropForeignKey("dbo.wn_derived", "synset_id_2", "dbo.wn_synset");
-            DropForeignKey("dbo.wn_derived", "synset_id_1", "dbo.wn_synset");
-            DropForeignKey("dbo.wn_antonym", "synset_id_2", "dbo.wn_synset");
-            DropForeignKey("dbo.wn_antonym", "synset_id_1", "dbo.wn_synset");
+            DropForeignKey("dbo.HistoryEnglishContainer", new[] { "WordNum", "SynsetID" }, "dbo.Wn_word");
+            DropForeignKey("dbo.Wn_word", "synset_id", "dbo.Wn_synset");
+            DropForeignKey("dbo.Wn_verb_frame", "synset_id_1", "dbo.Wn_synset");
+            DropForeignKey("dbo.Wn_verb_group", "synset_id_2", "dbo.Wn_synset");
+            DropForeignKey("dbo.Wn_verb_group", "synset_id_1", "dbo.Wn_synset");
+            DropForeignKey("Wn_pro_mysql.Wn_similar", "synset_id_2", "dbo.Wn_synset");
+            DropForeignKey("Wn_pro_mysql.Wn_similar", "synset_id_1", "dbo.Wn_synset");
+            DropForeignKey("Wn_pro_mysql.Wn_hyponym", "synset_id_2", "dbo.Wn_synset");
+            DropForeignKey("Wn_pro_mysql.Wn_hyponym", "synset_id_1", "dbo.Wn_synset");
+            DropForeignKey("Wn_pro_mysql.Wn_hypernym", "synset_id_2", "dbo.Wn_synset");
+            DropForeignKey("Wn_pro_mysql.Wn_hypernym", "synset_id_1", "dbo.Wn_synset");
+            DropForeignKey("Wn_pro_mysql.Wn_entails", "synset_id_2", "dbo.Wn_synset");
+            DropForeignKey("Wn_pro_mysql.Wn_entails", "synset_id_1", "dbo.Wn_synset");
+            DropForeignKey("dbo.Wn_see_also", "synset_id_2", "dbo.Wn_synset");
+            DropForeignKey("dbo.Wn_see_also", "synset_id_1", "dbo.Wn_synset");
+            DropForeignKey("dbo.Wn_derived", "synset_id_2", "dbo.Wn_synset");
+            DropForeignKey("dbo.Wn_derived", "synset_id_1", "dbo.Wn_synset");
+            DropForeignKey("dbo.Wn_antonym", "synset_id_2", "dbo.Wn_synset");
+            DropForeignKey("dbo.Wn_antonym", "synset_id_1", "dbo.Wn_synset");
             DropForeignKey("dbo.HistoryEnglishContainer", "AccountID", "dbo.Account");
             DropForeignKey("dbo.DetailedInformation", "AccountID", "dbo.Account");
             DropForeignKey("dbo.Account", "TypeID", "dbo.AccountTypes");
-            DropIndex("dbo.wn_verb_group", new[] { "synset_id_2" });
-            DropIndex("dbo.wn_verb_group", new[] { "synset_id_1" });
-            DropIndex("wn_pro_mysql.wn_similar", new[] { "synset_id_2" });
-            DropIndex("wn_pro_mysql.wn_similar", new[] { "synset_id_1" });
-            DropIndex("wn_pro_mysql.wn_hyponym", new[] { "synset_id_2" });
-            DropIndex("wn_pro_mysql.wn_hyponym", new[] { "synset_id_1" });
-            DropIndex("wn_pro_mysql.wn_hypernym", new[] { "synset_id_2" });
-            DropIndex("wn_pro_mysql.wn_hypernym", new[] { "synset_id_1" });
-            DropIndex("wn_pro_mysql.wn_entails", new[] { "synset_id_2" });
-            DropIndex("wn_pro_mysql.wn_entails", new[] { "synset_id_1" });
+            DropIndex("dbo.Wn_verb_group", new[] { "synset_id_2" });
+            DropIndex("dbo.Wn_verb_group", new[] { "synset_id_1" });
+            DropIndex("Wn_pro_mysql.Wn_similar", new[] { "synset_id_2" });
+            DropIndex("Wn_pro_mysql.Wn_similar", new[] { "synset_id_1" });
+            DropIndex("Wn_pro_mysql.Wn_hyponym", new[] { "synset_id_2" });
+            DropIndex("Wn_pro_mysql.Wn_hyponym", new[] { "synset_id_1" });
+            DropIndex("Wn_pro_mysql.Wn_hypernym", new[] { "synset_id_2" });
+            DropIndex("Wn_pro_mysql.Wn_hypernym", new[] { "synset_id_1" });
+            DropIndex("Wn_pro_mysql.Wn_entails", new[] { "synset_id_2" });
+            DropIndex("Wn_pro_mysql.Wn_entails", new[] { "synset_id_1" });
             DropIndex("dbo.UserPacketInfo", new[] { "AccountID" });
             DropIndex("dbo.UserPacketInfo", new[] { "PacketID" });
             DropIndex("dbo.Notebook", new[] { "WordNum", "SynsetID" });
@@ -331,35 +331,35 @@
             DropIndex("dbo.InformationPerDay", new[] { "AccountID" });
             DropIndex("dbo.HistoryVietNameseContainer", new[] { "WordID" });
             DropIndex("dbo.HistoryVietNameseContainer", new[] { "AccountID" });
-            DropIndex("dbo.wn_verb_frame", new[] { "synset_id_1" });
-            DropIndex("dbo.wn_see_also", new[] { "synset_id_2" });
-            DropIndex("dbo.wn_see_also", new[] { "synset_id_1" });
-            DropIndex("dbo.wn_derived", new[] { "synset_id_2" });
-            DropIndex("dbo.wn_derived", new[] { "synset_id_1" });
-            DropIndex("dbo.wn_antonym", new[] { "synset_id_2" });
-            DropIndex("dbo.wn_antonym", new[] { "synset_id_1" });
-            DropIndex("dbo.wn_word", new[] { "synset_id" });
+            DropIndex("dbo.Wn_verb_frame", new[] { "synset_id_1" });
+            DropIndex("dbo.Wn_see_also", new[] { "synset_id_2" });
+            DropIndex("dbo.Wn_see_also", new[] { "synset_id_1" });
+            DropIndex("dbo.Wn_derived", new[] { "synset_id_2" });
+            DropIndex("dbo.Wn_derived", new[] { "synset_id_1" });
+            DropIndex("dbo.Wn_antonym", new[] { "synset_id_2" });
+            DropIndex("dbo.Wn_antonym", new[] { "synset_id_1" });
+            DropIndex("dbo.Wn_word", new[] { "synset_id" });
             DropIndex("dbo.HistoryEnglishContainer", new[] { "WordNum", "SynsetID" });
             DropIndex("dbo.HistoryEnglishContainer", new[] { "AccountID" });
             DropIndex("dbo.DetailedInformation", new[] { "AccountID" });
             DropIndex("dbo.Account", new[] { "TypeID" });
-            DropTable("dbo.wn_verb_group");
-            DropTable("wn_pro_mysql.wn_similar");
-            DropTable("wn_pro_mysql.wn_hyponym");
-            DropTable("wn_pro_mysql.wn_hypernym");
-            DropTable("wn_pro_mysql.wn_entails");
+            DropTable("dbo.Wn_verb_group");
+            DropTable("Wn_pro_mysql.Wn_similar");
+            DropTable("Wn_pro_mysql.Wn_hyponym");
+            DropTable("Wn_pro_mysql.Wn_hypernym");
+            DropTable("Wn_pro_mysql.Wn_entails");
             DropTable("dbo.UserPacket");
             DropTable("dbo.UserPacketInfo");
             DropTable("dbo.Notebook");
             DropTable("dbo.InformationPerDay");
             DropTable("dbo.word_viet");
             DropTable("dbo.HistoryVietNameseContainer");
-            DropTable("dbo.wn_verb_frame");
-            DropTable("dbo.wn_see_also");
-            DropTable("dbo.wn_derived");
-            DropTable("dbo.wn_antonym");
-            DropTable("dbo.wn_synset");
-            DropTable("dbo.wn_word");
+            DropTable("dbo.Wn_verb_frame");
+            DropTable("dbo.Wn_see_also");
+            DropTable("dbo.Wn_derived");
+            DropTable("dbo.Wn_antonym");
+            DropTable("dbo.Wn_synset");
+            DropTable("dbo.Wn_word");
             DropTable("dbo.HistoryEnglishContainer");
             DropTable("dbo.DetailedInformation");
             DropTable("dbo.AccountTypes");

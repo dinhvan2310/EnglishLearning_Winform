@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using BLL.Workflows;
+using BLL.Components;
 
 namespace PBL3
 {
@@ -26,14 +27,14 @@ namespace PBL3
 
             if (LoginWorkflow.Instance.IsLoggedIn())
             {
-                UserSetting us = AppSettings.getUserSettings(LoginWorkflow.Instance.GetAccount().AccountID);
+                UserSetting us = SettingWorkflow.Instance.GetUserSettings(LoginWorkflow.Instance.GetAccount().AccountID);
                 if (us != null)
                 {
                     trkVolumn.Value = us.Volume;
-                    SoundConfig.ChangeVolumn(trkVolumn.Value * 10);
+                    SettingWorkflow.Instance.ChangeVolumn(trkVolumn.Value * 10);
                     label4.Text = (us.Volume * 10).ToString();
                     cmbVoice.SelectedIndex = (us.Voice == false) ? 0 : 1;
-                    SoundConfig.ChangeVoice(cmbVoice.SelectedIndex == 0 ? SoundConfig.Voice.Male : SoundConfig.Voice.Female);
+                    SettingWorkflow.Instance.ChangeVoice(cmbVoice.SelectedIndex == 0 ? Voice.Male : Voice.Female);
                 }
             }
         }
@@ -44,9 +45,9 @@ namespace PBL3
         {
             if (LoginWorkflow.Instance.IsLoggedIn())
             {
-                AppSettings.setUserSettings(LoginWorkflow.Instance.GetAccount().AccountID, trkVolumn.Value, cmbVoice.SelectedIndex == 0 ? false : true);
+                SettingWorkflow.Instance.SetUserSettings(LoginWorkflow.Instance.GetAccount().AccountID, trkVolumn.Value, cmbVoice.SelectedIndex == 0 ? false : true);
             }
-            SoundConfig.ChangeVolumn(trkVolumn.Value * 10);
+            SettingWorkflow.Instance.ChangeVolumn(trkVolumn.Value * 10);
             label4.Text = (trkVolumn.Value * 10).ToString();
         }
 
@@ -54,9 +55,9 @@ namespace PBL3
         {
             if (LoginWorkflow.Instance.IsLoggedIn())
             {
-                AppSettings.setUserSettings(LoginWorkflow.Instance.GetAccount().AccountID, trkVolumn.Value, cmbVoice.SelectedIndex == 0 ? false : true);
+                SettingWorkflow.Instance.SetUserSettings(LoginWorkflow.Instance.GetAccount().AccountID, trkVolumn.Value, cmbVoice.SelectedIndex == 0 ? false : true);
             }
-            SoundConfig.ChangeVoice(cmbVoice.SelectedIndex == 0 ? SoundConfig.Voice.Male : SoundConfig.Voice.Female);
+            SettingWorkflow.Instance.ChangeVoice(cmbVoice.SelectedIndex == 0 ? Voice.Male : Voice.Female);
         }
 
     }

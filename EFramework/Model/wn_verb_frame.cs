@@ -6,7 +6,7 @@ namespace EFramework.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("wn_verb_frame")]
+    [Table("Wn_verb_frame")]
     public partial class wn_verb_frame
     {
         [Key]
@@ -21,6 +21,6 @@ namespace EFramework.Model
         [Column(Order = 2)]
         public decimal w_num { get; set; }
 
-        public virtual wn_synset wn_synset { get; set; }
+        public virtual wn_synset Wn_synset { get; set; }
     }
 }

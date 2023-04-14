@@ -269,7 +269,6 @@ D:\Source\Visual Studio\C#\PBL3\BLL\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
 D:\Source\Visual Studio\C#\PBL3\BLL\bin\Debug\Microsoft.Bcl.HashCode.dll
 D:\Source\Visual Studio\C#\PBL3\BLL\bin\Debug\MySql.Data.dll
 D:\Source\Visual Studio\C#\PBL3\BLL\bin\Debug\MySql.Data.EntityFramework.dll
-D:\Source\Visual Studio\C#\PBL3\BLL\bin\Debug\PBLLibrary.dll
 D:\Source\Visual Studio\C#\PBL3\BLL\bin\Debug\System.Buffers.dll
 D:\Source\Visual Studio\C#\PBL3\BLL\bin\Debug\System.Collections.Immutable.dll
 D:\Source\Visual Studio\C#\PBL3\BLL\bin\Debug\System.ComponentModel.Annotations.dll
@@ -279,7 +278,6 @@ D:\Source\Visual Studio\C#\PBL3\BLL\bin\Debug\System.Numerics.Vectors.dll
 D:\Source\Visual Studio\C#\PBL3\BLL\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 D:\Source\Visual Studio\C#\PBL3\BLL\bin\Debug\System.Threading.Tasks.Extensions.dll
 D:\Source\Visual Studio\C#\PBL3\BLL\bin\Debug\ZstdNet.dll
-D:\Source\Visual Studio\C#\PBL3\BLL\bin\Debug\PBLLibrary.pdb
 D:\Source\Visual Studio\C#\PBL3\BLL\bin\Debug\BouncyCastle.Crypto.xml
 D:\Source\Visual Studio\C#\PBL3\BLL\bin\Debug\EntityFramework.xml
 D:\Source\Visual Studio\C#\PBL3\BLL\bin\Debug\EntityFramework.SqlServer.xml
@@ -368,3 +366,7 @@ D:\PBL3\PBL_Khoa\PLB3\PLB3\BLL\obj\Debug\BLL.exe
 D:\PBL3\PBL_Khoa\PLB3\PLB3\BLL\obj\Debug\BLL.pdb
 D:\PBL3\PBL_Khoa\PLB3\PLB3\BLL\bin\Debug\Newtonsoft.Json.dll
 D:\PBL3\PBL_Khoa\PLB3\PLB3\BLL\bin\Debug\Newtonsoft.Json.xml
+D:\Source\Visual Studio\C#\PBL3\BLL\bin\Debug\Newtonsoft.Json.dll
+D:\Source\Visual Studio\C#\PBL3\BLL\bin\Debug\Newtonsoft.Json.xml
+D:\Source\Visual Studio\C#\PBL3\BLL\bin\Debug\Library.dll
+D:\Source\Visual Studio\C#\PBL3\BLL\bin\Debug\Library.pdb

@@ -19,6 +19,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Windows.Forms.VisualStyles;
 using System.Windows.Media.Media3D;
+using Library;
 
 namespace PBL3
 {
@@ -397,7 +398,7 @@ namespace PBL3
                     ActiveControl = txtEmail;
                     txtEmail.ReadOnly = false;
 
-                    txtEmail.ForeColor = ColorConfig.TextColor;
+                    txtEmail.ForeColor = Color.FromArgb(240, 237, 254);
                     panelVerify.Location = new Point(-474, panelVerify.Location.Y);
                     panelVerify.Visible = false;
                 }

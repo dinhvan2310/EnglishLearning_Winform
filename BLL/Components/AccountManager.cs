@@ -23,7 +23,7 @@ namespace BLL.Components
                 {
                     account.TypeID = 4; // User type ID
 
-                    dbContext.account.Add(account);
+                    dbContext.Account.Add(account);
                     dbContext.SaveChanges();
                 }
                 return true;
@@ -39,7 +39,7 @@ namespace BLL.Components
         {
             using (var dbContext = new DictionaryContext())
             {
-                Account old = dbContext.account.SingleOrDefault(p => p.AccountID == account.AccountID);
+                Account old = dbContext.Account.SingleOrDefault(p => p.AccountID == account.AccountID);
 
                 old.Name = account.Name;
                 old.Email = account.Email;
@@ -56,7 +56,7 @@ namespace BLL.Components
         {
             using (var dbContext = new DictionaryContext())
             {
-                return dbContext.account.SingleOrDefault(p => p.AccountID == accountID);
+                return dbContext.Account.SingleOrDefault(p => p.AccountID == accountID);
             }
         }
 
@@ -64,7 +64,7 @@ namespace BLL.Components
         {
             using (var dbContext = new DictionaryContext())
             {
-                return dbContext.detailedInformation.Single(p => p.AccountID == accountID);
+                return dbContext.DetailedInformation.Single(p => p.AccountID == accountID);
             }
         }
 
@@ -79,7 +79,7 @@ namespace BLL.Components
             {
                 var today = Convert.ToInt32(DateTime.Today.ToString("yyyyMMdd"));
 
-                var rs = db.informationPerDay.SingleOrDefault(p => p.AccountID == userID && p.DayID == today);
+                var rs = db.InformationPerDay.SingleOrDefault(p => p.AccountID == userID && p.DayID == today);
 
                 if (rs == null)
                 {
@@ -90,7 +90,7 @@ namespace BLL.Components
                         OnlineHour = 0,
                         DayID = today
                     };
-                    db.informationPerDay.Add(infor);
+                    db.InformationPerDay.Add(infor);
                     db.SaveChanges();
                 }
                 else
@@ -109,7 +109,7 @@ namespace BLL.Components
             {
                 LearningStats result = new LearningStats();
 
-                var rs = db.informationPerDay
+                var rs = db.InformationPerDay
                                     .Where(p => p.AccountID == userID)
                                     .OrderBy(p => p.DayID)
                                     .ToList();

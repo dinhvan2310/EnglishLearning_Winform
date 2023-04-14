@@ -6,7 +6,7 @@
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("wn_similar")]
+    [Table("Wn_similar")]
     public partial class wn_similar
     {
         [Key]
@@ -17,8 +17,8 @@
         [Column(Order = 1)]
         public decimal synset_id_2 { get; set; }
 
-        public virtual wn_synset wn_synset { get; set; }
+        public virtual wn_synset Wn_synset { get; set; }
 
-        public virtual wn_synset wn_synset1 { get; set; }
+        public virtual wn_synset Wn_synset1 { get; set; }
     }
 }

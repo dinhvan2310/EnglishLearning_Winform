@@ -16,7 +16,7 @@ namespace BLL.Components
             {
                 UserPacket result = new UserPacket();
 
-                result = dbContext.userPacket
+                result = dbContext.UserPacket
                         .Single(p => p.Name == packetName);
 
                 return result;

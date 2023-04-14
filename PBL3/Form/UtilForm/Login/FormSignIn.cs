@@ -116,7 +116,7 @@ namespace PBL3
             {
                 if (LoginWorkflow.Instance.Login(txtUsername.Text, txtPasswrd.Text))
                 {
-                    if (rjToggleButton1.Checked)
+                    if (btnSave.Checked)
                     {
                         LoginWorkflow.Instance.ActiveRememberMeLogin(txtUsername.Text, txtPasswrd.Text);
                     }
@@ -125,7 +125,7 @@ namespace PBL3
                         LoginWorkflow.Instance.DisableRememberMeLogin();
                     }
 
-                    AppSettings.ApplyUserSettings(LoginWorkflow.Instance.GetAccount().AccountID);
+                    SettingWorkflow.Instance.ApplyUserSettings(LoginWorkflow.Instance.GetAccount().AccountID);
 
                     GlobalForm.MainForm.StartPosition = FormStartPosition.CenterScreen;
                     GlobalForm.MainForm.Show();

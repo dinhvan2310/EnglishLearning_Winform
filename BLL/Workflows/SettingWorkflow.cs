@@ -1,5 +1,7 @@
-﻿using Newtonsoft.Json;
+﻿using BLL.Components;
 using PBLLibrary;
+using Library;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,33 +11,76 @@ using System.Threading.Tasks;
 
 namespace BLL.Workflows
 {
-    public static class AppSettings
+    public class SettingWorkflow
     {
-        public static void ApplyUserSettings(int UserID)
+        public static SettingWorkflow Instance
         {
-            string fileFullPath = GlobalConfig.Instance.PathFileAppSettings() + "UserSettings.json";
+            get
+            {
+                if (_Instance == null)
+                    _Instance = new SettingWorkflow();
+
+                return _Instance;
+            }
+
+            private set { }
+        }
+        private static SettingWorkflow _Instance;
+
+        private SoundManager _SoundManager;
+        private ColorManager _ColorManager;
+
+        private SettingWorkflow()
+        {
+            _SoundManager = new SoundManager();
+            _ColorManager = new ColorManager();
+        }
+
+        public void Speak(string sentence)
+        {
+            _SoundManager.Speak(sentence);
+        }
+
+        public void ChangeVolumn(int volumn)
+        {
+            _SoundManager.ChangeVolumn(volumn);
+        }
+
+        public void ChangeVoice(Voice voice)
+        {
+            _SoundManager.ChangeVoice(voice);
+        }
+
+        public bool IsSpeaking()
+        {
+            return _SoundManager.IsSpeaking;
+        }
+
+        public void ApplyUserSettings(int UserID)
+        {
+            string fileFullPath = GlobalConfig.Instance.PathFileJS() + "UserSettings.json";
             string json = File.ReadAllText(fileFullPath);
             JsonConvert.DeserializeObject<List<UserSetting>>(json).ForEach(item =>
             {
                 if (item.UserId == UserID)
                 {
-                    SoundConfig.ChangeVolumn(item.Volume * 10);
-                    SoundConfig.ChangeVoice(item.Voice == false ? SoundConfig.Voice.Male : SoundConfig.Voice.Female);
+                    ChangeVolumn(item.Volume * 10);
+                    ChangeVoice(item.Voice == false ? Voice.Male : Voice.Female);
                 }
             });
         }
 
-        public static UserSetting getUserSettings(int UserID)
+        public UserSetting GetUserSettings(int UserID)
         {
-            string fileFullPath = GlobalConfig.Instance.PathFileAppSettings() + "UserSettings.json";
+            string fileFullPath = GlobalConfig.Instance.PathFileJS() + "UserSettings.json";
             string json = File.ReadAllText(fileFullPath);
             return JsonConvert.DeserializeObject<List<UserSetting>>(json).FirstOrDefault(p => p.UserId == UserID);
         }
 
-        public static void setUserSettings(int UserID, int Volume, bool Voice)
+        public void SetUserSettings(int UserID, int Volume, bool Voice)
         {
             List<UserSetting> userSettings = new List<UserSetting>();
-            string fileFullPath = GlobalConfig.Instance.PathFileAppSettings() + "UserSettings.json"; 
+            string fileFullPath = GlobalConfig.Instance.PathFileJS() + "UserSettings.json"; 
             try
             {
                 string json = File.ReadAllText(fileFullPath);

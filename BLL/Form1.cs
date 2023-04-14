@@ -24,10 +24,10 @@ namespace BLL
 
             /*using (var dbContext = new Model1())
             {
-                *//*var li = dbContext.wn_synset.Where(p => p.synset_id == 100001740).FirstOrDefault();
-                List<wn_synset> list = new List<wn_synset>();
-                dbContext.Entry(li).Collection(p => p.wn_synset12).Load();
-                list = li.wn_synset12.ToList();
+                *//*var li = dbContext.Wn_synset.Where(p => p.synset_id == 100001740).FirstOrDefault();
+                List<Wn_synset> list = new List<Wn_synset>();
+                dbContext.Entry(li).Collection(p => p.Wn_synset12).Load();
+                list = li.Wn_synset12.ToList();
 
                 
 
@@ -37,12 +37,12 @@ namespace BLL
 
                 textBox1.Text = list.Count.ToString();*/
 
-            /*var results = (from i in dbContext.wn_word
+            /*var results = (from i in dbContext.Wn_word
                        where i.word.Contains("Ru")
                        select new WordModel() {Word = i.word}
                        ).Distinct().Take(10).ToList();*//*
 
-            dataGridView1.DataSource = dbContext.wn_word.ToList();
+            dataGridView1.DataSource = dbContext.Wn_word.ToList();
         }*/
             DataManager dm = new DataManager();
             dataGridView1.DataSource = dm.EDictionaryManager.GetWord_ByFilter("ru", 10, true);

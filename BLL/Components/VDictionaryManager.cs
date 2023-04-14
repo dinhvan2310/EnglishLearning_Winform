@@ -27,7 +27,7 @@ namespace BLL.Components
                 List<string> results = new List<string>() { "", "", "", "", "", "", "", ""};
                 List<string> listString = new List<string>();
 
-                string HTMLCode = (dbContext.word_viet.Where(i => i.word == word).FirstOrDefault().detail);
+                string HTMLCode = (dbContext.Word_viet.Where(i => i.word == word).FirstOrDefault().detail);
 
                 HTMLCode = HTMLCode.Replace("\n", " ");
                 HTMLCode = HTMLCode.Replace("\t", " ");
@@ -137,7 +137,7 @@ namespace BLL.Components
                 bool endWith = filter[0] == '%';
                 filter = filter.Replace("%", "");
 
-                words = dbContext.word_viet
+                words = dbContext.Word_viet
                                 .Where(w =>
                                     startWith && endWith ? w.word.Contains(filter) :
                                     startWith ? w.word.StartsWith(filter) :

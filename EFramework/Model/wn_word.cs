@@ -6,7 +6,7 @@ namespace EFramework.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("wn_word")]
+    [Table("Wn_word")]
     public partial class wn_word
     {
         public wn_word()
@@ -26,7 +26,7 @@ namespace EFramework.Model
         [StringLength(50)]
         public string word { get; set; }
 
-        public virtual wn_synset wn_synset { get; set; }
+        public virtual wn_synset Wn_synset { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HistoryEnglishContainer> HistoryContainer { get; set; }

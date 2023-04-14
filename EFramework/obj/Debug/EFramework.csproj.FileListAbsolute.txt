@@ -10,13 +10,11 @@ D:\Source\Visual Studio\C#\PBL3\EFramework\bin\Debug\K4os.Compression.LZ4.Stream
 D:\Source\Visual Studio\C#\PBL3\EFramework\bin\Debug\K4os.Hash.xxHash.dll
 D:\Source\Visual Studio\C#\PBL3\EFramework\bin\Debug\MySql.Data.dll
 D:\Source\Visual Studio\C#\PBL3\EFramework\bin\Debug\MySql.Data.EntityFramework.dll
-D:\Source\Visual Studio\C#\PBL3\EFramework\bin\Debug\PBLLibrary.dll
 D:\Source\Visual Studio\C#\PBL3\EFramework\bin\Debug\System.Buffers.dll
 D:\Source\Visual Studio\C#\PBL3\EFramework\bin\Debug\System.Memory.dll
 D:\Source\Visual Studio\C#\PBL3\EFramework\bin\Debug\System.Numerics.Vectors.dll
 D:\Source\Visual Studio\C#\PBL3\EFramework\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
 D:\Source\Visual Studio\C#\PBL3\EFramework\bin\Debug\ZstdNet.dll
-D:\Source\Visual Studio\C#\PBL3\EFramework\bin\Debug\PBLLibrary.pdb
 D:\Source\Visual Studio\C#\PBL3\EFramework\bin\Debug\BouncyCastle.Crypto.xml
 D:\Source\Visual Studio\C#\PBL3\EFramework\bin\Debug\EntityFramework.xml
 D:\Source\Visual Studio\C#\PBL3\EFramework\bin\Debug\EntityFramework.SqlServer.xml
@@ -80,3 +78,5 @@ D:\PBL3\PBL_Khoa\PLB3\PLB3\EFramework\obj\Debug\EFramework.csproj.CoreCompileInp
 D:\PBL3\PBL_Khoa\PLB3\PLB3\EFramework\obj\Debug\EFramework.csproj.CopyComplete
 D:\PBL3\PBL_Khoa\PLB3\PLB3\EFramework\obj\Debug\EFramework.dll
 D:\PBL3\PBL_Khoa\PLB3\PLB3\EFramework\obj\Debug\EFramework.pdb
+D:\Source\Visual Studio\C#\PBL3\EFramework\bin\Debug\Library.dll
+D:\Source\Visual Studio\C#\PBL3\EFramework\bin\Debug\Library.pdb

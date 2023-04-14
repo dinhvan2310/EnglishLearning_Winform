@@ -126,18 +126,18 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PBLLibrary\PBLLibrary.csproj">
-      <Project>{24530946-4023-4A8D-97D3-42235E6D1F85}</Project>
-      <Name>PBLLibrary</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Migrations\202303311414345_itit.resx">
       <DependentUpon>202303311414345_itit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202304011110481_ititit.resx">
       <DependentUpon>202304011110481_ititit.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Library\PBLLibrary.csproj">
+      <Project>{0C1224B9-41D9-45F5-A7E8-D231970D904D}</Project>
+      <Name>PBLLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

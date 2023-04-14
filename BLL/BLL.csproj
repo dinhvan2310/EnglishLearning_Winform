@@ -99,6 +99,7 @@
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Speech" />
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
@@ -115,16 +116,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\AccountManager.cs" />
+    <Compile Include="Components\ColorManager.cs" />
     <Compile Include="Components\EDictionaryMananger.cs" />
     <Compile Include="Components\EmailManager.cs" />
     <Compile Include="Components\NotebookManager.cs" />
     <Compile Include="Components\PackageManager.cs" />
+    <Compile Include="Components\SoundManager.cs" />
     <Compile Include="Components\Validator.cs" />
     <Compile Include="Components\VDictionaryManager.cs" />
     <Compile Include="TransferObjects\LearningStats.cs" />
     <Compile Include="TransferObjects\NotebookCard.cs" />
     <Compile Include="TransferObjects\SynsetModel.cs" />
     <Compile Include="TransferObjects\WordModel.cs" />
+    <Compile Include="Workflows\SettingWorkflow.cs" />
     <Compile Include="Workflows\DataManager.cs" />
     <Compile Include="Workflows\LoginWorkflow.cs" />
     <Compile Include="Form1.cs">
@@ -147,6 +151,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="JS\UserSettings.json" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -157,7 +162,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="RememberMeLogin\RememberMeLogin.json" />
+    <None Include="JS\RememberMeLogin.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -167,8 +172,8 @@
       <Project>{2EB5A798-CF40-486D-9851-FED76EE3CFA5}</Project>
       <Name>EFramework</Name>
     </ProjectReference>
-    <ProjectReference Include="..\PBLLibrary\PBLLibrary.csproj">
-      <Project>{24530946-4023-4a8d-97d3-42235e6d1f85}</Project>
+    <ProjectReference Include="..\Library\PBLLibrary.csproj">
+      <Project>{0C1224B9-41D9-45F5-A7E8-D231970D904D}</Project>
       <Name>PBLLibrary</Name>
     </ProjectReference>
   </ItemGroup>

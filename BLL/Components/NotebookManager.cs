@@ -17,7 +17,7 @@ namespace BLL.Components
         {
             using (var db = new DictionaryContext())
             {
-                var rs = db.notebook.Where(p => p.AccountID == userID
+                var rs = db.Notebook.Where(p => p.AccountID == userID
                 && p.Wn_Word.word.ToLower() == word.ToLower()).FirstOrDefault();
                 if (rs == null)
                 {
@@ -34,7 +34,7 @@ namespace BLL.Components
             {
                 using (var db = new DictionaryContext())
                 {
-                    var w = db.wn_word
+                    var w = db.Wn_word
                         .Where(p => p.word.ToLower() == word.ToLower())
                         .Select(p => new { p.w_num, p.synset_id })
                         .FirstOrDefault();
@@ -48,7 +48,7 @@ namespace BLL.Components
                             SynsetID = w.synset_id,
                             LearnedPercent = 0
                         };
-                        db.notebook.Add(notebook);
+                        db.Notebook.Add(notebook);
 
                         db.SaveChanges();
                     }
@@ -62,10 +62,10 @@ namespace BLL.Components
             {
                 using (var db = new DictionaryContext())
                 {
-                    var rs = db.notebook
+                    var rs = db.Notebook
                         .Where(p => p.Wn_Word.word.Equals(word) && p.AccountID == userID)
                         .FirstOrDefault();
-                    db.notebook.Remove(rs);
+                    db.Notebook.Remove(rs);
                     db.SaveChanges();
                 }
             }
@@ -77,7 +77,7 @@ namespace BLL.Components
             {
                 List<NotebookCard> result = new List<NotebookCard>();
 
-                List<Notebook> temps = db.notebook
+                List<Notebook> temps = db.Notebook
                     .Where(p => p.AccountID == userID)
                     .ToList();
 
@@ -99,7 +99,7 @@ namespace BLL.Components
 
                 if (order == "ascending")
                 {
-                    temps = db.notebook
+                    temps = db.Notebook
                         .Where(w => w.AccountID == userID)
                         .OrderBy(w => w.LearnedPercent)
                         .ToList();
@@ -107,7 +107,7 @@ namespace BLL.Components
                 }
                 else
                 {
-                    temps = db.notebook.Where(w => w.AccountID == userID)
+                    temps = db.Notebook.Where(w => w.AccountID == userID)
                         .OrderByDescending(w => w.LearnedPercent)
                         .ToList();
                 }
@@ -126,7 +126,7 @@ namespace BLL.Components
         {
             using (var db = new DictionaryContext())
             {
-                return db.notebook.Count();
+                return db.Notebook.Count();
             }
         }
     }

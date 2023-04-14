@@ -1,5 +1,4 @@
-﻿using PBLLibrary;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
@@ -7,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PBLLibrary
+namespace Library
 {
     public class GlobalConfig
     {
@@ -39,14 +38,9 @@ namespace PBLLibrary
             return ConfigurationManager.ConnectionStrings[name].ConnectionString;
         }
 
-        public string PathFileAppSettings()
+        public string PathFileJS()
         {
-            return Directory.GetCurrentDirectory() + @"\..\..\..\PBL3\AppSettings\";
-        }
-
-        public string PathFileRememberMeLogin()
-        {
-            return Directory.GetCurrentDirectory() + @"\..\..\..\BLL\RememberMeLogin\";
+            return Directory.GetCurrentDirectory() + @"\..\..\..\BLL\JS\";
         }
     }
 }

@@ -210,15 +210,13 @@ namespace PBL3
 
         private void btnSpeak_Click(object sender, EventArgs e)
         {
-            if (SoundConfig.IsSpeaking)
+            if (SettingWorkflow.Instance.IsSpeaking())
             {
                 return;
             }
 
             Task.Run(() => {
-                SoundConfig.IsSpeaking = true;
-                SoundConfig.Speak(lblWord.Text);
-                SoundConfig.IsSpeaking = false;
+                SettingWorkflow.Instance.Speak(lblWord.Text);
             });
         }
 

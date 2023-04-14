@@ -12,7 +12,7 @@ using EFramework;
 using EFramework.Model;
 using Newtonsoft.Json;
 using PBLLibrary;
-
+using Library;
 
 namespace BLL.Workflows
 {
@@ -38,7 +38,7 @@ namespace BLL.Workflows
  
         private static LoginWorkflow _Instance;
 
-        private string key = "2giotoitaigoccayda";
+        private string _Key = "2giotoitaigoccayda";
 
         private LoginWorkflow()
         {
@@ -65,10 +65,10 @@ namespace BLL.Workflows
             if (useHashing)
             {
                 MD5CryptoServiceProvider hashmd5 = new MD5CryptoServiceProvider();
-                keyArray = hashmd5.ComputeHash(UTF8Encoding.UTF8.GetBytes(key));
+                keyArray = hashmd5.ComputeHash(UTF8Encoding.UTF8.GetBytes(_Key));
             }
             else
-                keyArray = UTF8Encoding.UTF8.GetBytes(key);
+                keyArray = UTF8Encoding.UTF8.GetBytes(_Key);
 
             TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
             tdes.Key = keyArray;
@@ -95,10 +95,10 @@ namespace BLL.Workflows
             if (useHashing)
             {
                 MD5CryptoServiceProvider hashmd5 = new MD5CryptoServiceProvider();
-                keyArray = hashmd5.ComputeHash(UTF8Encoding.UTF8.GetBytes(key));
+                keyArray = hashmd5.ComputeHash(UTF8Encoding.UTF8.GetBytes(_Key));
             }
             else
-                keyArray = UTF8Encoding.UTF8.GetBytes(key);
+                keyArray = UTF8Encoding.UTF8.GetBytes(_Key);
 
             TripleDESCryptoServiceProvider tdes = new TripleDESCryptoServiceProvider();
             tdes.Key = keyArray;
@@ -110,10 +110,11 @@ namespace BLL.Workflows
 
             return UTF8Encoding.UTF8.GetString(resultArray);
         }
+      
 
         public void DisableRememberMeLogin()
         {
-            string fileFullPath = GlobalConfig.Instance.PathFileRememberMeLogin() + "RememberMeLogin.json";
+            string fileFullPath = GlobalConfig.Instance.PathFileJS() + "RememberMeLogin.json";
             string json = File.ReadAllText(fileFullPath);
             dynamic jsonObj = JsonConvert.DeserializeObject(json);
             jsonObj = new
@@ -128,7 +129,7 @@ namespace BLL.Workflows
 
         public void ActiveRememberMeLogin(string UserID, string Password)
         {
-            string fileFullPath = GlobalConfig.Instance.PathFileRememberMeLogin() + "RememberMeLogin.json";
+            string fileFullPath = GlobalConfig.Instance.PathFileJS() + "RememberMeLogin.json";
             string json = File.ReadAllText(fileFullPath);
             dynamic jsonObj = JsonConvert.DeserializeObject(json);
 
@@ -217,7 +218,7 @@ namespace BLL.Workflows
             {
                 using (var dbContext = new DictionaryContext())
                 {
-                    if (dbContext.account.SingleOrDefault(i => i.UserName == userName) == null)
+                    if (dbContext.Account.SingleOrDefault(i => i.UserName == userName) == null)
                     {
                         return false;
                     }
@@ -240,7 +241,7 @@ namespace BLL.Workflows
             {
                 using (var dbContext = new DictionaryContext())
                 {
-                    Account account = dbContext.account.SingleOrDefault(i => i.UserName == userName);
+                    Account account = dbContext.Account.SingleOrDefault(i => i.UserName == userName);
                     if (account == null)
                     {
                         return false;
@@ -268,5 +269,49 @@ namespace BLL.Workflows
             }
         }
 
+        public bool Login()
+        {
+            try
+            {
+                string fileFullPath = GlobalConfig.Instance.PathFileJS() + "RememberMeLogin.json";
+                string json = File.ReadAllText(fileFullPath);
+                dynamic jsonObj = JsonConvert.DeserializeObject(json);
+                string userNameHash = jsonObj["UserName"].ToString();
+                string passwordHash = jsonObj["Password"].ToString();
+
+                if (userNameHash == "" || passwordHash == "")
+                    return false;
+
+                string user = Decrypt(userNameHash);
+                string password = Decrypt(passwordHash);
+                using (var dbContext = new DictionaryContext())
+                {
+                    Account account = dbContext.Account.SingleOrDefault(i => i.UserName == user);
+                    if (account == null)
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        string pass = CreateMD5(password);
+                        Console.WriteLine(pass);
+                        Console.WriteLine(account.Password);
+                        if (account.Password == pass)
+                        {
+                            _UserID = account.AccountID;
+
+                            _AccountManager.UpdateLearningStat(_UserID, 0, 0);
+                            return true;
+                        }
+                        return false;
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+                return false;
+            }
+        }
     }
 }

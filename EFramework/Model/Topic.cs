@@ -20,6 +20,6 @@ namespace BLL.EnityFramework.Model
         [Column("topic_name")]
         public string TopicName{ get; set; }
 
-        public virtual wn_synset wn_synset { get; set; }
+        public virtual wn_synset Wn_synset { get; set; }
     }
 }

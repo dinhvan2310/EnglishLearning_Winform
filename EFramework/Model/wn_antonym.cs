@@ -6,7 +6,7 @@ namespace EFramework.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("wn_antonym")]
+    [Table("Wn_antonym")]
     public partial class wn_antonym
     {
         [Key]
@@ -25,8 +25,8 @@ namespace EFramework.Model
         [Column(Order = 3)]
         public decimal wnum_2 { get; set; }
 
-        public virtual wn_synset wn_synset { get; set; }
+        public virtual wn_synset Wn_synset { get; set; }
 
-        public virtual wn_synset wn_synset1 { get; set; }
+        public virtual wn_synset Wn_synset1 { get; set; }
     }
 }
