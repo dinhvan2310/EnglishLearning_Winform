@@ -34,7 +34,6 @@ namespace EFramework
         public virtual DbSet<UserPacketInfo> UserPacketInfo { get; set; }
         public virtual DbSet<UserPacket> UserPacket { get; set; }
         public virtual DbSet<Notebook> Notebook { get; set; }
-        public virtual DbSet<HistoryEnglishContainer> HistoryEnglishContainer { get; set; }
         public virtual DbSet<Branch> Branch { get; set; }
         public virtual DbSet<Topic> Topic { get; set; }
 

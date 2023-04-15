@@ -608,6 +608,16 @@ namespace PBL3
             SetupUI();
         }
 
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!LoginWorkflow.Instance.IsLoggedIn())
+                return;
+
+            DataManager dm = new DataManager();
+            dm.AccountManager.UpdateLearningStat(LoginWorkflow.Instance.GetAccount().AccountID,
+                LoginWorkflow.Instance.CurrentOnlineHour, 0);
+        }
+
         #endregion
 
         #region ANIMATION
@@ -677,5 +687,6 @@ namespace PBL3
         }
 
         #endregion
+
     }
 }

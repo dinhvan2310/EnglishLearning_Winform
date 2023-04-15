@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Globalization;
 using System.Linq;
 using System.Security.Principal;
@@ -73,7 +74,7 @@ namespace BLL.Components
         /// </summary>
         /// <param name="learnedWord"></param>
         /// <param name="learnedTime"></param>
-        public void UpdateLearningStat(int userID, int learnedTime, int learnedWord)
+        public void UpdateLearningStat(int userID, float learnedTime, int learnedWord)
         {
             using (var db = new DictionaryContext())
             {
@@ -135,6 +136,54 @@ namespace BLL.Components
 
                     lastDate = i.DayID;
                 }
+
+                return result;
+            }
+        }
+
+        public int GetNumberOfLearnedDay(int accountID)
+        {
+            using (DictionaryContext dbContext = new DictionaryContext())
+            {
+                return dbContext.InformationPerDay.Where(p => p.AccountID == accountID).Count();
+            }
+        }
+
+        public int GetNumberOfLearnedWord(int accountID)
+        {
+            using (DictionaryContext dbContext = new DictionaryContext())
+            {
+                int result = 0;
+
+                var temp = dbContext.InformationPerDay
+                    .Where(p => p.AccountID == accountID)
+                    .Select(p => p.NumberOfLearnedWord)
+                    .ToList();
+
+                temp.ForEach(item =>
+                {
+                    result += item;
+                });
+
+                return result;
+            }
+        }
+
+        public float GetNumberOfLearnedHour(int accountID)
+        {
+            using (DictionaryContext dbContext = new DictionaryContext())
+            {
+                float result = 0;
+
+                var temp = dbContext.InformationPerDay
+                    .Where(p => p.AccountID == accountID)
+                    .Select(p => p.OnlineHour)
+                    .ToList();
+
+                temp.ForEach(item =>
+                {
+                    result += item;
+                });
 
                 return result;
             }

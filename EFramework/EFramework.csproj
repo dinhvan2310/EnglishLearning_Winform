@@ -103,8 +103,6 @@
     <Compile Include="Model\Account.cs" />
     <Compile Include="Model\AccountType.cs" />
     <Compile Include="Model\DetailedInformation.cs" />
-    <Compile Include="Model\HistoryEnglishContainer.cs" />
-    <Compile Include="Model\HistoryVietNameseContainer.cs" />
     <Compile Include="Model\InformationPerDay.cs" />
     <Compile Include="Model\Notebook.cs" />
     <Compile Include="Model\Branch.cs" />

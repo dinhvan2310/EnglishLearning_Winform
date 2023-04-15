@@ -43,7 +43,16 @@ namespace PBL3
         private void SetupUI()
         {
             btnSugWord.Text = _WordsEveryDay[0].Word;
+            UpdateComprehensiveStat();
         }
+
+        private void UpdateComprehensiveStat()
+        {
+            txtDay.Text = LoginWorkflow.Instance.GetNumberOfLearnedDay().ToString();
+            txtWord.Text = LoginWorkflow.Instance.GetNumberOfLearnedWord().ToString();
+            txtHour.Text = Convert.ToInt32(LoginWorkflow.Instance.GetNumberOfLearnedHour()).ToString();
+        }
+
         private void UpdateNotebook()
         {
             panelNotebook.Controls.Clear();
@@ -62,6 +71,7 @@ namespace PBL3
 
             btn.Text = word;
             btn.Name = word;
+            btn.Size = new Size(150 + Math.Max(0, word.Length - 8) * 15, 50);
             btn.BackgroundImageLayout = ImageLayout.Stretch;
             btn.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject(
                 "Theme3_" + learnedPercent / 20);

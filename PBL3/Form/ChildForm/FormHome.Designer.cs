@@ -37,16 +37,16 @@ namespace PBL3
             this.sugWordRightAnim = new System.Windows.Forms.Timer(this.components);
             this.rjPanel5 = new CustomControls.RJPanel();
             this.iconButton7 = new FontAwesome.Sharp.IconButton();
-            this.label6 = new System.Windows.Forms.Label();
+            this.txtWord = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.rjPanel2 = new CustomControls.RJPanel();
             this.iconButton6 = new FontAwesome.Sharp.IconButton();
-            this.label2 = new System.Windows.Forms.Label();
+            this.txtHour = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.rjPanel3 = new CustomControls.RJPanel();
             this.iconButton1 = new FontAwesome.Sharp.IconButton();
             this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.txtDay = new System.Windows.Forms.Label();
             this.rjPanel8 = new CustomControls.RJPanel();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.btnSetGoal = new FontAwesome.Sharp.IconButton();
@@ -110,7 +110,7 @@ namespace PBL3
             this.rjPanel5.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
             this.rjPanel5.BorderRadius = 30;
             this.rjPanel5.Controls.Add(this.iconButton7);
-            this.rjPanel5.Controls.Add(this.label6);
+            this.rjPanel5.Controls.Add(this.txtWord);
             this.rjPanel5.Controls.Add(this.label5);
             this.rjPanel5.ForeColor = System.Drawing.Color.Black;
             this.rjPanel5.GradientAngle = 45F;
@@ -140,17 +140,17 @@ namespace PBL3
             this.iconButton7.TabStop = false;
             this.iconButton7.UseVisualStyleBackColor = false;
             // 
-            // label6
+            // txtWord
             // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Aquire", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.label6.Location = new System.Drawing.Point(64, 61);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(63, 30);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "100";
+            this.txtWord.AutoSize = true;
+            this.txtWord.BackColor = System.Drawing.Color.Transparent;
+            this.txtWord.Font = new System.Drawing.Font("Aquire", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtWord.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.txtWord.Location = new System.Drawing.Point(64, 61);
+            this.txtWord.Name = "txtWord";
+            this.txtWord.Size = new System.Drawing.Size(63, 30);
+            this.txtWord.TabIndex = 7;
+            this.txtWord.Text = "100";
             // 
             // label5
             // 
@@ -172,7 +172,7 @@ namespace PBL3
             this.rjPanel2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
             this.rjPanel2.BorderRadius = 30;
             this.rjPanel2.Controls.Add(this.iconButton6);
-            this.rjPanel2.Controls.Add(this.label2);
+            this.rjPanel2.Controls.Add(this.txtHour);
             this.rjPanel2.Controls.Add(this.label1);
             this.rjPanel2.ForeColor = System.Drawing.Color.Black;
             this.rjPanel2.GradientAngle = 45F;
@@ -203,17 +203,17 @@ namespace PBL3
             this.iconButton6.Text = "`";
             this.iconButton6.UseVisualStyleBackColor = false;
             // 
-            // label2
+            // txtHour
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Aquire", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.label2.Location = new System.Drawing.Point(66, 61);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 30);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "10";
+            this.txtHour.AutoSize = true;
+            this.txtHour.BackColor = System.Drawing.Color.Transparent;
+            this.txtHour.Font = new System.Drawing.Font("Aquire", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtHour.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.txtHour.Location = new System.Drawing.Point(66, 61);
+            this.txtHour.Name = "txtHour";
+            this.txtHour.Size = new System.Drawing.Size(43, 30);
+            this.txtHour.TabIndex = 7;
+            this.txtHour.Text = "10";
             // 
             // label1
             // 
@@ -236,7 +236,7 @@ namespace PBL3
             this.rjPanel3.BorderRadius = 30;
             this.rjPanel3.Controls.Add(this.iconButton1);
             this.rjPanel3.Controls.Add(this.label9);
-            this.rjPanel3.Controls.Add(this.label10);
+            this.rjPanel3.Controls.Add(this.txtDay);
             this.rjPanel3.ForeColor = System.Drawing.Color.Black;
             this.rjPanel3.GradientAngle = 45F;
             this.rjPanel3.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
@@ -277,17 +277,17 @@ namespace PBL3
             this.label9.TabIndex = 6;
             this.label9.Text = "Số Ngày Học";
             // 
-            // label10
+            // txtDay
             // 
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Aquire", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.label10.Location = new System.Drawing.Point(68, 61);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(23, 30);
-            this.label10.TabIndex = 4;
-            this.label10.Text = "1";
+            this.txtDay.AutoSize = true;
+            this.txtDay.BackColor = System.Drawing.Color.Transparent;
+            this.txtDay.Font = new System.Drawing.Font("Aquire", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDay.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.txtDay.Location = new System.Drawing.Point(68, 61);
+            this.txtDay.Name = "txtDay";
+            this.txtDay.Size = new System.Drawing.Size(23, 30);
+            this.txtDay.TabIndex = 4;
+            this.txtDay.Text = "1";
             // 
             // rjPanel8
             // 
@@ -899,14 +899,14 @@ namespace PBL3
         private RJPanel rjPanel3;
         private FontAwesome.Sharp.IconButton iconButton1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label txtDay;
         private RJPanel rjPanel2;
         private FontAwesome.Sharp.IconButton iconButton6;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label txtHour;
         private System.Windows.Forms.Label label1;
         private RJPanel rjPanel5;
         private FontAwesome.Sharp.IconButton iconButton7;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label txtWord;
         private System.Windows.Forms.Label label5;
         private FontAwesome.Sharp.IconButton btnSetGoal;
         private System.Windows.Forms.Timer swapWordAnim;

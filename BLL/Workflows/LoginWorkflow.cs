@@ -30,6 +30,15 @@ namespace BLL.Workflows
             }
         }
 
+        public float CurrentOnlineHour
+        {
+            get
+            {
+                return (float)((DateTime.Now - _IniOnlineTime).TotalSeconds / 3600.0f);
+            }
+            private set { }
+        }
+
         private int _UserID;
 
         private AccountManager _AccountManager;
@@ -39,6 +48,7 @@ namespace BLL.Workflows
         private static LoginWorkflow _Instance;
 
         private string _Key = "2giotoitaigoccayda";
+        private DateTime _IniOnlineTime;
 
         private LoginWorkflow()
         {
@@ -47,6 +57,8 @@ namespace BLL.Workflows
             _AccountManager = new AccountManager();
             _EmailManager = new EmailManager();
             _Validator = new Validator();
+
+            _IniOnlineTime = DateTime.Now;
         }
 
         
@@ -312,6 +324,21 @@ namespace BLL.Workflows
                 MessageBox.Show(e.Message);
                 return false;
             }
+        }
+
+        public int GetNumberOfLearnedDay()
+        {
+            return _AccountManager.GetNumberOfLearnedDay(_UserID);
+        }
+
+        public int GetNumberOfLearnedWord()
+        {
+            return _AccountManager.GetNumberOfLearnedWord(_UserID);
+        }
+
+        public float GetNumberOfLearnedHour()
+        {
+            return _AccountManager.GetNumberOfLearnedHour(_UserID);
         }
     }
 }

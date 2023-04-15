@@ -11,7 +11,6 @@ namespace EFramework.Model
     {
         public wn_word()
         {
-            HistoryContainer = new List<HistoryEnglishContainer>();
             Notebooks = new List<Notebook>();
         }
 
@@ -27,9 +26,6 @@ namespace EFramework.Model
         public string word { get; set; }
 
         public virtual wn_synset Wn_synset { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<HistoryEnglishContainer> HistoryContainer { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Notebook> Notebooks { get; set; }

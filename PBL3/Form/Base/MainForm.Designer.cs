@@ -1003,6 +1003,7 @@ namespace PBL3
             this.Opacity = 0D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.VisibleChanged += new System.EventHandler(this.MainForm_VisibleChanged);
             this.panelButton.ResumeLayout(false);
             this.panelButton.PerformLayout();

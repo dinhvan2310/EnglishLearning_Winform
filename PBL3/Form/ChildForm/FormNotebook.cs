@@ -77,8 +77,6 @@ namespace PBL3
             GlobalForm.MainForm.SwitchForm(new WordForm(((Button)sender).Text.Replace(' ', '_')), FormType.Weak);
         }
 
-        #endregion
-
         private void Sort_MouseClick(object sender, MouseEventArgs e)
         {
             panelNotebook.Controls.Clear();
@@ -93,5 +91,8 @@ namespace PBL3
                 panelNotebook.Controls.Add(CreateButtonWord(w.Word, w.LearnedPercent));
             });
         }
+
+        #endregion
+
     }
 }

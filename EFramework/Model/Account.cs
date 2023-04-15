@@ -17,8 +17,6 @@ namespace EFramework.Model
             InformationPerDays = new List<InformationPerDay>();
             UserPacketInfos = new List<UserPacketInfo>();
             Notebooks = new List<Notebook>();
-            HistoryEnglishContainer = new List<HistoryEnglishContainer>();
-            HistoryVietNameseContainer = new List<HistoryVietNameseContainer>();
         }
 
         [Key]
@@ -41,7 +39,5 @@ namespace EFramework.Model
         public virtual ICollection<InformationPerDay> InformationPerDays { get; set; }
         public virtual ICollection<UserPacketInfo> UserPacketInfos { get; set;} 
         public virtual ICollection<Notebook> Notebooks { set; get; }
-        public virtual ICollection<HistoryEnglishContainer> HistoryEnglishContainer { get; set; }
-        public virtual ICollection<HistoryVietNameseContainer> HistoryVietNameseContainer { get; set;}
     }
 }
