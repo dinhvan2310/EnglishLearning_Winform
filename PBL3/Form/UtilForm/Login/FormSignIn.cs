@@ -26,9 +26,18 @@ namespace PBL3
         {
             InitializeComponent();
 
+            SetupForm();
+        }
+
+        #region HELPER FUNCTIONS
+
+        private void SetupForm()
+        {
             _txtPHHolders[0] = txtUsername;
             _txtPHHolders[1] = txtPasswrd;
         }
+
+        #endregion
 
         private void btnSignUp_Click(object sender, EventArgs e)
         {
@@ -128,6 +137,7 @@ namespace PBL3
                     SettingWorkflow.Instance.ApplyUserSettings(LoginWorkflow.Instance.GetAccount().AccountID);
 
                     GlobalForm.MainForm.StartPosition = FormStartPosition.CenterScreen;
+                    GlobalForm.MainForm.UpdateFormHome();
                     GlobalForm.MainForm.Show();
 
                     GlobalForm.LoginForm.Hide();

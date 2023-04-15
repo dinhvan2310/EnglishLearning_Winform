@@ -8,13 +8,12 @@ namespace BLL.TransferObjects
 {
     public class LearningStats
     {
-        public List<int> TimeStats { get; set; }
-        public List<int> WordStats { get; set; }
+        public List<Stat> Stats = new List<Stat>();
+    }
 
-        public LearningStats()
-        {
-            TimeStats = new List<int>();
-            WordStats = new List<int>();
-        }
+    public class Stat
+    {
+        public int TimeAmount { get; set; }
+        public int WordCount { get; set; }
     }
 }

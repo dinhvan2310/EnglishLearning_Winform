@@ -340,6 +340,7 @@
             this.rjButton3.BorderRadius = 21;
             this.rjButton3.BorderSize = 0;
             this.rjButton3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rjButton3.Enabled = false;
             this.rjButton3.FlatAppearance.BorderSize = 0;
             this.rjButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton3.Font = new System.Drawing.Font("Bahnschrift SemiBold Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

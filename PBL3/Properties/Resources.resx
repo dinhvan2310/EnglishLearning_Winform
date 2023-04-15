@@ -139,39 +139,6 @@
   <data name="debut" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Login_AnimationImage\debut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Animal" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Animal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Art_and_Culture" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Art.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Business_and_Finance" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bussiness.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Education_and_Academia" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Education.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Food_and_Cooking_Terms" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Food.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Health_and_Medicine" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Health.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Nature" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Nature.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="People" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\People.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Science_and_Mathematics" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Science.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Sport" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Sport.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Technology" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Technology.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="textbox_password" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Login_AnimationImage\textbox_password.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

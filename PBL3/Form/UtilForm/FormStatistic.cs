@@ -56,7 +56,7 @@ namespace PBL3
             series.Add(new LineSeries
             {
                 Title = "Từ",
-                Values = new ChartValues<int>(stats.WordStats),
+                Values = new ChartValues<int>(stats.Stats.Select(p => p.WordCount)),
                 Fill = new LinearGradientBrush(System.Windows.Media.Color.FromArgb(150, 0, 255, 191),
                     System.Windows.Media.Color.FromArgb(50, 0, 255, 191), 90),
                 Stroke = new SolidColorBrush(System.Windows.Media.Color.FromRgb(0, 255, 191)),
@@ -66,7 +66,7 @@ namespace PBL3
             series.Add(new LineSeries
             {
                 Title = "Giờ",
-                Values = new ChartValues<int>(stats.TimeStats),
+                Values = new ChartValues<int>(stats.Stats.Select(p =>  p.TimeAmount )),
                 Fill = new LinearGradientBrush(System.Windows.Media.Color.FromArgb(150, 255, 191, 0),
                         System.Windows.Media.Color.FromArgb(50, 255, 191, 0), 90),
                 Stroke = new SolidColorBrush(System.Windows.Media.Color.FromRgb(255, 191, 0))

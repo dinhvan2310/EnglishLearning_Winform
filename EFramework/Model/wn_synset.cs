@@ -25,7 +25,7 @@ namespace EFramework.Model
             Wn_see_also1 = new HashSet<wn_see_also>();
             Wn_verb_frame = new HashSet<wn_verb_frame>();
             Wn_word = new HashSet<wn_word>();
-            topic = new Topic();
+            topic = new Branch();
         }
 
         [Key]
@@ -71,6 +71,6 @@ namespace EFramework.Model
         public virtual ICollection<wn_word> Wn_word { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual Topic topic { get; set; }
+        public virtual Branch topic { get; set; }
     }
 }

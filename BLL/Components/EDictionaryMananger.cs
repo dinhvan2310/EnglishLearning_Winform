@@ -14,8 +14,11 @@ using BLL.Migrations;
 using EFramework;
 using EFramework.Model;
 using System.Collections;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
 using PBLLibrary;
+using BLL.EnityFramework.Model;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Drawing;
+using Library;
 
 namespace BLL.Components
 {
@@ -408,73 +411,184 @@ namespace BLL.Components
             }
         }
         
-        public List<string> GetTopicName_All()
+        public List<Topic> GetTopic_All()
         {
             using (var dbContext = new DictionaryContext())
             {
-                List<string> results = new List<string>();
+                List<Topic> results = new List<Topic>();
 
-                var temp = dbContext.Topic
-                                .Select(p => p.TopicName)
+                results = dbContext.Topic
                                 .ToList();
 
-                temp.ForEach(item =>
-                {
-                    string first = item.Split('-')[0].Replace('_', ' ');
-                    results.Add(first);
-                });
-                return results.Distinct().ToList();
-            }
-        }
-
-        public List<string> GetBranchName_ByTopic(string topic)
-        {
-            using (var dbContext = new DictionaryContext())
-            {
-                List<string> results = new List<string>();
-
-                topic = topic.Replace(' ', '_');
-                var temp = dbContext.Topic
-                                .Where(p => p.TopicName.Contains(topic))
-                                .Select(p => p.TopicName)
-                                .ToList();
-
-                temp.ForEach(item =>
-                {
-                    string second = item.Split('-')[1].Replace('_', ' ');
-                    results.Add(second);
-                });
                 return results;
             }
         }
 
-        public List<WordModel> GetTopicWord_ByBranch(string branch)
+        public Topic GetTopic_ByTopicID(decimal topicID)
+        {
+            using (var dbContext = new DictionaryContext())
+            {
+                Topic results = new Topic();
+
+                results = dbContext.Topic
+                        .Where(p => p.TopicID == topicID)
+                        .First();
+
+                return results;
+            }
+        }
+
+        public List<Topic> GetTopic_ByFilter(string filter)
+        {
+            using (var dbContext = new DictionaryContext())
+            {
+                bool startWith = filter[filter.Length - 1] == '%';
+                bool endWith = filter[0] == '%';
+                filter = filter.Replace("%", "");
+
+                List<Topic> results = new List<Topic>();
+
+                results = dbContext.Topic
+                        .Where(p => startWith && endWith ? p.TopicName.Contains(filter) :
+                                startWith ? p.TopicName.StartsWith(filter) :
+                                endWith ? p.TopicName.EndsWith(filter) :
+                                p.TopicName.Equals(filter))
+                        .ToList();
+
+                return results;
+            }
+        }
+
+        public List<Branch> GetBranch_ByTopicID(decimal topicID)
+        {
+            using (var dbContext = new DictionaryContext())
+            {
+                List<Branch> results = new List<Branch>();
+
+                results = dbContext.Branch
+                                .Where(p => p.TopicID == topicID)
+                                .ToList();
+
+                return results;
+            }
+        }
+
+        public Branch GetBranch_BySynsetID(decimal synsetID)
+        {
+            using (var dbContext = new DictionaryContext())
+            {
+                Branch results = new Branch();
+
+                results = dbContext.Branch
+                                .Where(p => p.SynsetID == synsetID)
+                                .First();
+
+                return results;
+            }
+        }
+
+        public List<wn_word> GetTopicWord_BySynsetID(decimal synsetID)
         {
             using (DictionaryContext dbContext = new DictionaryContext())
             {
-                List<WordModel> results = new List<WordModel>();
-
-                List<string> temp = new List<string>();
-                branch = branch.Replace(' ', '_');
-
-                decimal synsetID = dbContext.Topic
-                            .Single(p => p.TopicName.Contains(branch))
-                            .SynsetID;
+                List<wn_word> results = new List<wn_word>();
 
                 List<decimal> s1s = GetHypernymSynsetID_BySynsetID_Recur(synsetID);
 
-                temp = dbContext.Wn_word
-                            .Where(p => s1s.Contains(p.synset_id))
-                            .Select(p => p.word)
-                            .Distinct()
-                            .ToList();
+                var temp = dbContext.Wn_word
+                                .Where(p => s1s.Contains(p.synset_id))
+                                .Select(p => p.word)
+                                .Distinct()
+                                .ToList();
 
                 temp.ForEach(item =>
                 {
-                    results.Add(new WordModel(item.ToString().Replace('_', ' ')));
+                    results.Add(new wn_word() { synset_id = synsetID, word = item });
                 });
 
                 return results;
+            }
+        }
+        
+        public bool AddTopic(Topic topic)
+        {
+            try
+            {
+                using (DictionaryContext dbContext = new DictionaryContext())
+                {
+                    topic.TopicName = topic.TopicName.Replace(' ', '_');
+
+                    dbContext.Topic.Add(topic);
+                    dbContext.Branch.AddRange(topic.Branches);
+
+                    dbContext.SaveChanges();
+
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+        }
+
+        public bool UpdateTopic(Topic topic)
+        {
+            try
+            {
+                using (DictionaryContext dbContext = new DictionaryContext())
+                {
+                    topic.TopicName = topic.TopicName.Replace(' ', '_');
+
+                    var found = dbContext.Topic
+                                .Single(p => p.TopicID == topic.TopicID);
+
+                    found.TopicName = topic.TopicName;
+                    found.Background = topic.Background;
+
+                    var temp = dbContext.Branch
+                        .Where(p => p.TopicID == topic.TopicID)
+                        .ToList();
+
+                    dbContext.Branch.RemoveRange(temp);
+                    dbContext.Branch.AddRange(topic.Branches);
+                    dbContext.SaveChanges();
+
+                    return true;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public void DeleteTopic(int topicID)
+        {
+            using (DictionaryContext dbContext = new DictionaryContext())
+            {
+                var temp = dbContext.Branch
+                        .Where(p => p.TopicID == topicID)
+                        .ToList();
+
+                dbContext.Branch.RemoveRange(temp);
+                dbContext.Topic.Remove(dbContext.Topic.Single(p => p.TopicID == topicID));
+
+                dbContext.SaveChanges();
+            }
+        }
+
+        public bool CheckTopicNameIsExist(string topic)
+        {
+            using (DictionaryContext dbContext = new DictionaryContext())
+            {
+                var temp = dbContext.Topic
+                    .Where(p => p.TopicName == topic)
+                    .ToList();
+
+                return temp.Count != 0;
+
             }
         }
 
@@ -541,5 +655,6 @@ namespace BLL.Components
 
             return result.ToList();
         }
+
     }
 }

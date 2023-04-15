@@ -1,6 +1,7 @@
 ﻿using BLL.TransferObjects;
 using BLL.Workflows;
 using CustomControls;
+using EFramework.Model;
 using PBL3.Utilities;
 using System;
 using System.Collections.Generic;
@@ -18,26 +19,33 @@ namespace PBL3
     public partial class FormTopic_List : Form
     {
 
-        private string _Branch;
-        private List<WordModel> _Words;
-        public FormTopic_List(string branch)
+        private decimal _SynsetID;
+        private List<wn_word> _Words;
+        public FormTopic_List(decimal synsetID)
         {
             InitializeComponent();
 
-            DataManager dm = new DataManager();
-            _Branch = branch;
-            _Words = dm.EDictionaryManager.GetTopicWord_ByBranch(branch);
+            _SynsetID = synsetID;
 
+            SetupForm();
             SetupUI();
+        }
+
+        #region HELPER FUNCTIONS
+        private void SetupForm()
+        {
+            DataManager dm = new DataManager();
+            _Words = dm.EDictionaryManager.GetTopicWord_BySynsetID(_SynsetID);
         }
 
         private void SetupUI()
         {
-            lblBranch.Text = _Branch;
+            DataManager dm = new DataManager();
+            lblBranch.Text = dm.EDictionaryManager.GetBranch_BySynsetID(_SynsetID).BranchName;
 
-            foreach (WordModel word in _Words)
+            foreach (wn_word word in _Words)
             {
-                panelWord.Controls.Add(CreateWordButton(word.Word));
+                panelWord.Controls.Add(CreateWordButton(word.word.Replace('_', ' ')));
             }
         }
 
@@ -60,7 +68,9 @@ namespace PBL3
 
             return btn;
         }
+        #endregion
 
+        #region EVENTS
         private void WordFound(object sender, MouseEventArgs e)
         {
             GlobalForm.MainForm.SwitchForm(new WordForm(((Button)sender).Text.Replace(' ', '_')),
@@ -71,5 +81,7 @@ namespace PBL3
         {
             GlobalForm.MainForm.GoBack();
         }
+
+        #endregion
     }
 }

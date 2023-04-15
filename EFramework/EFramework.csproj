@@ -107,6 +107,7 @@
     <Compile Include="Model\HistoryVietNameseContainer.cs" />
     <Compile Include="Model\InformationPerDay.cs" />
     <Compile Include="Model\Notebook.cs" />
+    <Compile Include="Model\Branch.cs" />
     <Compile Include="Model\Topic.cs" />
     <Compile Include="Model\UserPacket.cs" />
     <Compile Include="Model\UserPacketInfo.cs" />

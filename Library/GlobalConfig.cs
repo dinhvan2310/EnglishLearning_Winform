@@ -42,5 +42,10 @@ namespace Library
         {
             return Directory.GetCurrentDirectory() + @"\..\..\..\BLL\JS\";
         }
+
+        public string PathFileResources()
+        {
+            return Directory.GetCurrentDirectory() + @"\..\..\Resources\";
+        }
     }
 }

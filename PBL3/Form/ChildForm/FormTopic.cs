@@ -1,6 +1,8 @@
 ﻿using BLL.Components;
 using BLL.Workflows;
 using CustomControls;
+using EFramework.Model;
+using Library;
 using PBL3.Utilities;
 using System;
 using System.Collections;
@@ -8,6 +10,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,14 +20,14 @@ namespace PBL3
 {
     public partial class FormTopic : Form
     {
-        private List<string> _TopicName;
+        private List<Topic> _Topics;
 
         public FormTopic()
         {
             InitializeComponent();
 
             DataManager dm = new DataManager();
-            _TopicName = dm.EDictionaryManager.GetTopicName_All();
+            _Topics = dm.EDictionaryManager.GetTopic_All();
 
             SetupUI();
         }
@@ -32,7 +35,7 @@ namespace PBL3
         #region HELPER FUNCTIONS
         private void SetupUI()
         {
-            foreach (string t in _TopicName)
+            foreach (Topic t in _Topics)
             {
                 Button btn = CreateButton(t);
                 btn.Location = new Point(panelTopic.Controls.Count * 275, 0);
@@ -40,17 +43,23 @@ namespace PBL3
             }
         }
 
-        private Button CreateButton(string topic)
+        private Button CreateButton(Topic topic)
         {
             RJButton b = new RJButton();
             b.BackColor = Color.FromArgb(240, 237, 254);
-            b.BackgroundImage = (Image)Properties.Resources.ResourceManager.GetObject(topic.Replace(' ', '_'));
+            if (topic.Background != null)
+            {
+                using (MemoryStream ms = new MemoryStream(topic.Background))
+                {
+                    b.BackgroundImage = Image.FromStream(ms);
+                }
+            }
             b.BackgroundImageLayout = ImageLayout.Zoom;
             b.Cursor = Cursors.Hand;
             b.FlatStyle = FlatStyle.Flat;
             b.BorderSize = 0;
             b.Font = new Font("Bauhaus 93", 24.0f);
-            b.Text = topic;
+            b.Text = topic.TopicName.Replace('_', ' ');
             b.TabStop = false;
             b.Size = new Size(250, 315);
             b.BorderRadius = 30;
@@ -62,7 +71,9 @@ namespace PBL3
 
         private void OnBranching(object sender, MouseEventArgs e)
         {
-            FormTopic_Branch form = new FormTopic_Branch(((Button)sender).Text);
+            FormTopic_Branch form = new FormTopic_Branch(_Topics
+                .Where(p => p.TopicName == ((Button)sender).Text)
+                .First().TopicID);
 
             GlobalForm.MainForm.SwitchForm(form, FormType.Weak);
         }

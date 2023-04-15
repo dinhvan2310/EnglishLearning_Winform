@@ -506,3 +506,4 @@ D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\Library.dll
 D:\Source\Visual Studio\C#\PBL3\PBL3\bin\Debug\Library.pdb
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormAdmin_Topic.resources
 D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormAdmin_Topic_AddUpdate.resources
+D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormAdmin_Topic_BranchDetail.resources

@@ -77,6 +77,14 @@ namespace PBL3
             OpenChildForm(form, formType);
         }
 
+        public void UpdateFormHome()
+        {
+            if (LoginWorkflow.Instance.IsLoggedIn() && LoginWorkflow.Instance.GetAccount().TypeID == 5)
+                HomeForm = new FormAdmin();
+            else
+                HomeForm = new FormHome();
+        }
+
         private void AutoLogin()
         {
             if (LoginWorkflow.Instance.Login())

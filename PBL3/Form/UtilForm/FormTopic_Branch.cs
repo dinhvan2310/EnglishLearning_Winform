@@ -1,4 +1,5 @@
 ﻿using BLL.Components;
+using BLL.EnityFramework.Model;
 using BLL.Workflows;
 using CustomControls;
 using PBL3.Utilities;
@@ -17,28 +18,30 @@ namespace PBL3
 {
     public partial class FormTopic_Branch : Form
     {
-        private string _Topic;
-        private List<string> _Branches;
+        private decimal _TopicID;
+        private List<Branch> _Branches;
 
-        public FormTopic_Branch(string topic)
+        public FormTopic_Branch(decimal topicID)
         {
             InitializeComponent();
 
-            _Topic = topic;
+            _TopicID = topicID;
 
             DataManager dm = new DataManager();
-            _Branches = dm.EDictionaryManager.GetBranchName_ByTopic(_Topic);
+            _Branches = dm.EDictionaryManager.GetBranch_ByTopicID(_TopicID);
 
             SetupUI();
         }
 
         private void SetupUI()
         {
-            lblTopic.Text = _Topic;
+            DataManager dm = new DataManager();
 
-            foreach (string b in _Branches)
+            lblTopic.Text = dm.EDictionaryManager.GetTopic_ByTopicID(_TopicID).TopicName.Replace('_', ' ');
+
+            foreach (Branch b in _Branches)
             {
-                panelBranch.Controls.Add(CreateButton(b));
+                panelBranch.Controls.Add(CreateButton(b.BranchName));
             }
         }
 
@@ -63,7 +66,9 @@ namespace PBL3
 
         private void OnList(object sender, MouseEventArgs e)
         {
-            FormTopic_List form = new FormTopic_List(((Button)sender).Text);
+            FormTopic_List form = new FormTopic_List(_Branches
+                .Where(p => p.BranchName == ((Button)sender).Text)
+                .First().SynsetID);
             GlobalForm.MainForm.SwitchForm(form, FormType.Weak);
         }
 

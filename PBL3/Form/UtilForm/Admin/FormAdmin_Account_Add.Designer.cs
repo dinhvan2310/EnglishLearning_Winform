@@ -60,10 +60,8 @@
             this.iconButton3 = new FontAwesome.Sharp.IconButton();
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.btnUser = new FontAwesome.Sharp.IconButton();
-            this.btnReturn = new FontAwesome.Sharp.IconButton();
             this.btnAdd = new CustomControls.RJButton();
             this.btnExit = new FontAwesome.Sharp.IconButton();
-            this.btnMinimize = new FontAwesome.Sharp.IconButton();
             this.SuspendLayout();
             // 
             // rjButton4
@@ -94,7 +92,7 @@
             this.txtUsername.Location = new System.Drawing.Point(147, 125);
             this.txtUsername.MinimumSize = new System.Drawing.Size(0, 30);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(300, 30);
+            this.txtUsername.Size = new System.Drawing.Size(300, 25);
             this.txtUsername.TabIndex = 66;
             this.txtUsername.Text = "Email";
             this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
@@ -146,7 +144,7 @@
             this.textBox1.Location = new System.Drawing.Point(147, 184);
             this.textBox1.MinimumSize = new System.Drawing.Size(0, 30);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(300, 30);
+            this.textBox1.Size = new System.Drawing.Size(300, 25);
             this.textBox1.TabIndex = 70;
             this.textBox1.Text = "Tên Đăng Nhập";
             // 
@@ -197,7 +195,7 @@
             this.textBox2.Location = new System.Drawing.Point(147, 243);
             this.textBox2.MinimumSize = new System.Drawing.Size(0, 30);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(300, 30);
+            this.textBox2.Size = new System.Drawing.Size(300, 25);
             this.textBox2.TabIndex = 74;
             this.textBox2.Text = "Mật khẩu";
             // 
@@ -248,7 +246,7 @@
             this.textBox3.Location = new System.Drawing.Point(593, 245);
             this.textBox3.MinimumSize = new System.Drawing.Size(0, 30);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(249, 30);
+            this.textBox3.Size = new System.Drawing.Size(249, 25);
             this.textBox3.TabIndex = 86;
             this.textBox3.Text = "Giới tính";
             // 
@@ -299,7 +297,7 @@
             this.textBox4.Location = new System.Drawing.Point(593, 186);
             this.textBox4.MinimumSize = new System.Drawing.Size(0, 30);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(249, 30);
+            this.textBox4.Size = new System.Drawing.Size(249, 25);
             this.textBox4.TabIndex = 82;
             this.textBox4.Text = "Ngày sinh";
             // 
@@ -350,7 +348,7 @@
             this.textBox5.Location = new System.Drawing.Point(593, 127);
             this.textBox5.MinimumSize = new System.Drawing.Size(0, 30);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(249, 30);
+            this.textBox5.Size = new System.Drawing.Size(249, 25);
             this.textBox5.TabIndex = 78;
             this.textBox5.Text = "Họ và Tên";
             // 
@@ -419,7 +417,7 @@
             this.textBox7.Location = new System.Drawing.Point(147, 327);
             this.textBox7.MinimumSize = new System.Drawing.Size(0, 30);
             this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(300, 30);
+            this.textBox7.Size = new System.Drawing.Size(300, 25);
             this.textBox7.TabIndex = 94;
             this.textBox7.Text = "Số xu";
             // 
@@ -451,7 +449,7 @@
             this.textBox8.Location = new System.Drawing.Point(137, 59);
             this.textBox8.MinimumSize = new System.Drawing.Size(0, 30);
             this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(249, 30);
+            this.textBox8.Size = new System.Drawing.Size(249, 25);
             this.textBox8.TabIndex = 99;
             this.textBox8.Text = "110100110";
             // 
@@ -586,25 +584,6 @@
             this.btnUser.UseVisualStyleBackColor = false;
             this.btnUser.Click += new System.EventHandler(this.btnUser_Click);
             // 
-            // btnReturn
-            // 
-            this.btnReturn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReturn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
-            this.btnReturn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
-            this.btnReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReturn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
-            this.btnReturn.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
-            this.btnReturn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.btnReturn.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnReturn.IconSize = 30;
-            this.btnReturn.Location = new System.Drawing.Point(13, 13);
-            this.btnReturn.Margin = new System.Windows.Forms.Padding(4);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(40, 40);
-            this.btnReturn.TabIndex = 3;
-            this.btnReturn.UseVisualStyleBackColor = true;
-            this.btnReturn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnReturn_MouseClick);
-            // 
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
@@ -643,24 +622,7 @@
             this.btnExit.TabIndex = 103;
             this.btnExit.TabStop = false;
             this.btnExit.UseVisualStyleBackColor = false;
-            // 
-            // btnMinimize
-            // 
-            this.btnMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMinimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
-            this.btnMinimize.FlatAppearance.BorderSize = 0;
-            this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMinimize.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.btnMinimize.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
-            this.btnMinimize.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
-            this.btnMinimize.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnMinimize.IconSize = 32;
-            this.btnMinimize.Location = new System.Drawing.Point(979, 16);
-            this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(30, 30);
-            this.btnMinimize.TabIndex = 104;
-            this.btnMinimize.TabStop = false;
-            this.btnMinimize.UseVisualStyleBackColor = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // FormAdmin_Account_Add
             // 
@@ -668,8 +630,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
             this.ClientSize = new System.Drawing.Size(1057, 436);
+            this.ControlBox = false;
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnMinimize);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox8);
@@ -703,10 +665,9 @@
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.btnUser);
             this.Controls.Add(this.rjButton1);
-            this.Controls.Add(this.btnReturn);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "FormAdmin_Account_Add";
-            this.Text = "FormAdmin_Account_AddUpdate";
+            this.Text = "Thêm tài khoản";
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FormAdmin_Account_Add_MouseDown);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -714,8 +675,6 @@
         }
 
         #endregion
-
-        private FontAwesome.Sharp.IconButton btnReturn;
         private CustomControls.RJButton rjButton4;
         private System.Windows.Forms.TextBox txtUsername;
         private FontAwesome.Sharp.IconButton btnUser;
@@ -750,6 +709,5 @@
         private System.Windows.Forms.Label label1;
         private CustomControls.RJButton btnAdd;
         private FontAwesome.Sharp.IconButton btnExit;
-        private FontAwesome.Sharp.IconButton btnMinimize;
     }
 }

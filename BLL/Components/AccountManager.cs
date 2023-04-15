@@ -124,12 +124,14 @@ namespace BLL.Components
 
                         for (int k = 0; k < offset; ++k)
                         {
-                            result.WordStats.Add(0);
-                            result.TimeStats.Add(0);
+                            result.Stats.Add(new Stat());
                         }    
                     }
-                    result.WordStats.Add(i.NumberOfLearnedWord);
-                    result.TimeStats.Add((int)i.OnlineHour);
+                    result.Stats.Add(new Stat()
+                    {
+                        TimeAmount = (int)i.OnlineHour,
+                        WordCount = i.NumberOfLearnedWord
+                    });
 
                     lastDate = i.DayID;
                 }

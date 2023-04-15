@@ -23,6 +23,8 @@ namespace PBL3
             this.DoubleBuffered = true;
         }
 
+        #region EVENTS
+
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
 
@@ -44,5 +46,12 @@ namespace PBL3
             ExternalImport.ReleaseCapture();
             ExternalImport.SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        #endregion
     }
 }
