@@ -44,6 +44,7 @@ namespace PBL3
         {
             btnSugWord.Text = _WordsEveryDay[0].Word;
             UpdateComprehensiveStat();
+            lblCurrent.Text = Convert.ToInt32(LoginWorkflow.Instance.GetNumberOfLearnedMinute_Today()).ToString();
         }
 
         private void UpdateComprehensiveStat()
@@ -96,6 +97,11 @@ namespace PBL3
             }
         }
 
+        private void SetGoal(int goal)
+        {
+            lblGoal.Text = goal.ToString();
+        }
+
         private bool IsSuggestWordAnimation()
         {
             return sugWordLeftAnim.Enabled || sugWordRightAnim.Enabled;
@@ -130,7 +136,9 @@ namespace PBL3
 
         private void btnSetGoal_MouseClick(object sender, MouseEventArgs e)
         {
-            GlobalForm.MainForm.SwitchForm(new FormSetGoal(), FormType.Weak);
+            FormSetGoal form = new FormSetGoal();
+            form.Callback += SetGoal;
+            GlobalForm.MainForm.SwitchForm(form, FormType.Weak);
         }
 
         private void FormHome_VisibleChanged(object sender, EventArgs e)
@@ -144,6 +152,13 @@ namespace PBL3
         private void WordFound_MouseClick(object sender, EventArgs e)
         {
             GlobalForm.MainForm.SwitchForm(new WordForm(((Button)sender).Text.Replace(' ', '_')), FormType.Weak);
+        }
+
+        private void updateGoalTick_Tick(object sender, EventArgs e)
+        {
+            UpdateComprehensiveStat();
+
+            lblCurrent.Text = Convert.ToInt32(LoginWorkflow.Instance.GetNumberOfLearnedMinute_Today()).ToString();
         }
         #endregion
 

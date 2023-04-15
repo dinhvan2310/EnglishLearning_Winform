@@ -51,11 +51,11 @@ namespace PBL3
             this.iconButton2 = new FontAwesome.Sharp.IconButton();
             this.btnSetGoal = new FontAwesome.Sharp.IconButton();
             this.rjPanel9 = new CustomControls.RJPanel();
-            this.label18 = new System.Windows.Forms.Label();
+            this.lblGoal = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
+            this.lblCurrent = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.circularProgressBar2 = new CircularProgressBar.CircularProgressBar();
             this.rjPanel6 = new CustomControls.RJPanel();
@@ -76,6 +76,7 @@ namespace PBL3
             this.rjButton8 = new CustomControls.RJButton();
             this.rjButton9 = new CustomControls.RJButton();
             this.rjButton6 = new CustomControls.RJButton();
+            this.updateGoalTick = new System.Windows.Forms.Timer(this.components);
             this.rjPanel5.SuspendLayout();
             this.rjPanel2.SuspendLayout();
             this.rjPanel3.SuspendLayout();
@@ -299,11 +300,11 @@ namespace PBL3
             this.rjPanel8.Controls.Add(this.iconButton2);
             this.rjPanel8.Controls.Add(this.btnSetGoal);
             this.rjPanel8.Controls.Add(this.rjPanel9);
-            this.rjPanel8.Controls.Add(this.label18);
+            this.rjPanel8.Controls.Add(this.lblGoal);
             this.rjPanel8.Controls.Add(this.label17);
             this.rjPanel8.Controls.Add(this.label22);
             this.rjPanel8.Controls.Add(this.label19);
-            this.rjPanel8.Controls.Add(this.label21);
+            this.rjPanel8.Controls.Add(this.lblCurrent);
             this.rjPanel8.Controls.Add(this.label20);
             this.rjPanel8.Controls.Add(this.circularProgressBar2);
             this.rjPanel8.ForeColor = System.Drawing.Color.Black;
@@ -370,17 +371,17 @@ namespace PBL3
             this.rjPanel9.Size = new System.Drawing.Size(96, 10);
             this.rjPanel9.TabIndex = 14;
             // 
-            // label18
+            // lblGoal
             // 
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("Aquire", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.label18.Location = new System.Drawing.Point(242, 176);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(63, 30);
-            this.label18.TabIndex = 40;
-            this.label18.Text = "120";
+            this.lblGoal.AutoSize = true;
+            this.lblGoal.BackColor = System.Drawing.Color.Transparent;
+            this.lblGoal.Font = new System.Drawing.Font("Aquire", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGoal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.lblGoal.Location = new System.Drawing.Point(242, 176);
+            this.lblGoal.Name = "lblGoal";
+            this.lblGoal.Size = new System.Drawing.Size(63, 30);
+            this.lblGoal.TabIndex = 40;
+            this.lblGoal.Text = "120";
             // 
             // label17
             // 
@@ -418,17 +419,17 @@ namespace PBL3
             this.label19.TabIndex = 39;
             this.label19.Text = "Mục Tiêu:";
             // 
-            // label21
+            // lblCurrent
             // 
-            this.label21.AutoSize = true;
-            this.label21.BackColor = System.Drawing.Color.Transparent;
-            this.label21.Font = new System.Drawing.Font("Aquire", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.label21.Location = new System.Drawing.Point(242, 78);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(53, 30);
-            this.label21.TabIndex = 35;
-            this.label21.Text = "90";
+            this.lblCurrent.AutoSize = true;
+            this.lblCurrent.BackColor = System.Drawing.Color.Transparent;
+            this.lblCurrent.Font = new System.Drawing.Font("Aquire", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCurrent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.lblCurrent.Location = new System.Drawing.Point(242, 78);
+            this.lblCurrent.Name = "lblCurrent";
+            this.lblCurrent.Size = new System.Drawing.Size(53, 30);
+            this.lblCurrent.TabIndex = 35;
+            this.lblCurrent.Text = "90";
             // 
             // label20
             // 
@@ -834,6 +835,12 @@ namespace PBL3
             this.rjButton6.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
             this.rjButton6.UseVisualStyleBackColor = false;
             // 
+            // updateGoalTick
+            // 
+            this.updateGoalTick.Enabled = true;
+            this.updateGoalTick.Interval = 60000;
+            this.updateGoalTick.Tick += new System.EventHandler(this.updateGoalTick_Tick);
+            // 
             // FormHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -889,12 +896,12 @@ namespace PBL3
         private FontAwesome.Sharp.IconButton btnForward;
         private RJPanel rjPanel8;
         private RJPanel rjPanel9;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label lblGoal;
         private System.Windows.Forms.Label label17;
         private CircularProgressBar.CircularProgressBar circularProgressBar2;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label lblCurrent;
         private System.Windows.Forms.Label label20;
         private RJPanel rjPanel3;
         private FontAwesome.Sharp.IconButton iconButton1;
@@ -914,5 +921,6 @@ namespace PBL3
         private System.Windows.Forms.Timer sugWordLeftAnim;
         private System.Windows.Forms.Timer sugWordRightAnim;
         private FontAwesome.Sharp.IconButton iconButton2;
+        private System.Windows.Forms.Timer updateGoalTick;
     }
 }

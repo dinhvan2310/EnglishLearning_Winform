@@ -40,7 +40,7 @@
             this.btn60Min = new CustomControls.RJButton();
             this.btn120Min = new CustomControls.RJButton();
             this.rjPanel5 = new CustomControls.RJPanel();
-            this.btnStatistic = new FontAwesome.Sharp.IconButton();
+            this.btnSave = new FontAwesome.Sharp.IconButton();
             this.flowPanel.SuspendLayout();
             this.rjPanel5.SuspendLayout();
             this.SuspendLayout();
@@ -109,7 +109,7 @@
             this.btn5Min.Name = "btn5Min";
             this.btn5Min.Size = new System.Drawing.Size(360, 90);
             this.btn5Min.TabIndex = 0;
-            this.btn5Min.Text = "5 Phút\r\nBắt đầu nhẹ nhàng!";
+            this.btn5Min.Text = "10 Phút\r\nBắt đầu nhẹ nhàng!";
             this.btn5Min.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
             this.btn5Min.UseVisualStyleBackColor = false;
             this.btn5Min.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn5Min_MouseClick);
@@ -239,7 +239,7 @@
             this.rjPanel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
             this.rjPanel5.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
             this.rjPanel5.BorderRadius = 30;
-            this.rjPanel5.Controls.Add(this.btnStatistic);
+            this.rjPanel5.Controls.Add(this.btnSave);
             this.rjPanel5.ForeColor = System.Drawing.Color.Black;
             this.rjPanel5.GradientAngle = 90F;
             this.rjPanel5.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
@@ -249,27 +249,28 @@
             this.rjPanel5.Size = new System.Drawing.Size(136, 120);
             this.rjPanel5.TabIndex = 37;
             // 
-            // btnStatistic
+            // btnSave
             // 
-            this.btnStatistic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.btnStatistic.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnStatistic.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnStatistic.FlatAppearance.BorderSize = 0;
-            this.btnStatistic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStatistic.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStatistic.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.btnStatistic.IconChar = FontAwesome.Sharp.IconChar.Check;
-            this.btnStatistic.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(110)))), ((int)(((byte)(254)))));
-            this.btnStatistic.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.btnStatistic.IconSize = 100;
-            this.btnStatistic.Location = new System.Drawing.Point(0, 0);
-            this.btnStatistic.Name = "btnStatistic";
-            this.btnStatistic.Size = new System.Drawing.Size(136, 120);
-            this.btnStatistic.TabIndex = 8;
-            this.btnStatistic.TabStop = false;
-            this.btnStatistic.Text = "LƯU";
-            this.btnStatistic.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnStatistic.UseVisualStyleBackColor = false;
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSave.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Bahnschrift Condensed", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.btnSave.IconChar = FontAwesome.Sharp.IconChar.Check;
+            this.btnSave.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(110)))), ((int)(((byte)(254)))));
+            this.btnSave.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnSave.IconSize = 100;
+            this.btnSave.Location = new System.Drawing.Point(0, 0);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(136, 120);
+            this.btnSave.TabIndex = 8;
+            this.btnSave.TabStop = false;
+            this.btnSave.Text = "LƯU";
+            this.btnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // FormSetGoal
             // 
@@ -307,6 +308,6 @@
         private CustomControls.RJButton btn60Min;
         private CustomControls.RJButton btn120Min;
         private CustomControls.RJPanel rjPanel5;
-        private FontAwesome.Sharp.IconButton btnStatistic;
+        private FontAwesome.Sharp.IconButton btnSave;
     }
 }

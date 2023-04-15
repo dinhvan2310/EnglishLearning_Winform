@@ -39,6 +39,15 @@ namespace BLL.Workflows
             private set { }
         }
 
+        public float CurrentOnlineMinute
+        {
+            get
+            {
+                return (float)((DateTime.Now - _IniOnlineTime).TotalSeconds / 60.0f);
+            }
+            private set { }
+        }
+
         private int _UserID;
 
         private AccountManager _AccountManager;
@@ -339,6 +348,16 @@ namespace BLL.Workflows
         public float GetNumberOfLearnedHour()
         {
             return _AccountManager.GetNumberOfLearnedHour(_UserID);
+        }
+
+        public float GetNumberOfLearnedHour_Today()
+        {
+            return _AccountManager.GetNumberOfLearnedHour_Today(_UserID);
+        }
+
+        public float GetNumberOfLearnedMinute_Today()
+        {
+            return _AccountManager.GetNumberOfLearnedHour_Today(_UserID) * 60;
         }
     }
 }

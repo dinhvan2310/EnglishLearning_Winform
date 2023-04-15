@@ -189,6 +189,28 @@ namespace BLL.Components
             }
         }
 
+        public float GetNumberOfLearnedHour_Today(int accountID)
+        {
+            using (DictionaryContext dbContext = new DictionaryContext())
+            {
+                float result = 0;
+
+                int dayID = Convert.ToInt32(DateTime.Today.ToString("yyyyMMdd"));
+                var temp = dbContext.InformationPerDay
+                    .Where(p => p.AccountID == accountID
+                    && p.DayID == dayID)
+                    .Select(p => p.OnlineHour)
+                    .ToList();
+
+                temp.ForEach(item =>
+                {
+                    result += item;
+                });
+
+                return result;
+            }
+        }
+
         /*public bool checkExsit(Account account)
         {
             using (var dbContext = new Model1())

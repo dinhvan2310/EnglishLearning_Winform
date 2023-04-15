@@ -13,6 +13,9 @@ namespace PBL3
 {
     public partial class FormSetGoal : Form
     {
+        public delegate void Func(int goal);
+        public event Func Callback;
+
         private int _CurrentIndex = 2;
         public FormSetGoal()
         {
@@ -20,6 +23,8 @@ namespace PBL3
 
             ((Button)flowPanel.Controls[_CurrentIndex]).BackColor = Color.FromArgb(97, 110, 254);
         }
+
+        #region EVENTS
 
         private void btnReturn_MouseClick(object sender, MouseEventArgs e)
         {
@@ -33,5 +38,15 @@ namespace PBL3
             _CurrentIndex = flowPanel.Controls.GetChildIndex((Control)sender);
             ((Button)flowPanel.Controls[_CurrentIndex]).BackColor = Color.FromArgb(97, 110, 254);
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            Button b = (Button)flowPanel.Controls[_CurrentIndex];
+            Callback(Convert.ToInt32(b.Text.Substring(0, 3).Trim()));
+
+            GlobalForm.MainForm.GoBack();
+        }
+
+        #endregion
     }
 }
