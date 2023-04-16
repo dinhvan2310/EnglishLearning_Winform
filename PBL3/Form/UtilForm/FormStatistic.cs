@@ -1,5 +1,6 @@
 ﻿using BLL.TransferObjects;
 using BLL.Workflows;
+using EFramework.Model;
 using LiveCharts;
 using LiveCharts.Wpf;
 using PBL3.Utilities;
@@ -50,13 +51,13 @@ namespace PBL3
             chart.Series.Clear();
             LiveCharts.SeriesCollection series = new LiveCharts.SeriesCollection();
             DataManager dm = new DataManager();
-            LearningStats stats = dm.AccountManager.GetLearningStats_ByUID(LoginWorkflow.Instance.GetAccount().AccountID);
+            List<InformationPerDay> stats = dm.AccountManager.GetLearningStat_All_ByUID(LoginWorkflow.Instance.GetAccount().AccountID);
 
 
             series.Add(new LineSeries
             {
                 Title = "Từ",
-                Values = new ChartValues<int>(stats.Stats.Select(p => p.WordCount)),
+                Values = new ChartValues<int>(stats.Select(p => p.NumberOfLearnedWord)),
                 Fill = new LinearGradientBrush(System.Windows.Media.Color.FromArgb(150, 0, 255, 191),
                     System.Windows.Media.Color.FromArgb(50, 0, 255, 191), 90),
                 Stroke = new SolidColorBrush(System.Windows.Media.Color.FromRgb(0, 255, 191)),
@@ -66,7 +67,7 @@ namespace PBL3
             series.Add(new LineSeries
             {
                 Title = "Giờ",
-                Values = new ChartValues<int>(stats.Stats.Select(p =>  p.TimeAmount )),
+                Values = new ChartValues<int>(stats.Select(p =>  (int)p.OnlineHour )),
                 Fill = new LinearGradientBrush(System.Windows.Media.Color.FromArgb(150, 255, 191, 0),
                         System.Windows.Media.Color.FromArgb(50, 255, 191, 0), 90),
                 Stroke = new SolidColorBrush(System.Windows.Media.Color.FromRgb(255, 191, 0))

@@ -124,7 +124,7 @@
     <Compile Include="Components\SoundManager.cs" />
     <Compile Include="Components\Validator.cs" />
     <Compile Include="Components\VDictionaryManager.cs" />
-    <Compile Include="TransferObjects\LearningStats.cs" />
+    <Compile Include="TransferObjects\DIAdjustment.cs" />
     <Compile Include="TransferObjects\NotebookCard.cs" />
     <Compile Include="TransferObjects\SynsetModel.cs" />
     <Compile Include="TransferObjects\WordModel.cs" />

@@ -14,6 +14,7 @@ using BLL.Workflows;
 using PBL3.Utilities;
 using BLL.Components;
 using CustomControls;
+using System.Windows.Media.Media3D;
 
 namespace PBL3
 {
@@ -32,7 +33,6 @@ namespace PBL3
 
             SetupForm();
             SetupUI();
-
         }
 
         #region HELPER FUNCTIONS
@@ -44,14 +44,26 @@ namespace PBL3
         {
             btnSugWord.Text = _WordsEveryDay[0].Word;
             UpdateComprehensiveStat();
-            lblCurrent.Text = Convert.ToInt32(LoginWorkflow.Instance.GetNumberOfLearnedMinute_Today()).ToString();
+            UpdateOnlineGoal();
         }
 
         private void UpdateComprehensiveStat()
         {
-            txtDay.Text = LoginWorkflow.Instance.GetNumberOfLearnedDay().ToString();
+            if (!LoginWorkflow.Instance.IsLoggedIn())
+                return;
+            txtDay.Text = LoginWorkflow.Instance.GetAccountDetail().NumberOfConsecutiveDay.ToString();
             txtWord.Text = LoginWorkflow.Instance.GetNumberOfLearnedWord().ToString();
             txtHour.Text = Convert.ToInt32(LoginWorkflow.Instance.GetNumberOfLearnedHour()).ToString();
+        }
+
+        private void UpdateOnlineGoal()
+        {
+            if (!LoginWorkflow.Instance.IsLoggedIn())
+                return;
+            int onlineMinute = Convert.ToInt32(LoginWorkflow.Instance.GetNumberOfLearnedMinute_Today());
+            lblCurrent.Text = onlineMinute.ToString();
+            progressBar.Value = (int)(onlineMinute / Convert.ToDouble(lblGoal.Text) * 100);
+            iconPercent.Text = progressBar.Value + " %";
         }
 
         private void UpdateNotebook()
@@ -157,8 +169,7 @@ namespace PBL3
         private void updateGoalTick_Tick(object sender, EventArgs e)
         {
             UpdateComprehensiveStat();
-
-            lblCurrent.Text = Convert.ToInt32(LoginWorkflow.Instance.GetNumberOfLearnedMinute_Today()).ToString();
+            UpdateOnlineGoal();
         }
         #endregion
 

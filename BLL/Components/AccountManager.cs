@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Globalization;
@@ -69,6 +70,15 @@ namespace BLL.Components
             }
         }
 
+        public InformationPerDay GetLearningStat_ByID(int accountID, int dayID)
+        {
+            using (var dbContext = new DictionaryContext())
+            {
+                return dbContext.InformationPerDay
+                    .SingleOrDefault(p => p.AccountID == accountID && p.DayID == dayID);
+            }
+        }
+
         /// <summary>
         /// lưu thời gian học và số từ học trong 1 ngày
         /// </summary>
@@ -104,114 +114,75 @@ namespace BLL.Components
             }
         }
 
-        public LearningStats GetLearningStats_ByUID(int userID)
+        public void UpdateDetailInformation(int userID, DIAdjustment adjustment)
+        {
+            using (var db = new DictionaryContext())
+            {
+                var temp = db.DetailedInformation
+                    .Where(p => p.AccountID == userID)
+                    .FirstOrDefault();
+
+                switch (adjustment.ConsecutiveValue)
+                {
+                    case -1:
+                        temp.NumberOfConsecutiveDay = 1;
+                        break;
+                    case 1:
+                        temp.NumberOfConsecutiveDay += 1;
+                        break;
+                }
+                temp.Balance += adjustment.BalanceOffset;
+
+                db.SaveChanges();
+            }
+        }
+
+        public List<InformationPerDay> GetLearningStat_All_ByUID(int userID)
         {
             using (DictionaryContext db = new DictionaryContext())
             {
-                LearningStats result = new LearningStats();
+                List<InformationPerDay> result = new List<InformationPerDay>();
 
                 var rs = db.InformationPerDay
                                     .Where(p => p.AccountID == userID)
                                     .OrderBy(p => p.DayID)
                                     .ToList();
 
-                int lastDate = -1;
+                int lastDateID = -1;
                 foreach (var i in rs)
                 {
-                    if (lastDate != -1)
+                    if (lastDateID != -1)
                     {
-                        int offset = (int)(DateTime.ParseExact(i.DayID.ToString(), "yyyyMMdd", CultureInfo.InvariantCulture)
-                            - DateTime.ParseExact(lastDate.ToString(), "yyyyMMdd", CultureInfo.InvariantCulture)).TotalDays;
+                        DateTime currentDate = DateTime.ParseExact(i.DayID.ToString(), "yyyyMMdd", CultureInfo.InvariantCulture);
+                        int offset = (int)(currentDate - DateTime.ParseExact(lastDateID.ToString(), "yyyyMMdd", CultureInfo.InvariantCulture)).TotalDays;
 
-                        for (int k = 0; k < offset; ++k)
+                        for (int k = 1; k < offset; ++k)
                         {
-                            result.Stats.Add(new Stat());
+                            result.Add(new InformationPerDay()
+                            {
+                                AccountID = userID,
+                                DayID = Convert.ToInt32(currentDate.AddDays(k).ToString("yyyyMMdd")),
+                                NumberOfLearnedWord = 0,
+                                OnlineHour = 0
+                            });
                         }    
                     }
-                    result.Stats.Add(new Stat()
+                    result.Add(new InformationPerDay()
                     {
-                        TimeAmount = (int)i.OnlineHour,
-                        WordCount = i.NumberOfLearnedWord
+                        AccountID = userID,
+                        DayID = i.DayID,
+                        NumberOfLearnedWord = i.NumberOfLearnedWord,
+                        OnlineHour = i.OnlineHour,
                     });
 
-                    lastDate = i.DayID;
+                    lastDateID = i.DayID;
                 }
 
                 return result;
             }
         }
 
-        public int GetNumberOfLearnedDay(int accountID)
-        {
-            using (DictionaryContext dbContext = new DictionaryContext())
-            {
-                return dbContext.InformationPerDay.Where(p => p.AccountID == accountID).Count();
-            }
-        }
-
-        public int GetNumberOfLearnedWord(int accountID)
-        {
-            using (DictionaryContext dbContext = new DictionaryContext())
-            {
-                int result = 0;
-
-                var temp = dbContext.InformationPerDay
-                    .Where(p => p.AccountID == accountID)
-                    .Select(p => p.NumberOfLearnedWord)
-                    .ToList();
-
-                temp.ForEach(item =>
-                {
-                    result += item;
-                });
-
-                return result;
-            }
-        }
-
-        public float GetNumberOfLearnedHour(int accountID)
-        {
-            using (DictionaryContext dbContext = new DictionaryContext())
-            {
-                float result = 0;
-
-                var temp = dbContext.InformationPerDay
-                    .Where(p => p.AccountID == accountID)
-                    .Select(p => p.OnlineHour)
-                    .ToList();
-
-                temp.ForEach(item =>
-                {
-                    result += item;
-                });
-
-                return result;
-            }
-        }
-
-        public float GetNumberOfLearnedHour_Today(int accountID)
-        {
-            using (DictionaryContext dbContext = new DictionaryContext())
-            {
-                float result = 0;
-
-                int dayID = Convert.ToInt32(DateTime.Today.ToString("yyyyMMdd"));
-                var temp = dbContext.InformationPerDay
-                    .Where(p => p.AccountID == accountID
-                    && p.DayID == dayID)
-                    .Select(p => p.OnlineHour)
-                    .ToList();
-
-                temp.ForEach(item =>
-                {
-                    result += item;
-                });
-
-                return result;
-            }
-        }
-
-        /*public bool checkExsit(Account account)
+            /*public bool checkExsit(Account account)
         {
             using (var dbContext = new Model1())
             {

@@ -13,6 +13,7 @@ using EFramework.Model;
 using Newtonsoft.Json;
 using PBLLibrary;
 using Library;
+using BLL.TransferObjects;
 
 namespace BLL.Workflows
 {
@@ -39,15 +40,6 @@ namespace BLL.Workflows
             private set { }
         }
 
-        public float CurrentOnlineMinute
-        {
-            get
-            {
-                return (float)((DateTime.Now - _IniOnlineTime).TotalSeconds / 60.0f);
-            }
-            private set { }
-        }
-
         private int _UserID;
 
         private AccountManager _AccountManager;
@@ -57,7 +49,9 @@ namespace BLL.Workflows
         private static LoginWorkflow _Instance;
 
         private string _Key = "2giotoitaigoccayda";
+        private bool _FirstTimeLogged = false;
         private DateTime _IniOnlineTime;
+
 
         private LoginWorkflow()
         {
@@ -204,6 +198,10 @@ namespace BLL.Workflows
         {
             return _UserID != -1;
         }
+        public bool IsFirstTimeLogged()
+        {
+            return _FirstTimeLogged;
+        }
         public void SendMessage(string desEmail, string subject, string body)
         {
             _EmailManager.SendMessage(desEmail, subject, body);
@@ -276,7 +274,7 @@ namespace BLL.Workflows
                         {
                             _UserID = account.AccountID;
 
-                            _AccountManager.UpdateLearningStat(_UserID, 0, 0);
+                            SetupAccount();
                             return true;
                         }
                         return false;
@@ -288,6 +286,33 @@ namespace BLL.Workflows
                 MessageBox.Show(e.Message);
                 return false;
             }
+        }
+
+        private void SetupAccount()
+        {
+            // update account
+            int yesterdayID = Convert.ToInt32(
+                        DateTime.Now.Subtract(new TimeSpan(1, 0, 0, 0)).ToString("yyyyMMdd"));
+            InformationPerDay yesterdayIPD = _AccountManager.GetLearningStat_ByID(_UserID, yesterdayID);
+            InformationPerDay currentIPD = _AccountManager.GetLearningStat_ByID(_UserID,
+                Convert.ToInt32(DateTime.Now.ToString("yyyyMMdd")));
+
+            _FirstTimeLogged = currentIPD == null;
+            if (yesterdayIPD == null)
+            {
+                _AccountManager.UpdateDetailInformation(_UserID, new DIAdjustment()
+                {
+                    ConsecutiveValue = -1
+                });
+            }
+            else if (currentIPD == null)
+            {
+                _AccountManager.UpdateDetailInformation(_UserID, new DIAdjustment()
+                {
+                    ConsecutiveValue = 1
+                });
+            }
+            _AccountManager.UpdateLearningStat(_UserID, 0, 0);
         }
 
         public bool Login()
@@ -321,7 +346,7 @@ namespace BLL.Workflows
                         {
                             _UserID = account.AccountID;
 
-                            _AccountManager.UpdateLearningStat(_UserID, 0, 0);
+                            SetupAccount();
                             return true;
                         }
                         return false;
@@ -335,29 +360,56 @@ namespace BLL.Workflows
             }
         }
 
+        public void UpdateLearningStat(float learnedHour, int learnedWord)
+        {
+            _AccountManager.UpdateLearningStat(_UserID, learnedHour, learnedWord);
+        }
+
         public int GetNumberOfLearnedDay()
         {
-            return _AccountManager.GetNumberOfLearnedDay(_UserID);
+            return _AccountManager.GetLearningStat_All_ByUID(_UserID).Count();
         }
 
         public int GetNumberOfLearnedWord()
         {
-            return _AccountManager.GetNumberOfLearnedWord(_UserID);
+            int result = 0;
+            _AccountManager.GetLearningStat_All_ByUID(_UserID).ForEach(item =>
+            {
+                result += item.NumberOfLearnedWord;
+            });
+
+            return result;
         }
 
         public float GetNumberOfLearnedHour()
         {
-            return _AccountManager.GetNumberOfLearnedHour(_UserID);
+            float result = 0;
+            _AccountManager.GetLearningStat_All_ByUID(_UserID).ForEach(item =>
+            {
+                result += item.OnlineHour;
+            });
+
+            return result;
         }
 
         public float GetNumberOfLearnedHour_Today()
         {
-            return _AccountManager.GetNumberOfLearnedHour_Today(_UserID);
+            int todayID = Convert.ToInt32(DateTime.Now.ToString("yyyyMMdd"));
+            return _AccountManager.GetLearningStat_ByID(_UserID, todayID).OnlineHour + CurrentOnlineHour;
         }
 
         public float GetNumberOfLearnedMinute_Today()
         {
-            return _AccountManager.GetNumberOfLearnedHour_Today(_UserID) * 60;
+            return GetNumberOfLearnedHour_Today() * 60.0f;
+        }
+
+        public void AdjustBalance(int adjustAmount)
+        {
+            _AccountManager.UpdateDetailInformation(_UserID, new DIAdjustment()
+            {
+                BalanceOffset = adjustAmount
+            });
+
         }
     }
 }

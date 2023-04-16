@@ -90,6 +90,10 @@ namespace PBL3
             if (LoginWorkflow.Instance.Login())
             {
                 SettingWorkflow.Instance.ApplyUserSettings(LoginWorkflow.Instance.GetAccount().AccountID);
+                if (LoginWorkflow.Instance.IsFirstTimeLogged())
+                {
+                    GrantLoggingCoin();
+                }
             }
             else
             {
@@ -97,15 +101,20 @@ namespace PBL3
             }
 
         }
+
+        
         private void InitializeChildForm()
         {
             if (LoginWorkflow.Instance.IsLoggedIn() && LoginWorkflow.Instance.GetAccount().TypeID == 5)
                 HomeForm = new FormAdmin();
             else
                 HomeForm = new FormHome();
-            TopicForm = new FormTopic();
+
             NotebookForm = new FormNotebook();
+            
             SettingForm = new FormSetting();
+            TopicForm = new FormTopic();
+
         }
 
         private void InitializeFoundButton()
@@ -245,6 +254,19 @@ namespace PBL3
             typeof(System.Windows.Forms.Control).InvokeMember("DoubleBuffered",
                 BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic,
                 null, panelDrag, new object[] { true });
+        }
+
+        private void GrantLoggingCoin()
+        {
+            int cd = LoginWorkflow.Instance.GetAccountDetail().NumberOfConsecutiveDay;
+            Form message = new FormMessageBox(
+                "Nhận thưởng",
+                "Bạn đã điểm danh được " + cd + " ngày\n" +
+                "Số xu bạn nhận được là: " + cd * 10,
+                FormMessageBox.MessageType.Info);
+
+            message.ShowDialog();
+            LoginWorkflow.Instance.AdjustBalance(cd * 10);
         }
         #endregion
 
@@ -605,7 +627,12 @@ namespace PBL3
 
         private void MainForm_VisibleChanged(object sender, EventArgs e)
         {
+            if (!this.Visible)
+                return;
+
             SetupUI();
+            if (LoginWorkflow.Instance.IsFirstTimeLogged())
+                GrantLoggingCoin();
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -613,9 +640,7 @@ namespace PBL3
             if (!LoginWorkflow.Instance.IsLoggedIn())
                 return;
 
-            DataManager dm = new DataManager();
-            dm.AccountManager.UpdateLearningStat(LoginWorkflow.Instance.GetAccount().AccountID,
-                LoginWorkflow.Instance.CurrentOnlineHour, 0);
+            LoginWorkflow.Instance.UpdateLearningStat(LoginWorkflow.Instance.CurrentOnlineHour, 0);
         }
 
         #endregion

@@ -48,7 +48,7 @@ namespace PBL3
             this.label9 = new System.Windows.Forms.Label();
             this.txtDay = new System.Windows.Forms.Label();
             this.rjPanel8 = new CustomControls.RJPanel();
-            this.iconButton2 = new FontAwesome.Sharp.IconButton();
+            this.iconPercent = new FontAwesome.Sharp.IconButton();
             this.btnSetGoal = new FontAwesome.Sharp.IconButton();
             this.rjPanel9 = new CustomControls.RJPanel();
             this.lblGoal = new System.Windows.Forms.Label();
@@ -57,7 +57,7 @@ namespace PBL3
             this.label19 = new System.Windows.Forms.Label();
             this.lblCurrent = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
-            this.circularProgressBar2 = new CircularProgressBar.CircularProgressBar();
+            this.progressBar = new CircularProgressBar.CircularProgressBar();
             this.rjPanel6 = new CustomControls.RJPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSugWord = new CustomControls.RJButton();
@@ -272,11 +272,11 @@ namespace PBL3
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Bahnschrift SemiLight Condensed", 12F);
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.label9.Location = new System.Drawing.Point(71, 26);
+            this.label9.Location = new System.Drawing.Point(71, 13);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(92, 24);
+            this.label9.Size = new System.Drawing.Size(92, 48);
             this.label9.TabIndex = 6;
-            this.label9.Text = "Số Ngày Học";
+            this.label9.Text = "Số Ngày Học\r\nLiên Tiếp";
             // 
             // txtDay
             // 
@@ -297,7 +297,7 @@ namespace PBL3
             this.rjPanel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
             this.rjPanel8.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
             this.rjPanel8.BorderRadius = 30;
-            this.rjPanel8.Controls.Add(this.iconButton2);
+            this.rjPanel8.Controls.Add(this.iconPercent);
             this.rjPanel8.Controls.Add(this.btnSetGoal);
             this.rjPanel8.Controls.Add(this.rjPanel9);
             this.rjPanel8.Controls.Add(this.lblGoal);
@@ -306,7 +306,7 @@ namespace PBL3
             this.rjPanel8.Controls.Add(this.label19);
             this.rjPanel8.Controls.Add(this.lblCurrent);
             this.rjPanel8.Controls.Add(this.label20);
-            this.rjPanel8.Controls.Add(this.circularProgressBar2);
+            this.rjPanel8.Controls.Add(this.progressBar);
             this.rjPanel8.ForeColor = System.Drawing.Color.Black;
             this.rjPanel8.GradientAngle = 90F;
             this.rjPanel8.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
@@ -316,25 +316,25 @@ namespace PBL3
             this.rjPanel8.Size = new System.Drawing.Size(415, 241);
             this.rjPanel8.TabIndex = 33;
             // 
-            // iconButton2
+            // iconPercent
             // 
-            this.iconButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.iconButton2.FlatAppearance.BorderSize = 0;
-            this.iconButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.iconButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.iconButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.iconButton2.Font = new System.Drawing.Font("Aquire", 18F, System.Drawing.FontStyle.Bold);
-            this.iconButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.iconButton2.IconChar = FontAwesome.Sharp.IconChar.Fire;
-            this.iconButton2.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(108)))), ((int)(((byte)(131)))));
-            this.iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconButton2.Location = new System.Drawing.Point(82, 77);
-            this.iconButton2.Name = "iconButton2";
-            this.iconButton2.Size = new System.Drawing.Size(84, 94);
-            this.iconButton2.TabIndex = 43;
-            this.iconButton2.Text = "75%";
-            this.iconButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.iconButton2.UseVisualStyleBackColor = false;
+            this.iconPercent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.iconPercent.FlatAppearance.BorderSize = 0;
+            this.iconPercent.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.iconPercent.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.iconPercent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconPercent.Font = new System.Drawing.Font("Aquire", 18F, System.Drawing.FontStyle.Bold);
+            this.iconPercent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.iconPercent.IconChar = FontAwesome.Sharp.IconChar.Fire;
+            this.iconPercent.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(108)))), ((int)(((byte)(131)))));
+            this.iconPercent.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconPercent.Location = new System.Drawing.Point(82, 77);
+            this.iconPercent.Name = "iconPercent";
+            this.iconPercent.Size = new System.Drawing.Size(84, 94);
+            this.iconPercent.TabIndex = 43;
+            this.iconPercent.Text = "75%";
+            this.iconPercent.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.iconPercent.UseVisualStyleBackColor = false;
             // 
             // btnSetGoal
             // 
@@ -443,38 +443,38 @@ namespace PBL3
             this.label20.TabIndex = 38;
             this.label20.Text = "Phút";
             // 
-            // circularProgressBar2
+            // progressBar
             // 
-            this.circularProgressBar2.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
-            this.circularProgressBar2.AnimationSpeed = 500;
-            this.circularProgressBar2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.circularProgressBar2.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold);
-            this.circularProgressBar2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.circularProgressBar2.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.circularProgressBar2.InnerMargin = 2;
-            this.circularProgressBar2.InnerWidth = -1;
-            this.circularProgressBar2.Location = new System.Drawing.Point(22, 24);
-            this.circularProgressBar2.MarqueeAnimationSpeed = 2000;
-            this.circularProgressBar2.Name = "circularProgressBar2";
-            this.circularProgressBar2.OuterColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.circularProgressBar2.OuterMargin = -20;
-            this.circularProgressBar2.OuterWidth = 20;
-            this.circularProgressBar2.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(108)))), ((int)(((byte)(131)))));
-            this.circularProgressBar2.ProgressWidth = 20;
-            this.circularProgressBar2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.circularProgressBar2.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
-            this.circularProgressBar2.Size = new System.Drawing.Size(200, 200);
-            this.circularProgressBar2.StartAngle = 270;
-            this.circularProgressBar2.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.circularProgressBar2.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
-            this.circularProgressBar2.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
-            this.circularProgressBar2.SubscriptText = ".23";
-            this.circularProgressBar2.SuperscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
-            this.circularProgressBar2.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
-            this.circularProgressBar2.SuperscriptText = "°C";
-            this.circularProgressBar2.TabIndex = 37;
-            this.circularProgressBar2.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
-            this.circularProgressBar2.Value = 75;
+            this.progressBar.AnimationFunction = WinFormAnimation.KnownAnimationFunctions.Liner;
+            this.progressBar.AnimationSpeed = 500;
+            this.progressBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.progressBar.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Bold);
+            this.progressBar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.progressBar.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.progressBar.InnerMargin = 2;
+            this.progressBar.InnerWidth = -1;
+            this.progressBar.Location = new System.Drawing.Point(22, 24);
+            this.progressBar.MarqueeAnimationSpeed = 2000;
+            this.progressBar.Name = "progressBar";
+            this.progressBar.OuterColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.progressBar.OuterMargin = -20;
+            this.progressBar.OuterWidth = 20;
+            this.progressBar.ProgressColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(108)))), ((int)(((byte)(131)))));
+            this.progressBar.ProgressWidth = 20;
+            this.progressBar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.progressBar.SecondaryFont = new System.Drawing.Font("Microsoft Sans Serif", 36F);
+            this.progressBar.Size = new System.Drawing.Size(200, 200);
+            this.progressBar.StartAngle = 270;
+            this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progressBar.SubscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.progressBar.SubscriptMargin = new System.Windows.Forms.Padding(10, -35, 0, 0);
+            this.progressBar.SubscriptText = ".23";
+            this.progressBar.SuperscriptColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(166)))), ((int)(((byte)(166)))));
+            this.progressBar.SuperscriptMargin = new System.Windows.Forms.Padding(10, 35, 0, 0);
+            this.progressBar.SuperscriptText = "°C";
+            this.progressBar.TabIndex = 37;
+            this.progressBar.TextMargin = new System.Windows.Forms.Padding(8, 8, 0, 0);
+            this.progressBar.Value = 75;
             // 
             // rjPanel6
             // 
@@ -898,7 +898,7 @@ namespace PBL3
         private RJPanel rjPanel9;
         private System.Windows.Forms.Label lblGoal;
         private System.Windows.Forms.Label label17;
-        private CircularProgressBar.CircularProgressBar circularProgressBar2;
+        private CircularProgressBar.CircularProgressBar progressBar;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label lblCurrent;
@@ -920,7 +920,7 @@ namespace PBL3
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Timer sugWordLeftAnim;
         private System.Windows.Forms.Timer sugWordRightAnim;
-        private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton iconPercent;
         private System.Windows.Forms.Timer updateGoalTick;
     }
 }

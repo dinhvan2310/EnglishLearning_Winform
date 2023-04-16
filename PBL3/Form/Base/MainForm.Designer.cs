@@ -71,7 +71,6 @@ namespace PBL3
             this.btnPersonalSetting = new CustomControls.RJButton();
             this.btnPersonalInfo = new CustomControls.RJButton();
             this.btnPersonal = new CustomControls.RJButton();
-            this.btnAnnounce = new CustomControls.RJButton();
             this.btnExit = new FontAwesome.Sharp.IconButton();
             this.iconChildForm = new FontAwesome.Sharp.IconPictureBox();
             this.lblChildForm = new System.Windows.Forms.Label();
@@ -403,7 +402,6 @@ namespace PBL3
             this.panelBase.Controls.Add(this.rjButton2);
             this.panelBase.Controls.Add(this.panelPersonal);
             this.panelBase.Controls.Add(this.btnPersonal);
-            this.panelBase.Controls.Add(this.btnAnnounce);
             this.panelBase.Controls.Add(this.btnExit);
             this.panelBase.Controls.Add(this.iconChildForm);
             this.panelBase.Controls.Add(this.lblChildForm);
@@ -599,7 +597,7 @@ namespace PBL3
             this.lblBalance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
             this.lblBalance.Location = new System.Drawing.Point(820, 87);
             this.lblBalance.Name = "lblBalance";
-            this.lblBalance.Size = new System.Drawing.Size(71, 20);
+            this.lblBalance.Size = new System.Drawing.Size(125, 20);
             this.lblBalance.TabIndex = 25;
             this.lblBalance.Text = "123";
             this.lblBalance.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -620,7 +618,7 @@ namespace PBL3
             this.rjButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
             this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton2.ForeColor = System.Drawing.Color.White;
-            this.rjButton2.Location = new System.Drawing.Point(881, 74);
+            this.rjButton2.Location = new System.Drawing.Point(940, 74);
             this.rjButton2.Name = "rjButton2";
             this.rjButton2.Size = new System.Drawing.Size(50, 50);
             this.rjButton2.TabIndex = 24;
@@ -818,28 +816,6 @@ namespace PBL3
             this.btnPersonal.UseVisualStyleBackColor = false;
             this.btnPersonal.Click += new System.EventHandler(this.btnPersonal_Click);
             // 
-            // btnAnnounce
-            // 
-            this.btnAnnounce.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAnnounce.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(49)))), ((int)(((byte)(91)))));
-            this.btnAnnounce.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(49)))), ((int)(((byte)(91)))));
-            this.btnAnnounce.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAnnounce.BackgroundImage")));
-            this.btnAnnounce.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAnnounce.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnAnnounce.BorderRadius = 15;
-            this.btnAnnounce.BorderSize = 0;
-            this.btnAnnounce.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAnnounce.FlatAppearance.BorderSize = 0;
-            this.btnAnnounce.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnnounce.ForeColor = System.Drawing.Color.White;
-            this.btnAnnounce.Location = new System.Drawing.Point(937, 74);
-            this.btnAnnounce.Name = "btnAnnounce";
-            this.btnAnnounce.Size = new System.Drawing.Size(50, 50);
-            this.btnAnnounce.TabIndex = 10;
-            this.btnAnnounce.TabStop = false;
-            this.btnAnnounce.TextColor = System.Drawing.Color.White;
-            this.btnAnnounce.UseVisualStyleBackColor = false;
-            // 
             // btnExit
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1031,7 +1007,6 @@ namespace PBL3
         private FontAwesome.Sharp.IconPictureBox iconChildForm;
         private System.Windows.Forms.Label lblChildForm;
         private CustomControls.RJButton btnPersonal;
-        private CustomControls.RJButton btnAnnounce;
         private System.Windows.Forms.Button btnLogo;
         private FontAwesome.Sharp.IconButton btnCollapse;
         private System.Windows.Forms.Panel panelDrag;
