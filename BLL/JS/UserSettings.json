@@ -1,17 +1,26 @@
 [
   {
-    "UserId": 20,
-    "Volume": 8,
-    "Voice": false
+    "UserId": 29,
+    "Volume": 6,
+    "Voice": false,
+    "Goal": 120
   },
   {
-    "UserId": 19,
+    "UserId": 28,
     "Volume": 10,
-    "Voice": true
+    "Voice": false,
+    "Goal": 45
   },
   {
-    "UserId": 22,
+    "UserId": 30,
     "Volume": 10,
-    "Voice": true
+    "Voice": false,
+    "Goal": 45
+  },
+  {
+    "UserId": 31,
+    "Volume": 10,
+    "Voice": false,
+    "Goal": 10
   }
 ]

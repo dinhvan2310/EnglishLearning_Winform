@@ -62,6 +62,7 @@ namespace PBL3
                 return;
             int onlineMinute = Convert.ToInt32(LoginWorkflow.Instance.GetNumberOfLearnedMinute_Today());
             lblCurrent.Text = onlineMinute.ToString();
+            lblGoal.Text = SettingWorkflow.Instance.GetUserSettings(LoginWorkflow.Instance.GetAccount().AccountID).Goal.ToString();
             progressBar.Value = (int)(onlineMinute / Convert.ToDouble(lblGoal.Text) * 100);
             iconPercent.Text = progressBar.Value + " %";
         }
@@ -112,6 +113,9 @@ namespace PBL3
         private void SetGoal(int goal)
         {
             lblGoal.Text = goal.ToString();
+            if (!LoginWorkflow.Instance.IsLoggedIn())
+                return;
+            SettingWorkflow.Instance.SetUserGoal(LoginWorkflow.Instance.GetAccount().AccountID, Convert.ToInt32(goal.ToString()));
         }
 
         private bool IsSuggestWordAnimation()
@@ -227,5 +231,6 @@ namespace PBL3
         }
         #endregion
 
+       
     }
 }

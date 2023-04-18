@@ -41,6 +41,11 @@ namespace EFramework
         {
             Configuration.LazyLoadingEnabled = true;
 
+            modelBuilder.Entity<Account>()
+                .HasOptional(e => e.DetailedInformation)
+                .WithRequired(e => e.Account);
+
+
             modelBuilder.Entity<wn_synset>()
                 .Property(e => e.definition)
                 .IsUnicode(false);

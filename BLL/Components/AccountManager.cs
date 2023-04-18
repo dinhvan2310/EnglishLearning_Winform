@@ -62,6 +62,36 @@ namespace BLL.Components
             }
         }
 
+        public List<Account> GetListAccounts()
+        {
+            using (var dbContext = new DictionaryContext())
+            {
+                return dbContext.Account.Where(p => p.TypeID != 5).Include(p => p.DetailedInformation).ToList();
+            }
+        }
+
+        public bool DeleteAccount(int accountID)
+        {
+            using (var dbContext = new DictionaryContext())
+            {
+                try
+                {
+                    DetailedInformation detailedInformation = dbContext.DetailedInformation.Find(accountID);
+                    dbContext.DetailedInformation.Remove(detailedInformation);
+                    dbContext.SaveChanges();
+
+                    Account account = dbContext.Account.Find(accountID);
+                    dbContext.Account.Remove(account);
+                    dbContext.SaveChanges();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
+        }
+
         public DetailedInformation GetAccountDetail(int accountID)
         {
             using (var dbContext = new DictionaryContext())

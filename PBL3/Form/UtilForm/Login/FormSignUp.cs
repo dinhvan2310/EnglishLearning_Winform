@@ -25,21 +25,6 @@ namespace PBL3
 {
     public partial class FormSignUp : Form
     {
-        /*private string name { set; get; }
-        private bool Gender { set; get; }
-        private DateTime? DateTime { set; get; }
-
-        private string UserName { set; get; }
-        private string PassWord { set; get; }
-        private string Email { set; get; }
-
-        private bool isValidName = false;
-        private bool isValidGender = true;
-        private bool isValidDateTime = false;
-        private bool isValidUserName = false;
-        private bool isValidPassword = false;
-        private bool isValidEmail = false;*/
-
         private Panel _CurrentPage;
 
         private bool[] _BarIsDirtys = new bool[8];
@@ -466,31 +451,6 @@ namespace PBL3
 
             }
 
-
-
-            /*string name;
-            bool gender;
-            DateTime birthDay;
-            string userName;
-            string password;
-            string email;
-
-            if ()
-            {
-                bool results = Login_SignUp.Instance.saveAccount(name, gender, birthDay, userName, passWord, email);
-                if (results == true)
-                {
-                    ((LoginForm)_ParentForm).OpenChildForm(new FormSignIn(_ParentForm));
-                }
-                else
-                {
-                    new MessageBox("Loi", "Tao tai khoan khong thanh cong", MessageBox.MessageType.Info).ShowDialog();
-                }
-            }
-            else
-            {
-                new MessageBox("Loi", "Thong tin dang ki khong hop le",  MessageBox.MessageType.Info).ShowDialog();
-            }*/
         }
     }
 }

@@ -19,6 +19,11 @@ namespace PBL3
         public FormSetting()
         {
             InitializeComponent();
+
+            cmbVoice.Items.Add("Male - David");
+            cmbVoice.Items.Add("Female - Zira");
+
+            cmbVoice.Text = "Male - David";
         }
 
         #region EVENTS
@@ -47,10 +52,7 @@ namespace PBL3
             if (!this.Visible)
                 return;
 
-            cmbVoice.Items.Add("Male - David");
-            cmbVoice.Items.Add("Female - Zira");
-
-            cmbVoice.Text = "Male - David";
+            
 
             if (LoginWorkflow.Instance.IsLoggedIn())
             {
