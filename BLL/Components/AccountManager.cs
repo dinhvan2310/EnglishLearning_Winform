@@ -16,6 +16,7 @@ namespace BLL.Components
 {
     public class AccountManager
     {
+
         
         public bool SaveAccount(Account account)
         {
