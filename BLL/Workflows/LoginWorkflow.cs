@@ -23,6 +23,7 @@ namespace BLL.Workflows
         {
             get
             {
+
                 if (_Instance == null)
                 {
                     _Instance = new LoginWorkflow();

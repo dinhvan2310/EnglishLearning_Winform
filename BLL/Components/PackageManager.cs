@@ -16,6 +16,7 @@ namespace BLL.Components
             {
                 UserPacket result = new UserPacket();
 
+
                 result = dbContext.UserPacket
                         .Single(p => p.Name == packetName);
 
@@ -27,19 +28,12 @@ namespace BLL.Components
         {
             using (DictionaryContext dbContext = new DictionaryContext())
             {
-                try
-                {
                     UserPacket result = new UserPacket();
                     result = dbContext.UserPacket
                             .Single(p => p.Name == packetName);
                     result.Price = price;
                     dbContext.SaveChanges();
                     return true;
-                }
-                catch(Exception ex)
-                {
-                    return false;
-                }
             }
         }
     }

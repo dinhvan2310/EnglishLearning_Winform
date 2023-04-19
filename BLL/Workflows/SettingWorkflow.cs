@@ -20,6 +20,7 @@ namespace BLL.Workflows
                 if (_Instance == null)
                     _Instance = new SettingWorkflow();
 
+
                 return _Instance;
             }
 
@@ -130,90 +131,71 @@ namespace BLL.Workflows
         {
             List<UserSetting> userSettings = new List<UserSetting>();
             string fileFullPath = GlobalConfig.Instance.PathFileJS() + "UserSettings.json";
-            try
+            
+            string json = File.ReadAllText(fileFullPath);
+            if (json == "")
             {
-                string json = File.ReadAllText(fileFullPath);
-                if (json == "")
-                {
-                    CreateStandardUserSettingsJson(UserID);
-                }
-                userSettings = JsonConvert.DeserializeObject<List<UserSetting>>(json);
+                CreateStandardUserSettingsJson(UserID);
             }
-            catch
+            userSettings = JsonConvert.DeserializeObject<List<UserSetting>>(json);
+            
+            bool check = false;
+            for (int i = 0; i < userSettings.Count; i++)
             {
-
+                if (userSettings[i].UserId == UserID)
+                {
+                    userSettings[i].Goal = Goal;
+                    check = true;
+                    break;
+                }
             }
-            finally
+            if (check == false)
             {
-                bool check = false;
-                for (int i = 0; i < userSettings.Count; i++)
+                userSettings.Add(new UserSetting()
                 {
-                    if (userSettings[i].UserId == UserID)
-                    {
-                        userSettings[i].Goal = Goal;
-                        check = true;
-                        break;
-                    }
-                }
-                if (check == false)
-                {
-                    userSettings.Add(new UserSetting()
-                    {
-                        UserId = UserID,
-                        Volume = 10,
-                        Voice = false,
-                        Goal = Goal,
+                    UserId = UserID,
+                    Volume = 10,
+                    Voice = false,
+                    Goal = Goal,
 
-                    });
-                }
-
-                string output = JsonConvert.SerializeObject(userSettings, Formatting.Indented);
-                File.WriteAllText(fileFullPath, output);
+                });
             }
+
+            string output = JsonConvert.SerializeObject(userSettings, Formatting.Indented);
+            File.WriteAllText(fileFullPath, output);
         }
 
         public void SetUserSettings(int UserID, int Volume, bool Voice)
         {
             List<UserSetting> userSettings = new List<UserSetting>();
             string fileFullPath = GlobalConfig.Instance.PathFileJS() + "UserSettings.json"; 
-            try
+            string json = File.ReadAllText(fileFullPath);
+            if (json == "")
             {
-                string json = File.ReadAllText(fileFullPath);
-                if (json == "")
-                {
-                    CreateStandardUserSettingsJson(UserID);
-                }
-                userSettings = JsonConvert.DeserializeObject<List<UserSetting>>(json);
+                CreateStandardUserSettingsJson(UserID);
             }
-            catch
+            userSettings = JsonConvert.DeserializeObject<List<UserSetting>>(json);
+            bool check = false;
+            for (int i = 0; i < userSettings.Count; i++)
             {
-                
+                if (userSettings[i].UserId == UserID)
+                {
+                    userSettings[i].Volume = Volume;
+                    userSettings[i].Voice = Voice;
+                    check = true;
+                    break;
+                }
             }
-            finally
+            if (check == false)
             {
-                bool check = false;
-                for (int i = 0; i < userSettings.Count; i++)
+                userSettings.Add(new UserSetting()
                 {
-                    if (userSettings[i].UserId == UserID)
-                    {
-                        userSettings[i].Volume = Volume;
-                        userSettings[i].Voice = Voice;
-                        check = true;
-                        break;
-                    }
-                }
-                if (check == false)
-                {
-                    userSettings.Add(new UserSetting()
-                    {
-                        UserId = UserID,
-                        Volume = Volume,
-                        Voice = Voice,
-                    });
-                }
-
-                string output = JsonConvert.SerializeObject(userSettings, Formatting.Indented);
-                File.WriteAllText(fileFullPath, output);
+                    UserId = UserID,
+                    Volume = Volume,
+                    Voice = Voice,
+                });
+            string output = JsonConvert.SerializeObject(userSettings, Formatting.Indented);
+            File.WriteAllText(fileFullPath, output);
             }
             
         }

@@ -69,6 +69,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.btnShow = new FontAwesome.Sharp.IconButton();
             this.SuspendLayout();
             // 
             // rjButton4
@@ -101,7 +102,7 @@
             this.txtEmail.Margin = new System.Windows.Forms.Padding(2);
             this.txtEmail.MinimumSize = new System.Drawing.Size(0, 30);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(225, 30);
+            this.txtEmail.Size = new System.Drawing.Size(225, 20);
             this.txtEmail.TabIndex = 66;
             this.txtEmail.Enter += new System.EventHandler(this.txtEmail_Enter);
             this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
@@ -156,7 +157,7 @@
             this.txtUserName.Margin = new System.Windows.Forms.Padding(2);
             this.txtUserName.MinimumSize = new System.Drawing.Size(0, 30);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(225, 30);
+            this.txtUserName.Size = new System.Drawing.Size(225, 20);
             this.txtUserName.TabIndex = 70;
             this.txtUserName.Enter += new System.EventHandler(this.txtUserName_Enter);
             this.txtUserName.Leave += new System.EventHandler(this.txtUserName_Leave);
@@ -211,7 +212,8 @@
             this.txtPass.Margin = new System.Windows.Forms.Padding(2);
             this.txtPass.MinimumSize = new System.Drawing.Size(0, 30);
             this.txtPass.Name = "txtPass";
-            this.txtPass.Size = new System.Drawing.Size(225, 30);
+            this.txtPass.PasswordChar = '*';
+            this.txtPass.Size = new System.Drawing.Size(225, 20);
             this.txtPass.TabIndex = 74;
             this.txtPass.Enter += new System.EventHandler(this.txtPass_Enter);
             this.txtPass.Leave += new System.EventHandler(this.txtPass_Leave);
@@ -436,7 +438,7 @@
             this.txtCoin.Margin = new System.Windows.Forms.Padding(2);
             this.txtCoin.MinimumSize = new System.Drawing.Size(0, 30);
             this.txtCoin.Name = "txtCoin";
-            this.txtCoin.Size = new System.Drawing.Size(225, 30);
+            this.txtCoin.Size = new System.Drawing.Size(225, 20);
             this.txtCoin.TabIndex = 94;
             this.txtCoin.Enter += new System.EventHandler(this.txtCoin_Enter);
             this.txtCoin.Leave += new System.EventHandler(this.txtCoin_Leave);
@@ -763,6 +765,27 @@
             this.label8.TabIndex = 109;
             this.label8.Text = "Tên";
             // 
+            // btnShow
+            // 
+            this.btnShow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.btnShow.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnShow.FlatAppearance.BorderSize = 0;
+            this.btnShow.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.btnShow.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.btnShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShow.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+            this.btnShow.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
+            this.btnShow.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.btnShow.IconSize = 25;
+            this.btnShow.Location = new System.Drawing.Point(372, 192);
+            this.btnShow.Margin = new System.Windows.Forms.Padding(2);
+            this.btnShow.Name = "btnShow";
+            this.btnShow.Size = new System.Drawing.Size(22, 23);
+            this.btnShow.TabIndex = 112;
+            this.btnShow.TabStop = false;
+            this.btnShow.UseVisualStyleBackColor = false;
+            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
+            // 
             // FormAdmin_Account_Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -770,6 +793,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
             this.ClientSize = new System.Drawing.Size(793, 354);
             this.ControlBox = false;
+            this.Controls.Add(this.btnShow);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
@@ -863,5 +887,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private FontAwesome.Sharp.IconButton btnShow;
     }
 }

@@ -26,6 +26,7 @@ namespace BLL.Components
                 {
                     account.TypeID = 4; // User type ID
 
+
                     dbContext.Account.Add(account);
                     dbContext.SaveChanges();
                 }
@@ -286,7 +287,7 @@ namespace BLL.Components
                 {
                     var detailedInformation = dbContext.DetailedInformation.Find(userID);
                     detailedInformation.Balance = balance - pricePacket;
-                    dbContext.SaveChanges();
+                    /*dbContext.SaveChanges();*/
                     UserPacketInfo userPacketInfo = new UserPacketInfo()
                     {
                         AccountID = userID,

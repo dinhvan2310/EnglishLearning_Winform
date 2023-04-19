@@ -109,7 +109,7 @@ namespace PBL3
             this.txtUsername.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
             this.txtUsername.Location = new System.Drawing.Point(97, 167);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(2);
             this.txtUsername.MinimumSize = new System.Drawing.Size(0, 30);
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(225, 20);
@@ -126,7 +126,7 @@ namespace PBL3
             this.txtPasswrd.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPasswrd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
             this.txtPasswrd.Location = new System.Drawing.Point(97, 214);
-            this.txtPasswrd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPasswrd.Margin = new System.Windows.Forms.Padding(2);
             this.txtPasswrd.MinimumSize = new System.Drawing.Size(0, 30);
             this.txtPasswrd.Name = "txtPasswrd";
             this.txtPasswrd.Size = new System.Drawing.Size(225, 20);
@@ -138,7 +138,7 @@ namespace PBL3
             // fakeTabStop
             // 
             this.fakeTabStop.Location = new System.Drawing.Point(175, 52);
-            this.fakeTabStop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.fakeTabStop.Margin = new System.Windows.Forms.Padding(2);
             this.fakeTabStop.Name = "fakeTabStop";
             this.fakeTabStop.Size = new System.Drawing.Size(62, 20);
             this.fakeTabStop.TabIndex = 0;
@@ -154,7 +154,7 @@ namespace PBL3
             this.rjButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton6.ForeColor = System.Drawing.Color.White;
             this.rjButton6.Location = new System.Drawing.Point(90, 205);
-            this.rjButton6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rjButton6.Margin = new System.Windows.Forms.Padding(2);
             this.rjButton6.Name = "rjButton6";
             this.rjButton6.Size = new System.Drawing.Size(2, 32);
             this.rjButton6.TabIndex = 47;
@@ -174,7 +174,7 @@ namespace PBL3
             this.rjButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton4.ForeColor = System.Drawing.Color.White;
             this.rjButton4.Location = new System.Drawing.Point(89, 158);
-            this.rjButton4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rjButton4.Margin = new System.Windows.Forms.Padding(2);
             this.rjButton4.Name = "rjButton4";
             this.rjButton4.Size = new System.Drawing.Size(2, 32);
             this.rjButton4.TabIndex = 46;
@@ -195,7 +195,7 @@ namespace PBL3
             this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton1.ForeColor = System.Drawing.Color.White;
             this.rjButton1.Location = new System.Drawing.Point(46, 153);
-            this.rjButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rjButton1.Margin = new System.Windows.Forms.Padding(2);
             this.rjButton1.Name = "rjButton1";
             this.rjButton1.Size = new System.Drawing.Size(322, 41);
             this.rjButton1.TabIndex = 42;
@@ -215,7 +215,7 @@ namespace PBL3
             this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton2.ForeColor = System.Drawing.Color.White;
             this.rjButton2.Location = new System.Drawing.Point(47, 201);
-            this.rjButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rjButton2.Margin = new System.Windows.Forms.Padding(2);
             this.rjButton2.Name = "rjButton2";
             this.rjButton2.Size = new System.Drawing.Size(322, 41);
             this.rjButton2.TabIndex = 44;
@@ -235,7 +235,7 @@ namespace PBL3
             this.rjButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton5.ForeColor = System.Drawing.Color.White;
             this.rjButton5.Location = new System.Drawing.Point(59, 332);
-            this.rjButton5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rjButton5.Margin = new System.Windows.Forms.Padding(2);
             this.rjButton5.Name = "rjButton5";
             this.rjButton5.Size = new System.Drawing.Size(308, 3);
             this.rjButton5.TabIndex = 0;
@@ -247,7 +247,7 @@ namespace PBL3
             // 
             this.btnSave.AutoSize = true;
             this.btnSave.Location = new System.Drawing.Point(63, 257);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2);
             this.btnSave.MinimumSize = new System.Drawing.Size(34, 18);
             this.btnSave.Name = "btnSave";
             this.btnSave.OffBackColor = System.Drawing.Color.Gray;
@@ -271,7 +271,7 @@ namespace PBL3
             this.btnSignUp.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSignUp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
             this.btnSignUp.Location = new System.Drawing.Point(240, 345);
-            this.btnSignUp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSignUp.Margin = new System.Windows.Forms.Padding(2);
             this.btnSignUp.Name = "btnSignUp";
             this.btnSignUp.Size = new System.Drawing.Size(91, 24);
             this.btnSignUp.TabIndex = 24;
@@ -293,7 +293,7 @@ namespace PBL3
             this.btnLogin.Font = new System.Drawing.Font("Bahnschrift", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
             this.btnLogin.Location = new System.Drawing.Point(241, 247);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(128, 49);
             this.btnLogin.TabIndex = 23;
@@ -308,7 +308,7 @@ namespace PBL3
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Image = global::PBL3.Properties.Resources.debut;
             this.pictureBox1.Location = new System.Drawing.Point(139, 5);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(143, 144);
             this.pictureBox1.TabIndex = 49;
@@ -327,7 +327,7 @@ namespace PBL3
             this.btnShow.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnShow.IconSize = 25;
             this.btnShow.Location = new System.Drawing.Point(329, 212);
-            this.btnShow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnShow.Margin = new System.Windows.Forms.Padding(2);
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(22, 23);
             this.btnShow.TabIndex = 48;
@@ -346,7 +346,7 @@ namespace PBL3
             this.btnUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnUser.IconSize = 25;
             this.btnUser.Location = new System.Drawing.Point(62, 162);
-            this.btnUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnUser.Margin = new System.Windows.Forms.Padding(2);
             this.btnUser.Name = "btnUser";
             this.btnUser.Size = new System.Drawing.Size(29, 23);
             this.btnUser.TabIndex = 43;
@@ -364,7 +364,7 @@ namespace PBL3
             this.btnPassword.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPassword.IconSize = 25;
             this.btnPassword.Location = new System.Drawing.Point(63, 210);
-            this.btnPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnPassword.Margin = new System.Windows.Forms.Padding(2);
             this.btnPassword.Name = "btnPassword";
             this.btnPassword.Size = new System.Drawing.Size(29, 23);
             this.btnPassword.TabIndex = 45;
@@ -373,6 +373,7 @@ namespace PBL3
             // 
             // FormSignIn
             // 
+            this.AcceptButton = this.btnLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
@@ -398,9 +399,10 @@ namespace PBL3
             this.Controls.Add(this.fakeTabStop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormSignIn";
             this.Text = "FormSignUp";
+            this.VisibleChanged += new System.EventHandler(this.FormSignIn_VisibleChanged);
             this.MouseCaptureChanged += new System.EventHandler(this.FormSignIn_MouseCaptureChanged);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

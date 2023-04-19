@@ -14,28 +14,25 @@
   {
     "UserId": 30,
     "Volume": 10,
-<<<<<<< HEAD
     "Voice": false,
     "Goal": 45
   },
   {
     "UserId": 31,
-    "Volume": 10,
-    "Voice": false,
-    "Goal": 10
+    "Volume": 8,
+    "Voice": true,
+    "Goal": 45
   },
   {
     "UserId": 37,
     "Volume": 10,
-    "Voice": false,
-    "Goal": 45
-=======
-    "Voice": true
+    "Voice": true,
+    "Goal": 0
   },
   {
-    "UserId": 30,
-    "Volume": 5,
-    "Voice": true
->>>>>>> 8547f14900a6917f0665353048f9aa6ccc0d7569
+    "UserId": 38,
+    "Volume": 10,
+    "Voice": false,
+    "Goal": 120
   }
 ]

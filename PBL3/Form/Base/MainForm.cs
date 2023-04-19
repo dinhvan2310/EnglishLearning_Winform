@@ -100,6 +100,8 @@ namespace PBL3
                 {
                     GrantLoggingCoin();
                     DataManager dataManager = new DataManager();
+
+                    //Kiem tra thoi han cua goi ng dung
                     if(!dataManager.AccountManager.CheckUserPackageDuration(userID, "Premium"))
                     {
                         FormMessageBox form = new FormMessageBox("Thông báo", "Gói Premium của bạn đã hết hạn sử dụng",
