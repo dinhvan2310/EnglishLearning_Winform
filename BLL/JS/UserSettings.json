@@ -19,14 +19,20 @@
   },
   {
     "UserId": 31,
-    "Volume": 10,
-    "Voice": false,
-    "Goal": 10
+    "Volume": 8,
+    "Voice": true,
+    "Goal": 45
   },
   {
     "UserId": 37,
     "Volume": 10,
+    "Voice": true,
+    "Goal": 0
+  },
+  {
+    "UserId": 38,
+    "Volume": 10,
     "Voice": false,
-    "Goal": 45
+    "Goal": 120
   }
 ]

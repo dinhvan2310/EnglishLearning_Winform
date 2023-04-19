@@ -177,6 +177,27 @@ namespace PBL3
             }
         }
 
-        
+        private void label4_Click(object sender, EventArgs e)
+        {
+            GlobalForm.LoginForm.OpenChildForm(new FormForgotPassword());
+        }
+
+        private void FormSignIn_VisibleChanged(object sender, EventArgs e)
+        {
+            if(this.Visible == true)
+            {
+                _txtPHHolders[0].Text = _barStrings[0];
+                _barIsDirtys[0] = false;
+                _txtPHHolders[0].ForeColor = Color.FromArgb(119, 112, 156);
+
+                _txtPHHolders[1].Text = _barStrings[1];
+                _txtPHHolders[1].PasswordChar = '\0';
+                _txtPHHolders[1].ForeColor = Color.FromArgb(119, 112, 156);
+                btnShow.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+                _barIsDirtys[1] = false;
+
+                btnSave.Checked = false;
+            }
+        }
     }
 }

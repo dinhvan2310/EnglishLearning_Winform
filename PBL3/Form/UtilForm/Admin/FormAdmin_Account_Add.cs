@@ -88,7 +88,7 @@ namespace PBL3
 
 
 
-        #endregion
+        
 
         private void txtEmail_Enter(object sender, EventArgs e)
         {
@@ -214,5 +214,20 @@ namespace PBL3
                 }
             }
         }
+
+        private void btnShow_Click(object sender, EventArgs e)
+        {
+            if (txtPass.PasswordChar == '*')
+            {
+                btnShow.IconChar = FontAwesome.Sharp.IconChar.Eye;
+                txtPass.PasswordChar = '\0';
+            }
+            else
+            {
+                btnShow.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
+                txtPass.PasswordChar = '*';
+            }
+        }
+        #endregion
     }
 }

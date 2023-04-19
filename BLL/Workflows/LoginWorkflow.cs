@@ -411,5 +411,34 @@ namespace BLL.Workflows
             });
 
         }
+
+        public bool CheckExistGmail(string email, string username)
+        {
+            using(var db = new DictionaryContext())
+            {
+                if(db.Account.SingleOrDefault(p => p.Email == email && p.UserName == username ) != null)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool UpdatePassword(string username, string newPass)
+        {
+            using(var db = new DictionaryContext())
+            {
+                Account acc = db.Account.SingleOrDefault(p => p.UserName == username);
+                if(acc != null)
+                {
+                    acc.Password = CreateMD5(newPass);
+                    db.Entry(acc.DetailedInformation).State = System.Data.Entity.EntityState.Unchanged;
+                    db.SaveChanges();
+                    return true;
+                }
+              
+            }
+            return false;
+        }
     }
 }

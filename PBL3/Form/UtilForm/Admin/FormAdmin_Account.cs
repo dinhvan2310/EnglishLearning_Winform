@@ -113,7 +113,7 @@ namespace PBL3
                     case SearchBy.Name:
                         {
                             string name = txtSearch.Text;
-                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts().Where(p => p.Name.Contains(name)).Select(p => new
+                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts().Where(p => p.Name.ToLower().Contains(name.ToLower())).Select(p => new
                             {
                                 p.AccountID,
                                 p.UserName,

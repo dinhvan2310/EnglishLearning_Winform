@@ -45,7 +45,7 @@ namespace PBL3
         private void ShowListAccount(SearchBy searchBy)
         {
             DataManager dataManager = new DataManager();
-            //try
+            try
             {
                 switch (searchBy)
                 {
@@ -107,13 +107,13 @@ namespace PBL3
 
                 }
             }
-            /*catch (Exception ex)
+            catch (Exception ex)
             {
                 FormMessageBox f = new FormMessageBox("Vui lòng nhập lại", "Định dạng thông tin nhập không  hợp lệ", FormMessageBox.MessageType.Info);
                 f.StartPosition = FormStartPosition.CenterScreen;
                 f.Show();
 
-            }*/
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -122,8 +122,15 @@ namespace PBL3
             {
                 DataManager dataManager = new DataManager();
                 int price = Convert.ToInt32(txtPrice.Text);
-                dataManager.PackageManager.SetPricePacket("Premium", price);
-                new FormMessageBox("Thông báo", "Thay đổi giá vé người dùng thành công", FormMessageBox.MessageType.Info).Show();
+                if(price > 0)
+                {
+                    dataManager.PackageManager.SetPricePacket("Premium", price);
+                    new FormMessageBox("Thông báo", "Thay đổi giá vé người dùng thành công", FormMessageBox.MessageType.Info).Show();
+                }
+                else
+                {
+                    throw new Exception();
+                }
             }
             catch(Exception ex)
             {
@@ -182,5 +189,7 @@ namespace PBL3
             txtSearch.ForeColor = Color.White;
             txtSearch.Text = "";
         }
+
+
     }
 }

@@ -63,7 +63,8 @@ namespace PBL3
             int onlineMinute = Convert.ToInt32(LoginWorkflow.Instance.GetNumberOfLearnedMinute_Today());
             lblCurrent.Text = onlineMinute.ToString();
             lblGoal.Text = SettingWorkflow.Instance.GetUserSettings(LoginWorkflow.Instance.GetAccount().AccountID).Goal.ToString();
-            progressBar.Value = (int)(onlineMinute / Convert.ToDouble(lblGoal.Text) * 100);
+            int progressBarValue = (int)(onlineMinute / Convert.ToDouble(lblGoal.Text) * 100);
+            progressBar.Value = (progressBarValue <= 100) ? progressBarValue : 100;
             iconPercent.Text = progressBar.Value + " %";
         }
 

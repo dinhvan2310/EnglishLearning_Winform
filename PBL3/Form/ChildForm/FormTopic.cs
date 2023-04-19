@@ -49,10 +49,10 @@ namespace PBL3
             b.BackColor = Color.FromArgb(240, 237, 254);
             if (topic.Background != null)
             {
-                using (MemoryStream ms = new MemoryStream(topic.Background))
+                /*using (MemoryStream ms = new MemoryStream(topic.Background))
                 {
                     b.BackgroundImage = Image.FromStream(ms);
-                }
+                }*/
             }
             b.BackgroundImageLayout = ImageLayout.Zoom;
             b.Cursor = Cursors.Hand;

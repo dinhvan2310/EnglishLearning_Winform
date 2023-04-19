@@ -603,3 +603,4 @@ D:\PBL3\PBL_Khoa\PLB3\PBL3\obj\Debug\PBL3.csproj.CoreCompileInputs.cache
 D:\PBL3\PBL_Khoa\PLB3\PBL3\obj\Debug\PBL3.csproj.CopyComplete
 D:\PBL3\PBL_Khoa\PLB3\PBL3\obj\Debug\PBL3.exe
 D:\PBL3\PBL_Khoa\PLB3\PBL3\obj\Debug\PBL3.pdb
+D:\PBL3\PBL_Khoa\PLB3\PBL3\obj\Debug\PBL3.FormForgotPassword.resources

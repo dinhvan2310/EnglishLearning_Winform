@@ -285,7 +285,7 @@ namespace BLL.Components
                 {
                     var detailedInformation = dbContext.DetailedInformation.Find(userID);
                     detailedInformation.Balance = balance - pricePacket;
-                    dbContext.SaveChanges();
+                    /*dbContext.SaveChanges();*/
                     UserPacketInfo userPacketInfo = new UserPacketInfo()
                     {
                         AccountID = userID,

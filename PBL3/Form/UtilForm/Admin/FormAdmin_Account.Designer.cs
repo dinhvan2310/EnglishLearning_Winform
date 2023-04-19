@@ -215,6 +215,7 @@
             this.iconButton1.TabIndex = 5;
             this.iconButton1.TabStop = false;
             this.iconButton1.UseVisualStyleBackColor = false;
+            this.iconButton1.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtSearch
             // 

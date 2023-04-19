@@ -16,12 +16,3 @@ D:\PBL3\pLB\PLB3\CustomControls\obj\Debug\CustomControls.csproj.GenerateResource
 D:\PBL3\pLB\PLB3\CustomControls\obj\Debug\CustomControls.csproj.CoreCompileInputs.cache
 D:\PBL3\pLB\PLB3\CustomControls\obj\Debug\CustomControls.dll
 D:\PBL3\pLB\PLB3\CustomControls\obj\Debug\CustomControls.pdb
-D:\PBL3\PBL_Khoa\PLB3\CustomControls\bin\Debug\CustomControls.dll
-D:\PBL3\PBL_Khoa\PLB3\CustomControls\bin\Debug\CustomControls.pdb
-D:\PBL3\PBL_Khoa\PLB3\CustomControls\obj\Debug\CustomControls.csproj.AssemblyReference.cache
-D:\PBL3\PBL_Khoa\PLB3\CustomControls\obj\Debug\CustomControls.Properties.Resources.resources
-D:\PBL3\PBL_Khoa\PLB3\CustomControls\obj\Debug\CustomControls.RJComboBox.resources
-D:\PBL3\PBL_Khoa\PLB3\CustomControls\obj\Debug\CustomControls.csproj.GenerateResource.cache
-D:\PBL3\PBL_Khoa\PLB3\CustomControls\obj\Debug\CustomControls.csproj.CoreCompileInputs.cache
-D:\PBL3\PBL_Khoa\PLB3\CustomControls\obj\Debug\CustomControls.dll
-D:\PBL3\PBL_Khoa\PLB3\CustomControls\obj\Debug\CustomControls.pdb
