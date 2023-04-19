@@ -25,6 +25,7 @@ namespace BLL.Components
                 {
                     account.TypeID = 4; // User type ID
 
+
                     dbContext.Account.Add(account);
                     dbContext.SaveChanges();
                 }

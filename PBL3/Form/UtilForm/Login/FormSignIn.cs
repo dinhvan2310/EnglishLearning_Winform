@@ -196,6 +196,7 @@ namespace PBL3
                 btnShow.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
                 _barIsDirtys[1] = false;
 
+
                 btnSave.Checked = false;
             }
         }

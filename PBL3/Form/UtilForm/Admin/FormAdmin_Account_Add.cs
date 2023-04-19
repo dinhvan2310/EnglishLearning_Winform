@@ -33,6 +33,7 @@ namespace PBL3
 
             // Reduce Flicker
             this.DoubleBuffered = true;
+
         }
 
         #region EVENTS

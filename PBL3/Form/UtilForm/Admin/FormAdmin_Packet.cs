@@ -33,6 +33,7 @@ namespace PBL3
         {
             InitializeComponent();
             SetUpUI();
+
         }
 
         private void SetUpUI()

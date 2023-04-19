@@ -20,6 +20,7 @@ namespace BLL.Workflows
                 if (_Instance == null)
                     _Instance = new SettingWorkflow();
 
+
                 return _Instance;
             }
 
