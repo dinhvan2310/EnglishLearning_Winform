@@ -58,20 +58,23 @@ namespace PBL3
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 9F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(140)))), ((int)(((byte)(182)))));
-            this.label4.Location = new System.Drawing.Point(291, 366);
+            this.label4.Location = new System.Drawing.Point(218, 297);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 18);
+            this.label4.Size = new System.Drawing.Size(68, 16);
             this.label4.TabIndex = 30;
             this.label4.Text = "Click Here";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(140)))), ((int)(((byte)(182)))));
-            this.label3.Location = new System.Drawing.Point(155, 366);
+            this.label3.Location = new System.Drawing.Point(116, 297);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(130, 20);
+            this.label3.Size = new System.Drawing.Size(104, 17);
             this.label3.TabIndex = 28;
             this.label3.Text = "Quên Mật Khẩu?";
             // 
@@ -80,9 +83,10 @@ namespace PBL3
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
-            this.label2.Location = new System.Drawing.Point(133, 316);
+            this.label2.Location = new System.Drawing.Point(100, 257);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 20);
+            this.label2.Size = new System.Drawing.Size(54, 17);
             this.label2.TabIndex = 27;
             this.label2.Text = "Ghi Nhớ";
             // 
@@ -91,9 +95,10 @@ namespace PBL3
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
-            this.label1.Location = new System.Drawing.Point(155, 431);
+            this.label1.Location = new System.Drawing.Point(116, 350);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(151, 20);
+            this.label1.Size = new System.Drawing.Size(122, 17);
             this.label1.TabIndex = 20;
             this.label1.Text = "Chưa có tài khoản?";
             // 
@@ -103,11 +108,11 @@ namespace PBL3
             this.txtUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUsername.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
-            this.txtUsername.Location = new System.Drawing.Point(129, 206);
-            this.txtUsername.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtUsername.Location = new System.Drawing.Point(97, 167);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtUsername.MinimumSize = new System.Drawing.Size(0, 30);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(300, 25);
+            this.txtUsername.Size = new System.Drawing.Size(225, 20);
             this.txtUsername.TabIndex = 1;
             this.txtUsername.Text = "Tên Đăng Nhập";
             this.txtUsername.TextChanged += new System.EventHandler(this.txtUsername_TextChanged);
@@ -120,11 +125,11 @@ namespace PBL3
             this.txtPasswrd.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtPasswrd.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPasswrd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
-            this.txtPasswrd.Location = new System.Drawing.Point(129, 263);
-            this.txtPasswrd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPasswrd.Location = new System.Drawing.Point(97, 214);
+            this.txtPasswrd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPasswrd.MinimumSize = new System.Drawing.Size(0, 30);
             this.txtPasswrd.Name = "txtPasswrd";
-            this.txtPasswrd.Size = new System.Drawing.Size(300, 25);
+            this.txtPasswrd.Size = new System.Drawing.Size(225, 20);
             this.txtPasswrd.TabIndex = 2;
             this.txtPasswrd.Text = "Mật Khẩu";
             this.txtPasswrd.Enter += new System.EventHandler(this.txtPH_Enter);
@@ -132,10 +137,10 @@ namespace PBL3
             // 
             // fakeTabStop
             // 
-            this.fakeTabStop.Location = new System.Drawing.Point(233, 64);
-            this.fakeTabStop.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.fakeTabStop.Location = new System.Drawing.Point(175, 52);
+            this.fakeTabStop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.fakeTabStop.Name = "fakeTabStop";
-            this.fakeTabStop.Size = new System.Drawing.Size(81, 22);
+            this.fakeTabStop.Size = new System.Drawing.Size(62, 20);
             this.fakeTabStop.TabIndex = 0;
             // 
             // rjButton6
@@ -148,10 +153,10 @@ namespace PBL3
             this.rjButton6.FlatAppearance.BorderSize = 0;
             this.rjButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton6.ForeColor = System.Drawing.Color.White;
-            this.rjButton6.Location = new System.Drawing.Point(120, 252);
-            this.rjButton6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rjButton6.Location = new System.Drawing.Point(90, 205);
+            this.rjButton6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rjButton6.Name = "rjButton6";
-            this.rjButton6.Size = new System.Drawing.Size(3, 39);
+            this.rjButton6.Size = new System.Drawing.Size(2, 32);
             this.rjButton6.TabIndex = 47;
             this.rjButton6.TabStop = false;
             this.rjButton6.Text = "rjButton6";
@@ -168,10 +173,10 @@ namespace PBL3
             this.rjButton4.FlatAppearance.BorderSize = 0;
             this.rjButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton4.ForeColor = System.Drawing.Color.White;
-            this.rjButton4.Location = new System.Drawing.Point(119, 194);
-            this.rjButton4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rjButton4.Location = new System.Drawing.Point(89, 158);
+            this.rjButton4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rjButton4.Name = "rjButton4";
-            this.rjButton4.Size = new System.Drawing.Size(3, 39);
+            this.rjButton4.Size = new System.Drawing.Size(2, 32);
             this.rjButton4.TabIndex = 46;
             this.rjButton4.TabStop = false;
             this.rjButton4.Text = "rjButton4";
@@ -189,10 +194,10 @@ namespace PBL3
             this.rjButton1.FlatAppearance.BorderSize = 0;
             this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton1.ForeColor = System.Drawing.Color.White;
-            this.rjButton1.Location = new System.Drawing.Point(61, 188);
-            this.rjButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rjButton1.Location = new System.Drawing.Point(46, 153);
+            this.rjButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rjButton1.Name = "rjButton1";
-            this.rjButton1.Size = new System.Drawing.Size(429, 50);
+            this.rjButton1.Size = new System.Drawing.Size(322, 41);
             this.rjButton1.TabIndex = 42;
             this.rjButton1.TabStop = false;
             this.rjButton1.TextColor = System.Drawing.Color.White;
@@ -209,10 +214,10 @@ namespace PBL3
             this.rjButton2.FlatAppearance.BorderSize = 0;
             this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton2.ForeColor = System.Drawing.Color.White;
-            this.rjButton2.Location = new System.Drawing.Point(63, 247);
-            this.rjButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rjButton2.Location = new System.Drawing.Point(47, 201);
+            this.rjButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rjButton2.Name = "rjButton2";
-            this.rjButton2.Size = new System.Drawing.Size(429, 50);
+            this.rjButton2.Size = new System.Drawing.Size(322, 41);
             this.rjButton2.TabIndex = 44;
             this.rjButton2.TabStop = false;
             this.rjButton2.TextColor = System.Drawing.Color.White;
@@ -229,10 +234,10 @@ namespace PBL3
             this.rjButton5.FlatAppearance.BorderSize = 0;
             this.rjButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton5.ForeColor = System.Drawing.Color.White;
-            this.rjButton5.Location = new System.Drawing.Point(79, 409);
-            this.rjButton5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.rjButton5.Location = new System.Drawing.Point(59, 332);
+            this.rjButton5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rjButton5.Name = "rjButton5";
-            this.rjButton5.Size = new System.Drawing.Size(411, 4);
+            this.rjButton5.Size = new System.Drawing.Size(308, 3);
             this.rjButton5.TabIndex = 0;
             this.rjButton5.Text = "rjButton5";
             this.rjButton5.TextColor = System.Drawing.Color.White;
@@ -241,15 +246,15 @@ namespace PBL3
             // btnSave
             // 
             this.btnSave.AutoSize = true;
-            this.btnSave.Location = new System.Drawing.Point(84, 316);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSave.MinimumSize = new System.Drawing.Size(45, 22);
+            this.btnSave.Location = new System.Drawing.Point(63, 257);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSave.MinimumSize = new System.Drawing.Size(34, 18);
             this.btnSave.Name = "btnSave";
             this.btnSave.OffBackColor = System.Drawing.Color.Gray;
             this.btnSave.OffToggleColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
             this.btnSave.OnBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
             this.btnSave.OnToggleColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
-            this.btnSave.Size = new System.Drawing.Size(45, 22);
+            this.btnSave.Size = new System.Drawing.Size(34, 18);
             this.btnSave.TabIndex = 22;
             this.btnSave.TabStop = false;
             this.btnSave.UseVisualStyleBackColor = true;
@@ -265,10 +270,10 @@ namespace PBL3
             this.btnSignUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSignUp.Font = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSignUp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
-            this.btnSignUp.Location = new System.Drawing.Point(320, 425);
-            this.btnSignUp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSignUp.Location = new System.Drawing.Point(240, 345);
+            this.btnSignUp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSignUp.Name = "btnSignUp";
-            this.btnSignUp.Size = new System.Drawing.Size(121, 30);
+            this.btnSignUp.Size = new System.Drawing.Size(91, 24);
             this.btnSignUp.TabIndex = 24;
             this.btnSignUp.TabStop = false;
             this.btnSignUp.Text = "Đăng Kí";
@@ -287,10 +292,10 @@ namespace PBL3
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnLogin.Font = new System.Drawing.Font("Bahnschrift", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
-            this.btnLogin.Location = new System.Drawing.Point(321, 304);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLogin.Location = new System.Drawing.Point(241, 247);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(171, 60);
+            this.btnLogin.Size = new System.Drawing.Size(128, 49);
             this.btnLogin.TabIndex = 23;
             this.btnLogin.TabStop = false;
             this.btnLogin.Text = "ĐĂNG NHẬP";
@@ -302,10 +307,10 @@ namespace PBL3
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Image = global::PBL3.Properties.Resources.debut;
-            this.pictureBox1.Location = new System.Drawing.Point(185, 6);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(139, 5);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(191, 177);
+            this.pictureBox1.Size = new System.Drawing.Size(143, 144);
             this.pictureBox1.TabIndex = 49;
             this.pictureBox1.TabStop = false;
             // 
@@ -321,10 +326,10 @@ namespace PBL3
             this.btnShow.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
             this.btnShow.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnShow.IconSize = 25;
-            this.btnShow.Location = new System.Drawing.Point(439, 261);
-            this.btnShow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnShow.Location = new System.Drawing.Point(329, 212);
+            this.btnShow.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnShow.Name = "btnShow";
-            this.btnShow.Size = new System.Drawing.Size(29, 28);
+            this.btnShow.Size = new System.Drawing.Size(22, 23);
             this.btnShow.TabIndex = 48;
             this.btnShow.TabStop = false;
             this.btnShow.UseVisualStyleBackColor = false;
@@ -340,10 +345,10 @@ namespace PBL3
             this.btnUser.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
             this.btnUser.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnUser.IconSize = 25;
-            this.btnUser.Location = new System.Drawing.Point(83, 199);
-            this.btnUser.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnUser.Location = new System.Drawing.Point(62, 162);
+            this.btnUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUser.Name = "btnUser";
-            this.btnUser.Size = new System.Drawing.Size(39, 28);
+            this.btnUser.Size = new System.Drawing.Size(29, 23);
             this.btnUser.TabIndex = 43;
             this.btnUser.TabStop = false;
             this.btnUser.UseVisualStyleBackColor = false;
@@ -358,20 +363,20 @@ namespace PBL3
             this.btnPassword.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
             this.btnPassword.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnPassword.IconSize = 25;
-            this.btnPassword.Location = new System.Drawing.Point(84, 258);
-            this.btnPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPassword.Location = new System.Drawing.Point(63, 210);
+            this.btnPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPassword.Name = "btnPassword";
-            this.btnPassword.Size = new System.Drawing.Size(39, 28);
+            this.btnPassword.Size = new System.Drawing.Size(29, 23);
             this.btnPassword.TabIndex = 45;
             this.btnPassword.TabStop = false;
             this.btnPassword.UseVisualStyleBackColor = false;
             // 
             // FormSignIn
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
-            this.ClientSize = new System.Drawing.Size(549, 466);
+            this.ClientSize = new System.Drawing.Size(412, 379);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnShow);
             this.Controls.Add(this.rjButton6);
@@ -393,7 +398,7 @@ namespace PBL3
             this.Controls.Add(this.fakeTabStop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormSignIn";
             this.Text = "FormSignUp";
             this.MouseCaptureChanged += new System.EventHandler(this.FormSignIn_MouseCaptureChanged);
