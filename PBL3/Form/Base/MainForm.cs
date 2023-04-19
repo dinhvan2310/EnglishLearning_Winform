@@ -11,6 +11,7 @@ using PBL3.Utilities;
 using System.IO;
 using Newtonsoft.Json;
 using PBLLibrary;
+using PBL3.Properties;
 
 namespace PBL3
 {
@@ -47,6 +48,10 @@ namespace PBL3
                 lblBalance.Text = LoginWorkflow.Instance.GetAccountDetail().Balance.ToString();
                 btnPersonalLogin.Text = "Đăng Xuất";
                 OpenChildForm(HomeForm, FormType.Strong);
+                if(new DataManager().AccountManager.IsHasUserPacket(LoginWorkflow.Instance.GetAccount().AccountID, "Premium"))
+                {
+                    btnPremium.BackgroundImage = ((System.Drawing.Image)(Resources.Theme3_0));
+                }
             }
             else
             {
@@ -89,10 +94,18 @@ namespace PBL3
         {
             if (LoginWorkflow.Instance.Login())
             {
-                SettingWorkflow.Instance.ApplyUserSettings(LoginWorkflow.Instance.GetAccount().AccountID);
+                int userID = LoginWorkflow.Instance.GetAccount().AccountID;
+                SettingWorkflow.Instance.ApplyUserSettings(userID);
                 if (LoginWorkflow.Instance.IsFirstTimeLogged())
                 {
                     GrantLoggingCoin();
+                    DataManager dataManager = new DataManager();
+                    if(!dataManager.AccountManager.CheckUserPackageDuration(userID, "Premium"))
+                    {
+                        FormMessageBox form = new FormMessageBox("Thông báo", "Gói Premium của bạn đã hết hạn sử dụng",
+                        FormMessageBox.MessageType.Info);
+                        form.ShowDialog();
+                    }
                 }
             }
             else
@@ -603,7 +616,11 @@ namespace PBL3
 
         private void btnPremium_MouseClick(object sender, MouseEventArgs e)
         {
-            Form premiumForm = new FormPremium();
+            FormPremium premiumForm = new FormPremium();
+            premiumForm.SetupUI_MainForm += ((object s, EventArgs es) =>
+            {
+                SetupUI();
+            });
             premiumForm.ShowDialog();
         }
 
@@ -713,5 +730,6 @@ namespace PBL3
 
         #endregion
 
+        
     }
 }

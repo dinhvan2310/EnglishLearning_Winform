@@ -115,7 +115,7 @@ namespace PBL3
             this.panelButton.Location = new System.Drawing.Point(0, 0);
             this.panelButton.Margin = new System.Windows.Forms.Padding(0);
             this.panelButton.Name = "panelButton";
-            this.panelButton.Size = new System.Drawing.Size(200, 628);
+            this.panelButton.Size = new System.Drawing.Size(150, 510);
             this.panelButton.TabIndex = 0;
             // 
             // btnPremium
@@ -131,9 +131,10 @@ namespace PBL3
             this.btnPremium.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPremium.Font = new System.Drawing.Font("Bauhaus 93", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPremium.ForeColor = System.Drawing.Color.White;
-            this.btnPremium.Location = new System.Drawing.Point(24, 547);
+            this.btnPremium.Location = new System.Drawing.Point(18, 444);
+            this.btnPremium.Margin = new System.Windows.Forms.Padding(2);
             this.btnPremium.Name = "btnPremium";
-            this.btnPremium.Size = new System.Drawing.Size(150, 40);
+            this.btnPremium.Size = new System.Drawing.Size(112, 32);
             this.btnPremium.TabIndex = 9;
             this.btnPremium.TabStop = false;
             this.btnPremium.Text = "premium";
@@ -145,9 +146,10 @@ namespace PBL3
             // 
             this.lblVersion.AutoSize = true;
             this.lblVersion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(88)))), ((int)(((byte)(127)))));
-            this.lblVersion.Location = new System.Drawing.Point(52, 603);
+            this.lblVersion.Location = new System.Drawing.Point(39, 490);
+            this.lblVersion.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(96, 16);
+            this.lblVersion.Size = new System.Drawing.Size(81, 15);
             this.lblVersion.TabIndex = 8;
             this.lblVersion.Text = "PBL3 App v1.0";
             // 
@@ -155,9 +157,10 @@ namespace PBL3
             // 
             this.rightPanelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(110)))), ((int)(((byte)(254)))));
             this.rightPanelBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rightPanelBtn.Location = new System.Drawing.Point(190, 200);
+            this.rightPanelBtn.Location = new System.Drawing.Point(142, 162);
+            this.rightPanelBtn.Margin = new System.Windows.Forms.Padding(2);
             this.rightPanelBtn.Name = "rightPanelBtn";
-            this.rightPanelBtn.Size = new System.Drawing.Size(150, 60);
+            this.rightPanelBtn.Size = new System.Drawing.Size(112, 49);
             this.rightPanelBtn.TabIndex = 7;
             // 
             // iconOverlaySelectedBtn
@@ -172,9 +175,10 @@ namespace PBL3
             this.iconOverlaySelectedBtn.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(110)))), ((int)(((byte)(254)))));
             this.iconOverlaySelectedBtn.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconOverlaySelectedBtn.IconSize = 32;
-            this.iconOverlaySelectedBtn.Location = new System.Drawing.Point(12, 210);
+            this.iconOverlaySelectedBtn.Location = new System.Drawing.Point(9, 171);
+            this.iconOverlaySelectedBtn.Margin = new System.Windows.Forms.Padding(2);
             this.iconOverlaySelectedBtn.Name = "iconOverlaySelectedBtn";
-            this.iconOverlaySelectedBtn.Size = new System.Drawing.Size(40, 40);
+            this.iconOverlaySelectedBtn.Size = new System.Drawing.Size(30, 32);
             this.iconOverlaySelectedBtn.TabIndex = 7;
             this.iconOverlaySelectedBtn.TabStop = false;
             this.iconOverlaySelectedBtn.UseVisualStyleBackColor = false;
@@ -192,9 +196,10 @@ namespace PBL3
             this.btnOverlaySelectedBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(41)))), ((int)(((byte)(74)))));
             this.btnOverlaySelectedBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOverlaySelectedBtn.ForeColor = System.Drawing.Color.White;
-            this.btnOverlaySelectedBtn.Location = new System.Drawing.Point(3, 200);
+            this.btnOverlaySelectedBtn.Location = new System.Drawing.Point(2, 162);
+            this.btnOverlaySelectedBtn.Margin = new System.Windows.Forms.Padding(2);
             this.btnOverlaySelectedBtn.Name = "btnOverlaySelectedBtn";
-            this.btnOverlaySelectedBtn.Size = new System.Drawing.Size(230, 60);
+            this.btnOverlaySelectedBtn.Size = new System.Drawing.Size(172, 49);
             this.btnOverlaySelectedBtn.TabIndex = 6;
             this.btnOverlaySelectedBtn.TabStop = false;
             this.btnOverlaySelectedBtn.TextColor = System.Drawing.Color.White;
@@ -213,10 +218,11 @@ namespace PBL3
             this.btnSetting.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnSetting.IconSize = 32;
             this.btnSetting.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSetting.Location = new System.Drawing.Point(0, 440);
+            this.btnSetting.Location = new System.Drawing.Point(0, 358);
+            this.btnSetting.Margin = new System.Windows.Forms.Padding(2);
             this.btnSetting.Name = "btnSetting";
-            this.btnSetting.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnSetting.Size = new System.Drawing.Size(200, 60);
+            this.btnSetting.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnSetting.Size = new System.Drawing.Size(150, 49);
             this.btnSetting.TabIndex = 5;
             this.btnSetting.TabStop = false;
             this.btnSetting.Text = "Cài Đặt";
@@ -238,10 +244,11 @@ namespace PBL3
             this.btnGame.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnGame.IconSize = 32;
             this.btnGame.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGame.Location = new System.Drawing.Point(0, 380);
+            this.btnGame.Location = new System.Drawing.Point(0, 309);
+            this.btnGame.Margin = new System.Windows.Forms.Padding(2);
             this.btnGame.Name = "btnGame";
-            this.btnGame.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnGame.Size = new System.Drawing.Size(200, 60);
+            this.btnGame.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnGame.Size = new System.Drawing.Size(150, 49);
             this.btnGame.TabIndex = 4;
             this.btnGame.TabStop = false;
             this.btnGame.Text = "Trò Chơi";
@@ -263,10 +270,11 @@ namespace PBL3
             this.btnNotebook.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnNotebook.IconSize = 32;
             this.btnNotebook.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNotebook.Location = new System.Drawing.Point(0, 320);
+            this.btnNotebook.Location = new System.Drawing.Point(0, 260);
+            this.btnNotebook.Margin = new System.Windows.Forms.Padding(2);
             this.btnNotebook.Name = "btnNotebook";
-            this.btnNotebook.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnNotebook.Size = new System.Drawing.Size(200, 60);
+            this.btnNotebook.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnNotebook.Size = new System.Drawing.Size(150, 49);
             this.btnNotebook.TabIndex = 3;
             this.btnNotebook.TabStop = false;
             this.btnNotebook.Text = "Sổ Tay";
@@ -288,10 +296,11 @@ namespace PBL3
             this.btnTopic.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnTopic.IconSize = 32;
             this.btnTopic.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnTopic.Location = new System.Drawing.Point(0, 260);
+            this.btnTopic.Location = new System.Drawing.Point(0, 211);
+            this.btnTopic.Margin = new System.Windows.Forms.Padding(2);
             this.btnTopic.Name = "btnTopic";
-            this.btnTopic.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnTopic.Size = new System.Drawing.Size(200, 60);
+            this.btnTopic.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnTopic.Size = new System.Drawing.Size(150, 49);
             this.btnTopic.TabIndex = 2;
             this.btnTopic.TabStop = false;
             this.btnTopic.Text = "Chủ Đề";
@@ -313,10 +322,11 @@ namespace PBL3
             this.btnHome.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnHome.IconSize = 32;
             this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHome.Location = new System.Drawing.Point(0, 200);
+            this.btnHome.Location = new System.Drawing.Point(0, 162);
+            this.btnHome.Margin = new System.Windows.Forms.Padding(2);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnHome.Size = new System.Drawing.Size(200, 60);
+            this.btnHome.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.btnHome.Size = new System.Drawing.Size(150, 49);
             this.btnHome.TabIndex = 0;
             this.btnHome.TabStop = false;
             this.btnHome.Text = "Trang Chủ";
@@ -331,8 +341,9 @@ namespace PBL3
             this.panelLogo.Controls.Add(this.btnLogo);
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelLogo.Margin = new System.Windows.Forms.Padding(2);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(200, 200);
+            this.panelLogo.Size = new System.Drawing.Size(150, 162);
             this.panelLogo.TabIndex = 1;
             // 
             // btnCollapse
@@ -349,9 +360,10 @@ namespace PBL3
             this.btnCollapse.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCollapse.IconSize = 32;
             this.btnCollapse.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCollapse.Location = new System.Drawing.Point(157, 10);
+            this.btnCollapse.Location = new System.Drawing.Point(118, 8);
+            this.btnCollapse.Margin = new System.Windows.Forms.Padding(2);
             this.btnCollapse.Name = "btnCollapse";
-            this.btnCollapse.Size = new System.Drawing.Size(40, 40);
+            this.btnCollapse.Size = new System.Drawing.Size(30, 32);
             this.btnCollapse.TabIndex = 6;
             this.btnCollapse.TabStop = false;
             this.btnCollapse.UseVisualStyleBackColor = false;
@@ -367,9 +379,10 @@ namespace PBL3
             this.btnLogo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnLogo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnLogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogo.Location = new System.Drawing.Point(0, 5);
+            this.btnLogo.Location = new System.Drawing.Point(0, 4);
+            this.btnLogo.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogo.Name = "btnLogo";
-            this.btnLogo.Size = new System.Drawing.Size(197, 194);
+            this.btnLogo.Size = new System.Drawing.Size(148, 158);
             this.btnLogo.TabIndex = 0;
             this.btnLogo.TabStop = false;
             this.btnLogo.UseVisualStyleBackColor = false;
@@ -380,17 +393,19 @@ namespace PBL3
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.label1.Location = new System.Drawing.Point(126, 34);
+            this.label1.Location = new System.Drawing.Point(94, 28);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 16);
+            this.label1.Size = new System.Drawing.Size(40, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
             // 
             // fakeTabStop
             // 
-            this.fakeTabStop.Location = new System.Drawing.Point(87, 77);
+            this.fakeTabStop.Location = new System.Drawing.Point(65, 63);
+            this.fakeTabStop.Margin = new System.Windows.Forms.Padding(2);
             this.fakeTabStop.Name = "fakeTabStop";
-            this.fakeTabStop.Size = new System.Drawing.Size(77, 22);
+            this.fakeTabStop.Size = new System.Drawing.Size(59, 20);
             this.fakeTabStop.TabIndex = 0;
             // 
             // panelBase
@@ -412,9 +427,10 @@ namespace PBL3
             this.panelBase.Controls.Add(this.fakeTabStop);
             this.panelBase.Cursor = System.Windows.Forms.Cursors.Default;
             this.panelBase.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelBase.Location = new System.Drawing.Point(200, 0);
+            this.panelBase.Location = new System.Drawing.Point(150, 0);
+            this.panelBase.Margin = new System.Windows.Forms.Padding(2);
             this.panelBase.Name = "panelBase";
-            this.panelBase.Size = new System.Drawing.Size(1058, 628);
+            this.panelBase.Size = new System.Drawing.Size(794, 510);
             this.panelBase.TabIndex = 1;
             // 
             // panelSearch
@@ -432,18 +448,20 @@ namespace PBL3
             this.panelSearch.GradientAngle = 90F;
             this.panelSearch.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
             this.panelSearch.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
-            this.panelSearch.Location = new System.Drawing.Point(247, 74);
+            this.panelSearch.Location = new System.Drawing.Point(185, 60);
+            this.panelSearch.Margin = new System.Windows.Forms.Padding(2);
             this.panelSearch.Name = "panelSearch";
-            this.panelSearch.Size = new System.Drawing.Size(574, 50);
+            this.panelSearch.Size = new System.Drawing.Size(430, 41);
             this.panelSearch.TabIndex = 52;
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(50)))), ((int)(((byte)(99)))));
             this.panel1.Controls.Add(this.btnTranslate);
-            this.panel1.Location = new System.Drawing.Point(440, 0);
+            this.panel1.Location = new System.Drawing.Point(330, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(134, 59);
+            this.panel1.Size = new System.Drawing.Size(100, 48);
             this.panel1.TabIndex = 53;
             // 
             // btnTranslate
@@ -459,9 +477,10 @@ namespace PBL3
             this.btnTranslate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTranslate.Font = new System.Drawing.Font("Bahnschrift", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnTranslate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.btnTranslate.Location = new System.Drawing.Point(9, -1);
+            this.btnTranslate.Location = new System.Drawing.Point(7, -1);
+            this.btnTranslate.Margin = new System.Windows.Forms.Padding(2);
             this.btnTranslate.Name = "btnTranslate";
-            this.btnTranslate.Size = new System.Drawing.Size(125, 50);
+            this.btnTranslate.Size = new System.Drawing.Size(94, 41);
             this.btnTranslate.TabIndex = 51;
             this.btnTranslate.TabStop = false;
             this.btnTranslate.Text = "Dịch Văn Bản";
@@ -480,9 +499,10 @@ namespace PBL3
             this.rjButton6.FlatAppearance.BorderSize = 0;
             this.rjButton6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton6.ForeColor = System.Drawing.Color.White;
-            this.rjButton6.Location = new System.Drawing.Point(377, 6);
+            this.rjButton6.Location = new System.Drawing.Point(283, 5);
+            this.rjButton6.Margin = new System.Windows.Forms.Padding(2);
             this.rjButton6.Name = "rjButton6";
-            this.rjButton6.Size = new System.Drawing.Size(3, 39);
+            this.rjButton6.Size = new System.Drawing.Size(2, 32);
             this.rjButton6.TabIndex = 49;
             this.rjButton6.TabStop = false;
             this.rjButton6.Text = "rjButton6";
@@ -501,9 +521,10 @@ namespace PBL3
             this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(252)))));
             this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconButton1.IconSize = 35;
-            this.iconButton1.Location = new System.Drawing.Point(335, 7);
+            this.iconButton1.Location = new System.Drawing.Point(251, 6);
+            this.iconButton1.Margin = new System.Windows.Forms.Padding(2);
             this.iconButton1.Name = "iconButton1";
-            this.iconButton1.Size = new System.Drawing.Size(38, 38);
+            this.iconButton1.Size = new System.Drawing.Size(28, 31);
             this.iconButton1.TabIndex = 5;
             this.iconButton1.TabStop = false;
             this.iconButton1.UseVisualStyleBackColor = false;
@@ -517,14 +538,15 @@ namespace PBL3
             this.btnSearchType.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSearchType.FlatAppearance.BorderSize = 0;
             this.btnSearchType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchType.Location = new System.Drawing.Point(390, 14);
-            this.btnSearchType.MinimumSize = new System.Drawing.Size(44, 22);
+            this.btnSearchType.Location = new System.Drawing.Point(292, 11);
+            this.btnSearchType.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSearchType.MinimumSize = new System.Drawing.Size(33, 18);
             this.btnSearchType.Name = "btnSearchType";
             this.btnSearchType.OffBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(255)))));
             this.btnSearchType.OffToggleColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(255)))));
             this.btnSearchType.OnBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(255)))));
             this.btnSearchType.OnToggleColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(255)))));
-            this.btnSearchType.Size = new System.Drawing.Size(44, 22);
+            this.btnSearchType.Size = new System.Drawing.Size(33, 18);
             this.btnSearchType.SolidStyle = false;
             this.btnSearchType.TabIndex = 49;
             this.btnSearchType.TabStop = false;
@@ -540,9 +562,10 @@ namespace PBL3
             this.txtSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtSearch.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
-            this.txtSearch.Location = new System.Drawing.Point(29, 15);
+            this.txtSearch.Location = new System.Drawing.Point(22, 12);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(275, 29);
+            this.txtSearch.Size = new System.Drawing.Size(206, 23);
             this.txtSearch.TabIndex = 6;
             this.txtSearch.Text = "Search";
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
@@ -555,9 +578,10 @@ namespace PBL3
             this.panelSearchFound.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panelSearchFound.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(50)))), ((int)(((byte)(99)))));
             this.panelSearchFound.Controls.Add(this.btnFilledSearchFound);
-            this.panelSearchFound.Location = new System.Drawing.Point(247, 101);
+            this.panelSearchFound.Location = new System.Drawing.Point(185, 82);
+            this.panelSearchFound.Margin = new System.Windows.Forms.Padding(2);
             this.panelSearchFound.Name = "panelSearchFound";
-            this.panelSearchFound.Size = new System.Drawing.Size(443, 325);
+            this.panelSearchFound.Size = new System.Drawing.Size(332, 264);
             this.panelSearchFound.TabIndex = 15;
             this.panelSearchFound.Visible = false;
             // 
@@ -572,8 +596,9 @@ namespace PBL3
             this.btnFilledSearchFound.IconColor = System.Drawing.Color.Black;
             this.btnFilledSearchFound.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnFilledSearchFound.Location = new System.Drawing.Point(0, 0);
+            this.btnFilledSearchFound.Margin = new System.Windows.Forms.Padding(2);
             this.btnFilledSearchFound.Name = "btnFilledSearchFound";
-            this.btnFilledSearchFound.Size = new System.Drawing.Size(443, 25);
+            this.btnFilledSearchFound.Size = new System.Drawing.Size(332, 20);
             this.btnFilledSearchFound.TabIndex = 0;
             this.btnFilledSearchFound.TabStop = false;
             this.btnFilledSearchFound.UseVisualStyleBackColor = true;
@@ -584,20 +609,22 @@ namespace PBL3
             this.lblSearchType.AutoSize = true;
             this.lblSearchType.Font = new System.Drawing.Font("Bahnschrift Condensed", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSearchType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.lblSearchType.Location = new System.Drawing.Point(634, 127);
+            this.lblSearchType.Location = new System.Drawing.Point(476, 103);
+            this.lblSearchType.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSearchType.Name = "lblSearchType";
-            this.lblSearchType.Size = new System.Drawing.Size(54, 16);
+            this.lblSearchType.Size = new System.Drawing.Size(45, 13);
             this.lblSearchType.TabIndex = 50;
             this.lblSearchType.Text = "ANH - ANH";
             // 
             // lblBalance
             // 
             this.lblBalance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblBalance.Font = new System.Drawing.Font("Aquire", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBalance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.lblBalance.Location = new System.Drawing.Point(820, 87);
+            this.lblBalance.Location = new System.Drawing.Point(615, 71);
+            this.lblBalance.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBalance.Name = "lblBalance";
-            this.lblBalance.Size = new System.Drawing.Size(125, 20);
+            this.lblBalance.Size = new System.Drawing.Size(94, 16);
             this.lblBalance.TabIndex = 25;
             this.lblBalance.Text = "123";
             this.lblBalance.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -618,9 +645,10 @@ namespace PBL3
             this.rjButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
             this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton2.ForeColor = System.Drawing.Color.White;
-            this.rjButton2.Location = new System.Drawing.Point(940, 74);
+            this.rjButton2.Location = new System.Drawing.Point(705, 60);
+            this.rjButton2.Margin = new System.Windows.Forms.Padding(2);
             this.rjButton2.Name = "rjButton2";
-            this.rjButton2.Size = new System.Drawing.Size(50, 50);
+            this.rjButton2.Size = new System.Drawing.Size(38, 41);
             this.rjButton2.TabIndex = 24;
             this.rjButton2.TabStop = false;
             this.rjButton2.TextColor = System.Drawing.Color.White;
@@ -644,9 +672,10 @@ namespace PBL3
             this.panelPersonal.GradientAngle = 90F;
             this.panelPersonal.GradientBottomColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(49)))), ((int)(((byte)(91)))));
             this.panelPersonal.GradientTopColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(49)))), ((int)(((byte)(91)))));
-            this.panelPersonal.Location = new System.Drawing.Point(824, 126);
+            this.panelPersonal.Location = new System.Drawing.Point(618, 102);
+            this.panelPersonal.Margin = new System.Windows.Forms.Padding(2);
             this.panelPersonal.Name = "panelPersonal";
-            this.panelPersonal.Size = new System.Drawing.Size(222, 210);
+            this.panelPersonal.Size = new System.Drawing.Size(166, 171);
             this.panelPersonal.TabIndex = 23;
             this.panelPersonal.Visible = false;
             // 
@@ -659,9 +688,10 @@ namespace PBL3
             this.iconLogin.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
             this.iconLogin.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconLogin.IconSize = 32;
-            this.iconLogin.Location = new System.Drawing.Point(156, 155);
+            this.iconLogin.Location = new System.Drawing.Point(117, 126);
+            this.iconLogin.Margin = new System.Windows.Forms.Padding(2);
             this.iconLogin.Name = "iconLogin";
-            this.iconLogin.Size = new System.Drawing.Size(30, 30);
+            this.iconLogin.Size = new System.Drawing.Size(22, 24);
             this.iconLogin.TabIndex = 30;
             this.iconLogin.TabStop = false;
             this.iconLogin.UseVisualStyleBackColor = true;
@@ -675,9 +705,10 @@ namespace PBL3
             this.iconSetting.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
             this.iconSetting.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconSetting.IconSize = 32;
-            this.iconSetting.Location = new System.Drawing.Point(156, 88);
+            this.iconSetting.Location = new System.Drawing.Point(117, 72);
+            this.iconSetting.Margin = new System.Windows.Forms.Padding(2);
             this.iconSetting.Name = "iconSetting";
-            this.iconSetting.Size = new System.Drawing.Size(30, 30);
+            this.iconSetting.Size = new System.Drawing.Size(22, 24);
             this.iconSetting.TabIndex = 29;
             this.iconSetting.TabStop = false;
             this.iconSetting.UseVisualStyleBackColor = true;
@@ -691,9 +722,10 @@ namespace PBL3
             this.iconPersonal.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
             this.iconPersonal.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.iconPersonal.IconSize = 32;
-            this.iconPersonal.Location = new System.Drawing.Point(156, 20);
+            this.iconPersonal.Location = new System.Drawing.Point(117, 16);
+            this.iconPersonal.Margin = new System.Windows.Forms.Padding(2);
             this.iconPersonal.Name = "iconPersonal";
-            this.iconPersonal.Size = new System.Drawing.Size(30, 30);
+            this.iconPersonal.Size = new System.Drawing.Size(22, 24);
             this.iconPersonal.TabIndex = 28;
             this.iconPersonal.TabStop = false;
             this.iconPersonal.UseVisualStyleBackColor = true;
@@ -704,9 +736,10 @@ namespace PBL3
             this.button2.Enabled = false;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Location = new System.Drawing.Point(22, 134);
+            this.button2.Location = new System.Drawing.Point(16, 109);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(175, 1);
+            this.button2.Size = new System.Drawing.Size(131, 1);
             this.button2.TabIndex = 27;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = false;
@@ -717,9 +750,10 @@ namespace PBL3
             this.button1.Enabled = false;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(22, 68);
+            this.button1.Location = new System.Drawing.Point(16, 55);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(175, 1);
+            this.button1.Size = new System.Drawing.Size(131, 1);
             this.button1.TabIndex = 26;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = false;
@@ -736,9 +770,10 @@ namespace PBL3
             this.btnPersonalLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPersonalLogin.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPersonalLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
-            this.btnPersonalLogin.Location = new System.Drawing.Point(22, 147);
+            this.btnPersonalLogin.Location = new System.Drawing.Point(16, 119);
+            this.btnPersonalLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnPersonalLogin.Name = "btnPersonalLogin";
-            this.btnPersonalLogin.Size = new System.Drawing.Size(128, 42);
+            this.btnPersonalLogin.Size = new System.Drawing.Size(96, 34);
             this.btnPersonalLogin.TabIndex = 25;
             this.btnPersonalLogin.TabStop = false;
             this.btnPersonalLogin.Text = "Đăng Nhập";
@@ -759,9 +794,10 @@ namespace PBL3
             this.btnPersonalSetting.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPersonalSetting.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPersonalSetting.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
-            this.btnPersonalSetting.Location = new System.Drawing.Point(22, 80);
+            this.btnPersonalSetting.Location = new System.Drawing.Point(16, 65);
+            this.btnPersonalSetting.Margin = new System.Windows.Forms.Padding(2);
             this.btnPersonalSetting.Name = "btnPersonalSetting";
-            this.btnPersonalSetting.Size = new System.Drawing.Size(128, 42);
+            this.btnPersonalSetting.Size = new System.Drawing.Size(96, 34);
             this.btnPersonalSetting.TabIndex = 24;
             this.btnPersonalSetting.TabStop = false;
             this.btnPersonalSetting.Text = "Cài Đặt";
@@ -782,9 +818,10 @@ namespace PBL3
             this.btnPersonalInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPersonalInfo.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPersonalInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
-            this.btnPersonalInfo.Location = new System.Drawing.Point(22, 14);
+            this.btnPersonalInfo.Location = new System.Drawing.Point(16, 11);
+            this.btnPersonalInfo.Margin = new System.Windows.Forms.Padding(2);
             this.btnPersonalInfo.Name = "btnPersonalInfo";
-            this.btnPersonalInfo.Size = new System.Drawing.Size(128, 42);
+            this.btnPersonalInfo.Size = new System.Drawing.Size(96, 34);
             this.btnPersonalInfo.TabIndex = 23;
             this.btnPersonalInfo.TabStop = false;
             this.btnPersonalInfo.Text = "Thông Tin";
@@ -807,9 +844,10 @@ namespace PBL3
             this.btnPersonal.FlatAppearance.BorderSize = 0;
             this.btnPersonal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPersonal.ForeColor = System.Drawing.Color.White;
-            this.btnPersonal.Location = new System.Drawing.Point(996, 74);
+            this.btnPersonal.Location = new System.Drawing.Point(747, 60);
+            this.btnPersonal.Margin = new System.Windows.Forms.Padding(2);
             this.btnPersonal.Name = "btnPersonal";
-            this.btnPersonal.Size = new System.Drawing.Size(50, 50);
+            this.btnPersonal.Size = new System.Drawing.Size(38, 41);
             this.btnPersonal.TabIndex = 11;
             this.btnPersonal.TabStop = false;
             this.btnPersonal.TextColor = System.Drawing.Color.White;
@@ -827,9 +865,10 @@ namespace PBL3
             this.btnExit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
             this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnExit.IconSize = 32;
-            this.btnExit.Location = new System.Drawing.Point(1015, 12);
+            this.btnExit.Location = new System.Drawing.Point(761, 10);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(30, 30);
+            this.btnExit.Size = new System.Drawing.Size(22, 24);
             this.btnExit.TabIndex = 2;
             this.btnExit.TabStop = false;
             this.btnExit.UseVisualStyleBackColor = false;
@@ -842,10 +881,11 @@ namespace PBL3
             this.iconChildForm.IconChar = FontAwesome.Sharp.IconChar.Home;
             this.iconChildForm.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(110)))), ((int)(((byte)(254)))));
             this.iconChildForm.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconChildForm.IconSize = 50;
-            this.iconChildForm.Location = new System.Drawing.Point(10, 79);
+            this.iconChildForm.IconSize = 38;
+            this.iconChildForm.Location = new System.Drawing.Point(8, 64);
+            this.iconChildForm.Margin = new System.Windows.Forms.Padding(2);
             this.iconChildForm.Name = "iconChildForm";
-            this.iconChildForm.Size = new System.Drawing.Size(50, 50);
+            this.iconChildForm.Size = new System.Drawing.Size(38, 41);
             this.iconChildForm.TabIndex = 1;
             this.iconChildForm.TabStop = false;
             // 
@@ -854,9 +894,10 @@ namespace PBL3
             this.lblChildForm.AutoSize = true;
             this.lblChildForm.Font = new System.Drawing.Font("Bahnschrift SemiCondensed", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblChildForm.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(97)))), ((int)(((byte)(110)))), ((int)(((byte)(254)))));
-            this.lblChildForm.Location = new System.Drawing.Point(66, 87);
+            this.lblChildForm.Location = new System.Drawing.Point(50, 71);
+            this.lblChildForm.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblChildForm.Name = "lblChildForm";
-            this.lblChildForm.Size = new System.Drawing.Size(78, 34);
+            this.lblChildForm.Size = new System.Drawing.Size(62, 27);
             this.lblChildForm.TabIndex = 0;
             this.lblChildForm.Text = "HOME";
             // 
@@ -866,8 +907,9 @@ namespace PBL3
             this.panelDrag.Controls.Add(this.btnMinimize);
             this.panelDrag.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelDrag.Location = new System.Drawing.Point(0, 0);
+            this.panelDrag.Margin = new System.Windows.Forms.Padding(2);
             this.panelDrag.Name = "panelDrag";
-            this.panelDrag.Size = new System.Drawing.Size(1058, 50);
+            this.panelDrag.Size = new System.Drawing.Size(794, 41);
             this.panelDrag.TabIndex = 8;
             this.panelDrag.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelDrag_MouseDown);
             // 
@@ -882,9 +924,10 @@ namespace PBL3
             this.btnMinimize.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
             this.btnMinimize.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnMinimize.IconSize = 32;
-            this.btnMinimize.Location = new System.Drawing.Point(979, 10);
+            this.btnMinimize.Location = new System.Drawing.Point(734, 8);
+            this.btnMinimize.Margin = new System.Windows.Forms.Padding(2);
             this.btnMinimize.Name = "btnMinimize";
-            this.btnMinimize.Size = new System.Drawing.Size(30, 30);
+            this.btnMinimize.Size = new System.Drawing.Size(22, 24);
             this.btnMinimize.TabIndex = 4;
             this.btnMinimize.TabStop = false;
             this.btnMinimize.UseVisualStyleBackColor = false;
@@ -901,9 +944,10 @@ namespace PBL3
             this.iconSub.IconChar = FontAwesome.Sharp.IconChar.None;
             this.iconSub.IconColor = System.Drawing.Color.Black;
             this.iconSub.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconSub.Location = new System.Drawing.Point(11, 54);
+            this.iconSub.Location = new System.Drawing.Point(8, 44);
+            this.iconSub.Margin = new System.Windows.Forms.Padding(2);
             this.iconSub.Name = "iconSub";
-            this.iconSub.Size = new System.Drawing.Size(230, 91);
+            this.iconSub.Size = new System.Drawing.Size(172, 74);
             this.iconSub.TabIndex = 16;
             this.iconSub.TabStop = false;
             this.iconSub.UseVisualStyleBackColor = true;
@@ -920,9 +964,10 @@ namespace PBL3
             this.btnBackgroundRoundIn.FlatAppearance.BorderSize = 0;
             this.btnBackgroundRoundIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBackgroundRoundIn.ForeColor = System.Drawing.Color.White;
-            this.btnBackgroundRoundIn.Location = new System.Drawing.Point(0, 48);
+            this.btnBackgroundRoundIn.Location = new System.Drawing.Point(0, 39);
+            this.btnBackgroundRoundIn.Margin = new System.Windows.Forms.Padding(2);
             this.btnBackgroundRoundIn.Name = "btnBackgroundRoundIn";
-            this.btnBackgroundRoundIn.Size = new System.Drawing.Size(200, 59);
+            this.btnBackgroundRoundIn.Size = new System.Drawing.Size(150, 48);
             this.btnBackgroundRoundIn.TabIndex = 9;
             this.btnBackgroundRoundIn.TextColor = System.Drawing.Color.White;
             this.btnBackgroundRoundIn.UseVisualStyleBackColor = false;
@@ -933,9 +978,10 @@ namespace PBL3
             this.btnBackgroundRoundOut.Enabled = false;
             this.btnBackgroundRoundOut.FlatAppearance.BorderSize = 0;
             this.btnBackgroundRoundOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBackgroundRoundOut.Location = new System.Drawing.Point(-36, 34);
+            this.btnBackgroundRoundOut.Location = new System.Drawing.Point(-27, 28);
+            this.btnBackgroundRoundOut.Margin = new System.Windows.Forms.Padding(2);
             this.btnBackgroundRoundOut.Name = "btnBackgroundRoundOut";
-            this.btnBackgroundRoundOut.Size = new System.Drawing.Size(97, 45);
+            this.btnBackgroundRoundOut.Size = new System.Drawing.Size(73, 37);
             this.btnBackgroundRoundOut.TabIndex = 5;
             this.btnBackgroundRoundOut.UseVisualStyleBackColor = false;
             // 
@@ -966,15 +1012,16 @@ namespace PBL3
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
-            this.ClientSize = new System.Drawing.Size(1258, 628);
+            this.ClientSize = new System.Drawing.Size(944, 510);
             this.Controls.Add(this.panelBase);
             this.Controls.Add(this.panelButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "MainForm";
             this.Opacity = 0D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -167,7 +167,6 @@ namespace PBL3
                 FormMessageBox f = new FormMessageBox("Vui lòng nhập lại", "Định dạng thông tin nhập không  hợp lệ", FormMessageBox.MessageType.Info);
                 f.StartPosition = FormStartPosition.CenterScreen;
                 f.Show();
-
             }
         }
 
@@ -231,6 +230,10 @@ namespace PBL3
 
         private void txtSearch_Enter(object sender, EventArgs e)
         {
+            if (!placeholder.Any(i => i == txtSearch.Text))
+            {
+                return;
+            }
             txtSearch.ForeColor = Color.White;
             txtSearch.Text = "";
         }

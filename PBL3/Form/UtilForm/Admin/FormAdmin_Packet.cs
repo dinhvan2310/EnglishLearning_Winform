@@ -13,14 +13,20 @@ namespace PBL3
 {
     public partial class FormAdmin_Packet : Form
     {
+
         private enum SearchBy
         {
             None,
             ID,
             UserName,
             Name,
-            Packet,
-            Time
+        };
+
+        private string[] placeholder =
+        {
+            "ID: 1",
+            "UserName: phuongthao1204",
+            "Name: Phương Thảo",
         };
 
         public FormAdmin_Packet()
@@ -31,125 +37,84 @@ namespace PBL3
 
         private void SetUpUI()
         {
-            /*ShowListAccount(SearchBy.None);*/
+            ShowListAccount(SearchBy.None);
 
             rjComboBox1.SelectedIndex = 0;
         }
 
-        /*private void ShowListAccount(SearchBy searchBy)
+        private void ShowListAccount(SearchBy searchBy)
         {
             DataManager dataManager = new DataManager();
-            try
+            //try
             {
                 switch (searchBy)
                 {
                     case SearchBy.None:
                         {
-                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts().Select(p => new
-                            {
-                                p.AccountID,
-                                p.UserName,
-                                p.Name,
-                                p.BirthDate,
-                                p.Email,
-                                Gender = (p.Gender) ? "Nam" : "Nữ",
-                                Balance = dataManager.AccountManager.GetAccountDetail(p.AccountID).Balance,
-                            }).ToList();
+                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts().Join(dataManager.AccountManager.GetUserPacketInfo_All_ByNamePacket("Premium"),
+                                a => a.AccountID, p => p.AccountID, (a, p) =>
+                                {
+                                    return new
+                                    {
+                                        a.AccountID, a.UserName, a.Name, p.PacketID, p.DueDate
+                                    };
+                                }).ToList();
                             break;
                         }
 
                     case SearchBy.ID:
                         {
                             int id = Convert.ToInt32(txtSearch.Text);
-                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts().Where(p => p.AccountID == id).Select(p => new
-                            {
-                                p.AccountID,
-                                p.UserName,
-                                p.Name,
-                                p.BirthDate,
-                                p.Email,
-                                Gender = (p.Gender) ? "Nam" : "Nữ",
-                                Balance = dataManager.AccountManager.GetAccountDetail(p.AccountID).Balance,
-                            }).ToList();
+                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts().Where(p => p.AccountID == id).Join(dataManager.AccountManager.GetUserPacketInfo_All_ByNamePacket("Premium"),
+                                a => a.AccountID, p => p.AccountID, (a, p) =>
+                                {
+                                    return new
+                                    {
+                                        a.AccountID, a.UserName, a.Name, p.PacketID, p.DueDate
+                                    };
+                                }).ToList();
                             break;
                         }
 
                     case SearchBy.UserName:
                         {
                             string userName = txtSearch.Text;
-                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts().Where(p => p.UserName == userName).Select(p => new
-                            {
-                                p.AccountID,
-                                p.UserName,
-                                p.Name,
-                                p.BirthDate,
-                                p.Email,
-                                Gender = (p.Gender) ? "Nam" : "Nữ",
-                                Balance = dataManager.AccountManager.GetAccountDetail(p.AccountID).Balance,
-                            }).ToList();
+                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts().Where(p => p.UserName == userName).Join(dataManager.AccountManager.GetUserPacketInfo_All_ByNamePacket("Premium"),
+                                a => a.AccountID, p => p.AccountID, (a, p) =>
+                                {
+                                    return new
+                                    {
+                                        a.AccountID, a.UserName, a.Name, p.PacketID, p.DueDate
+                                    };
+                                }).ToList();
                             break;
                         }
 
                     case SearchBy.Name:
                         {
                             string name = txtSearch.Text;
-                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts().Where(p => p.Name.Contains(name)).Select(p => new
-                            {
-                                p.AccountID,
-                                p.UserName,
-                                p.Name,
-                                p.BirthDate,
-                                p.Email,
-                                Gender = (p.Gender) ? "Nam" : "Nữ",
-                                Balance = dataManager.AccountManager.GetAccountDetail(p.AccountID).Balance,
-                            }).ToList();
+                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts().Where(p => p.Name.Contains(name)).Join(dataManager.AccountManager.GetUserPacketInfo_All_ByNamePacket("Premium"),
+                                a => a.AccountID, p => p.AccountID, (a, p) =>
+                                {
+                                    return new
+                                    {
+                                        a.AccountID, a.UserName, a.Name, p.PacketID, p.DueDate
+                                    };
+                                }).ToList();
                             break;
                         }
-
-                    case SearchBy.BirthDate:
-                        {
-                            DateTime birthDate = Convert.ToDateTime(txtSearch.Text);
-                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts().Where(p => p.BirthDate == birthDate).Select(p => new
-                            {
-                                p.AccountID,
-                                p.UserName,
-                                p.Name,
-                                p.BirthDate,
-                                p.Email,
-                                Gender = (p.Gender) ? "Nam" : "Nữ",
-                                Balance = dataManager.AccountManager.GetAccountDetail(p.AccountID).Balance,
-                            }).ToList();
-                            break;
-                        }
-
-                    case SearchBy.Email:
-                        {
-                            string email = txtSearch.Text;
-                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts().Where(p => p.Email == email).Select(p => new
-                            {
-                                p.AccountID,
-                                p.UserName,
-                                p.Name,
-                                p.BirthDate,
-                                p.Email,
-                                Gender = (p.Gender) ? "Nam" : "Nữ",
-                                Balance = dataManager.AccountManager.GetAccountDetail(p.AccountID).Balance,
-                            }).ToList();
-                            break;
-                        }
-
 
 
                 }
             }
-            catch (Exception ex)
+            /*catch (Exception ex)
             {
                 FormMessageBox f = new FormMessageBox("Vui lòng nhập lại", "Định dạng thông tin nhập không  hợp lệ", FormMessageBox.MessageType.Info);
                 f.StartPosition = FormStartPosition.CenterScreen;
                 f.Show();
 
-            }
-        }*/
+            }*/
+        }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -165,6 +130,57 @@ namespace PBL3
                 new FormMessageBox("Lỗi", "Vui lòng nhập giá gói người dùng là số nguyên", FormMessageBox.MessageType.Info).Show();
             }
 
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (txtSearch.Text == "" || placeholder.Any(i => i == txtSearch.Text))
+            {
+                ShowListAccount(SearchBy.None);
+                return;
+            }
+
+            switch (rjComboBox1.SelectedItem.ToString())
+            {
+                case "ID":
+                    {
+                        ShowListAccount(SearchBy.ID);
+                        break;
+                    }
+
+                case "UserName":
+                    {
+                        ShowListAccount(SearchBy.UserName);
+                        break;
+                    }
+
+                case "Name":
+                    {
+                        ShowListAccount(SearchBy.Name);
+                        break;
+                    }
+            }
+        }
+
+        private void setPlaceholder()
+        {
+            txtSearch.ForeColor = Color.FromArgb(119, 112, 156);
+            txtSearch.Text = placeholder[rjComboBox1.SelectedIndex];
+        }
+
+        private void rjComboBox1_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            setPlaceholder();
+        }
+
+        private void txtSearch_Enter(object sender, EventArgs e)
+        {
+            if(!placeholder.Any(i => i == txtSearch.Text))
+            {
+                return;
+            }
+            txtSearch.ForeColor = Color.White;
+            txtSearch.Text = "";
         }
     }
 }

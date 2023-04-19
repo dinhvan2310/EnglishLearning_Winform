@@ -15,6 +15,8 @@ namespace PBL3
 {
     public partial class FormPremium : Form
     {
+        public event EventHandler SetupUI_MainForm;
+
         private UserPacket _Packet;
 
         public FormPremium()
@@ -51,9 +53,36 @@ namespace PBL3
 
         private void btnBuy_MouseClick(object sender, MouseEventArgs e)
         {
+            DataManager dataManager = new DataManager();
             if (LoginWorkflow.Instance.IsLoggedIn())
             {
+                int userID = LoginWorkflow.Instance.GetAccount().AccountID;
+                if (dataManager.AccountManager.IsHasUserPacket(userID, "Premium"))
+                {
+                    FormMessageBox form = new FormMessageBox("Thông báo", $"Bạn đã sỡ hữu gói dịch vụ này, hạn sử dụng đến {dataManager.AccountManager.GetUserPacketInfo(userID, "Premium").DueDate}",
+                    FormMessageBox.MessageType.Info);
 
+                    form.ShowDialog();
+                    return;
+                }
+                
+                if(dataManager.AccountManager.BuyUserPacket(userID, "Premium"))
+                {
+                    FormMessageBox form = new FormMessageBox("Thông báo", "Giao dịch thành công",
+                    FormMessageBox.MessageType.Info);
+                    form.ShowDialog();
+                    if(SetupUI_MainForm != null)
+                    {
+                        SetupUI_MainForm(this, new EventArgs());
+                    }
+                }
+                else
+                {
+                    FormMessageBox form = new FormMessageBox("Lỗi", "Coin của bạn không đủ để thực hiện giao dịch này",
+                    FormMessageBox.MessageType.Info);
+
+                    form.ShowDialog();
+                }
             }
             else
             {

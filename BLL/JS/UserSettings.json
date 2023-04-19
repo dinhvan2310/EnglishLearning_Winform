@@ -22,5 +22,11 @@
     "Volume": 10,
     "Voice": false,
     "Goal": 10
+  },
+  {
+    "UserId": 37,
+    "Volume": 10,
+    "Voice": false,
+    "Goal": 45
   }
 ]
