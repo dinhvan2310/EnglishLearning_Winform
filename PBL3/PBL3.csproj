@@ -136,6 +136,12 @@
     <Compile Include="FormAdmin_Topic_BranchDetail.Designer.cs">
       <DependentUpon>FormAdmin_Topic_BranchDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\UtilForm\Login\FormForgotPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\UtilForm\Login\FormForgotPassword.Designer.cs">
+      <DependentUpon>FormForgotPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormGuest.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -370,6 +376,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\ChildForm\FormSetting.resx">
       <DependentUpon>FormSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\UtilForm\Login\FormForgotPassword.resx">
+      <DependentUpon>FormForgotPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\UtilForm\Login\FormSignUp.resx">
       <DependentUpon>FormSignUp.cs</DependentUpon>

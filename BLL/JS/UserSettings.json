@@ -14,6 +14,7 @@
   {
     "UserId": 30,
     "Volume": 10,
+<<<<<<< HEAD
     "Voice": false,
     "Goal": 45
   },
@@ -28,5 +29,13 @@
     "Volume": 10,
     "Voice": false,
     "Goal": 45
+=======
+    "Voice": true
+  },
+  {
+    "UserId": 30,
+    "Volume": 5,
+    "Voice": true
+>>>>>>> 8547f14900a6917f0665353048f9aa6ccc0d7569
   }
 ]
