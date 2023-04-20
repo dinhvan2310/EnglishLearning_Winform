@@ -203,6 +203,12 @@ namespace BLL.Workflows
         {
             return _FirstTimeLogged;
         }
+
+        public bool IsAdmin()
+        {
+            return GetAccount().TypeID == 5;
+        }
+
         public void SendMessage(string desEmail, string subject, string body)
         {
             _EmailManager.SendMessage(desEmail, subject, body);
@@ -316,6 +322,7 @@ namespace BLL.Workflows
             _AccountManager.UpdateLearningStat(_UserID, 0, 0);
         }
 
+        // auto login usage
         public bool Login()
         {
             try

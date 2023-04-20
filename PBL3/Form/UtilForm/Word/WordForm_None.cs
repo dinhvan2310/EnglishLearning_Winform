@@ -15,6 +15,7 @@ using System.Windows.Documents;
 using System.Windows;
 using System.Windows.Forms;
 using System.Windows.Media.Media3D;
+using EFramework.Model;
 
 namespace PBL3
 {
@@ -23,7 +24,8 @@ namespace PBL3
         private string _RawWord;
         private bool _IsEE;
 
-        private List<WordModel> _Words;
+        private List<wn_word> _Words;
+        private List<word_viet> _VWords;
 
         public WordForm_None( string rawWord, bool isEE = true)
         {
@@ -43,7 +45,7 @@ namespace PBL3
             if (_IsEE)
                 _Words = dm.EDictionaryManager.GetWord_ByFilter_Random(_RawWord[0] + "%", 8, true);
             else
-                _Words = dm.VDictionaryManager.GetWord_ByFilter(_RawWord[0] + "%", 8);
+                _VWords = dm.VDictionaryManager.GetWord_ByFilter(_RawWord[0] + "%", 8);
         }
 
         private void SetupUI()
@@ -51,9 +53,19 @@ namespace PBL3
             lblWord.Text = _RawWord;
 
             int i = 0;
-            foreach (WordModel w in _Words)
+            if (_IsEE)
             {
-                panel1.Controls.Add(CreateLabelWord(_Words[i++].Word));
+                foreach (wn_word w in _Words)
+                {
+                    panel1.Controls.Add(CreateLabelWord(_Words[i++].word));
+                }
+            }
+            else
+            {
+                foreach (word_viet w in _VWords)
+                {
+                    panel1.Controls.Add(CreateLabelWord(_Words[i++].word));
+                }
             }
         }
 

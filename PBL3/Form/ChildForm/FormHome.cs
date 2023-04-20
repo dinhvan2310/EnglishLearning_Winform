@@ -15,6 +15,7 @@ using PBL3.Utilities;
 using BLL.Components;
 using CustomControls;
 using System.Windows.Media.Media3D;
+using EFramework.Model;
 
 namespace PBL3
 {
@@ -23,7 +24,7 @@ namespace PBL3
         private const int _SuggestedWordCount = 10;
 
         private int _CurrentWordEveryDayIndex = 0;
-        private List<WordModel> _WordsEveryDay;
+        private List<wn_word> _WordsEveryDay;
 
         private bool _ReverseState = false;
 
@@ -42,7 +43,7 @@ namespace PBL3
         }
         private void SetupUI()
         {
-            btnSugWord.Text = _WordsEveryDay[0].Word;
+            btnSugWord.Text = _WordsEveryDay[0].word;
             UpdateComprehensiveStat();
             UpdateOnlineGoal();
         }
@@ -105,9 +106,9 @@ namespace PBL3
         {
             DataManager dm = new DataManager();
             _WordsEveryDay = dm.EDictionaryManager.GetWord_Random(_SuggestedWordCount);
-            foreach (WordModel word in _WordsEveryDay)
+            foreach (wn_word word in _WordsEveryDay)
             {
-                word.Word = word.Word.ToUpper().Replace('_', ' ');
+                word.word = word.word.ToUpper().Replace('_', ' ');
             }
         }
 
@@ -196,7 +197,7 @@ namespace PBL3
             {
                 _ReverseState = true;
                 btnSugWord.Location = new Point(400, 0);
-                btnSugWord.Text = _WordsEveryDay[_CurrentWordEveryDayIndex].Word;
+                btnSugWord.Text = _WordsEveryDay[_CurrentWordEveryDayIndex].word;
             }
             else
             {
@@ -217,7 +218,7 @@ namespace PBL3
             {
                 _ReverseState = true;
                 btnSugWord.Location = new Point(-400, 0);
-                btnSugWord.Text = _WordsEveryDay[_CurrentWordEveryDayIndex].Word;
+                btnSugWord.Text = _WordsEveryDay[_CurrentWordEveryDayIndex].word;
             }
             else
             {

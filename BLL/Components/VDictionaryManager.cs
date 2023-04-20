@@ -126,31 +126,27 @@ namespace BLL.Components
             }
         }
 
-        public List<WordModel> GetWord_ByFilter(string filter, int limit = 10)
+        public List<word_viet> GetWord_ByFilter(string filter, int limit = 10)
         {
             using (var dbContext = new DictionaryContext())
             {
-                List<WordModel> results = new List<WordModel>();
-                List<string> words = new List<string>();
+                List<word_viet> results = new List<word_viet>();
 
                 bool startWith = filter[filter.Length - 1] == '%';
                 bool endWith = filter[0] == '%';
                 filter = filter.Replace("%", "");
 
-                words = dbContext.Word_viet
+                results = dbContext.Word_viet
                                 .Where(w =>
                                     startWith && endWith ? w.word.Contains(filter) :
                                     startWith ? w.word.StartsWith(filter) :
                                     endWith ? w.word.EndsWith(filter) :
                                     w.word.Equals(filter))
-                                .Select(w => w.word.ToString())
-                                .Distinct()
                                 .Take(limit).ToList();
 
-                words.ForEach(item =>
-                {
-                    results.Add(new WordModel(item.ToString().Replace('_', ' ')));
-                });
+                results = results.GroupBy(p => p.word)
+                    .Select(p => p.First())
+                    .ToList();
 
                 return results;
 

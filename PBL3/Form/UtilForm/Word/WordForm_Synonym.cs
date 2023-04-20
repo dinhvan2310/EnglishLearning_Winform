@@ -13,14 +13,15 @@ using System.Windows.Media.Media3D;
 using BLL.TransferObjects;
 using BLL.Workflows;
 using PBL3.Utilities;
+using EFramework.Model;
 
 namespace PBL3
 {
     public partial class WordForm_Synonym : Form
     {
         private int _CurrentTypeLabelIndex;
-        private List<WordModel> _Similars;
-        private List<WordModel> _Antonyms;
+        private List<wn_word> _Similars;
+        private List<wn_word> _Antonyms;
 
         public WordForm_Synonym(string rawWord)
         {
@@ -39,17 +40,17 @@ namespace PBL3
             panelWords.Controls.Clear();
             if (_CurrentTypeLabelIndex == 1)
             {
-                foreach (WordModel w in _Antonyms)
+                foreach (wn_word w in _Antonyms)
                 {
-                    Label b = CreateLabelWord(w.Word.Replace('_', ' '));
+                    Label b = CreateLabelWord(w.word.Replace('_', ' '));
                     panelWords.Controls.Add(b);
                 }
             }
             else
             {
-                foreach (WordModel w in _Similars)
+                foreach (wn_word w in _Similars)
                 {
-                    Label b = CreateLabelWord(w.Word.Replace('_', ' '));
+                    Label b = CreateLabelWord(w.word.Replace('_', ' '));
                     panelWords.Controls.Add(b);
                 }
             }

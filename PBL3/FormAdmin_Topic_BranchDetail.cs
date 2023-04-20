@@ -1,5 +1,6 @@
 ﻿using BLL.TransferObjects;
 using BLL.Workflows;
+using EFramework.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,7 +18,7 @@ namespace PBL3
         public delegate void Func(int synsetID);
         public event Func Callback;
 
-        private List<SynsetModel> _Synsets;
+        private List<wn_synset> _Synsets;
         private string _Word;
 
         public FormAdmin_Topic_BranchDetail(string word)

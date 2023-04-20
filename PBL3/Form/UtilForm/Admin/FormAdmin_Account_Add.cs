@@ -29,8 +29,6 @@ namespace PBL3
         {
             InitializeComponent();
 
-            this.Region = System.Drawing.Region.FromHrgn(ExternalImport.CreateRoundRectRgn(0, 0, Width, Height, 50, 50));
-
             // Reduce Flicker
             this.DoubleBuffered = true;
 

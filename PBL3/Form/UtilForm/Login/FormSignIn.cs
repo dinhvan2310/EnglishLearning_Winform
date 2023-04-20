@@ -142,8 +142,7 @@ namespace PBL3
                         FormMessageBox.MessageType.Info);
                         form.ShowDialog();
                     }
-                    GlobalForm.MainForm.StartPosition = FormStartPosition.CenterScreen;
-                    GlobalForm.MainForm.UpdateFormHome();
+                    GlobalForm.MainForm.UpdateForm();
                     GlobalForm.MainForm.Show();
 
                     GlobalForm.LoginForm.Hide();

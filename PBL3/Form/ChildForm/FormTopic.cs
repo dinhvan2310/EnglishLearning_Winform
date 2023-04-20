@@ -49,10 +49,10 @@ namespace PBL3
             b.BackColor = Color.FromArgb(240, 237, 254);
             if (topic.Background != null)
             {
-                /*using (MemoryStream ms = new MemoryStream(topic.Background))
+                using (MemoryStream ms = new MemoryStream(topic.Background))
                 {
                     b.BackgroundImage = Image.FromStream(ms);
-                }*/
+                }
             }
             b.BackgroundImageLayout = ImageLayout.Zoom;
             b.Cursor = Cursors.Hand;
@@ -69,15 +69,23 @@ namespace PBL3
             return b;
         }
 
+        private int GetTopicID(string name)
+        {
+            return _Topics
+                 .Where(p => p.TopicName == name)
+                 .First().TopicID;
+        }
+
+        #endregion
+
+        #region EVENTS
         private void OnBranching(object sender, MouseEventArgs e)
         {
-            FormTopic_Branch form = new FormTopic_Branch(_Topics
-                .Where(p => p.TopicName == ((Button)sender).Text)
-                .First().TopicID);
+            FormTopic_Branch form = new FormTopic_Branch(
+                GetTopicID(((Button)sender).Text.Replace(' ', '_')));
 
             GlobalForm.MainForm.SwitchForm(form, FormType.Weak);
         }
-
         #endregion
     }
 }
