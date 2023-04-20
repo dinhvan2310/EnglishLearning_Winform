@@ -44,14 +44,16 @@ namespace PBL3
         private void SetupUI()
         {
             btnSugWord.Text = _WordsEveryDay[0].word;
+
+            if (!LoginWorkflow.Instance.IsLoggedIn())
+                return;
+
             UpdateComprehensiveStat();
             UpdateOnlineGoal();
         }
 
         private void UpdateComprehensiveStat()
         {
-            if (!LoginWorkflow.Instance.IsLoggedIn())
-                return;
             txtDay.Text = LoginWorkflow.Instance.GetAccountDetail().NumberOfConsecutiveDay.ToString();
             txtWord.Text = LoginWorkflow.Instance.GetNumberOfLearnedWord().ToString();
             txtHour.Text = Convert.ToInt32(LoginWorkflow.Instance.GetNumberOfLearnedHour()).ToString();
@@ -59,14 +61,29 @@ namespace PBL3
 
         private void UpdateOnlineGoal()
         {
-            if (!LoginWorkflow.Instance.IsLoggedIn())
-                return;
-            int onlineMinute = Convert.ToInt32(LoginWorkflow.Instance.GetNumberOfLearnedMinute_Today());
-            lblCurrent.Text = onlineMinute.ToString();
-            lblGoal.Text = SettingWorkflow.Instance.GetUserSettings(LoginWorkflow.Instance.GetAccount().AccountID).Goal.ToString();
+            float onlineMinute = LoginWorkflow.Instance.GetNumberOfLearnedMinute_Today();
+            float goal = SettingWorkflow.Instance.GetUserSettings(LoginWorkflow.Instance.GetAccount().AccountID).Goal;
+
+            lblCurrent.Text = Convert.ToInt32(onlineMinute).ToString();
+            lblGoal.Text = goal.ToString();
+
             int progressBarValue = (int)(onlineMinute / Convert.ToDouble(lblGoal.Text) * 100);
             progressBar.Value = (progressBarValue <= 100) ? progressBarValue : 100;
             iconPercent.Text = progressBar.Value + " %";
+
+            if (onlineMinute > goal && !LoginWorkflow.Instance.GetAccountDetail().AchievedGoal)
+            {
+                Form message = new FormMessageBox(
+                    "Hoàn thành mục tiêu",
+                    "Xin chúc mừng, bạn đã hoàn thành mục tiêu hằng ngày\n" +
+                    "Số xu bạn nhận được là: " + (int)goal / 3,
+                    FormMessageBox.MessageType.Info);
+
+                message.ShowDialog();
+
+                LoginWorkflow.Instance.AdjustBalance((int)goal / 3);
+                LoginWorkflow.Instance.HasAchievedGoal();
+            }
         }
 
         private void UpdateNotebook()
@@ -114,10 +131,18 @@ namespace PBL3
 
         private void SetGoal(int goal)
         {
-            lblGoal.Text = goal.ToString();
-            if (!LoginWorkflow.Instance.IsLoggedIn())
+            if (LoginWorkflow.Instance.GetAccountDetail().AchievedGoal)
+            {
+                Form message = new FormMessageBox(
+                    "Không hợp lệ",
+                    "Bạn đã hoàn thành mục tiêu ngày hôm nay",
+                    FormMessageBox.MessageType.Info);
+                message.ShowDialog();
                 return;
+            }
+
             SettingWorkflow.Instance.SetUserGoal(LoginWorkflow.Instance.GetAccount().AccountID, Convert.ToInt32(goal.ToString()));
+            UpdateOnlineGoal();
         }
 
         private bool IsSuggestWordAnimation()

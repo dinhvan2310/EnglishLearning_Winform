@@ -121,10 +121,6 @@ namespace BLL.Workflows
                 return userSetting;
             }
 
-
-            
-
-            
         }
 
         public void SetUserGoal(int UserID, int Goal)

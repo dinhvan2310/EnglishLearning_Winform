@@ -187,6 +187,18 @@ namespace BLL.Workflows
             account.AccountID = _UserID;
             _AccountManager.UpdateAccount(account);
         }
+        public void HasAchievedGoal()
+        {
+            DetailedInformation detail = GetAccountDetail();
+            _AccountManager.UpdateDetailInformation(
+                _UserID,
+                new DetailedInformation()
+                {
+                    AchievedGoal = true,
+                    NumberOfConsecutiveDay = detail.NumberOfConsecutiveDay,
+                    Balance = detail.Balance
+                });
+        }
         public Account GetAccount()
         {
             return _AccountManager.GetAccount(_UserID);
@@ -304,19 +316,24 @@ namespace BLL.Workflows
             InformationPerDay currentIPD = _AccountManager.GetLearningStat_ByID(_UserID,
                 Convert.ToInt32(DateTime.Now.ToString("yyyyMMdd")));
 
+            DetailedInformation detail = GetAccountDetail();
             _FirstTimeLogged = currentIPD == null;
-            if (yesterdayIPD == null)
+            if (yesterdayIPD == null) // not online yesterday
             {
-                _AccountManager.UpdateDetailInformation(_UserID, new DIAdjustment()
+                _AccountManager.UpdateDetailInformation(_UserID, new DetailedInformation()
                 {
-                    ConsecutiveValue = -1
+                    NumberOfConsecutiveDay = 0,
+                    Balance = detail.Balance,
+                    AchievedGoal = detail.AchievedGoal
                 });
             }
-            else if (currentIPD == null)
+            else if (currentIPD == null) // first time login of day
             {
-                _AccountManager.UpdateDetailInformation(_UserID, new DIAdjustment()
+                _AccountManager.UpdateDetailInformation(_UserID, new DetailedInformation()
                 {
-                    ConsecutiveValue = 1
+                    NumberOfConsecutiveDay = detail.NumberOfConsecutiveDay + 1,
+                    Balance = detail.Balance,
+                    AchievedGoal = false
                 });
             }
             _AccountManager.UpdateLearningStat(_UserID, 0, 0);
@@ -413,9 +430,12 @@ namespace BLL.Workflows
 
         public void AdjustBalance(int adjustAmount)
         {
-            _AccountManager.UpdateDetailInformation(_UserID, new DIAdjustment()
+            DetailedInformation detail = GetAccountDetail();
+            _AccountManager.UpdateDetailInformation(_UserID, new DetailedInformation()
             {
-                BalanceOffset = adjustAmount
+                NumberOfConsecutiveDay = detail.NumberOfConsecutiveDay,
+                Balance = detail.Balance + adjustAmount,
+                AchievedGoal = detail.AchievedGoal
             });
 
         }

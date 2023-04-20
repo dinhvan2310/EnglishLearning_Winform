@@ -616,7 +616,7 @@ namespace PBL3
             // lblBalance
             // 
             this.lblBalance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblBalance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBalance.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBalance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
             this.lblBalance.Location = new System.Drawing.Point(820, 87);
             this.lblBalance.Name = "lblBalance";
@@ -1074,7 +1074,6 @@ namespace PBL3
         private CustomControls.RJButton btnPremium;
         private System.Windows.Forms.Label lblVersion;
         private CustomControls.RJButton rjButton2;
-        private System.Windows.Forms.Label lblBalance;
         private FontAwesome.Sharp.IconButton iconSub;
         public FontAwesome.Sharp.IconButton btnHome;
         public FontAwesome.Sharp.IconButton btnSetting;
@@ -1092,5 +1091,6 @@ namespace PBL3
         private FontAwesome.Sharp.IconButton iconSetting;
         private System.Windows.Forms.Button button2;
         private RJButton btnPersonalSetting;
+        public System.Windows.Forms.Label lblBalance;
     }
 }

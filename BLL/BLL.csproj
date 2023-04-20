@@ -124,9 +124,7 @@
     <Compile Include="Components\SoundManager.cs" />
     <Compile Include="Components\Validator.cs" />
     <Compile Include="Components\VDictionaryManager.cs" />
-    <Compile Include="TransferObjects\DIAdjustment.cs" />
     <Compile Include="TransferObjects\NotebookCard.cs" />
-    <Compile Include="TransferObjects\WordModel.cs" />
     <Compile Include="Workflows\SettingWorkflow.cs" />
     <Compile Include="Workflows\DataManager.cs" />
     <Compile Include="Workflows\LoginWorkflow.cs" />

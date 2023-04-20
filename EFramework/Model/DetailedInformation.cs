@@ -15,7 +15,7 @@ namespace EFramework.Model
         [ForeignKey(nameof(Account))]
         public int AccountID { get; set;}
         public int Balance { get; set;}
-        public int NumberOfLoginDay { set; get; }
+        public bool AchievedGoal { set; get; }
         public int NumberOfConsecutiveDay { set; get; }
 
         public virtual Account Account { set; get; }

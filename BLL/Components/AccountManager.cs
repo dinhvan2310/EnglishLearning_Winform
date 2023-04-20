@@ -145,8 +145,7 @@ namespace BLL.Components
                 }
             }
         }
-
-        public void UpdateDetailInformation(int userID, DIAdjustment adjustment)
+        public void UpdateDetailInformation(int userID, DetailedInformation detail)
         {
             using (var db = new DictionaryContext())
             {
@@ -154,16 +153,9 @@ namespace BLL.Components
                     .Where(p => p.AccountID == userID)
                     .FirstOrDefault();
 
-                switch (adjustment.ConsecutiveValue)
-                {
-                    case -1:
-                        temp.NumberOfConsecutiveDay = 1;
-                        break;
-                    case 1:
-                        temp.NumberOfConsecutiveDay += 1;
-                        break;
-                }
-                temp.Balance += adjustment.BalanceOffset;
+                temp.Balance = detail.Balance;
+                temp.NumberOfConsecutiveDay = detail.NumberOfConsecutiveDay;
+                temp.AchievedGoal = detail.AchievedGoal;
 
                 db.SaveChanges();
             }
