@@ -125,6 +125,8 @@
     <Compile Include="Components\Validator.cs" />
     <Compile Include="Components\VDictionaryManager.cs" />
     <Compile Include="TransferObjects\NotebookCard.cs" />
+    <Compile Include="TransferObjects\QnA.cs" />
+    <Compile Include="Workflows\MiniGameWorkflow.cs" />
     <Compile Include="Workflows\SettingWorkflow.cs" />
     <Compile Include="Workflows\DataManager.cs" />
     <Compile Include="Workflows\LoginWorkflow.cs" />

@@ -121,7 +121,49 @@ namespace BLL.Components
             }
 
         }
+        public void Update_LearnedPercent(int userID, string word, int num)
+        {
+            using (var db = new DictionaryContext())
+            {
+                var rs = db.Notebook
+                    .Where(x => x.Wn_Word.word == word)
+                    .FirstOrDefault();
 
+                if (rs == null)
+                    return;
+
+                rs.LearnedPercent += num;
+                db.SaveChanges();
+
+                if (rs.LearnedPercent >= 100)
+                    RemoveWord(userID, rs.Wn_Word.word);
+            }
+        }
+        public List<wn_word> GetNotebookWord_ForMinigame(int userID, int limit)
+        {
+            using (var db = new DictionaryContext())
+            {
+                List<wn_word> results = new List<wn_word>();
+                List<string> Wn_words = new List<string>();
+                Random rand = new Random();
+
+                List<Notebook> temps = db.Notebook.AsEnumerable()
+                    .OrderBy(x => rand.Next()).Take(limit).ToList();
+
+                temps.ForEach(item =>
+                {
+                    Wn_words.Add(item.Wn_Word.word);
+                });
+
+                Wn_words.ForEach(item =>
+                {
+                    wn_word newWord = new wn_word();
+                    newWord.word = item;
+                    results.Add(newWord);
+                });
+                return results;
+            }
+        }
         public int GetNotebookCount(int userID)
         {
             using (var db = new DictionaryContext())

@@ -129,7 +129,7 @@ namespace PBL3
         {
             SettingForm = new FormSetting();
             TopicForm = new FormTopic();
-            MinigameForm = new FormGuest();
+            
 
             if (LoginWorkflow.Instance.IsLoggedIn())
             {
@@ -138,10 +138,12 @@ namespace PBL3
                 else
                     HomeForm = new FormHome();
 
+                MinigameForm = new FormMiniGame();
                 NotebookForm = new FormNotebook();
             }
             else
             {
+                MinigameForm = new FormGuest();
                 HomeForm = new FormGuest();
                 NotebookForm = new FormGuest();
             }
