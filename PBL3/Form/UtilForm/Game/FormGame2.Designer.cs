@@ -41,6 +41,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnNext = new CustomControls.RJButton();
             this.btnReturn = new FontAwesome.Sharp.IconButton();
+            this.label1 = new System.Windows.Forms.Label();
             this.rjPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -269,12 +270,24 @@
             this.btnReturn.UseVisualStyleBackColor = true;
             this.btnReturn.Click += new System.EventHandler(this.btnReturn_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Bahnschrift", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
+            this.label1.Location = new System.Drawing.Point(149, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(779, 28);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Ghép các từ bên trái với cái từ bên phải sao cho chúng đồng nghĩa với nhau";
+            // 
             // FormGame2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
             this.ClientSize = new System.Drawing.Size(1057, 496);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnReturn);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.rjPanel1);
@@ -283,6 +296,7 @@
             this.Text = "FormGame2";
             this.rjPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -300,5 +314,6 @@
         private System.Windows.Forms.Timer timer1;
         private CustomControls.RJButton btnNext;
         private FontAwesome.Sharp.IconButton btnReturn;
+        private System.Windows.Forms.Label label1;
     }
 }

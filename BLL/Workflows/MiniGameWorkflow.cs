@@ -87,7 +87,7 @@ namespace PBLLibrary
             List<Tuple<string, string>> results = new List<Tuple<string, string>>();
             for (int i = 0; i < list.Count; ++i)
             {
-                List<string> similarList = dm.EDictionaryManager.GetSimilarWord_ByWord(list[i])
+                List<string> similarList = dm.EDictionaryManager.GetSynonymWord_ByWord(list[i])
                     .Select(p => p.word).ToList();
 
                 string similarWord;
