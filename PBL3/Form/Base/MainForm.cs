@@ -46,20 +46,18 @@ namespace PBL3
         {
             if (LoginWorkflow.Instance.IsLoggedIn())
             {
-                if (LoginWorkflow.Instance.IsAdmin())
-                    lblBalance.Text = "∞";
-                else
+                if (!LoginWorkflow.Instance.IsAdmin())
                     lblBalance.Text = LoginWorkflow.Instance.GetAccountDetail().Balance.ToString();
+
                 btnPersonalLogin.Text = "Đổi Tài Khoản";
                 OpenChildForm(HomeForm, FormType.Strong);
-                if(new DataManager().AccountManager.IsHasUserPacket(LoginWorkflow.Instance.GetAccount().AccountID, "Premium"))
+                if(new DataManager().PackageManager.IsHasUserPacket(LoginWorkflow.Instance.GetAccount().AccountID, "Premium"))
                 {
                     btnPremium.BackgroundImage = Resources.Theme3_0;
                 }
             }
             else
             {
-                lblBalance.Text = "∞";
                 btnPersonalLogin.Text = "Đăng Nhập";
                 OpenChildForm(new FormGuest(), FormType.Strong);
             }
@@ -86,7 +84,7 @@ namespace PBL3
             OpenChildForm(form, formType);
         }
 
-        public void UpdateForm()
+        public void RefreshForm()
         {
             GlobalForm.MainForm.StartPosition = FormStartPosition.CenterScreen;
 
@@ -95,6 +93,12 @@ namespace PBL3
             if (LoginWorkflow.Instance.IsFirstTimeLogged())
                 GrantLoggingCoin();
         }
+
+        public void UpdateCoinView()
+        {
+            lblBalance.Text = LoginWorkflow.Instance.GetAccountDetail().Balance.ToString();
+        }
+
 
         private void AutoLogin()
         {
@@ -109,7 +113,7 @@ namespace PBL3
                     DataManager dataManager = new DataManager();
 
                     //Kiem tra thoi han cua goi ng dung
-                    if(!dataManager.AccountManager.CheckUserPackageDuration(userID, "Premium"))
+                    if(!dataManager.PackageManager.CheckUserPackageDuration(userID, "Premium"))
                     {
                         FormMessageBox form = new FormMessageBox("Thông báo", "Gói Premium của bạn đã hết hạn sử dụng",
                         FormMessageBox.MessageType.Info);
@@ -183,7 +187,15 @@ namespace PBL3
                 iconOverlaySelectedBtn.IconColor = color;
 
                 // panel
-                rightPanelBtn.BackColor = color;
+                if (LoginWorkflow.Instance.IsPremium())
+                {
+                    rightPanelBtn.BackgroundImage = Resources.Premium_Theme;
+                }
+                else
+                {
+                    rightPanelBtn.BackColor = color;
+                    rightPanelBtn.BackgroundImage = null;
+                }
                 rightPanelBtn.Location = new Point(190, _CurrentBtn.Location.Y);
                 rightPanelAnim.Start();
 
@@ -301,6 +313,8 @@ namespace PBL3
 
             message.ShowDialog();
             LoginWorkflow.Instance.AdjustBalance(receivedCoin);
+
+            UpdateCoinView();
         }
         #endregion
 

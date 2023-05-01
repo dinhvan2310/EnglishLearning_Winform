@@ -1,4 +1,5 @@
-﻿using BLL.TransferObjects;
+﻿using BLL.Components;
+using BLL.TransferObjects;
 using BLL.Workflows;
 using CustomControls;
 using EFramework.Model;
@@ -24,14 +25,36 @@ namespace PBL3
         #region HELPER FUNCTIONS
         private void UpdateNotebook()
         {
+            List<string> learnedWords = new List<string>();
             panelNotebook.Controls.Clear();
 
             DataManager dm = new DataManager();
             List<NotebookCard> words = dm.NotebookManager.GetNotebookWord_All(LoginWorkflow.Instance.GetAccount().AccountID);
             words.ForEach(w =>
             {
+                if (w.LearnedPercent >= 100)
+                {
+                    dm.NotebookManager.RemoveWord(LoginWorkflow.Instance.GetAccount().AccountID, w.Word);
+                    learnedWords.Add(w.Word);
+                }
+
                 panelNotebook.Controls.Add(CreateButtonWord(w.Word, w.LearnedPercent));
             });
+
+            if (learnedWords.Count != 0)
+            {
+                string s = "";
+                foreach (string ss in learnedWords)
+                {
+                    s += ss + ", ";
+                }
+                FormMessageBox form = new FormMessageBox("Hoàn thành", "Chúc mừng bạn vừa học được từ:\n"
+                    + s, FormMessageBox.MessageType.Info);
+
+                LoginWorkflow.Instance.UpdateLearningStat(0, learnedWords.Count);
+
+                form.ShowDialog();
+            }
         }
 
         private Button CreateButtonWord(string word, int learnedPercent)

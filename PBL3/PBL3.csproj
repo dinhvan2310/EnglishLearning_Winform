@@ -130,34 +130,34 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormAdmin_Topic_BranchDetail.cs">
+    <Compile Include="Form\UtilForm\Admin\FormAdmin_Topic_BranchDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAdmin_Topic_BranchDetail.Designer.cs">
+    <Compile Include="Form\UtilForm\Admin\FormAdmin_Topic_BranchDetail.Designer.cs">
       <DependentUpon>FormAdmin_Topic_BranchDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormGame1.cs">
+    <Compile Include="Form\UtilForm\Game\FormGame1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormGame1.Designer.cs">
+    <Compile Include="Form\UtilForm\Game\FormGame1.Designer.cs">
       <DependentUpon>FormGame1.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormGame2.cs">
+    <Compile Include="Form\UtilForm\Game\FormGame2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormGame2.Designer.cs">
+    <Compile Include="Form\UtilForm\Game\FormGame2.Designer.cs">
       <DependentUpon>FormGame2.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormLoading.cs">
+    <Compile Include="Form\UtilForm\FormLoading.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLoading.Designer.cs">
+    <Compile Include="Form\UtilForm\FormLoading.Designer.cs">
       <DependentUpon>FormLoading.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMiniGame.cs">
+    <Compile Include="Form\ChildForm\FormMiniGame.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMiniGame.Designer.cs">
+    <Compile Include="Form\ChildForm\FormMiniGame.Designer.cs">
       <DependentUpon>FormMiniGame.cs</DependentUpon>
     </Compile>
     <Compile Include="Form\UtilForm\Login\FormForgotPassword.cs">
@@ -166,10 +166,10 @@
     <Compile Include="Form\UtilForm\Login\FormForgotPassword.Designer.cs">
       <DependentUpon>FormForgotPassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormGuest.cs">
+    <Compile Include="Form\UtilForm\FormGuest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormGuest.Designer.cs">
+    <Compile Include="Form\UtilForm\FormGuest.Designer.cs">
       <DependentUpon>FormGuest.cs</DependentUpon>
     </Compile>
     <Compile Include="Form\UtilForm\FormTopic_Branch.cs">
@@ -350,22 +350,22 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FormAdmin_Topic_BranchDetail.resx">
+    <EmbeddedResource Include="Form\UtilForm\Admin\FormAdmin_Topic_BranchDetail.resx">
       <DependentUpon>FormAdmin_Topic_BranchDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormGame1.resx">
+    <EmbeddedResource Include="Form\UtilForm\Game\FormGame1.resx">
       <DependentUpon>FormGame1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormGame2.resx">
+    <EmbeddedResource Include="Form\UtilForm\Game\FormGame2.resx">
       <DependentUpon>FormGame2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormGuest.resx">
+    <EmbeddedResource Include="Form\UtilForm\FormGuest.resx">
       <DependentUpon>FormGuest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormLoading.resx">
+    <EmbeddedResource Include="Form\UtilForm\FormLoading.resx">
       <DependentUpon>FormLoading.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMiniGame.resx">
+    <EmbeddedResource Include="Form\ChildForm\FormMiniGame.resx">
       <DependentUpon>FormMiniGame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\UtilForm\FormTopic_Branch.resx">
@@ -494,6 +494,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Premium_Theme.png" />
     <None Include="Resources\Theme3_5.png" />
     <None Include="Resources\Theme3_4.png" />
     <None Include="Resources\Theme3_3.png" />

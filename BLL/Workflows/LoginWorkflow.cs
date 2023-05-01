@@ -46,6 +46,7 @@ namespace BLL.Workflows
         private AccountManager _AccountManager;
         private EmailManager _EmailManager;
         private Validator _Validator;
+        private PackageManager _PackageManager;
  
         private static LoginWorkflow _Instance;
 
@@ -61,6 +62,7 @@ namespace BLL.Workflows
             _AccountManager = new AccountManager();
             _EmailManager = new EmailManager();
             _Validator = new Validator();
+            _PackageManager = new PackageManager();
 
             _IniOnlineTime = DateTime.Now;
         }
@@ -219,6 +221,11 @@ namespace BLL.Workflows
         public bool IsAdmin()
         {
             return GetAccount().TypeID == 5;
+        }
+
+        public bool IsPremium()
+        {            
+            return _UserID != -1 && _PackageManager.GetUserPacketInfo(_UserID, "Premium")?.DueDate > DateTime.Now;
         }
 
         public void SendMessage(string desEmail, string subject, string body)

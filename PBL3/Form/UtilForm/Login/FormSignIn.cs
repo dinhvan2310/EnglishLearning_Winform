@@ -136,13 +136,13 @@ namespace PBL3
 
                     SettingWorkflow.Instance.ApplyUserSettings(LoginWorkflow.Instance.GetAccount().AccountID);
                     DataManager dataManager = new DataManager();
-                    if (!dataManager.AccountManager.CheckUserPackageDuration(LoginWorkflow.Instance.GetAccount().AccountID, "Premium"))
+                    if (!dataManager.PackageManager.CheckUserPackageDuration(LoginWorkflow.Instance.GetAccount().AccountID, "Premium"))
                     {
                         FormMessageBox form = new FormMessageBox("Thông báo", "Gói Premium của bạn đã hết hạn sử dụng",
                         FormMessageBox.MessageType.Info);
                         form.ShowDialog();
                     }
-                    GlobalForm.MainForm.UpdateForm();
+                    GlobalForm.MainForm.RefreshForm();
                     GlobalForm.MainForm.Show();
 
                     GlobalForm.LoginForm.Hide();

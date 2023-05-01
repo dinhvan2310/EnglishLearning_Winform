@@ -133,6 +133,16 @@ namespace PBL3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Premium_Theme {
+            get {
+                object obj = ResourceManager.GetObject("Premium_Theme", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap textbox_password {
             get {
                 object obj = ResourceManager.GetObject("textbox_password", resourceCulture);

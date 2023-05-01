@@ -622,7 +622,7 @@ namespace PBL3
             this.lblBalance.Name = "lblBalance";
             this.lblBalance.Size = new System.Drawing.Size(125, 20);
             this.lblBalance.TabIndex = 25;
-            this.lblBalance.Text = "123";
+            this.lblBalance.Text = "∞";
             this.lblBalance.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // rjButton2
