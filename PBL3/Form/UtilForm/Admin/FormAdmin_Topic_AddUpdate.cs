@@ -17,7 +17,6 @@ using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace PBL3
 {
@@ -108,6 +107,22 @@ namespace PBL3
             return true;
         }
 
+        private List<Branch> GetBranches()
+        {
+            List<Branch> branches = new List<Branch>();
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                branches.Add(new Branch()
+                {
+                    SynsetID = Convert.ToDecimal(row.Cells["Synset ID"].Value),
+                    BranchName = row.Cells["Tên nhánh"].Value.ToString()
+                });
+            }
+
+            return branches;
+        }
+
         #endregion
 
         #region EVENTS
@@ -158,69 +173,59 @@ namespace PBL3
                 return;
             }
 
-            bool duplicateBranch = false;
-
-            List<Branch> branches = new List<Branch>();
-            foreach (DataGridViewRow row in dataGridView1.Rows)
-            {
-                branches.Add(new Branch()
-                {
-                    SynsetID = Convert.ToDecimal(row.Cells["Synset ID"].Value),
-                    BranchName = row.Cells["Tên nhánh"].Value.ToString()
-                });
-            }
-
             Form mForm;
             DataManager dm = new DataManager();
+            List<Branch> branches = GetBranches();
+
+
             if (_TopicID == -1)  // add
             {
-
-                if (!dm.EDictionaryManager.AddTopic(new Topic()
+                try
                 {
-                    TopicName = txtTopic.Text.Replace(' ', '_'),
-                    Branches = branches,
-                    Background = (byte[])new ImageConverter().ConvertTo((btnDemo.BackgroundImage), typeof(byte[]))
-                }))
-                {
-                    duplicateBranch = true;
+                    dm.EDictionaryManager.AddTopic(new Topic()
+                    {
+                        TopicName = txtTopic.Text.Replace(' ', '_'),
+                        Branches = branches,
+                        Background = (byte[])new ImageConverter().ConvertTo((btnDemo.BackgroundImage), typeof(byte[]))
+                    });
                 }
-                else
+                catch
                 {
-                    mForm = new FormMessageBox("Thông báo", "Thêm thành công", FormMessageBox.MessageType.Info);
+                    mForm = new FormMessageBox("Không hợp lệ", "Kích thước ảnh quá lớn",
+                        FormMessageBox.MessageType.Info);
                     mForm.ShowDialog();
+
+                    return;
                 }
+                mForm = new FormMessageBox("Thông báo", "Thêm thành công", FormMessageBox.MessageType.Info);
+                mForm.ShowDialog();
             }
             else // edit
             {
                 branches.ForEach(p => p.TopicID = _TopicID);
 
-                if (!dm.EDictionaryManager.UpdateTopic(new Topic()
+                try
                 {
-                    TopicID = _TopicID,
-                    TopicName = txtTopic.Text.Replace(' ', '_'),
-                    Branches = branches,
-                    Background = (byte[])new ImageConverter().ConvertTo((btnDemo.BackgroundImage), typeof(byte[]))
-                }))
-                {
-                    duplicateBranch = true;
+                    dm.EDictionaryManager.UpdateTopic(new Topic()
+                    {
+                        TopicID = _TopicID,
+                        TopicName = txtTopic.Text.Replace(' ', '_'),
+                        Branches = branches,
+                        Background = (byte[])new ImageConverter().ConvertTo((btnDemo.BackgroundImage), typeof(byte[]))
+                    });
                 }
-                else
+                catch
                 {
-                    Form form = new FormMessageBox("Thông báo", "Sửa thành công", FormMessageBox.MessageType.Info);
-                    form.ShowDialog();
+                    mForm = new FormMessageBox("Không hợp lệ", "Kích thước ảnh quá lớn",
+                        FormMessageBox.MessageType.Info);
+                    mForm.ShowDialog();
+
+                    return;
                 }
+                Form form = new FormMessageBox("Thông báo", "Sửa thành công", FormMessageBox.MessageType.Info);
+                form.ShowDialog();
             }
 
-            if (duplicateBranch)
-            {
-                mForm = new FormMessageBox(
-                            "Không hợp lệ",
-                            "Tên nhánh đã được dùng ở chủ đề khác",
-                            FormMessageBox.MessageType.Info);
-                mForm.ShowDialog();
-
-                return;
-            }    
             Callback();
             this.Dispose();
         }

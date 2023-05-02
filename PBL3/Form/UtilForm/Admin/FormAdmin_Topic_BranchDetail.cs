@@ -42,14 +42,14 @@ namespace PBL3
             dataGridView1.AutoGenerateColumns = false;
             DataGridViewTextBoxColumn column = new DataGridViewTextBoxColumn();
             column.Name = "Nghĩa";
-            column.DataPropertyName = "Definition";
+            column.DataPropertyName = "definition";
             column.Width = 550;
             dataGridView1.Columns.Add(column);
 
             column = new DataGridViewTextBoxColumn();
-            column.Name = "ID";
-            column.DataPropertyName = "ID";
-            column.Visible = false;
+            column.Name = "synset_id";
+            column.DataPropertyName = "synset_id";
+            column.Visible = true;
             dataGridView1.Columns.Add(column);
 
             DataManager dm = new DataManager();
@@ -66,7 +66,7 @@ namespace PBL3
 
         private void btnChoose_Click(object sender, EventArgs e)
         {
-            Callback(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value));
+            Callback(Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["synset_id"].Value));
             this.Dispose();
         }
 

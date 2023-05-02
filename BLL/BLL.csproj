@@ -116,7 +116,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\AccountManager.cs" />
-    <Compile Include="Components\ColorManager.cs" />
     <Compile Include="Components\EDictionaryMananger.cs" />
     <Compile Include="Components\EmailManager.cs" />
     <Compile Include="Components\NotebookManager.cs" />

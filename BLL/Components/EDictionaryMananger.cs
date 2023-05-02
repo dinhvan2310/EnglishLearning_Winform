@@ -20,50 +20,14 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Drawing;
 using Library;
 using EFramework.Migrations;
+using System.Data.Entity.Infrastructure;
+using System.CodeDom;
 
 namespace BLL.Components
 {
     public class EDictionaryMananger
     {
-        private readonly string[] _VerbFrames = new string[]
-        {
-            "",
-            "Something ----s",
-            "Somebody ----s",
-            "It is ----ing",
-            "Something is ----ing PP",
-            "Something ----s something Adjective/Noun",
-            "Somebody ----s Adjective/Noun",
-            "Somebody ----s Adjective",
-            "Somebody ----s something",
-            "Somebody ----s somebody",
-            "Something ----s somebody",
-            "Something ----s something",
-            "Something ----s to somebody",
-            "Somebody ----s on something",
-            "Somebody ----s somebody something",
-            "Somebody ----s something to somebody",
-            "Somebody ----s something from somebody",
-            "Somebody ----s somebody with something",
-            "Somebody ----s somebody of something",
-            "Something ----s something on somebody",
-            "Somebody ----s somebody PP",
-            "Somebody ----s something PP",
-            "Somebody ----s PP",
-            "Somebody's (body part) ----s",
-            "Somebody ----s somebody to INFINITIVE",
-            "Somebody ----s somebody INFINITIVE",
-            "Somebody ----s that CLAUSE",
-            "Somebody ----s to somebody",
-            "Somebody ----s to INFINITIVE",
-            "Somebody ----s whether INFINITIVE",
-            "Somebody ----s somebody into V-ing something",
-            "Somebody ----s something with something",
-            "Somebody ----s INFINITIVE",
-            "Somebody ----s VERB-ing",
-            "It ----s that CLAUSE",
-            "Something ----s INFINITIVE"
-        };
+        #region Word
         public List<wn_word> GetWord_Random(int limit = 10)
         {
             using (var dbContext = new DictionaryContext())
@@ -168,11 +132,7 @@ namespace BLL.Components
 
                 foreach (wn_synset s in ss)
                 {
-                    var temp = dbContext.Wn_word
-                                    .Where(p => p.synset_id.Equals(s.synset_id) && p.word != word)
-                                    .ToList();
-
-                    results.AddRange(temp);
+                    results.AddRange(GetWord_BySynsetID(s.synset_id));
                 }
 
                 results.AddRange(GetSimilarWord_ByWord(word));
@@ -181,6 +141,8 @@ namespace BLL.Components
                         .Select(p => p.First())
                         .ToList();
 
+                // discard current word
+                results.Remove(results.Find(p => p.word == word));
 
                 return results;
             }
@@ -247,20 +209,20 @@ namespace BLL.Components
             {
                 List<wn_word> results = new List<wn_word>();
 
-                results = dbContext.Wn_word
+                List<decimal> synsetIDs = dbContext.Wn_word
                                 .Where(p => p.word.Equals(word))
                                 .Join(
                                     dbContext.Wn_similar,
                                     w => w.synset_id,
                                     a => a.synset_id_1,
                                     (w, a) => new { a.synset_id_2 })
-                                .Join(
-                                    dbContext.Wn_word,
-                                    wa => wa.synset_id_2,
-                                    w => w.synset_id,
-                                    (wa, w) => w)
-                                .Where(p => p.word != word)
+                                .Select(p => p.synset_id_2)
                                 .ToList();
+
+                synsetIDs.ForEach(id =>
+                {
+                    results.AddRange(GetWord_BySynsetID(id));
+                });
 
                 return results;
             }
@@ -271,20 +233,20 @@ namespace BLL.Components
             using (var dbContext = new DictionaryContext())
             {
                 List<wn_word> results = new List<wn_word>();
-                results = dbContext.Wn_word
+                List<decimal> synsetIDs = dbContext.Wn_word
                                 .Where(p => p.word.Equals(word))
                                 .Join(
                                     dbContext.Wn_antonym,
                                     w => w.synset_id,
                                     a => a.synset_id_1,
                                     (w, a) => new { a.synset_id_2 })
-                                .Join(
-                                    dbContext.Wn_word,
-                                    wa => wa.synset_id_2,
-                                    w => w.synset_id,
-                                    (wa, w) => w)
-                                .Where(p => p.word != word)
+                                .Select (p => p.synset_id_2)
                                 .ToList();
+
+                synsetIDs.ForEach(id =>
+                {
+                    results.AddRange(GetWord_BySynsetID(id));
+                });
 
                 return results;
             }
@@ -321,20 +283,20 @@ namespace BLL.Components
             {
                 List<wn_word> results = new List<wn_word>();
 
-                results = dbContext.Wn_word
+                List<decimal> synsetIDs = dbContext.Wn_word
                                 .Where(p => p.word.Equals(word))
                                 .Join(
                                     dbContext.Wn_derived,
                                     w => w.synset_id,
                                     a => a.synset_id_1,
                                     (w, a) => new { a.synset_id_2 })
-                                .Join(
-                                    dbContext.Wn_word,
-                                    wa => wa.synset_id_2,
-                                    w => w.synset_id,
-                                    (wa, w) => w)
-                                .Where(p => p.word.Contains(word))
+                                .Select(p => p.synset_id_2)
                                 .ToList();
+
+                synsetIDs.ForEach(id =>
+                {
+                    results.AddRange(GetWord_BySynsetID(id).Where(p => p.word.Contains(word)).ToList());
+                });
 
                 results = results.GroupBy(p => p.word)
                         .Select(p => p.First())
@@ -407,8 +369,8 @@ namespace BLL.Components
 
             return result.ToList();
         }
-
-
+        #endregion
+        #region TOPIC
         public List<Topic> GetTopic_All()
         {
             using (var dbContext = new DictionaryContext())
@@ -508,7 +470,7 @@ namespace BLL.Components
             }
         }
 
-        public bool AddTopic(Topic topic)
+        public void AddTopic(Topic topic)
         {
             try
             {
@@ -521,17 +483,12 @@ namespace BLL.Components
 
                     dbContext.SaveChanges();
 
-                    return true;
                 }
             }
-            catch (Exception)
-            {
-                return false;
-            }
-
+            catch { throw; }
         }
 
-        public bool UpdateTopic(Topic topic)
+        public void UpdateTopic(Topic topic)
         {
             try
             {
@@ -552,14 +509,9 @@ namespace BLL.Components
                     dbContext.Branch.RemoveRange(temp);
                     dbContext.Branch.AddRange(topic.Branches);
                     dbContext.SaveChanges();
-
-                    return true;
                 }
             }
-            catch (Exception)
-            {
-                return false;
-            }
+            catch { throw; }
         }
 
         public void DeleteTopic(int topicID)
@@ -589,6 +541,54 @@ namespace BLL.Components
 
             }
         }
+        public bool CheckBranchExist(decimal id)
+        {
+            using (var dbContext = new DictionaryContext())
+            {
+                return dbContext.Branch.Where(p => p.SynsetID == id) != null;
+            }
+        }
 
+        #endregion
+
+        private readonly string[] _VerbFrames = new string[]
+        {
+            "",
+            "Something ----s",
+            "Somebody ----s",
+            "It is ----ing",
+            "Something is ----ing PP",
+            "Something ----s something Adjective/Noun",
+            "Somebody ----s Adjective/Noun",
+            "Somebody ----s Adjective",
+            "Somebody ----s something",
+            "Somebody ----s somebody",
+            "Something ----s somebody",
+            "Something ----s something",
+            "Something ----s to somebody",
+            "Somebody ----s on something",
+            "Somebody ----s somebody something",
+            "Somebody ----s something to somebody",
+            "Somebody ----s something from somebody",
+            "Somebody ----s somebody with something",
+            "Somebody ----s somebody of something",
+            "Something ----s something on somebody",
+            "Somebody ----s somebody PP",
+            "Somebody ----s something PP",
+            "Somebody ----s PP",
+            "Somebody's (body part) ----s",
+            "Somebody ----s somebody to INFINITIVE",
+            "Somebody ----s somebody INFINITIVE",
+            "Somebody ----s that CLAUSE",
+            "Somebody ----s to somebody",
+            "Somebody ----s to INFINITIVE",
+            "Somebody ----s whether INFINITIVE",
+            "Somebody ----s somebody into V-ing something",
+            "Somebody ----s something with something",
+            "Somebody ----s INFINITIVE",
+            "Somebody ----s VERB-ing",
+            "It ----s that CLAUSE",
+            "Something ----s INFINITIVE"
+        };
     }
 }

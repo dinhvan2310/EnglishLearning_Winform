@@ -29,12 +29,10 @@ namespace BLL.Workflows
         private static SettingWorkflow _Instance;
 
         private SoundManager _SoundManager;
-        private ColorManager _ColorManager;
 
         private SettingWorkflow()
         {
             _SoundManager = new SoundManager();
-            _ColorManager = new ColorManager();
         }
 
         public void Speak(string sentence)

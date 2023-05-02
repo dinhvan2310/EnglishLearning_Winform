@@ -70,6 +70,24 @@ namespace PBL3
         {
             DataManager dm = new DataManager();
             dataGridView1.DataSource = dm.EDictionaryManager.GetTopic_All();
+
+            Topic topic = dm.EDictionaryManager.GetTopic_ByTopicID(
+            Convert.ToInt32(dataGridView1.Rows[0].Cells["ID"].Value));
+            UpdateTopicBackground(topic);
+        }
+
+        private void UpdateTopicBackground(Topic topic)
+        {
+            if (topic == null)
+            {
+                btnDemo.BackgroundImage = null;
+                return;
+            }
+
+            using (MemoryStream ms = new MemoryStream(topic.Background))
+            {
+                btnDemo.BackgroundImage = Image.FromStream(ms);
+            }
         }
 
         #endregion
@@ -85,15 +103,7 @@ namespace PBL3
             DataManager dm = new DataManager();
             Topic topic = dm.EDictionaryManager.GetTopic_ByTopicID(
                         Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells["ID"].Value));
-            if (topic.Background != null)
-            {
-                using (MemoryStream ms = new MemoryStream(topic.Background))
-                {
-                    btnDemo.BackgroundImage = Image.FromStream(ms);
-                }
-            }
-            else
-                btnDemo.BackgroundImage = null;
+            UpdateTopicBackground(topic);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
