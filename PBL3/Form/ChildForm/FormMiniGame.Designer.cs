@@ -45,6 +45,7 @@ namespace PBL3
             this.rjButton1.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.rjButton1.BorderRadius = 20;
             this.rjButton1.BorderSize = 0;
+            this.rjButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rjButton1.FlatAppearance.BorderSize = 0;
             this.rjButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton1.Font = new System.Drawing.Font("Bahnschrift", 13.8F, System.Drawing.FontStyle.Bold);
@@ -52,11 +53,11 @@ namespace PBL3
             this.rjButton1.Location = new System.Drawing.Point(115, 396);
             this.rjButton1.Name = "rjButton1";
             this.rjButton1.Size = new System.Drawing.Size(150, 40);
-            this.rjButton1.TabIndex = 0;
+            this.rjButton1.TabIndex = 1;
             this.rjButton1.Text = "PLAY";
             this.rjButton1.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
             this.rjButton1.UseVisualStyleBackColor = false;
-            this.rjButton1.Click += new System.EventHandler(this.rjButton1_Click);
+            this.rjButton1.Click += new System.EventHandler(this.GameOn_Click);
             // 
             // panelBase
             // 
@@ -77,6 +78,7 @@ namespace PBL3
             this.btnStartGame2.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.btnStartGame2.BorderRadius = 20;
             this.btnStartGame2.BorderSize = 0;
+            this.btnStartGame2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnStartGame2.FlatAppearance.BorderSize = 0;
             this.btnStartGame2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnStartGame2.Font = new System.Drawing.Font("Bahnschrift", 13.8F, System.Drawing.FontStyle.Bold);
@@ -84,11 +86,11 @@ namespace PBL3
             this.btnStartGame2.Location = new System.Drawing.Point(369, 396);
             this.btnStartGame2.Name = "btnStartGame2";
             this.btnStartGame2.Size = new System.Drawing.Size(150, 40);
-            this.btnStartGame2.TabIndex = 15;
+            this.btnStartGame2.TabIndex = 2;
             this.btnStartGame2.Text = "PLAY";
             this.btnStartGame2.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
             this.btnStartGame2.UseVisualStyleBackColor = false;
-            this.btnStartGame2.Click += new System.EventHandler(this.btnStartGame2_Click);
+            this.btnStartGame2.Click += new System.EventHandler(this.GameOn_Click);
             // 
             // rjButton3
             // 
@@ -99,6 +101,7 @@ namespace PBL3
             this.rjButton3.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.rjButton3.BorderRadius = 20;
             this.rjButton3.BorderSize = 0;
+            this.rjButton3.Enabled = false;
             this.rjButton3.FlatAppearance.BorderSize = 0;
             this.rjButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton3.ForeColor = System.Drawing.Color.White;
@@ -118,6 +121,7 @@ namespace PBL3
             this.rjButton2.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.rjButton2.BorderRadius = 20;
             this.rjButton2.BorderSize = 0;
+            this.rjButton2.Enabled = false;
             this.rjButton2.FlatAppearance.BorderSize = 0;
             this.rjButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rjButton2.ForeColor = System.Drawing.Color.White;

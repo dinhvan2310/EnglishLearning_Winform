@@ -5,6 +5,7 @@ using EFramework.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,83 +23,100 @@ namespace PBLLibrary
                 return _Instance;
             }
         }
+
+        private NotebookManager _NotebookManager;
+        private EDictionaryMananger _EDictionaryManager;
+
         public MiniGameWorkflow()
         {
-
+            _NotebookManager = new NotebookManager();
+            _EDictionaryManager = new EDictionaryMananger();
         }
 
         public List<QnA> GetWordFor_Game1()
         {
-            int accountID = LoginWorkflow.Instance.GetAccount().AccountID;
-            DataManager dm = new DataManager();
-            List<QnA> qnaList = new List<QnA>();
             Random rand = new Random();
-            List<wn_word> wordList = dm.NotebookManager.GetNotebookWord_ForMinigame(accountID, 40);
-            
-            if (wordList.Count < 40)
-                wordList.AddRange(dm.EDictionaryManager.GetWord_Random(40));
-            wordList.RemoveRange(40, wordList.Count - 40);
+            List<QnA> result = new List<QnA>();
 
-            int TAnsIndex = 0;
-            int FAnsIndex = 10;
+            List<string> answerList = GetAnswers(40);
+
+            int TAnsIndex = 0; // 0 - 9
+            int FAnsIndex = 10; // 10 - 39
 
             for (int i = 0; i < 10; ++i)
             {
-                int rightAnswerIndex = rand.Next(4);
+                QnA qna = new QnA();
 
-                qnaList.Add(new QnA());
-                for (int k = 0; k < 4; k++)
+                List<string> wrongAnswer = new List<string>();
+                for (int k = 0; k < 3; ++k)
+                    wrongAnswer.Add(answerList[FAnsIndex + k].Replace('_', ' '));
+
+                qna._RightAnswerIndex = rand.Next(4);
+                qna._Answers.AddRange(wrongAnswer);
+                qna._Answers.Insert(qna._RightAnswerIndex, answerList[TAnsIndex].Replace('_', ' '));
+
+                List<wn_synset> defs = _EDictionaryManager.GetSynset_ByWord(answerList[TAnsIndex]);
+                qna._Question = defs[rand.Next(defs.Count)].definition;
+
+                if (qna._Question.Contains(";")) // remove example
                 {
-                    if (rightAnswerIndex == k)
-                    {
-                        qnaList[i]._Answers[k] = wordList[TAnsIndex++];
-                        qnaList[i]._RightAnswer = qnaList[i]._Answers[k];
-                        qnaList[i]._Question = dm.EDictionaryManager.GetSynset_ByWord(qnaList[i]._RightAnswer.word)[0].definition;
-
-                        if (qnaList[i]._Question.Contains(";"))
-                        {
-                            int removeIndex = qnaList[i]._Question.IndexOf(';');
-                            qnaList[i]._Question = qnaList[i]._Question.Substring(0, removeIndex);
-                        }
-                        qnaList[i]._RightAnswer.word = qnaList[i]._RightAnswer.word.Replace("_", " ");
-                    }
-                    else
-                    {
-                        qnaList[i]._Answers[k] = wordList[FAnsIndex++];
-                    }
-
-                    qnaList[i]._Answers[k].word = qnaList[i]._Answers[k].word.Replace("_", " ");
+                    int removeIndex = qna._Question.IndexOf(';');
+                    qna._Question = qna._Question.Substring(0, removeIndex);
                 }
-            }
-            return qnaList;
-        }
-        public List<Tuple<string, string>> GetWordFor_Game2()
-        {
-            DataManager dm = new DataManager();
-            int accountID = LoginWorkflow.Instance.GetAccount().AccountID;
-            List<string> list = dm.NotebookManager.GetNotebookWord_ForMinigame(accountID, 20)
-                                                    .Select(x => x.word)
-                                                    .ToList();
 
-            list.AddRange(dm.EDictionaryManager.GetWord_Random(40)
-                                                .Select(p => p.word)
-                                                .ToList());
-            list.RemoveRange(20, list.Count - 20);
-            List<Tuple<string, string>> results = new List<Tuple<string, string>>();
-            for (int i = 0; i < list.Count; ++i)
+                TAnsIndex += 1;
+                FAnsIndex += 3;
+                result.Add(qna);
+
+            }
+            return result;
+        }
+        public List<QnA> GetWordFor_Game2()
+        {
+            List<QnA> result = new List<QnA>();
+            Random rand = new Random();
+
+            List<string> answerlist = GetAnswers(20);
+            for (int i = 0; i < answerlist.Count; ++i)
             {
-                List<string> similarList = dm.EDictionaryManager.GetSynonymWord_ByWord(list[i])
+                QnA qna = new QnA();
+
+                List<string> similarList = _EDictionaryManager.GetSynonymWord_ByWord(answerlist[i])
                     .Select(p => p.word).ToList();
 
                 string similarWord;
 
                 if (similarList.Count != 0)
-                    similarWord = similarList[0];
+                    similarWord = similarList[rand.Next(similarList.Count)];
                 else
                     similarWord = "None of above";
-                results.Add(new Tuple<string, string>(list[i], similarWord));
+
+                qna._Question = answerlist[i].Replace('_', ' ');
+                qna._Answers.Add(similarWord.Replace('_', ' '));
+                qna._RightAnswerIndex = 0;
+
+                result.Add(qna);
             }
-            return results;
+            return result;
+        }
+
+        private List<string> GetAnswers(int count)
+        {
+            int accountID = LoginWorkflow.Instance.GetAccount().AccountID;
+            List<string> result = _NotebookManager.GetNotebookWord_Random(accountID, count)
+                .Select(p => p.Word)
+                .ToList();
+
+            if (result.Count < count)
+            {
+                result.AddRange(_EDictionaryManager.GetWord_Random(count)
+                    .Select(p => p.word)
+                    .ToList());
+
+                result.RemoveRange(count, result.Count - count);
+            }
+
+            return result;
         }
     }
 }

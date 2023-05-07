@@ -17,51 +17,94 @@ using PBL3.Utilities;
 using EFramework.Model;
 using EFramework;
 using BLL.Workflows;
+using PBL3.Properties;
 
 namespace PBL3
 {
     public partial class FormGame1 : Form
     {
         private List<QnA> _Questions;
-        private QnA _CurrentQuestion;
-        private RJButton[] _AnsOptions;
+
+        private Button[] _AnsOptions;
         private Button _CurrentBtn;
+
         private int _CorrectAnsCount;
+        private int _QuestionIndex = -1;
         public FormGame1()
         {
             InitializeComponent();
-            InitializeVariables();
-            StartGame();
+
+            SetupForm();
+            SetupUI();
         }
-        private void InitializeVariables()
+
+        #region HELPER FUNCTION
+        private void SetupUI()
+        {
+            SetQuestion();
+        }
+
+        private void SetupForm()
         {
             _AnsOptions = new RJButton[4];
             _AnsOptions[0] = btnAnsA;
             _AnsOptions[1] = btnAnsB;
             _AnsOptions[2] = btnAnsC;
             _AnsOptions[3] = btnAnsD;
-        }
-        private void StartGame()
-        {
+
             _Questions = MiniGameWorkflow.Instance.GetWordFor_Game1();
             _CorrectAnsCount = 0;
-
-            SetQuestion();
         }
+
         private void SetQuestion()
         {
-            int index = _Questions.Count - 1;
-            _CurrentQuestion = _Questions[index];
-            btnQuestion.Text = _CurrentQuestion._Question;
+            QnA currentQuest = _Questions[++_QuestionIndex];
+            btnQuestion.Text = currentQuest._Question;
 
             for (int i = 0; i < _AnsOptions.Count(); ++i)
-                _AnsOptions[i].Text = _CurrentQuestion._Answers[i].word;
-
-            _Questions.RemoveAt(index);
+                _AnsOptions[i].Text = currentQuest._Answers[i];
         }
+
+        private void ShowAnswer(bool correct)
+        {
+            btnNext.Visible = true;
+            btnCheck.BackColor = Color.FromArgb(96, 88, 134);
+
+            if (correct == true)
+            {
+                rjButton2.BackColor = Color.FromArgb(215, 255, 184);
+                btnNext.BackColor = Color.FromArgb(118, 185, 71);
+            }
+            else
+            {
+                rjButton2.BackColor = Color.FromArgb(247, 190, 192);
+                btnNext.BackColor = Color.FromArgb(231, 98, 95);
+            }
+
+            btnNext.ForeColor = Color.FromArgb(237, 233, 253);
+            iconIncorrect.Visible = !correct;
+            iconCorrect.Visible = correct;
+            btnCheck.Enabled = false;
+        }
+        private void ResetCurrentBtn()
+        {
+            _CurrentBtn.BackColor = Color.FromArgb(48, 48, 87);
+            _CurrentBtn.ForeColor = Color.FromArgb(237, 233, 253);
+            _CurrentBtn = null;
+        }
+        private void UpdateImage()
+        {
+            int imageIndex = (int)Math.Floor(_CorrectAnsCount * -0.5 + 5.5);
+            imgFlower.BackgroundImage = (Image)Resources.ResourceManager.GetObject("Flower_" + imageIndex);
+        }
+
+        #endregion
+
+        #region EVENTS
+
         private void btnAnswer_click(object sender, EventArgs e)
         {
-            if (btnNext.Visible == false)
+            if (!btnNext.Visible)
             {
                 if (_CurrentBtn != null)
                     ResetCurrentBtn();
@@ -78,7 +121,8 @@ namespace PBL3
         {
             if (_CurrentBtn != null)
             {
-                bool correctAns = (_CurrentBtn.Text == _CurrentQuestion._RightAnswer.word);
+                string rightAns = _Questions[_QuestionIndex]._Answers[_Questions[_QuestionIndex]._RightAnswerIndex];
+                bool correctAns = _CurrentBtn.Text == rightAns;
 
                 DataManager dm = new DataManager();
                 
@@ -87,17 +131,17 @@ namespace PBL3
                 if (correctAns)
                 {
                     _CorrectAnsCount++;
-                    dm.NotebookManager.Update_LearnedPercent(LoginWorkflow.Instance.GetAccount().AccountID, _CurrentQuestion._RightAnswer.word, 10);
+                    int userID = LoginWorkflow.Instance.GetAccount().AccountID;
+                    if (dm.NotebookManager.CheckWordIsExistInNotebook(userID, rightAns.Replace(' ', '_')))
+                        dm.NotebookManager.IncreaseLearnedPercent(LoginWorkflow.Instance.GetAccount().AccountID,
+                            rightAns, 10);
                 }
 
-                btnNext.Visible = true;
-
-                btnCheck.BackColor = Color.FromArgb(96, 88, 134);
             }
         }
         private void btnNext_Click(object sender, EventArgs e)
         {
-            img_Change();
+            UpdateImage();
             ResetCurrentBtn();
 
             btnNext.Visible = false;
@@ -105,7 +149,7 @@ namespace PBL3
             iconCorrect.Visible = false;
             rjButton2.BackColor = Color.FromArgb(48, 48, 87);
 
-            if (_Questions.Count != 0)
+            if (_QuestionIndex != 9)
                 SetQuestion();
             else
             {
@@ -115,50 +159,11 @@ namespace PBL3
                 
                 LoginWorkflow.Instance.AdjustBalance(_CorrectAnsCount);
                 GlobalForm.MainForm.UpdateCoinView();
+
                 if (messageBox.ShowDialog() == DialogResult.OK)
                     this.Close();
                 GlobalForm.MainForm.GoBack();
             }
-        }
-        private void ShowAnswer(bool state)
-        {
-            if (state == true)
-            {
-                rjButton2.BackColor = Color.FromArgb(215, 255, 184);
-                btnNext.BackColor = Color.FromArgb(118, 185, 71);
-            }
-            else
-            {
-                rjButton2.BackColor = Color.FromArgb(247, 190, 192);
-                btnNext.BackColor = Color.FromArgb(231, 98, 95);
-            }
-            btnNext.ForeColor = Color.FromArgb(237, 233, 253);
-            iconIncorrect.Visible = !state;
-            iconCorrect.Visible = state;
-            btnCheck.Enabled = false;
-        }
-        private void ResetCurrentBtn()
-        {
-            _CurrentBtn.BackColor = Color.FromArgb(48, 48, 87);
-            _CurrentBtn.ForeColor = Color.FromArgb(237, 233, 253);
-            _CurrentBtn = null;
-        }
-        private void img_Change()
-        {
-            if (_CorrectAnsCount < 2)
-                imgFlower.BackgroundImage = (System.Drawing.Image)(Properties.Resources.Flower_5);
-
-            else if (_CorrectAnsCount < 4)
-                imgFlower.BackgroundImage = (System.Drawing.Image)(Properties.Resources.Flower_4);
-
-            else if (_CorrectAnsCount < 6)
-                imgFlower.BackgroundImage = (System.Drawing.Image)(Properties.Resources.Flower_3);
-
-            else if (_CorrectAnsCount < 8)
-                imgFlower.BackgroundImage = (System.Drawing.Image)(Properties.Resources.Flower_2);
-
-            else if (_CorrectAnsCount < 10)
-                imgFlower.BackgroundImage = (System.Drawing.Image)(Properties.Resources.Flower_1);
         }
 
         private void btnReturn_Click(object sender, EventArgs e)
@@ -168,5 +173,6 @@ namespace PBL3
             if (messageBox.ShowDialog() == DialogResult.OK)
                 GlobalForm.MainForm.GoBack();
         }
+        #endregion
     }
 }

@@ -35,6 +35,8 @@ namespace PBL3
             UpdatePanel();
         }
 
+        #region HELPER FUNCTION
+
         private void UpdatePanel()
         {
             panelWords.Controls.Clear();
@@ -55,6 +57,28 @@ namespace PBL3
                 }
             }
         }
+
+        private Label CreateLabelWord(string txt)
+        {
+            Label b = new Label();
+            b.BorderStyle = BorderStyle.None;
+            b.BackColor = Color.FromArgb(240, 237, 254);
+            b.ForeColor = Color.FromArgb(48, 48, 87);
+            b.AutoSize = false;
+            b.Size = new System.Drawing.Size(250, 30);
+            b.Margin = new Padding(3, 0, 3, 0);
+            b.Dock = DockStyle.Left;
+            b.Cursor = Cursors.Hand;
+            b.MouseClick += WordFound;
+            b.Font = new Font("Bahnschrift Light", 13.8f, System.Drawing.FontStyle.Underline);
+            b.Text = txt;
+
+            return b;
+        }
+
+        #endregion
+
+        #region EVENTS
 
         private void underlineBarAnim_Tick(object sender, EventArgs e)
         {
@@ -81,28 +105,13 @@ namespace PBL3
                 underlineBarAnim.Start();
             }
         }
-        private Label CreateLabelWord(string txt)
-        {
-            Label b = new Label();
-            b.BorderStyle = BorderStyle.None;
-            b.BackColor = Color.FromArgb(240, 237, 254);
-            b.ForeColor = Color.FromArgb(48, 48, 87);
-            b.AutoSize = false;
-            b.Size = new System.Drawing.Size(250, 30);
-            b.Margin = new Padding(3, 0, 3, 0);
-            b.Dock = DockStyle.Left;
-            b.Cursor = Cursors.Hand;
-            b.MouseClick += WordFound;
-            b.Font = new Font("Bahnschrift Light", 13.8f, System.Drawing.FontStyle.Underline);
-            b.Text = txt;
-
-            return b;
-        }
 
         private void WordFound(object sender, MouseEventArgs e)
         {
             GlobalForm.MainForm.SwitchForm(new WordForm(((Label)sender).Text.Replace(' ', '_')),
                  FormType.Weak);
         }
+        #endregion
     }
+
 }

@@ -38,12 +38,10 @@ namespace PBL3
 
                 Topic topic = dm.EDictionaryManager.GetTopic_ByTopicID(
                     Convert.ToInt32(dataGridView1.Rows[0].Cells["ID"].Value));
-                if (topic.Background != null)
+
+                using (MemoryStream ms = new MemoryStream(topic.Background))
                 {
-                    using (MemoryStream ms = new MemoryStream(topic.Background))
-                    {
-                        btnDemo.BackgroundImage = Image.FromStream(ms);
-                    }
+                    btnDemo.BackgroundImage = Image.FromStream(ms);
                 }
             }
         }
@@ -78,11 +76,6 @@ namespace PBL3
 
         private void UpdateTopicBackground(Topic topic)
         {
-            if (topic == null)
-            {
-                btnDemo.BackgroundImage = null;
-                return;
-            }
 
             using (MemoryStream ms = new MemoryStream(topic.Background))
             {
@@ -110,6 +103,7 @@ namespace PBL3
         {
             FormAdmin_Topic_AddUpdate form = new FormAdmin_Topic_AddUpdate();
             form.Callback += UpdateDataGridView;
+            form.Callback += ((FormTopic)GlobalForm.MainForm.TopicForm).UpdateTopicBtn;
             form.ShowDialog();
         }
 
@@ -121,6 +115,7 @@ namespace PBL3
             FormAdmin_Topic_AddUpdate form = new FormAdmin_Topic_AddUpdate(
                 Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID"].Value));
             form.Callback += UpdateDataGridView;
+            form.Callback += ((FormTopic)GlobalForm.MainForm.TopicForm).UpdateTopicBtn;
             form.ShowDialog();
         }
 

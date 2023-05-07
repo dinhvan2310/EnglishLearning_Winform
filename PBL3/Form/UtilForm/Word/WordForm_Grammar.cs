@@ -30,6 +30,8 @@ namespace PBL3
             SetupUI();
         }
 
+        #region HELPER FUNCTION
+
         private void SetupUI()
         {
             foreach (string s in _VerbFrames)
@@ -77,12 +79,16 @@ namespace PBL3
 
             return b;
         }
+        #endregion
 
+        #region EVENTS
         private void WordFound(object sender, MouseEventArgs e)
         {
             GlobalForm.MainForm.SwitchForm(new WordForm(((Label)sender).Text.Replace(' ', '_')),
                  FormType.Weak);
         }
+
+        #endregion
     }
 
 }

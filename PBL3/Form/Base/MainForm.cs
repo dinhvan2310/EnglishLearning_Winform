@@ -48,6 +48,8 @@ namespace PBL3
             {
                 if (!LoginWorkflow.Instance.IsAdmin())
                     lblBalance.Text = LoginWorkflow.Instance.GetAccountDetail().Balance.ToString();
+                else
+                    lblBalance.Text = "∞";
 
                 btnPersonalLogin.Text = "Đổi Tài Khoản";
                 OpenChildForm(HomeForm, FormType.Strong);
@@ -84,6 +86,7 @@ namespace PBL3
             OpenChildForm(form, formType);
         }
 
+        // called when switch account
         public void RefreshForm()
         {
             GlobalForm.MainForm.StartPosition = FormStartPosition.CenterScreen;
@@ -96,6 +99,9 @@ namespace PBL3
 
         public void UpdateCoinView()
         {
+            if (LoginWorkflow.Instance.IsAdmin())
+                return;
+
             lblBalance.Text = LoginWorkflow.Instance.GetAccountDetail().Balance.ToString();
         }
 
@@ -108,7 +114,7 @@ namespace PBL3
                 SettingWorkflow.Instance.ApplyUserSettings(userID);
                 if (LoginWorkflow.Instance.IsFirstTimeLogged())
                 {
-                    if (LoginWorkflow.Instance.IsAdmin())
+                    if (!LoginWorkflow.Instance.IsAdmin())
                         GrantLoggingCoin();
                     DataManager dataManager = new DataManager();
 

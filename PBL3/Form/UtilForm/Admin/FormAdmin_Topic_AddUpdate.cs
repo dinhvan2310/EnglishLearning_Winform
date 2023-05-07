@@ -54,16 +54,17 @@ namespace PBL3
                     dataGridView1.Rows.Add(item.SynsetID, item.BranchName);
                 });
 
-                if (topic.Background != null)
+                using (MemoryStream ms = new MemoryStream(topic.Background))
                 {
-                    using (MemoryStream ms = new MemoryStream(topic.Background))
-                    {
-                        btnDemo.BackgroundImage = Image.FromStream(ms);
-                    }
+                    btnDemo.BackgroundImage = Image.FromStream(ms);
                 }
 
                 btnAdd.Text = "Sửa";
             }
+            else
+            {
+                btnDemo.BackgroundImage = Resources.Empty;
+            }    
         }
 
         private void SetupForm()
@@ -177,17 +178,18 @@ namespace PBL3
             DataManager dm = new DataManager();
             List<Branch> branches = GetBranches();
 
+            Topic topic = new Topic()
+            {
+                TopicName = txtTopic.Text.Replace(' ', '_'),
+                Branches = branches,
+                Background = (byte[])new ImageConverter().ConvertTo((btnDemo.BackgroundImage), typeof(byte[]))
+            };
 
             if (_TopicID == -1)  // add
             {
                 try
                 {
-                    dm.EDictionaryManager.AddTopic(new Topic()
-                    {
-                        TopicName = txtTopic.Text.Replace(' ', '_'),
-                        Branches = branches,
-                        Background = (byte[])new ImageConverter().ConvertTo((btnDemo.BackgroundImage), typeof(byte[]))
-                    });
+                    dm.EDictionaryManager.AddTopic(topic);
                 }
                 catch
                 {
@@ -206,13 +208,8 @@ namespace PBL3
 
                 try
                 {
-                    dm.EDictionaryManager.UpdateTopic(new Topic()
-                    {
-                        TopicID = _TopicID,
-                        TopicName = txtTopic.Text.Replace(' ', '_'),
-                        Branches = branches,
-                        Background = (byte[])new ImageConverter().ConvertTo((btnDemo.BackgroundImage), typeof(byte[]))
-                    });
+                    topic.TopicID = _TopicID;
+                    dm.EDictionaryManager.UpdateTopic(topic);
                 }
                 catch
                 {

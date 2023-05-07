@@ -1,4 +1,5 @@
-﻿using BLL.Workflows;
+﻿using BLL.TransferObjects;
+using BLL.Workflows;
 using CustomControls;
 using PBL3.Utilities;
 using PBLLibrary;
@@ -17,22 +18,31 @@ namespace PBL3
 {
     public partial class FormGame2 : Form
     {
-        private RJButton[] _AnsOptions;
+        private Button[] _AnsOptions;
         private Button _CurrentLeftBtn;
         private Button _CurrentRightBtn;
-        private List<Tuple<string, string>> _Question;
-        private int _CorrectAnswerCount;
+        private List<QnA> _Questions;
+
         private int _WrongAnswerCount;
+        private int _QuestionIndex;
+        private int _AnsweredCount;
 
         public FormGame2()
         {
             InitializeComponent();
-            InitializeVariables();
+
+            SetupForm();
+            SetupUI();
         }
-        private void InitializeVariables()
+        #region HELPER FUNCTION
+        private void SetupUI()
+        {
+            SetQuestion();
+        }
+
+        private void SetupForm()
         {
             _AnsOptions = new RJButton[8];
-            
 
             _AnsOptions[0] = btnLeft1;
             _AnsOptions[1] = btnLeft2;
@@ -44,16 +54,11 @@ namespace PBL3
             _AnsOptions[6] = btnRight3;
             _AnsOptions[7] = btnRight4;
 
-            Start_Game();
-        }
-        private void Start_Game()
-        {
             _WrongAnswerCount = 0;
-            _CorrectAnswerCount = 0;
-            _Question = MiniGameWorkflow.Instance.GetWordFor_Game2();
-            Set_Question();
+            _Questions = MiniGameWorkflow.Instance.GetWordFor_Game2();
         }
-        private void Set_Question()
+
+        private void SetQuestion()
         {
             Random a = new Random();
             var numbersLeft = Enumerable.Range(0, 4).OrderBy(x => a.Next()).Take(4).ToList();
@@ -63,35 +68,36 @@ namespace PBL3
 
             for (int i = 0; i < 4; ++i)
             {
-                _AnsOptions[numbersLeft[i]].Text = _Question[i].Item1;
+                _AnsOptions[numbersLeft[i]].Text = _Questions[_QuestionIndex + i]._Question;
                 _AnsOptions[numbersLeft[i]].Enabled = true;
 
-                _AnsOptions[numbersRight[i]].Text = _Question[i].Item2;
+                _AnsOptions[numbersRight[i]].Text =
+                    _Questions[_QuestionIndex + i]._Answers[_Questions[_QuestionIndex + i]._RightAnswerIndex];
                 _AnsOptions[numbersRight[i]].Enabled = true;
             }
+
         }
         private void CheckAns()
         {
             if (_CurrentRightBtn != null && _CurrentLeftBtn != null)
             {
-                Tuple<string, string> temp = new Tuple<string, string>(_CurrentLeftBtn.Text, _CurrentRightBtn.Text);
-                if (_Question.Contains(temp) == false)
+                if (_Questions.Find(p => p._Question == _CurrentLeftBtn.Text)._Answers[0] !=
+                    _CurrentRightBtn.Text)
                 {
                     _CurrentLeftBtn.BackColor = Color.FromArgb(255, 75, 75);
                     _CurrentRightBtn.BackColor = Color.FromArgb(255, 75, 75);
                     _WrongAnswerCount = _WrongAnswerCount + 1;
                 }
                 else
-                {
-                    _CorrectAnswerCount = _CorrectAnswerCount + 1;
-                    
+                {                    
                     _CurrentRightBtn.BackColor = Color.FromArgb(88, 204, 2);
                     _CurrentLeftBtn.BackColor = Color.FromArgb(88, 204, 2);
 
+                    int userID = LoginWorkflow.Instance.GetAccount().AccountID;
                     DataManager dm = new DataManager();
-                    int accountID = LoginWorkflow.Instance.GetAccount().AccountID;
-                    string notebookWord = _CurrentLeftBtn.Text;
-                    dm.NotebookManager.Update_LearnedPercent(accountID, notebookWord, 10);
+                    string notebookWord = _CurrentLeftBtn.Text.Replace(' ', '_');
+                    if (dm.NotebookManager.CheckWordIsExistInNotebook(userID, notebookWord))
+                        dm.NotebookManager.IncreaseLearnedPercent(userID, notebookWord, 10);
 
                     _CurrentLeftBtn.Enabled = false;
                     _CurrentRightBtn.Enabled = false;
@@ -100,6 +106,10 @@ namespace PBL3
             }
 
         }
+
+        #endregion
+
+        #region EVENTS
         private void btnLeftAns_click(object sender, EventArgs e)
         {
             if (!timer1.Enabled)
@@ -146,31 +156,36 @@ namespace PBL3
             _CurrentRightBtn = null;
             _CurrentLeftBtn = null;
 
-            if (_CorrectAnswerCount == 4)
+            _AnsweredCount += 1;
+            if (_AnsweredCount == 4)
             {
-                _CorrectAnswerCount = 0;
-                _Question.RemoveRange(0, 4);
+                _QuestionIndex += 4;
+
                 btnNext.Enabled = true;
                 btnNext.BackColor = Color.FromArgb(237, 233, 253);
                 btnNext.ForeColor = Color.FromArgb(48, 48, 87);
+
+                _AnsweredCount = 0;
             }
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if (_Question.Count != 0)
+            if (_QuestionIndex < 20)
             {
-                Set_Question();
+                SetQuestion();
                 btnNext.ForeColor = Color.FromArgb(237, 233, 253);
                 btnNext.BackColor = Color.FromArgb(48, 48, 87);
             }    
             else
             {
+                int coin = Math.Max(5, 20 - _WrongAnswerCount);
                 Form messageBox = new FormMessageBox("KẾT QUẢ", $"SỐ LẦN TRẢ LỜI SAI: {_WrongAnswerCount} \n" +
-                                                                $"SỐ XU NHẬN ĐƯỢC: {_CorrectAnswerCount}",
+                                                                $"SỐ XU NHẬN ĐƯỢC: {coin}",
                                       FormMessageBox.MessageType.Info);
 
-                LoginWorkflow.Instance.AdjustBalance(_CorrectAnswerCount);
+                LoginWorkflow.Instance.AdjustBalance(coin);
+                GlobalForm.MainForm.UpdateCoinView();
 
                 if (messageBox.ShowDialog() == DialogResult.OK)
                     this.Close();
@@ -186,5 +201,7 @@ namespace PBL3
             if (messageBox.ShowDialog() == DialogResult.OK)
                 GlobalForm.MainForm.GoBack();
         }
+
+        #endregion
     }
 }

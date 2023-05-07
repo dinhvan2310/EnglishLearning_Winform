@@ -47,12 +47,9 @@ namespace PBL3
         {
             RJButton b = new RJButton();
             b.BackColor = Color.FromArgb(240, 237, 254);
-            if (topic.Background != null)
+            using (MemoryStream ms = new MemoryStream(topic.Background))
             {
-                using (MemoryStream ms = new MemoryStream(topic.Background))
-                {
-                    b.BackgroundImage = Image.FromStream(ms);
-                }
+                b.BackgroundImage = Image.FromStream(ms);
             }
             b.BackgroundImageLayout = ImageLayout.Zoom;
             b.Cursor = Cursors.Hand;
@@ -74,6 +71,48 @@ namespace PBL3
             return _Topics
                  .Where(p => p.TopicName == name)
                  .First().TopicID;
+        }
+
+        public void UpdateTopicBtn()
+        {
+            DataManager dm = new DataManager();
+            List<Topic> topics = dm.EDictionaryManager.GetTopic_All();
+
+            int offset = panelTopic.Controls.Count - topics.Count;
+            if (offset < 0)
+            {
+                for (int i = 0; i < panelTopic.Controls.Count; ++i)
+                {
+                    panelTopic.Controls[i].Text = topics[i].TopicName.Replace('_', ' ');
+                    using (MemoryStream ms = new MemoryStream(topics[i].Background))
+                    {
+                        panelTopic.Controls[i].BackgroundImage = Image.FromStream(ms);
+                    }
+                }
+                for (int i = 0; i < -offset; ++i)
+                {
+                    Button btn = CreateButton(topics[panelTopic.Controls.Count]);
+                    btn.Location = new Point(panelTopic.Controls.Count * 275, 0);
+                    panelTopic.Controls.Add(btn);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < topics.Count; ++i)
+                {
+                    panelTopic.Controls[i].Text = topics[i].TopicName.Replace('_', ' ');
+                    using (MemoryStream ms = new MemoryStream(topics[i].Background))
+                    {
+                        panelTopic.Controls[i].BackgroundImage = Image.FromStream(ms);
+                    }
+                }
+
+                for (int i = 0; i < offset; ++i)
+                {
+                    panelTopic.Controls.RemoveAt(panelTopic.Controls.Count - 1);
+                }
+            }
+
         }
 
         #endregion

@@ -329,7 +329,7 @@ namespace BLL.Workflows
             {
                 _AccountManager.UpdateDetailInformation(_UserID, new DetailedInformation()
                 {
-                    NumberOfConsecutiveDay = 0,
+                    NumberOfConsecutiveDay = 1,
                     Balance = detail.Balance,
                     AchievedGoal = detail.AchievedGoal
                 });

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BLL.TransferObjects;
+using PBLLibrary;
 
 namespace BLL.Components
 {
@@ -121,45 +122,36 @@ namespace BLL.Components
             }
 
         }
-        public void Update_LearnedPercent(int userID, string word, int num)
+        public void IncreaseLearnedPercent(int userID, string word, int num)
         {
             using (var db = new DictionaryContext())
             {
                 var rs = db.Notebook
-                    .Where(x => x.Wn_Word.word == word)
+                    .Where(x => x.AccountID == userID && x.Wn_Word.word == word)
                     .FirstOrDefault();
-
-                if (rs == null)
-                    return;
 
                 rs.LearnedPercent += num;
                 db.SaveChanges();
-
-                if (rs.LearnedPercent >= 100)
-                    RemoveWord(userID, rs.Wn_Word.word);
             }
         }
-        public List<wn_word> GetNotebookWord_ForMinigame(int userID, int limit)
+        public List<NotebookCard> GetNotebookWord_Random(int userID, int limit)
         {
             using (var db = new DictionaryContext())
             {
-                List<wn_word> results = new List<wn_word>();
-                List<string> Wn_words = new List<string>();
-                Random rand = new Random();
+                List<NotebookCard> results = new List<NotebookCard>();
 
-                List<Notebook> temps = db.Notebook.AsEnumerable()
-                    .OrderBy(x => rand.Next()).Take(limit).ToList();
+                List<Notebook> temps = db.Notebook
+                    .Where(p => p.AccountID == userID)
+                    .Shuffle(new Random())
+                    .Take(limit)
+                    .ToList();
 
                 temps.ForEach(item =>
                 {
-                    Wn_words.Add(item.Wn_Word.word);
-                });
-
-                Wn_words.ForEach(item =>
-                {
-                    wn_word newWord = new wn_word();
-                    newWord.word = item;
-                    results.Add(newWord);
+                    results.Add(new NotebookCard()
+                    {
+                        Word = item.Wn_Word.word, LearnedPercent = item.LearnedPercent
+                    });
                 });
                 return results;
             }
@@ -168,7 +160,9 @@ namespace BLL.Components
         {
             using (var db = new DictionaryContext())
             {
-                return db.Notebook.Count();
+                return db.Notebook
+                    .Where(p => p.AccountID == userID)
+                    .Count();
             }
         }
     }

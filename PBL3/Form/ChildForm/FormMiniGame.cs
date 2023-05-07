@@ -17,27 +17,15 @@ namespace PBL3
     {
         public FormMiniGame()
         {
-
             InitializeComponent();
         }
 
-        private async void rjButton1_Click(object sender, EventArgs e)
+        #region EVENTS
+
+        private async void GameOn_Click(object sender, EventArgs e)
         {
-            FormLoading formLoading = new FormLoading();
-            formLoading.TopLevel = false;
-            formLoading.Dock = DockStyle.Bottom;
-            panelBase.Controls.Add(formLoading);
-            formLoading.BringToFront();
-            formLoading.Show();
-
-            GlobalForm.MainForm.SwitchForm(await Task.Run(() => new FormGame1()), FormType.Weak);
-
-            formLoading.Close();
-        }
-
-        private async void btnStartGame2_Click(object sender, EventArgs e)
-        {
-            if (!LoginWorkflow.Instance.IsPremium())
+            int index = ((Button)sender).TabIndex;
+            if (!LoginWorkflow.Instance.IsPremium() && index == 2)
             {
                 FormMessageBox form = new FormMessageBox("Không có quyền hạn",
                     "Bạn không có phép để chơi trò chơi này\nVui lòng mua gói người dùng", FormMessageBox.MessageType.Info);
@@ -53,9 +41,15 @@ namespace PBL3
             formLoading.BringToFront();
             formLoading.Show();
 
-            GlobalForm.MainForm.SwitchForm(await Task.Run(() => new FormGame2()), FormType.Weak);
+            if (index == 1)
+                GlobalForm.MainForm.SwitchForm(await Task.Run(() => new FormGame1()), FormType.Weak);
+            else if (index == 2)
+                GlobalForm.MainForm.SwitchForm(await Task.Run(() => new FormGame2()), FormType.Weak);
 
             formLoading.Close();
+
         }
+
+        #endregion
     }
 }
