@@ -34,7 +34,7 @@ namespace PBL3
             SetupForm();
             SetupUI();
         }
-        #region HELPER FUNCTION
+        #region HELPER FUNCTIONS
         private void SetupUI()
         {
             SetQuestion();
@@ -68,11 +68,12 @@ namespace PBL3
 
             for (int i = 0; i < 4; ++i)
             {
-                _AnsOptions[numbersLeft[i]].Text = _Questions[_QuestionIndex + i]._Question;
+                QnA qna = _Questions[_QuestionIndex + i];
+
+                _AnsOptions[numbersLeft[i]].Text = qna.Question;
                 _AnsOptions[numbersLeft[i]].Enabled = true;
 
-                _AnsOptions[numbersRight[i]].Text =
-                    _Questions[_QuestionIndex + i]._Answers[_Questions[_QuestionIndex + i]._RightAnswerIndex];
+                _AnsOptions[numbersRight[i]].Text = qna.Answers[qna.RightAnswerIndex];
                 _AnsOptions[numbersRight[i]].Enabled = true;
             }
 
@@ -81,7 +82,7 @@ namespace PBL3
         {
             if (_CurrentRightBtn != null && _CurrentLeftBtn != null)
             {
-                if (_Questions.Find(p => p._Question == _CurrentLeftBtn.Text)._Answers[0] !=
+                if (_Questions.Find(p => p.Question == _CurrentLeftBtn.Text).Answers[0] !=
                     _CurrentRightBtn.Text)
                 {
                     _CurrentLeftBtn.BackColor = Color.FromArgb(255, 75, 75);

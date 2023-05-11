@@ -224,7 +224,7 @@ namespace BLL.Workflows
         }
 
         public bool IsPremium()
-        {            
+        {
             return _UserID != -1 && _PackageManager.GetUserPacketInfo(_UserID, "Premium")?.DueDate > DateTime.Now;
         }
 

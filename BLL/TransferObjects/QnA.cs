@@ -12,9 +12,9 @@ namespace BLL.TransferObjects
 {
     public class QnA
     {
-        public int _RightAnswerIndex { get; set; }
-        public List<string> _Answers { get; set; } = new List<string>();
-        public string _Question { get; set; }
+        public int RightAnswerIndex { get; set; }
+        public List<string> Answers { get; set; } = new List<string>();
+        public string Question { get; set; }
         
     }
 }

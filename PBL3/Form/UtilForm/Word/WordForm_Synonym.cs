@@ -19,23 +19,36 @@ namespace PBL3
 {
     public partial class WordForm_Synonym : Form
     {
+        private string _RawWord;
+
         private int _CurrentTypeLabelIndex;
         private List<wn_word> _Similars;
         private List<wn_word> _Antonyms;
 
         public WordForm_Synonym(string rawWord)
         {
+            _RawWord = rawWord;
+
             InitializeComponent();
 
-            DataManager dm = new DataManager();
-
-            _Similars = dm.EDictionaryManager.GetSynonymWord_ByWord(rawWord);
-            _Antonyms = dm.EDictionaryManager.GetAntonymWord_ByWord(rawWord);
-
-            UpdatePanel();
+            SetupForm();
+            SetupUI();
         }
 
-        #region HELPER FUNCTION
+        #region HELPER FUNCTIONS
+
+        private void SetupForm()
+        {
+            DataManager dm = new DataManager();
+
+            _Similars = dm.EDictionaryManager.GetSynonymWord_ByWord(_RawWord);
+            _Antonyms = dm.EDictionaryManager.GetAntonymWord_ByWord(_RawWord);
+        }
+
+        private void SetupUI()
+        {
+            UpdatePanel();
+        }
 
         private void UpdatePanel()
         {

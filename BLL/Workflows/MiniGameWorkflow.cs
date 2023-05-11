@@ -51,17 +51,17 @@ namespace PBLLibrary
                 for (int k = 0; k < 3; ++k)
                     wrongAnswer.Add(answerList[FAnsIndex + k].Replace('_', ' '));
 
-                qna._RightAnswerIndex = rand.Next(4);
-                qna._Answers.AddRange(wrongAnswer);
-                qna._Answers.Insert(qna._RightAnswerIndex, answerList[TAnsIndex].Replace('_', ' '));
+                qna.RightAnswerIndex = rand.Next(4);
+                qna.Answers.AddRange(wrongAnswer);
+                qna.Answers.Insert(qna.RightAnswerIndex, answerList[TAnsIndex].Replace('_', ' '));
 
                 List<wn_synset> defs = _EDictionaryManager.GetSynset_ByWord(answerList[TAnsIndex]);
-                qna._Question = defs[rand.Next(defs.Count)].definition;
+                qna.Question = defs[rand.Next(defs.Count)].definition;
 
-                if (qna._Question.Contains(";")) // remove example
+                if (qna.Question.Contains(";")) // remove example
                 {
-                    int removeIndex = qna._Question.IndexOf(';');
-                    qna._Question = qna._Question.Substring(0, removeIndex);
+                    int removeIndex = qna.Question.IndexOf(';');
+                    qna.Question = qna.Question.Substring(0, removeIndex);
                 }
 
                 TAnsIndex += 1;
@@ -91,9 +91,9 @@ namespace PBLLibrary
                 else
                     similarWord = "None of above";
 
-                qna._Question = answerlist[i].Replace('_', ' ');
-                qna._Answers.Add(similarWord.Replace('_', ' '));
-                qna._RightAnswerIndex = 0;
+                qna.Question = answerlist[i].Replace('_', ' ');
+                qna.Answers.Add(similarWord.Replace('_', ' '));
+                qna.RightAnswerIndex = 0;
 
                 result.Add(qna);
             }

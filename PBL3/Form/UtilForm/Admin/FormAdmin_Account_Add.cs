@@ -36,14 +36,6 @@ namespace PBL3
 
         #region EVENTS
 
-        
-
-        private void btnReturn_MouseClick(object sender, MouseEventArgs e)
-        {
-            FormAdmin baseForm = (FormAdmin)Application.OpenForms["FormAdmin"];
-            (baseForm).OpenChildForm(baseForm.AccountForm);
-        }
-
         private void FormAdmin_Account_Add_MouseDown(object sender, MouseEventArgs e)
         {
             ExternalImport.ReleaseCapture();

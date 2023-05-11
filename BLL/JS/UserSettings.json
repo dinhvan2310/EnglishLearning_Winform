@@ -39,7 +39,7 @@
     "UserId": 19,
     "Volume": 10,
     "Voice": false,
-    "Goal": 60
+    "Goal": 10
   },
   {
     "UserId": 20,
@@ -51,6 +51,6 @@
     "UserId": 22,
     "Volume": 10,
     "Voice": false,
-    "Goal": 45
+    "Goal": 10
   }
 ]

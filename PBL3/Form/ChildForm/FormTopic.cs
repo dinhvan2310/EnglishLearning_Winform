@@ -20,14 +20,9 @@ namespace PBL3
 {
     public partial class FormTopic : Form
     {
-        private List<Topic> _Topics;
-
         public FormTopic()
         {
             InitializeComponent();
-
-            DataManager dm = new DataManager();
-            _Topics = dm.EDictionaryManager.GetTopic_All();
 
             SetupUI();
         }
@@ -35,7 +30,10 @@ namespace PBL3
         #region HELPER FUNCTIONS
         private void SetupUI()
         {
-            foreach (Topic t in _Topics)
+            DataManager dm = new DataManager();
+            List<Topic> topics = dm.EDictionaryManager.GetTopic_All();
+
+            foreach (Topic t in topics)
             {
                 Button btn = CreateButton(t);
                 btn.Location = new Point(panelTopic.Controls.Count * 275, 0);
@@ -62,21 +60,17 @@ namespace PBL3
             b.BorderRadius = 30;
             b.ForeColor = Color.FromArgb(44, 41, 74);
             b.MouseClick += OnBranching;
+            b.TabIndex = topic.TopicID;
 
             return b;
         }
 
-        private int GetTopicID(string name)
-        {
-            return _Topics
-                 .Where(p => p.TopicName == name)
-                 .First().TopicID;
-        }
 
         public void UpdateTopicBtn()
         {
             DataManager dm = new DataManager();
             List<Topic> topics = dm.EDictionaryManager.GetTopic_All();
+            panelTopic.AutoScrollPosition = new Point(0, 0);
 
             int offset = panelTopic.Controls.Count - topics.Count;
             if (offset < 0)
@@ -92,7 +86,7 @@ namespace PBL3
                 for (int i = 0; i < -offset; ++i)
                 {
                     Button btn = CreateButton(topics[panelTopic.Controls.Count]);
-                    btn.Location = new Point(panelTopic.Controls.Count * 275, 0);
+                    btn.Location = new Point(panelTopic.Controls.Count * 275 - 0, 0);
                     panelTopic.Controls.Add(btn);
                 }
             }
@@ -120,8 +114,8 @@ namespace PBL3
         #region EVENTS
         private void OnBranching(object sender, MouseEventArgs e)
         {
-            FormTopic_Branch form = new FormTopic_Branch(
-                GetTopicID(((Button)sender).Text.Replace(' ', '_')));
+            Button btn = (Button)sender;
+            FormTopic_Branch form = new FormTopic_Branch(btn.TabIndex);
 
             GlobalForm.MainForm.SwitchForm(form, FormType.Weak);
         }

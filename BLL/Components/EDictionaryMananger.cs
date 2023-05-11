@@ -306,7 +306,7 @@ namespace BLL.Components
             }
         }
 
-        public List<decimal> GetHypernymSynsetID_BySynsetID_Recur(decimal id)
+        private List<decimal> GetHypernymSynsetID_BySynsetID_Recur(decimal id)
         {
             using (DictionaryContext dbContext = new DictionaryContext())
             {
@@ -370,6 +370,7 @@ namespace BLL.Components
             return result.ToList();
         }
         #endregion
+
         #region TOPIC
         public List<Topic> GetTopic_All()
         {
@@ -539,13 +540,6 @@ namespace BLL.Components
 
                 return temp.Count != 0;
 
-            }
-        }
-        public bool CheckBranchExist(decimal id)
-        {
-            using (var dbContext = new DictionaryContext())
-            {
-                return dbContext.Branch.Where(p => p.SynsetID == id) != null;
             }
         }
 

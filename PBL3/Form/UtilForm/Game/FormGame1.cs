@@ -38,7 +38,7 @@ namespace PBL3
             SetupUI();
         }
 
-        #region HELPER FUNCTION
+        #region HELPER FUNCTIONS
         private void SetupUI()
         {
             SetQuestion();
@@ -59,10 +59,10 @@ namespace PBL3
         private void SetQuestion()
         {
             QnA currentQuest = _Questions[++_QuestionIndex];
-            btnQuestion.Text = currentQuest._Question;
+            btnQuestion.Text = currentQuest.Question;
 
             for (int i = 0; i < _AnsOptions.Count(); ++i)
-                _AnsOptions[i].Text = currentQuest._Answers[i];
+                _AnsOptions[i].Text = currentQuest.Answers[i];
         }
 
         private void ShowAnswer(bool correct)
@@ -121,7 +121,7 @@ namespace PBL3
         {
             if (_CurrentBtn != null)
             {
-                string rightAns = _Questions[_QuestionIndex]._Answers[_Questions[_QuestionIndex]._RightAnswerIndex];
+                string rightAns = _Questions[_QuestionIndex].Answers[_Questions[_QuestionIndex].RightAnswerIndex];
                 bool correctAns = _CurrentBtn.Text == rightAns;
 
                 DataManager dm = new DataManager();

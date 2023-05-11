@@ -30,7 +30,7 @@ namespace PBL3
             SetupUI();
         }
 
-        #region HELPER FUNCTION
+        #region HELPER FUNCTIONS
 
         private void SetupUI()
         {

@@ -119,11 +119,6 @@ namespace PBL3
             form.ShowDialog();
         }
 
-        private void FormAdmin_Topic_MouseDown(object sender, MouseEventArgs e)
-        {
-            ExternalImport.ReleaseCapture();
-            ExternalImport.SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
@@ -150,6 +145,7 @@ namespace PBL3
             }
 
             UpdateDataGridView();
+            ((FormTopic)GlobalForm.MainForm.TopicForm).UpdateTopicBtn();
 
             message = new FormMessageBox("Thông báo", "Xoá thành công", FormMessageBox.MessageType.Info);
             message.ShowDialog();

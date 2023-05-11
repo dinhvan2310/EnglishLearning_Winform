@@ -53,10 +53,11 @@ namespace PBL3
 
                 btnPersonalLogin.Text = "Đổi Tài Khoản";
                 OpenChildForm(HomeForm, FormType.Strong);
-                if(new DataManager().PackageManager.IsHasUserPacket(LoginWorkflow.Instance.GetAccount().AccountID, "Premium"))
-                {
+                if (new DataManager().PackageManager.IsHasUserPacket(LoginWorkflow.Instance.GetAccount().AccountID, "Premium"))
                     btnPremium.BackgroundImage = Resources.Theme3_0;
-                }
+                else
+                    btnPremium.BackgroundImage = Resources.Premium_Theme;
+
             }
             else
             {
@@ -287,6 +288,7 @@ namespace PBL3
             b.Location = new Point(0, 25 + 30 * index);
             b.Size = new Size(443, 30);
             b.Padding = new Padding(15, 0, 0, 0);
+            b.MouseDown += WordFound;
             return b;
         }
 
@@ -310,7 +312,7 @@ namespace PBL3
         private void GrantLoggingCoin()
         {
             int cd = LoginWorkflow.Instance.GetAccountDetail().NumberOfConsecutiveDay;
-            int receivedCoin = Math.Max(cd, 7);
+            int receivedCoin = Math.Min(cd, 7);
             Form message = new FormMessageBox(
                 "Nhận thưởng",
                 "Bạn đã điểm danh được " + cd + " ngày\n" +
@@ -677,6 +679,12 @@ namespace PBL3
         {
             if (!this.Visible)
                 return;
+        }
+
+        private void WordFound(object sender, MouseEventArgs e)
+        {
+            GlobalForm.MainForm.SwitchForm(new WordForm(((Button)sender).Text.Replace(' ', '_')),
+                 FormType.Weak);
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)

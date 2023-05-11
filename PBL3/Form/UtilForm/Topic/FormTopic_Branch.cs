@@ -19,7 +19,6 @@ namespace PBL3
     public partial class FormTopic_Branch : Form
     {
         private decimal _TopicID;
-        private List<Branch> _Branches;
 
         public FormTopic_Branch(decimal topicID)
         {
@@ -27,25 +26,23 @@ namespace PBL3
 
             _TopicID = topicID;
 
-            DataManager dm = new DataManager();
-            _Branches = dm.EDictionaryManager.GetBranch_ByTopicID(_TopicID);
-
             SetupUI();
         }
 
+        #region HELPER FUNCTIONS
         private void SetupUI()
         {
             DataManager dm = new DataManager();
-
+            List<Branch> branches = dm.EDictionaryManager.GetBranch_ByTopicID(_TopicID);
             lblTopic.Text = dm.EDictionaryManager.GetTopic_ByTopicID(_TopicID).TopicName.Replace('_', ' ');
 
-            foreach (Branch b in _Branches)
+            foreach (Branch b in branches)
             {
-                panelBranch.Controls.Add(CreateButton(b.BranchName));
+                panelBranch.Controls.Add(CreateButton(b));
             }
         }
 
-        private Button CreateButton(string branch)
+        private Button CreateButton(Branch branch)
         {
             RJButton b = new RJButton();
             b.BackColor = Color.FromArgb(240, 237, 254);
@@ -53,7 +50,8 @@ namespace PBL3
             b.FlatStyle = FlatStyle.Flat;
             b.BorderSize = 0;
             b.Font = new Font("Bauhaus 93", 24.0f);
-            b.Text = branch;
+            b.Text = branch.BranchName;
+            b.TabIndex = Convert.ToInt32(branch.SynsetID);
             b.TabStop = false;
             b.Size = new Size(180, 315);
             b.Dock = DockStyle.Left;
@@ -63,12 +61,13 @@ namespace PBL3
 
             return b;
         }
+        #endregion
 
+        #region EVENTS
         private void OnList(object sender, MouseEventArgs e)
         {
-            FormTopic_List form = new FormTopic_List(_Branches
-                .Where(p => p.BranchName == ((Button)sender).Text)
-                .First().SynsetID);
+            Button btn = (Button)sender;
+            FormTopic_List form = new FormTopic_List(btn.TabIndex);
             GlobalForm.MainForm.SwitchForm(form, FormType.Weak);
         }
 
@@ -76,5 +75,7 @@ namespace PBL3
         {
             GlobalForm.MainForm.GoBack();
         }
+
+        #endregion
     }
 }

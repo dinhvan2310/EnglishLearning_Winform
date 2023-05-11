@@ -20,30 +20,25 @@ namespace PBL3
     {
 
         private decimal _SynsetID;
-        private List<wn_word> _Words;
+
         public FormTopic_List(decimal synsetID)
         {
             InitializeComponent();
 
             _SynsetID = synsetID;
 
-            SetupForm();
             SetupUI();
         }
 
         #region HELPER FUNCTIONS
-        private void SetupForm()
-        {
-            DataManager dm = new DataManager();
-            _Words = dm.EDictionaryManager.GetTopicWord_BySynsetID(_SynsetID);
-        }
 
         private void SetupUI()
         {
             DataManager dm = new DataManager();
+            List<wn_word> words = dm.EDictionaryManager.GetTopicWord_BySynsetID(_SynsetID);
             lblBranch.Text = dm.EDictionaryManager.GetBranch_BySynsetID(_SynsetID).BranchName;
 
-            foreach (wn_word word in _Words)
+            foreach (wn_word word in words)
             {
                 panelWord.Controls.Add(CreateWordButton(word.word.Replace('_', ' ')));
             }

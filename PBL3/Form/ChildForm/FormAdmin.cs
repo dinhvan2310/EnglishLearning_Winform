@@ -16,9 +16,9 @@ namespace PBL3
         private Button _CurrentTag;
         private Form _CurrentChildForm;
 
-        public FormAdmin_Account AccountForm { get; private set; }
-        public FormAdmin_Topic WordForm { get; private set; }
-        public FormAdmin_Packet PacketForm { get; private set; }
+        private Form AccountForm;
+        private Form WordForm;
+        private Form PacketForm;
 
         public FormAdmin()
         {
