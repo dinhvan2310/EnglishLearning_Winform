@@ -130,11 +130,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormAdmin_Topic_BranchDetail.cs">
+    <Compile Include="Form\UtilForm\Admin\FormAdmin_Topic_BranchDetail.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormAdmin_Topic_BranchDetail.Designer.cs">
+    <Compile Include="Form\UtilForm\Admin\FormAdmin_Topic_BranchDetail.Designer.cs">
       <DependentUpon>FormAdmin_Topic_BranchDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\UtilForm\Game\FormGame1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\UtilForm\Game\FormGame1.Designer.cs">
+      <DependentUpon>FormGame1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\UtilForm\Game\FormGame2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\UtilForm\Game\FormGame2.Designer.cs">
+      <DependentUpon>FormGame2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\UtilForm\FormLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\UtilForm\FormLoading.Designer.cs">
+      <DependentUpon>FormLoading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\ChildForm\FormMiniGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\ChildForm\FormMiniGame.Designer.cs">
+      <DependentUpon>FormMiniGame.cs</DependentUpon>
     </Compile>
     <Compile Include="Form\UtilForm\Login\FormForgotPassword.cs">
       <SubType>Form</SubType>
@@ -142,22 +166,22 @@
     <Compile Include="Form\UtilForm\Login\FormForgotPassword.Designer.cs">
       <DependentUpon>FormForgotPassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormGuest.cs">
+    <Compile Include="Form\UtilForm\FormGuest.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormGuest.Designer.cs">
+    <Compile Include="Form\UtilForm\FormGuest.Designer.cs">
       <DependentUpon>FormGuest.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\UtilForm\FormTopic_Branch.cs">
+    <Compile Include="Form\UtilForm\Topic\FormTopic_Branch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\UtilForm\FormTopic_Branch.Designer.cs">
+    <Compile Include="Form\UtilForm\Topic\FormTopic_Branch.Designer.cs">
       <DependentUpon>FormTopic_Branch.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\UtilForm\FormTopic_List.cs">
+    <Compile Include="Form\UtilForm\Topic\FormTopic_List.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\UtilForm\FormTopic_List.Designer.cs">
+    <Compile Include="Form\UtilForm\Topic\FormTopic_List.Designer.cs">
       <DependentUpon>FormTopic_List.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
@@ -208,16 +232,16 @@
     <Compile Include="Form\UtilForm\FormPremium.Designer.cs">
       <DependentUpon>FormPremium.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\UtilForm\FormSetGoal.cs">
+    <Compile Include="Form\UtilForm\Home\FormSetGoal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\UtilForm\FormSetGoal.Designer.cs">
+    <Compile Include="Form\UtilForm\Home\FormSetGoal.Designer.cs">
       <DependentUpon>FormSetGoal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\UtilForm\FormStatistic.cs">
+    <Compile Include="Form\UtilForm\Notebook\FormStatistic.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\UtilForm\FormStatistic.Designer.cs">
+    <Compile Include="Form\UtilForm\Notebook\FormStatistic.Designer.cs">
       <DependentUpon>FormStatistic.cs</DependentUpon>
     </Compile>
     <Compile Include="Form\ChildForm\FormTopic.cs">
@@ -232,10 +256,10 @@
     <Compile Include="Form\ChildForm\FormNotebook.Designer.cs">
       <DependentUpon>FormNotebook.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form\UtilForm\FormProfile.cs">
+    <Compile Include="Form\UtilForm\Home\FormProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form\UtilForm\FormProfile.Designer.cs">
+    <Compile Include="Form\UtilForm\Home\FormProfile.Designer.cs">
       <DependentUpon>FormProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="Form\ChildForm\FormSetting.cs">
@@ -326,16 +350,28 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FormAdmin_Topic_BranchDetail.resx">
+    <EmbeddedResource Include="Form\UtilForm\Admin\FormAdmin_Topic_BranchDetail.resx">
       <DependentUpon>FormAdmin_Topic_BranchDetail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormGuest.resx">
+    <EmbeddedResource Include="Form\UtilForm\Game\FormGame1.resx">
+      <DependentUpon>FormGame1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\UtilForm\Game\FormGame2.resx">
+      <DependentUpon>FormGame2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\UtilForm\FormGuest.resx">
       <DependentUpon>FormGuest.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\UtilForm\FormTopic_Branch.resx">
+    <EmbeddedResource Include="Form\UtilForm\FormLoading.resx">
+      <DependentUpon>FormLoading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\ChildForm\FormMiniGame.resx">
+      <DependentUpon>FormMiniGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\UtilForm\Topic\FormTopic_Branch.resx">
       <DependentUpon>FormTopic_Branch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\UtilForm\FormTopic_List.resx">
+    <EmbeddedResource Include="Form\UtilForm\Topic\FormTopic_List.resx">
       <DependentUpon>FormTopic_List.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\ChildForm\FormAdmin.resx">
@@ -359,10 +395,10 @@
     <EmbeddedResource Include="Form\UtilForm\FormPremium.resx">
       <DependentUpon>FormPremium.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\UtilForm\FormSetGoal.resx">
+    <EmbeddedResource Include="Form\UtilForm\Home\FormSetGoal.resx">
       <DependentUpon>FormSetGoal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\UtilForm\FormStatistic.resx">
+    <EmbeddedResource Include="Form\UtilForm\Notebook\FormStatistic.resx">
       <DependentUpon>FormStatistic.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\ChildForm\FormTopic.resx">
@@ -371,7 +407,7 @@
     <EmbeddedResource Include="Form\ChildForm\FormNotebook.resx">
       <DependentUpon>FormNotebook.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form\UtilForm\FormProfile.resx">
+    <EmbeddedResource Include="Form\UtilForm\Home\FormProfile.resx">
       <DependentUpon>FormProfile.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\ChildForm\FormSetting.resx">
@@ -458,6 +494,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Premium_Theme.png" />
     <None Include="Resources\Theme3_5.png" />
     <None Include="Resources\Theme3_4.png" />
     <None Include="Resources\Theme3_3.png" />
@@ -478,6 +515,13 @@
     <None Include="Resources\Education.png" />
     <None Include="Resources\Food.png" />
     <None Include="Resources\Health.png" />
+    <None Include="Resources\Flower_.png" />
+    <None Include="Resources\Flower_1.png" />
+    <None Include="Resources\Flower_2.png" />
+    <None Include="Resources\Flower_3.png" />
+    <None Include="Resources\Flower_4.png" />
+    <None Include="Resources\Flower_5.png" />
+    <None Include="Resources\Coin_7.png" />
     <Content Include="Resources\Login_AnimationImage\debut.png" />
     <Content Include="Resources\Login_AnimationImage\textbox_password.png" />
     <Content Include="Resources\Login_AnimationImage\textbox_user_1.png" />

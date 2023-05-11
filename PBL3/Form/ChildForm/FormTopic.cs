@@ -20,14 +20,9 @@ namespace PBL3
 {
     public partial class FormTopic : Form
     {
-        private List<Topic> _Topics;
-
         public FormTopic()
         {
             InitializeComponent();
-
-            DataManager dm = new DataManager();
-            _Topics = dm.EDictionaryManager.GetTopic_All();
 
             SetupUI();
         }
@@ -35,7 +30,10 @@ namespace PBL3
         #region HELPER FUNCTIONS
         private void SetupUI()
         {
-            foreach (Topic t in _Topics)
+            DataManager dm = new DataManager();
+            List<Topic> topics = dm.EDictionaryManager.GetTopic_All();
+
+            foreach (Topic t in topics)
             {
                 Button btn = CreateButton(t);
                 btn.Location = new Point(panelTopic.Controls.Count * 275, 0);
@@ -47,12 +45,9 @@ namespace PBL3
         {
             RJButton b = new RJButton();
             b.BackColor = Color.FromArgb(240, 237, 254);
-            if (topic.Background != null)
+            using (MemoryStream ms = new MemoryStream(topic.Background))
             {
-                /*using (MemoryStream ms = new MemoryStream(topic.Background))
-                {
-                    b.BackgroundImage = Image.FromStream(ms);
-                }*/
+                b.BackgroundImage = Image.FromStream(ms);
             }
             b.BackgroundImageLayout = ImageLayout.Zoom;
             b.Cursor = Cursors.Hand;
@@ -65,19 +60,65 @@ namespace PBL3
             b.BorderRadius = 30;
             b.ForeColor = Color.FromArgb(44, 41, 74);
             b.MouseClick += OnBranching;
+            b.TabIndex = topic.TopicID;
 
             return b;
         }
 
+
+        public void UpdateTopicBtn()
+        {
+            DataManager dm = new DataManager();
+            List<Topic> topics = dm.EDictionaryManager.GetTopic_All();
+            panelTopic.AutoScrollPosition = new Point(0, 0);
+
+            int offset = panelTopic.Controls.Count - topics.Count;
+            if (offset < 0)
+            {
+                for (int i = 0; i < panelTopic.Controls.Count; ++i)
+                {
+                    panelTopic.Controls[i].Text = topics[i].TopicName.Replace('_', ' ');
+                    using (MemoryStream ms = new MemoryStream(topics[i].Background))
+                    {
+                        panelTopic.Controls[i].BackgroundImage = Image.FromStream(ms);
+                    }
+                }
+                for (int i = 0; i < -offset; ++i)
+                {
+                    Button btn = CreateButton(topics[panelTopic.Controls.Count]);
+                    btn.Location = new Point(panelTopic.Controls.Count * 275 - 0, 0);
+                    panelTopic.Controls.Add(btn);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < topics.Count; ++i)
+                {
+                    panelTopic.Controls[i].Text = topics[i].TopicName.Replace('_', ' ');
+                    using (MemoryStream ms = new MemoryStream(topics[i].Background))
+                    {
+                        panelTopic.Controls[i].BackgroundImage = Image.FromStream(ms);
+                    }
+                }
+
+                for (int i = 0; i < offset; ++i)
+                {
+                    panelTopic.Controls.RemoveAt(panelTopic.Controls.Count - 1);
+                }
+            }
+
+        }
+
+        #endregion
+
+        #region EVENTS
         private void OnBranching(object sender, MouseEventArgs e)
         {
-            FormTopic_Branch form = new FormTopic_Branch(_Topics
-                .Where(p => p.TopicName == ((Button)sender).Text)
-                .First().TopicID);
+            Button btn = (Button)sender;
+            FormTopic_Branch form = new FormTopic_Branch(btn.TabIndex);
 
             GlobalForm.MainForm.SwitchForm(form, FormType.Weak);
         }
-
         #endregion
     }
 }

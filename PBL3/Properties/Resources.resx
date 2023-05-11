@@ -238,4 +238,28 @@
   <data name="Theme3_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Theme3_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Flower_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Flower_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Flower_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Flower_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Flower_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Flower_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Flower_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Flower_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Flower_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Flower_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Flower_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Flower_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Premium_Theme" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Premium_Theme.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Empty" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Coin_7.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

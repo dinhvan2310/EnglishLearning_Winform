@@ -27,7 +27,6 @@ namespace EFramework.Model
         public DateTime? BirthDate { get; set; }
         public string Email { get; set; }
         public bool Gender { get; set; }
-        public string ProfilePicture { get; set; }
 
         public int TypeID { get; set; }
 

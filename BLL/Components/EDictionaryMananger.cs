@@ -19,55 +19,20 @@ using BLL.EnityFramework.Model;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Drawing;
 using Library;
+using EFramework.Migrations;
+using System.Data.Entity.Infrastructure;
+using System.CodeDom;
 
 namespace BLL.Components
 {
     public class EDictionaryMananger
     {
-        private readonly string[] _VerbFrames = new string[]
-        {
-            "",
-            "Something ----s",
-            "Somebody ----s",
-            "It is ----ing",
-            "Something is ----ing PP",
-            "Something ----s something Adjective/Noun",
-            "Somebody ----s Adjective/Noun",
-            "Somebody ----s Adjective",
-            "Somebody ----s something",
-            "Somebody ----s somebody",
-            "Something ----s somebody",
-            "Something ----s something",
-            "Something ----s to somebody",
-            "Somebody ----s on something",
-            "Somebody ----s somebody something",
-            "Somebody ----s something to somebody",
-            "Somebody ----s something from somebody",
-            "Somebody ----s somebody with something",
-            "Somebody ----s somebody of something",
-            "Something ----s something on somebody",
-            "Somebody ----s somebody PP",
-            "Somebody ----s something PP",
-            "Somebody ----s PP",
-            "Somebody's (body part) ----s",
-            "Somebody ----s somebody to INFINITIVE",
-            "Somebody ----s somebody INFINITIVE",
-            "Somebody ----s that CLAUSE",
-            "Somebody ----s to somebody",
-            "Somebody ----s to INFINITIVE",
-            "Somebody ----s whether INFINITIVE",
-            "Somebody ----s somebody into V-ing something",
-            "Somebody ----s something with something",
-            "Somebody ----s INFINITIVE",
-            "Somebody ----s VERB-ing",
-            "It ----s that CLAUSE",
-            "Something ----s INFINITIVE"
-        };
-        public List<WordModel> GetWord_Random(int limit = 10)
+        #region Word
+        public List<wn_word> GetWord_Random(int limit = 10)
         {
             using (var dbContext = new DictionaryContext())
             {
-                List<WordModel> results = new List<WordModel>();
+                List<wn_word> results = new List<wn_word>();
                 Random r = new Random();
 
                 List<string> Wn_words = new List<string>();
@@ -88,23 +53,19 @@ namespace BLL.Components
                 {
                     if (Wn_words.Count < limit && (double)item.w_num == Math.Ceiling(r.NextDouble() * 6))
                     {
-                        Wn_words.Add(item.word.ToString());
+                        results.Add(new wn_word() { word = item.word });
                     }
                 });
 
-                Wn_words.ForEach(item =>
-                {
-                    results.Add(new WordModel(item.ToString()));
-                });
                 return results;
             }
         }
 
-        public List<WordModel> GetWord_ByFilter_Random(string filter, int limit = 10, bool distinct = false)
+        public List<wn_word> GetWord_ByFilter_Random(string filter, int limit = 10, bool distinct = false)
         {
             using (var dbContext = new DictionaryContext())
             {
-                List<WordModel> results = new List<WordModel>();
+                List<wn_word> results = new List<wn_word>();
 
 
                 bool startWith = filter[filter.Length - 1] == '%';
@@ -113,61 +74,46 @@ namespace BLL.Components
 
                 if (distinct)
                 {
-                    List<string> words = dbContext.Wn_word
+                    results = dbContext.Wn_word
                                          .Where(w =>
                                              startWith && endWith ? w.word.Contains(filter) :
                                              startWith ? w.word.StartsWith(filter) :
                                              endWith ? w.word.EndsWith(filter) :
                                              w.word.Equals(filter))
-                                         .Select(w => w.word.ToString())
-                                         .Distinct()
                                          .Shuffle(new Random())
-                                         .Take(limit).ToList();
-                    words.ForEach(item =>
-                    {
-                        results.Add(new WordModel(item.ToString()));
-                    });
+                                         .ToList();
+
+                    results = results.GroupBy(p => p.word)
+                        .Select(p => p.First())
+                        .Take(limit).ToList();
                 }
                 else
                 {
-                    List<wn_word> Wn_words = dbContext.Wn_word
+                    results = dbContext.Wn_word
                                          .Where(w =>
                                              startWith && endWith ? w.word.Contains(filter) :
                                              startWith ? w.word.StartsWith(filter) :
                                              endWith ? w.word.EndsWith(filter) :
                                              w.word.Equals(filter))
                                          .OrderBy(w => Guid.NewGuid())
-                                         .Take(limit).ToList();
-                    Wn_words.ForEach(item =>
-                    {
-                        results.Add(new WordModel(item.word.Replace('_', ' ')));
-                    });
+                                         .Take(limit)
+                                         .ToList();
                 }
                 return results;
             }
         }
 
-        public List<WordModel> GetWord_BySynsetID(decimal id)
+        public List<wn_word> GetWord_BySynsetID(decimal id)
         {
             using (var dbContext = new DictionaryContext())
             {
-                List<WordModel> results = new List<WordModel>();
+                List<wn_word> results = new List<wn_word>();
 
                 List<string> Wn_words = new List<string>();
-                var temp = dbContext.Wn_word
+                results = dbContext.Wn_word
                                 .Where(p => p.synset_id.Equals(id))
-                                .Select(p => p.word)
                                 .ToList();
 
-                temp.ForEach(item =>
-                {
-                    Wn_words.Add(item.ToString());
-                });
-
-                Wn_words.ForEach(item =>
-                {
-                    results.Add(new WordModel(item.ToString()));
-                });
                 return results;
             }
         }
@@ -177,64 +123,50 @@ namespace BLL.Components
         /// </summary>
         /// <param name="word"></param>
         /// <returns></returns>
-        public List<WordModel> GetSynonymWord_ByWord(string word)
+        public List<wn_word> GetSynonymWord_ByWord(string word)
         {
             using (var dbContext = new DictionaryContext())
             {
-                List<WordModel> results = new List<WordModel>();
+                List<wn_word> results = new List<wn_word>();
+                List<wn_synset> ss = GetSynset_ByWord(word); // word family synsets
 
-                List<SynsetModel> ss = GetSynset_ByWord(word);
-                List<string> Wn_words = new List<string>();
-
-                foreach (SynsetModel s in ss)
+                foreach (wn_synset s in ss)
                 {
-                    var temp = dbContext.Wn_word
-                                    .Where(p => p.synset_id.Equals(s.ID))
-                                    .Select(p => p.word)
-                                    .ToList();
-
-                    temp.ForEach(item =>
-                    {
-                        Wn_words.Add(item.ToString());
-                    });
+                    results.AddRange(GetWord_BySynsetID(s.synset_id));
                 }
 
-                Wn_words = Wn_words.Distinct().ToList();
-                // except base word
-                Wn_words.Remove(word);
-                Wn_words.ForEach(item =>
-                {
-                    results.Add(new WordModel(item.ToString()));
-                });
+                results.AddRange(GetSimilarWord_ByWord(word));
+
+                results = results.GroupBy(p => p.word)
+                        .Select(p => p.First())
+                        .ToList();
+
+                // discard current word
+                results.Remove(results.Find(p => p.word == word));
+
                 return results;
             }
         }
 
-        public List<SynsetModel> GetSynset_ByWord(string word)
+        public List<wn_synset> GetSynset_ByWord(string word)
         {
             using (var dbContext = new DictionaryContext())
             {
-                List<SynsetModel> results = null;
-                var synsets = dbContext.Wn_word.Where(i => i.word == word)
-                    .Include(p => p.Wn_synset).ToList();
-                results = synsets.Select(i => new SynsetModel()
-                {
-                    ID = i.synset_id,
-                    Definition = i.Wn_synset.definition,
-                    Words = new List<WordModel>
-                    {
-                        new WordModel(i.word)
-                    }
-                }).ToList();
+                List<wn_synset> results = null;
+                results = dbContext.Wn_word
+                    .Where(p => p.word == word)
+                    .Select(p => p.Wn_synset)
+                    .ToList();
+                
                 return results;
             }
         }
         
-        public List<WordModel> GetWord_ByFilter(string filter, int limit = 10, bool distinct = false)
+        public List<wn_word> GetWord_ByFilter(string filter, int limit = 10, bool distinct = false)
         {
             using (var dbContext = new DictionaryContext())
             {
-                List<WordModel> results = new List<WordModel>();
+                List<wn_word> results = new List<wn_word>();
 
                 bool startWith = filter[filter.Length - 1] == '%';
                 bool endWith = filter[0] == '%';
@@ -242,24 +174,21 @@ namespace BLL.Components
 
                 if (distinct)
                 {
-                    List<string> words = dbContext.Wn_word
+                    results = dbContext.Wn_word
                                          .Where(w =>
                                              startWith && endWith ? w.word.Contains(filter) :
                                              startWith ? w.word.StartsWith(filter) :
                                              endWith ? w.word.EndsWith(filter) :
                                              w.word.Equals(filter))
-                                         .Select(w => w.word.ToString())
-                                         .Distinct()
-                                         .Take(limit).ToList();
+                                         .ToList();
 
-                    words.ForEach(item =>
-                    {
-                        results.Add(new WordModel(item.ToString()));
-                    });
+                    results = results.GroupBy(p => p.word)
+                                .Select(p => p.First())
+                                .Take(limit).ToList();
                 }
                 else
                 {
-                    List<wn_word> Wn_words = dbContext.Wn_word
+                    results = dbContext.Wn_word
                                          .Where(w =>
                                              startWith && endWith ? w.word.Contains(filter) :
                                              startWith ? w.word.StartsWith(filter) :
@@ -267,11 +196,6 @@ namespace BLL.Components
                                              w.word.Equals(filter))
                                          .Take(limit)
                                          .ToList();
-
-                    Wn_words.ForEach(item =>
-                    {
-                        results.Add(new WordModel(item.word));
-                    });
                 }
 
                 return results;
@@ -279,72 +203,51 @@ namespace BLL.Components
             }
         }
 
-        public List<WordModel> GetSimilarWord_ByWord(string word)
+        public List<wn_word> GetSimilarWord_ByWord(string word)
         {
             using (var dbContext = new DictionaryContext())
             {
-                List<WordModel> results = new List<WordModel>();
+                List<wn_word> results = new List<wn_word>();
 
-                List<string> Wn_words = new List<string>();
-                var temp = dbContext.Wn_word
+                List<decimal> synsetIDs = dbContext.Wn_word
                                 .Where(p => p.word.Equals(word))
                                 .Join(
                                     dbContext.Wn_similar,
                                     w => w.synset_id,
                                     a => a.synset_id_1,
                                     (w, a) => new { a.synset_id_2 })
-                                .Join(
-                                    dbContext.Wn_word,
-                                    wa => wa.synset_id_2,
-                                    w => w.synset_id,
-                                    (wa, w) => new { w.word })
-                                .Select(p => p.word)
+                                .Select(p => p.synset_id_2)
                                 .ToList();
 
-                temp.ForEach(item =>
+                synsetIDs.ForEach(id =>
                 {
-                    Wn_words.Add(item.ToString());
+                    results.AddRange(GetWord_BySynsetID(id));
                 });
 
-                Wn_words.ForEach(item =>
-                {
-                    results.Add(new WordModel(item.ToString()));
-                });
                 return results;
             }
         }
 
-        public List<WordModel> GetAntonymWord_ByWord(string word)
+        public List<wn_word> GetAntonymWord_ByWord(string word)
         {
             using (var dbContext = new DictionaryContext())
             {
-                List<WordModel> results = new List<WordModel>();
-
-                List<string> Wn_words = new List<string>();
-                var temp = dbContext.Wn_word
+                List<wn_word> results = new List<wn_word>();
+                List<decimal> synsetIDs = dbContext.Wn_word
                                 .Where(p => p.word.Equals(word))
                                 .Join(
                                     dbContext.Wn_antonym,
                                     w => w.synset_id,
                                     a => a.synset_id_1,
                                     (w, a) => new { a.synset_id_2 })
-                                .Join(
-                                    dbContext.Wn_word,
-                                    wa => wa.synset_id_2,
-                                    w => w.synset_id,
-                                    (wa, w) => new { w.word })
-                                .Select(p => p.word)
+                                .Select (p => p.synset_id_2)
                                 .ToList();
 
-                temp.ForEach(item =>
+                synsetIDs.ForEach(id =>
                 {
-                    Wn_words.Add(item.ToString());
+                    results.AddRange(GetWord_BySynsetID(id));
                 });
 
-                Wn_words.ForEach(item =>
-                {
-                    results.Add(new WordModel(item.ToString()));
-                });
                 return results;
             }
         }
@@ -374,43 +277,101 @@ namespace BLL.Components
             }
         }
 
-        public List<WordModel> GetDerivedWord_ByWord(string word)
+        public List<wn_word> GetDerivedWord_ByWord(string word)
         {
             using (var dbContext = new DictionaryContext())
             {
-                List<WordModel> results = new List<WordModel>();
+                List<wn_word> results = new List<wn_word>();
 
-                List<string> Wn_words = new List<string>();
-                var temp = dbContext.Wn_word
+                List<decimal> synsetIDs = dbContext.Wn_word
                                 .Where(p => p.word.Equals(word))
                                 .Join(
                                     dbContext.Wn_derived,
                                     w => w.synset_id,
                                     a => a.synset_id_1,
                                     (w, a) => new { a.synset_id_2 })
-                                .Join(
-                                    dbContext.Wn_word,
-                                    wa => wa.synset_id_2,
-                                    w => w.synset_id,
-                                    (wa, w) => new { w.word })
-                                .Where(p => p.word.Contains(word))
-                                .Select(p => p.word)
-                                .Distinct()
+                                .Select(p => p.synset_id_2)
                                 .ToList();
 
-                temp.ForEach(item =>
+                synsetIDs.ForEach(id =>
                 {
-                    Wn_words.Add(item.ToString());
+                    results.AddRange(GetWord_BySynsetID(id).Where(p => p.word.Contains(word)).ToList());
                 });
 
-                Wn_words.ForEach(item =>
-                {
-                    results.Add(new WordModel(item.ToString()));
-                });
+                results = results.GroupBy(p => p.word)
+                        .Select(p => p.First())
+                        .ToList();
+
                 return results;
             }
         }
-        
+
+        private List<decimal> GetHypernymSynsetID_BySynsetID_Recur(decimal id)
+        {
+            using (DictionaryContext dbContext = new DictionaryContext())
+            {
+                List<decimal> results = new List<decimal>();
+
+                results = dbContext.Wn_hypernym
+                            .Where(p => p.synset_id_2 == id)
+                            .Select(p => p.synset_id_1)
+                            .ToList();
+
+                foreach (decimal s in results)
+                {
+                    results.Union(GetHypernymSynsetID_BySynsetID_Recur(s));
+                }
+
+                return results;
+            }
+        }
+
+        public List<string> GetDefinition_ByWord(string word)
+        {
+            word = word.Replace(' ', '_');
+
+            string txtString = string.Empty;
+            string[] result = new string[4] { "", "", "", "" }; // 0 : verb, 1: noun, 2: adj, 3: adv
+            foreach (wn_synset ss in GetSynset_ByWord(word))
+            {
+                int j = 0;
+                int i = ss.definition.IndexOf(';');
+                if (i == -1)
+                    txtString += ss.definition + ".\n\n";
+                else
+                    txtString += ss.definition.Substring(j, i) + ".\n\n";
+
+                while (true)
+                {
+                    j = i;
+                    i = ss.definition.IndexOf(';', i + 1);
+
+                    if (i == -1)
+                        break;
+
+                    string sentence = "";
+                    if (i == -1)
+                        sentence = ss.definition.Substring(j + 2);
+                    else
+                        sentence = ss.definition.Substring(j + 2, i - j - 2);
+
+                    if (sentence.Contains(word))
+                    {
+                        txtString += "\t• " + sentence.Trim('"') + ".\n\n";
+                    }
+                }
+
+                int synsetType = (int)ss.synset_id / 100000000;
+                result[synsetType - 1] += txtString;
+
+                txtString = string.Empty;
+            }
+
+            return result.ToList();
+        }
+        #endregion
+
+        #region TOPIC
         public List<Topic> GetTopic_All()
         {
             using (var dbContext = new DictionaryContext())
@@ -509,8 +470,8 @@ namespace BLL.Components
                 return results;
             }
         }
-        
-        public bool AddTopic(Topic topic)
+
+        public void AddTopic(Topic topic)
         {
             try
             {
@@ -523,17 +484,12 @@ namespace BLL.Components
 
                     dbContext.SaveChanges();
 
-                    return true;
                 }
             }
-            catch (Exception)
-            {
-                return false;
-            }
-
+            catch { throw; }
         }
 
-        public bool UpdateTopic(Topic topic)
+        public void UpdateTopic(Topic topic)
         {
             try
             {
@@ -554,14 +510,9 @@ namespace BLL.Components
                     dbContext.Branch.RemoveRange(temp);
                     dbContext.Branch.AddRange(topic.Branches);
                     dbContext.SaveChanges();
-
-                    return true;
                 }
             }
-            catch (Exception)
-            {
-                return false;
-            }
+            catch { throw; }
         }
 
         public void DeleteTopic(int topicID)
@@ -592,69 +543,46 @@ namespace BLL.Components
             }
         }
 
-        public List<decimal> GetHypernymSynsetID_BySynsetID_Recur(decimal id)
+        #endregion
+
+        private readonly string[] _VerbFrames = new string[]
         {
-            using (DictionaryContext dbContext = new DictionaryContext())
-            {
-                List<decimal> results = new List<decimal>();
-
-                results = dbContext.Wn_hypernym
-                            .Where(p => p.synset_id_2 == id)
-                            .Select(p => p.synset_id_1)
-                            .ToList();
-
-                foreach (decimal s in results)
-                {
-                    results.Union(GetHypernymSynsetID_BySynsetID_Recur(s));
-                }
-
-                return results;
-            }
-        }
-
-        public List<string> GetDefinition_ByWord(string word)
-        {
-            word = word.Replace(' ', '_');
-
-            string txtString = string.Empty;
-            string[] result = new string[4] { "", "", "", "" }; // 0 : verb, 1: noun, 2: adj, 3: adv
-            foreach (SynsetModel ss in GetSynset_ByWord(word))
-            {
-                int j = 0;
-                int i = ss.Definition.IndexOf(';');
-                if (i == -1)
-                    txtString += ss.Definition + ".\n\n";
-                else
-                    txtString += ss.Definition.Substring(j, i) + ".\n\n";
-
-                while (true)
-                {
-                    j = i;
-                    i = ss.Definition.IndexOf(';', i + 1);
-
-                    if (i == -1)
-                        break;
-
-                    string sentence = "";
-                    if (i == -1)
-                        sentence = ss.Definition.Substring(j + 2);
-                    else
-                        sentence = ss.Definition.Substring(j + 2, i - j - 2);
-
-                    if (sentence.Contains(word))
-                    {
-                        txtString += "\t• " + sentence.Trim('"') + ".\n\n";
-                    }
-                }
-
-                int synsetType = (int)ss.ID / 100000000;
-                result[synsetType - 1] += txtString;
-
-                txtString = string.Empty;
-            }
-
-            return result.ToList();
-        }
-
+            "",
+            "Something ----s",
+            "Somebody ----s",
+            "It is ----ing",
+            "Something is ----ing PP",
+            "Something ----s something Adjective/Noun",
+            "Somebody ----s Adjective/Noun",
+            "Somebody ----s Adjective",
+            "Somebody ----s something",
+            "Somebody ----s somebody",
+            "Something ----s somebody",
+            "Something ----s something",
+            "Something ----s to somebody",
+            "Somebody ----s on something",
+            "Somebody ----s somebody something",
+            "Somebody ----s something to somebody",
+            "Somebody ----s something from somebody",
+            "Somebody ----s somebody with something",
+            "Somebody ----s somebody of something",
+            "Something ----s something on somebody",
+            "Somebody ----s somebody PP",
+            "Somebody ----s something PP",
+            "Somebody ----s PP",
+            "Somebody's (body part) ----s",
+            "Somebody ----s somebody to INFINITIVE",
+            "Somebody ----s somebody INFINITIVE",
+            "Somebody ----s that CLAUSE",
+            "Somebody ----s to somebody",
+            "Somebody ----s to INFINITIVE",
+            "Somebody ----s whether INFINITIVE",
+            "Somebody ----s somebody into V-ing something",
+            "Somebody ----s something with something",
+            "Somebody ----s INFINITIVE",
+            "Somebody ----s VERB-ing",
+            "It ----s that CLAUSE",
+            "Something ----s INFINITIVE"
+        };
     }
 }

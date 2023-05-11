@@ -120,11 +120,6 @@ namespace EFramework
                 .HasForeignKey(e => e.synset_id)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<wn_synset>()
-                .HasRequired(e => e.topic)
-                .WithRequiredPrincipal(e => e.Wn_synset)
-                .WillCascadeOnDelete(false);
-
             //modelBuilder.Entity<Notebook>()
             //    .HasRequired(e => e.Wn_Word)
             //    .WithMany(e => e.Notebooks)

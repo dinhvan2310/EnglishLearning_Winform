@@ -56,7 +56,8 @@ namespace PBL3
         
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            GlobalForm.MainForm.Show();
+            GlobalForm.LoginForm.Hide();
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)

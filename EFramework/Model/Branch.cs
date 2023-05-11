@@ -20,7 +20,8 @@ namespace BLL.EnityFramework.Model
         [Column("branch_name")]
         public string BranchName{ get; set; }
 
-        [Column("topic_id")]
+        [Key]
+        [Column("topic_id", Order = 1)]
         public int TopicID { get; set; }
 
 

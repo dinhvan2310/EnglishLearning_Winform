@@ -1,6 +1,7 @@
 ﻿using BLL.Components;
 using BLL.TransferObjects;
 using BLL.Workflows;
+using EFramework.Model;
 using PBL3.Utilities;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace PBL3
     public partial class WordForm_Grammar : Form
     {
         private List<string> _VerbFrames;
-        private List<WordModel> _Deriveds;
+        private List<wn_word> _Deriveds;
         public WordForm_Grammar(string rawWord)
         {
             InitializeComponent();
@@ -29,6 +30,8 @@ namespace PBL3
             SetupUI();
         }
 
+        #region HELPER FUNCTIONS
+
         private void SetupUI()
         {
             foreach (string s in _VerbFrames)
@@ -37,9 +40,9 @@ namespace PBL3
                 panelFrames.Controls.Add(label);
             }
 
-            foreach (WordModel w in _Deriveds)
+            foreach (wn_word w in _Deriveds)
             {
-                Label label = CreateLabel(w.Word.Replace('_', ' '), true);
+                Label label = CreateLabel(w.word.Replace('_', ' '), true);
                 panelDeriveds.Controls.Add(label);
             }
 
@@ -76,12 +79,16 @@ namespace PBL3
 
             return b;
         }
+        #endregion
 
+        #region EVENTS
         private void WordFound(object sender, MouseEventArgs e)
         {
             GlobalForm.MainForm.SwitchForm(new WordForm(((Label)sender).Text.Replace(' ', '_')),
                  FormType.Weak);
         }
+
+        #endregion
     }
 
 }

@@ -50,8 +50,6 @@
             this.rjButton15 = new CustomControls.RJButton();
             this.txtCoin = new System.Windows.Forms.TextBox();
             this.rjButton16 = new CustomControls.RJButton();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.iconCoin = new FontAwesome.Sharp.IconButton();
             this.iconButton4 = new FontAwesome.Sharp.IconButton();
             this.iconNgaySinh = new FontAwesome.Sharp.IconButton();
@@ -70,6 +68,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.btnShow = new FontAwesome.Sharp.IconButton();
+            this.datePicker = new CustomControls.RJDatePicker();
             this.SuspendLayout();
             // 
             // rjButton4
@@ -104,7 +103,6 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(225, 20);
             this.txtEmail.TabIndex = 66;
-            this.txtEmail.Enter += new System.EventHandler(this.txtEmail_Enter);
             this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // rjButton1
@@ -159,7 +157,6 @@
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(225, 20);
             this.txtUserName.TabIndex = 70;
-            this.txtUserName.Enter += new System.EventHandler(this.txtUserName_Enter);
             this.txtUserName.Leave += new System.EventHandler(this.txtUserName_Leave);
             // 
             // rjButton3
@@ -215,7 +212,6 @@
             this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(225, 20);
             this.txtPass.TabIndex = 74;
-            this.txtPass.Enter += new System.EventHandler(this.txtPass_Enter);
             this.txtPass.Leave += new System.EventHandler(this.txtPass_Leave);
             // 
             // rjButton6
@@ -310,7 +306,6 @@
             this.txtNgaySinh.Name = "txtNgaySinh";
             this.txtNgaySinh.Size = new System.Drawing.Size(187, 20);
             this.txtNgaySinh.TabIndex = 82;
-            this.txtNgaySinh.Enter += new System.EventHandler(this.txtNgaySinh_Enter);
             this.txtNgaySinh.Leave += new System.EventHandler(this.txtNgaySinh_Leave);
             // 
             // rjButton10
@@ -365,7 +360,6 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(187, 20);
             this.txtName.TabIndex = 78;
-            this.txtName.Enter += new System.EventHandler(this.txtName_Enter);
             this.txtName.Leave += new System.EventHandler(this.txtName_Leave);
             // 
             // rjButton12
@@ -392,7 +386,7 @@
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.panel2.Location = new System.Drawing.Point(60, 78);
+            this.panel2.Location = new System.Drawing.Point(66, 72);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(518, 4);
@@ -402,7 +396,7 @@
             // 
             this.panel3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
-            this.panel3.Location = new System.Drawing.Point(60, 243);
+            this.panel3.Location = new System.Drawing.Point(66, 236);
             this.panel3.Margin = new System.Windows.Forms.Padding(2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(518, 4);
@@ -440,7 +434,6 @@
             this.txtCoin.Name = "txtCoin";
             this.txtCoin.Size = new System.Drawing.Size(225, 20);
             this.txtCoin.TabIndex = 94;
-            this.txtCoin.Enter += new System.EventHandler(this.txtCoin_Enter);
             this.txtCoin.Leave += new System.EventHandler(this.txtCoin_Leave);
             // 
             // rjButton16
@@ -462,32 +455,6 @@
             this.rjButton16.TabStop = false;
             this.rjButton16.TextColor = System.Drawing.Color.White;
             this.rjButton16.UseVisualStyleBackColor = false;
-            // 
-            // textBox8
-            // 
-            this.textBox8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
-            this.textBox8.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox8.Font = new System.Drawing.Font("Bahnschrift Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(112)))), ((int)(((byte)(156)))));
-            this.textBox8.Location = new System.Drawing.Point(103, 48);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox8.MinimumSize = new System.Drawing.Size(0, 30);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(187, 20);
-            this.textBox8.TabIndex = 99;
-            this.textBox8.Text = "110100110";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bahnschrift", 13.8F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(237)))), ((int)(((byte)(254)))));
-            this.label1.Location = new System.Drawing.Point(62, 46);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 23);
-            this.label1.TabIndex = 101;
-            this.label1.Text = "UID";
             // 
             // iconCoin
             // 
@@ -649,7 +616,7 @@
             this.btnExit.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(233)))), ((int)(((byte)(253)))));
             this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnExit.IconSize = 32;
-            this.btnExit.Location = new System.Drawing.Point(761, 15);
+            this.btnExit.Location = new System.Drawing.Point(807, 15);
             this.btnExit.Margin = new System.Windows.Forms.Padding(2);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(22, 24);
@@ -786,13 +753,35 @@
             this.btnShow.UseVisualStyleBackColor = false;
             this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
             // 
+            // datePicker
+            // 
+            this.datePicker.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.datePicker.BorderSize = 0;
+            this.datePicker.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.datePicker.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(87)))));
+            this.datePicker.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.datePicker.CustomFormat = "";
+            this.datePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
+            this.datePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.datePicker.Location = new System.Drawing.Point(738, 139);
+            this.datePicker.Margin = new System.Windows.Forms.Padding(2);
+            this.datePicker.MinimumSize = new System.Drawing.Size(4, 35);
+            this.datePicker.Name = "datePicker";
+            this.datePicker.Size = new System.Drawing.Size(27, 35);
+            this.datePicker.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.datePicker.TabIndex = 113;
+            this.datePicker.TabStop = false;
+            this.datePicker.TextColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(65)))), ((int)(((byte)(114)))));
+            this.datePicker.ValueChanged += new System.EventHandler(this.datePicker_ValueChanged);
+            // 
             // FormAdmin_Account_Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(62)))), ((int)(((byte)(60)))), ((int)(((byte)(102)))));
-            this.ClientSize = new System.Drawing.Size(793, 354);
+            this.ClientSize = new System.Drawing.Size(838, 386);
             this.ControlBox = false;
+            this.Controls.Add(this.datePicker);
             this.Controls.Add(this.btnShow);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
@@ -804,8 +793,6 @@
             this.Controls.Add(this.cmbBoxGender);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox8);
             this.Controls.Add(this.rjButton15);
             this.Controls.Add(this.txtCoin);
             this.Controls.Add(this.iconCoin);
@@ -875,8 +862,6 @@
         private System.Windows.Forms.TextBox txtCoin;
         private FontAwesome.Sharp.IconButton iconCoin;
         private CustomControls.RJButton rjButton16;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Label label1;
         private CustomControls.RJButton btnAdd;
         private FontAwesome.Sharp.IconButton btnExit;
         private CustomControls.RJComboBox cmbBoxGender;
@@ -888,5 +873,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private FontAwesome.Sharp.IconButton btnShow;
+        private CustomControls.RJDatePicker datePicker;
     }
 }

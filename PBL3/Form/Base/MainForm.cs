@@ -12,16 +12,17 @@ using System.IO;
 using Newtonsoft.Json;
 using PBLLibrary;
 using PBL3.Properties;
+using EFramework.Model;
 
 namespace PBL3
 {
     public partial class MainForm : Form
     {
         public Form HomeForm { get; private set; }
-        public FormTopic TopicForm { get; private set; }
-        public FormNotebook NotebookForm { get; private set; }
+        public Form TopicForm { get; private set; }
+        public Form NotebookForm { get; private set; }
         public Form MinigameForm { get; private set; }
-        public FormSetting SettingForm { get; private set; }
+        public Form SettingForm { get; private set; }
 
         private IconButton _CurrentBtn;
 
@@ -45,17 +46,21 @@ namespace PBL3
         {
             if (LoginWorkflow.Instance.IsLoggedIn())
             {
-                lblBalance.Text = LoginWorkflow.Instance.GetAccountDetail().Balance.ToString();
-                btnPersonalLogin.Text = "Đăng Xuất";
+                if (!LoginWorkflow.Instance.IsAdmin())
+                    lblBalance.Text = LoginWorkflow.Instance.GetAccountDetail().Balance.ToString();
+                else
+                    lblBalance.Text = "∞";
+
+                btnPersonalLogin.Text = "Đổi Tài Khoản";
                 OpenChildForm(HomeForm, FormType.Strong);
-                if(new DataManager().AccountManager.IsHasUserPacket(LoginWorkflow.Instance.GetAccount().AccountID, "Premium"))
-                {
-                    btnPremium.BackgroundImage = ((System.Drawing.Image)(Resources.Theme3_0));
-                }
+                if (new DataManager().PackageManager.IsHasUserPacket(LoginWorkflow.Instance.GetAccount().AccountID, "Premium"))
+                    btnPremium.BackgroundImage = Resources.Theme3_0;
+                else
+                    btnPremium.BackgroundImage = Resources.Premium_Theme;
+
             }
             else
             {
-                lblBalance.Text = "∞";
                 btnPersonalLogin.Text = "Đăng Nhập";
                 OpenChildForm(new FormGuest(), FormType.Strong);
             }
@@ -82,13 +87,25 @@ namespace PBL3
             OpenChildForm(form, formType);
         }
 
-        public void UpdateFormHome()
+        // called when switch account
+        public void RefreshForm()
         {
-            if (LoginWorkflow.Instance.IsLoggedIn() && LoginWorkflow.Instance.GetAccount().TypeID == 5)
-                HomeForm = new FormAdmin();
-            else
-                HomeForm = new FormHome();
+            GlobalForm.MainForm.StartPosition = FormStartPosition.CenterScreen;
+
+            InitializeChildForm();
+            SetupUI();
+            if (LoginWorkflow.Instance.IsFirstTimeLogged())
+                GrantLoggingCoin();
         }
+
+        public void UpdateCoinView()
+        {
+            if (LoginWorkflow.Instance.IsAdmin())
+                return;
+
+            lblBalance.Text = LoginWorkflow.Instance.GetAccountDetail().Balance.ToString();
+        }
+
 
         private void AutoLogin()
         {
@@ -98,11 +115,12 @@ namespace PBL3
                 SettingWorkflow.Instance.ApplyUserSettings(userID);
                 if (LoginWorkflow.Instance.IsFirstTimeLogged())
                 {
-                    GrantLoggingCoin();
+                    if (!LoginWorkflow.Instance.IsAdmin())
+                        GrantLoggingCoin();
                     DataManager dataManager = new DataManager();
 
                     //Kiem tra thoi han cua goi ng dung
-                    if(!dataManager.AccountManager.CheckUserPackageDuration(userID, "Premium"))
+                    if(!dataManager.PackageManager.CheckUserPackageDuration(userID, "Premium"))
                     {
                         FormMessageBox form = new FormMessageBox("Thông báo", "Gói Premium của bạn đã hết hạn sử dụng",
                         FormMessageBox.MessageType.Info);
@@ -120,15 +138,26 @@ namespace PBL3
         
         private void InitializeChildForm()
         {
-            if (LoginWorkflow.Instance.IsLoggedIn() && LoginWorkflow.Instance.GetAccount().TypeID == 5)
-                HomeForm = new FormAdmin();
-            else
-                HomeForm = new FormHome();
-
-            NotebookForm = new FormNotebook();
-            
             SettingForm = new FormSetting();
             TopicForm = new FormTopic();
+            
+
+            if (LoginWorkflow.Instance.IsLoggedIn())
+            {
+                if (LoginWorkflow.Instance.IsAdmin())
+                    HomeForm = new FormAdmin();
+                else
+                    HomeForm = new FormHome();
+
+                MinigameForm = new FormMiniGame();
+                NotebookForm = new FormNotebook();
+            }
+            else
+            {
+                MinigameForm = new FormGuest();
+                HomeForm = new FormGuest();
+                NotebookForm = new FormGuest();
+            }
 
         }
 
@@ -165,7 +194,15 @@ namespace PBL3
                 iconOverlaySelectedBtn.IconColor = color;
 
                 // panel
-                rightPanelBtn.BackColor = color;
+                if (LoginWorkflow.Instance.IsPremium())
+                {
+                    rightPanelBtn.BackgroundImage = Resources.Premium_Theme;
+                }
+                else
+                {
+                    rightPanelBtn.BackColor = color;
+                    rightPanelBtn.BackgroundImage = null;
+                }
                 rightPanelBtn.Location = new Point(190, _CurrentBtn.Location.Y);
                 rightPanelAnim.Start();
 
@@ -251,6 +288,7 @@ namespace PBL3
             b.Location = new Point(0, 25 + 30 * index);
             b.Size = new Size(443, 30);
             b.Padding = new Padding(15, 0, 0, 0);
+            b.MouseDown += WordFound;
             return b;
         }
 
@@ -274,14 +312,17 @@ namespace PBL3
         private void GrantLoggingCoin()
         {
             int cd = LoginWorkflow.Instance.GetAccountDetail().NumberOfConsecutiveDay;
+            int receivedCoin = Math.Min(cd, 7);
             Form message = new FormMessageBox(
                 "Nhận thưởng",
                 "Bạn đã điểm danh được " + cd + " ngày\n" +
-                "Số xu bạn nhận được là: " + cd * 10,
+                "Số xu bạn nhận được là: " + receivedCoin,
                 FormMessageBox.MessageType.Info);
 
             message.ShowDialog();
-            LoginWorkflow.Instance.AdjustBalance(cd * 10);
+            LoginWorkflow.Instance.AdjustBalance(receivedCoin);
+
+            UpdateCoinView();
         }
         #endregion
 
@@ -384,15 +425,7 @@ namespace PBL3
         private void btnHome_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(97, 110, 254));
-
-            if (LoginWorkflow.Instance.IsLoggedIn())
-            {
-                OpenChildForm(HomeForm, FormType.Strong);
-            }
-            else
-            {
-                OpenChildForm(new FormGuest(), FormType.Strong);
-            }
+            OpenChildForm(HomeForm, FormType.Strong);
 
         }
 
@@ -405,28 +438,13 @@ namespace PBL3
         private void btnNotebook_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(0, 191, 159));
-
-            if (LoginWorkflow.Instance.IsLoggedIn())
-            {
-                OpenChildForm(NotebookForm, FormType.Strong);
-            }
-            else
-            {
-                OpenChildForm(new FormGuest(), FormType.Strong);
-            }
+            OpenChildForm(NotebookForm, FormType.Strong);
         }
 
         private void btnGame_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, Color.FromArgb(255, 108, 131));
-            if (LoginWorkflow.Instance.IsLoggedIn())
-            {
-
-            }
-            else
-            {
-                OpenChildForm(new FormGuest(), FormType.Strong);
-            }
+            OpenChildForm(MinigameForm, FormType.Strong);
         }
 
         private void btnSetting_Click(object sender, EventArgs e)
@@ -443,30 +461,43 @@ namespace PBL3
                 return;
             }
 
-            List<WordModel> words = null;
+            bool found = true;
             DataManager dm = new DataManager();
 
             if (btnSearchType.Checked)
             {
-                words = dm.VDictionaryManager.GetWord_ByFilter(txtSearch.Text.Replace(' ', '_') + "%", 10);
-            }
-            else
-            {
-                words = dm.EDictionaryManager.GetWord_ByFilter(txtSearch.Text.Replace(' ', '_') + "%", 10, true);
-            }
-
-
-            if (words.Count != 0)
-            {
-                panelSearchFound.Size = new Size(panelSearchFound.Size.Width, 25 + 30 * words.Count);
-
-                int i = 0;
-                foreach (WordModel w in words)
+                List<word_viet> vwords = dm.VDictionaryManager.GetWord_ByFilter(txtSearch.Text.Replace(' ', '_') + "%", 10);
+                if (vwords.Count != 0)
                 {
-                    _SearchOptions[i++].Text = w.Word.Replace('_', ' ');
+                    panelSearchFound.Size = new Size(panelSearchFound.Size.Width, 25 + 30 * vwords.Count);
+
+                    int i = 0;
+                    foreach (word_viet w in vwords)
+                    {
+                        _SearchOptions[i++].Text = w.word.Replace('_', ' ');
+                    }
                 }
+                else
+                    found = false;
             }
             else
+            {
+                List<wn_word> words = dm.EDictionaryManager.GetWord_ByFilter(txtSearch.Text.Replace(' ', '_') + "%", 10, true);
+                if (words.Count != 0)
+                {
+                    panelSearchFound.Size = new Size(panelSearchFound.Size.Width, 25 + 30 * words.Count);
+
+                    int i = 0;
+                    foreach (wn_word w in words)
+                    {
+                        _SearchOptions[i++].Text = w.word.Replace('_', ' ');
+                    }
+                }
+                else
+                    found = false;
+            }
+
+            if (!found)
             {
                 panelSearchFound.Size = new Size(panelSearchFound.Size.Width, 55);
                 _SearchOptions[0].Text = txtSearch.Text;
@@ -648,10 +679,12 @@ namespace PBL3
         {
             if (!this.Visible)
                 return;
+        }
 
-            SetupUI();
-            if (LoginWorkflow.Instance.IsFirstTimeLogged())
-                GrantLoggingCoin();
+        private void WordFound(object sender, MouseEventArgs e)
+        {
+            GlobalForm.MainForm.SwitchForm(new WordForm(((Button)sender).Text.Replace(' ', '_')),
+                 FormType.Weak);
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)

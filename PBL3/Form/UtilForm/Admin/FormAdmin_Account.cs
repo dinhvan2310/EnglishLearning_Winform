@@ -49,7 +49,6 @@ namespace PBL3
             ShowListAccount(SearchBy.None);
 
             rjComboBox1.SelectedIndex = 0;
-            setPlaceholder();
         }
 
         private void setPlaceholder()
@@ -186,6 +185,7 @@ namespace PBL3
             if(txtSearch.Text == "" || placeholder.Any(i => i == txtSearch.Text))
             {
                 ShowListAccount(SearchBy.None);
+                setPlaceholder();
                 return;
             }
 
@@ -241,19 +241,26 @@ namespace PBL3
 
         private void rjButton4_Click(object sender, EventArgs e)
         {
-            int selectedRowsCount = dataGridView1.SelectedRows.Count;
-            if (selectedRowsCount > 0)
+            FormMessageBox formMessageBox = new FormMessageBox("Thông báo", "Bạn có chắc muốn xóa hay không?", FormMessageBox.MessageType.Option);
+            if (formMessageBox.ShowDialog().Equals(DialogResult.OK))
             {
-                DataManager dataManager = new DataManager();
-                foreach (DataGridViewRow row in dataGridView1.SelectedRows)
+                formMessageBox.Close();
+                int selectedRowsCount = dataGridView1.SelectedRows.Count;
+                if (selectedRowsCount > 0)
                 {
-                    if(!dataManager.AccountManager.DeleteAccount((int)row.Cells[0].Value))
+                    DataManager dataManager = new DataManager();
+                    foreach (DataGridViewRow row in dataGridView1.SelectedRows)
                     {
-                        new FormMessageBox("Lỗi", "Xóa tài khoản không thành công", FormMessageBox.MessageType.Info);
+                        if (!dataManager.AccountManager.DeleteAccount((int)row.Cells[0].Value))
+                        {
+                            new FormMessageBox("Lỗi", "Xóa tài khoản không thành công", FormMessageBox.MessageType.Info).Show();
+                        }
                     }
+                    ShowListAccount(SearchBy.None);
                 }
-                ShowListAccount(SearchBy.None);
             }
         }
+
+        
     }
 }

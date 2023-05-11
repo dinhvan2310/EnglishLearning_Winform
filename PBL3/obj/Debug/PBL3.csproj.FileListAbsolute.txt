@@ -604,3 +604,12 @@ D:\PBL3\PBL_Khoa\PLB3\PBL3\obj\Debug\PBL3.csproj.CopyComplete
 D:\PBL3\PBL_Khoa\PLB3\PBL3\obj\Debug\PBL3.exe
 D:\PBL3\PBL_Khoa\PLB3\PBL3\obj\Debug\PBL3.pdb
 D:\PBL3\PBL_Khoa\PLB3\PBL3\obj\Debug\PBL3.FormForgotPassword.resources
+D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormForgotPassword.resources
+D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormGame1.resources
+D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormGame2.resources
+D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormLoading.resources
+D:\Source\Visual Studio\C#\PBL3\PBL3\obj\Debug\PBL3.FormMiniGame.resources
+D:\PBL3\PBL_Khoa\PLB3\PBL3\obj\Debug\PBL3.FormGame1.resources
+D:\PBL3\PBL_Khoa\PLB3\PBL3\obj\Debug\PBL3.FormGame2.resources
+D:\PBL3\PBL_Khoa\PLB3\PBL3\obj\Debug\PBL3.FormLoading.resources
+D:\PBL3\PBL_Khoa\PLB3\PBL3\obj\Debug\PBL3.FormMiniGame.resources

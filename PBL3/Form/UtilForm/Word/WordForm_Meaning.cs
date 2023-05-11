@@ -50,7 +50,8 @@ namespace PBL3
             lblWord.Text = _RawWord.Replace('_', ' ');
 
             DataManager dm = new DataManager();
-            List<string> definition = null;
+            List<string> definition;
+
             if (_IsEE)
                 definition = dm.EDictionaryManager.GetDefinition_ByWord(_RawWord);
             else
@@ -67,12 +68,12 @@ namespace PBL3
                 }
             }
 
-            _DefinitionTextBoxes[0].Visible = true;
             _CurrentTypeLabelIndex = 0;
         }
 
         private void SetupUI()
         {
+            _DefinitionTextBoxes[_CurrentTypeLabelIndex].Visible = true;
             btnFavorite.Visible = _IsEE;
 
             if (!_IsEE)

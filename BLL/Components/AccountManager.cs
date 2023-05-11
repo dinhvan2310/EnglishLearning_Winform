@@ -68,7 +68,9 @@ namespace BLL.Components
         {
             using (var dbContext = new DictionaryContext())
             {
-                return dbContext.Account.Where(p => p.TypeID != 5).ToList();
+                List<Account> rs = dbContext.Account.Where(p => p.TypeID != 5).ToList();
+                rs.Reverse();
+                return rs;
             }
         }
 
@@ -145,8 +147,7 @@ namespace BLL.Components
                 }
             }
         }
-
-        public void UpdateDetailInformation(int userID, DIAdjustment adjustment)
+        public void UpdateDetailInformation(int userID, DetailedInformation detail)
         {
             using (var db = new DictionaryContext())
             {
@@ -154,16 +155,9 @@ namespace BLL.Components
                     .Where(p => p.AccountID == userID)
                     .FirstOrDefault();
 
-                switch (adjustment.ConsecutiveValue)
-                {
-                    case -1:
-                        temp.NumberOfConsecutiveDay = 1;
-                        break;
-                    case 1:
-                        temp.NumberOfConsecutiveDay += 1;
-                        break;
-                }
-                temp.Balance += adjustment.BalanceOffset;
+                temp.Balance = detail.Balance;
+                temp.NumberOfConsecutiveDay = detail.NumberOfConsecutiveDay;
+                temp.AchievedGoal = detail.AchievedGoal;
 
                 db.SaveChanges();
             }
@@ -214,106 +208,6 @@ namespace BLL.Components
             }
         }
 
-        public UserPacketInfo GetUserPacketInfo(int userID, string namePacket)
-        {
-            using(var dbContext = new DictionaryContext())
-            {
-                int packetID = dbContext.UserPacket.SingleOrDefault(p => p.Name == namePacket).PacketID;
-                return dbContext.UserPacketInfo.SingleOrDefault(p => p.AccountID == userID && p.PacketID == packetID);
-            }
-        }
-
-        public bool IsHasUserPacket(int userID, string namePacket)
-        {
-            return (GetUserPacketInfo(userID, namePacket) != null) ? true : false;
-        }
-
-        public bool CheckUserPackageDuration(int userID, string namePacket)
-        {
-            using (var dbContext = new DictionaryContext())
-            {
-                UserPacket userPacket = dbContext.UserPacket.SingleOrDefault(p => p.Name == namePacket);
-                int packetID = userPacket.PacketID;
-                UserPacketInfo userPacketInfo = dbContext.UserPacketInfo.SingleOrDefault(p => p.PacketID == packetID && p.AccountID == userID);
-                if (userPacketInfo != null)
-                {
-                    if (userPacketInfo.DueDate < DateTime.Now)
-                    {
-                        CancelUserPacket(userID, namePacket);
-                        return false;
-                    }
-                    else
-                    {
-                        return true;
-                    }
-                }
-                else
-                {
-                    return true;
-                }
-
-            }
-        }
-
-        private bool CancelUserPacket(int userID, string namePacket)
-        {
-            using (var dbContext = new DictionaryContext())
-            {
-                UserPacket userPacket = dbContext.UserPacket.SingleOrDefault(p => p.Name == namePacket);
-                int packetID = userPacket.PacketID;
-                UserPacketInfo userPacketInfo = dbContext.UserPacketInfo.SingleOrDefault(p => p.PacketID == packetID && p.AccountID == userID);
-                if(userPacketInfo != null)
-                {
-                    dbContext.UserPacketInfo.Remove(userPacketInfo);
-                    dbContext.SaveChanges();
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-        }
-
-        public bool BuyUserPacket(int userID, string namePacket)
-        {
-            using (var dbContext = new DictionaryContext())
-            {
-                int balance = GetAccountDetail(userID).Balance;
-                UserPacket userPacket = dbContext.UserPacket.SingleOrDefault(p => p.Name == namePacket);
-                int pricePacket = userPacket.Price;
-                int packetID = userPacket.PacketID;
-                if(balance >= pricePacket)
-                {
-                    var detailedInformation = dbContext.DetailedInformation.Find(userID);
-                    detailedInformation.Balance = balance - pricePacket;
-                    /*dbContext.SaveChanges();*/
-                    UserPacketInfo userPacketInfo = new UserPacketInfo()
-                    {
-                        AccountID = userID,
-                        PacketID = packetID,
-                        DueDate = DateTime.Now.AddDays(userPacket.TimeOfUse),
-                    };
-                    dbContext.UserPacketInfo.Add(userPacketInfo);
-                    dbContext.SaveChanges();
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-                
-            }
-        }
-
-        public List<UserPacketInfo> GetUserPacketInfo_All_ByNamePacket(string namePacket)
-        {
-            using (var dbContext = new DictionaryContext())
-            {
-                int packetID = dbContext.UserPacket.SingleOrDefault(p => p.Name == namePacket).PacketID;
-                return dbContext.UserPacketInfo.Where(p => p.PacketID == packetID).ToList();
-            }
-        }
 
     }
 }

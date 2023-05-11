@@ -57,16 +57,16 @@ namespace PBL3
             if (LoginWorkflow.Instance.IsLoggedIn())
             {
                 int userID = LoginWorkflow.Instance.GetAccount().AccountID;
-                if (dataManager.AccountManager.IsHasUserPacket(userID, "Premium"))
+                if (dataManager.PackageManager.IsHasUserPacket(userID, "Premium"))
                 {
-                    FormMessageBox form = new FormMessageBox("Thông báo", $"Bạn đã sỡ hữu gói dịch vụ này, hạn sử dụng đến {dataManager.AccountManager.GetUserPacketInfo(userID, "Premium").DueDate}",
+                    FormMessageBox form = new FormMessageBox("Thông báo", $"Bạn đã sỡ hữu gói dịch vụ này, hạn sử dụng đến {dataManager.PackageManager.GetUserPacketInfo(userID, "Premium").DueDate}",
                     FormMessageBox.MessageType.Info);
 
                     form.ShowDialog();
                     return;
                 }
                 
-                if(dataManager.AccountManager.BuyUserPacket(userID, "Premium"))
+                if(dataManager.PackageManager.BuyUserPacket(userID, "Premium"))
                 {
                     FormMessageBox form = new FormMessageBox("Thông báo", "Giao dịch thành công",
                     FormMessageBox.MessageType.Info);

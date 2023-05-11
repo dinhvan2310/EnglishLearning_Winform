@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BLL.TransferObjects;
+using PBLLibrary;
 
 namespace BLL.Components
 {
@@ -121,12 +122,47 @@ namespace BLL.Components
             }
 
         }
+        public void IncreaseLearnedPercent(int userID, string word, int num)
+        {
+            using (var db = new DictionaryContext())
+            {
+                var rs = db.Notebook
+                    .Where(x => x.AccountID == userID && x.Wn_Word.word == word)
+                    .FirstOrDefault();
 
+                rs.LearnedPercent += num;
+                db.SaveChanges();
+            }
+        }
+        public List<NotebookCard> GetNotebookWord_Random(int userID, int limit)
+        {
+            using (var db = new DictionaryContext())
+            {
+                List<NotebookCard> results = new List<NotebookCard>();
+
+                List<Notebook> temps = db.Notebook
+                    .Where(p => p.AccountID == userID)
+                    .Shuffle(new Random())
+                    .Take(limit)
+                    .ToList();
+
+                temps.ForEach(item =>
+                {
+                    results.Add(new NotebookCard()
+                    {
+                        Word = item.Wn_Word.word, LearnedPercent = item.LearnedPercent
+                    });
+                });
+                return results;
+            }
+        }
         public int GetNotebookCount(int userID)
         {
             using (var db = new DictionaryContext())
             {
-                return db.Notebook.Count();
+                return db.Notebook
+                    .Where(p => p.AccountID == userID)
+                    .Count();
             }
         }
     }

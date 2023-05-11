@@ -34,5 +34,35 @@
     "Volume": 10,
     "Voice": false,
     "Goal": 120
+  },
+  {
+    "UserId": 19,
+    "Volume": 10,
+    "Voice": false,
+    "Goal": 10
+  },
+  {
+    "UserId": 20,
+    "Volume": 10,
+    "Voice": false,
+    "Goal": 45
+  },
+  {
+    "UserId": 22,
+    "Volume": 10,
+    "Voice": false,
+    "Goal": 10
+  },
+  {
+    "UserId": 40,
+    "Volume": 10,
+    "Voice": false,
+    "Goal": 45
+  },
+  {
+    "UserId": 41,
+    "Volume": 10,
+    "Voice": false,
+    "Goal": 45
   }
 ]

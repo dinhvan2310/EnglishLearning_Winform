@@ -52,7 +52,7 @@ namespace PBL3
                 {
                     case SearchBy.None:
                         {
-                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts().Join(dataManager.AccountManager.GetUserPacketInfo_All_ByNamePacket("Premium"),
+                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts().Join(dataManager.PackageManager.GetUserPacketInfo_All_ByNamePacket("Premium"),
                                 a => a.AccountID, p => p.AccountID, (a, p) =>
                                 {
                                     return new
@@ -66,7 +66,7 @@ namespace PBL3
                     case SearchBy.ID:
                         {
                             int id = Convert.ToInt32(txtSearch.Text);
-                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts().Where(p => p.AccountID == id).Join(dataManager.AccountManager.GetUserPacketInfo_All_ByNamePacket("Premium"),
+                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts().Where(p => p.AccountID == id).Join(dataManager.PackageManager.GetUserPacketInfo_All_ByNamePacket("Premium"),
                                 a => a.AccountID, p => p.AccountID, (a, p) =>
                                 {
                                     return new
@@ -80,7 +80,7 @@ namespace PBL3
                     case SearchBy.UserName:
                         {
                             string userName = txtSearch.Text;
-                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts().Where(p => p.UserName == userName).Join(dataManager.AccountManager.GetUserPacketInfo_All_ByNamePacket("Premium"),
+                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts().Where(p => p.UserName == userName).Join(dataManager.PackageManager.GetUserPacketInfo_All_ByNamePacket("Premium"),
                                 a => a.AccountID, p => p.AccountID, (a, p) =>
                                 {
                                     return new
@@ -94,7 +94,7 @@ namespace PBL3
                     case SearchBy.Name:
                         {
                             string name = txtSearch.Text;
-                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts().Where(p => p.Name.Contains(name)).Join(dataManager.AccountManager.GetUserPacketInfo_All_ByNamePacket("Premium"),
+                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts().Where(p => p.Name.Contains(name)).Join(dataManager.PackageManager.GetUserPacketInfo_All_ByNamePacket("Premium"),
                                 a => a.AccountID, p => p.AccountID, (a, p) =>
                                 {
                                     return new
@@ -145,6 +145,7 @@ namespace PBL3
             if (txtSearch.Text == "" || placeholder.Any(i => i == txtSearch.Text))
             {
                 ShowListAccount(SearchBy.None);
+                setPlaceholder();
                 return;
             }
 

@@ -29,22 +29,12 @@ namespace PBL3
         {
             InitializeComponent();
 
-            this.Region = System.Drawing.Region.FromHrgn(ExternalImport.CreateRoundRectRgn(0, 0, Width, Height, 50, 50));
-
             // Reduce Flicker
             this.DoubleBuffered = true;
 
         }
 
         #region EVENTS
-
-        
-
-        private void btnReturn_MouseClick(object sender, MouseEventArgs e)
-        {
-            FormAdmin baseForm = (FormAdmin)Application.OpenForms["FormAdmin"];
-            (baseForm).OpenChildForm(baseForm.AccountForm);
-        }
 
         private void FormAdmin_Account_Add_MouseDown(object sender, MouseEventArgs e)
         {
@@ -66,6 +56,16 @@ namespace PBL3
                     iconEmail.BackColor = Color.FromArgb(192, 57, 43);
                     validEmail = false;
                 }
+                else
+                {
+                    iconEmail.BackColor = Color.FromArgb(75, 65, 114);
+                    validEmail = true;
+                }
+            }
+            else
+            {
+                iconEmail.BackColor = Color.FromArgb(192, 57, 43);
+                validEmail = false;
             }
         }
 
@@ -83,25 +83,19 @@ namespace PBL3
                     iconUserName.BackColor = Color.FromArgb(192, 57, 43);
                     validUsername = false;
                 }
+                else
+                {
+                    iconUserName.BackColor = Color.FromArgb(75, 65, 114);
+                    validUsername = true;
+                }
+            }
+            else
+            {
+                iconUserName.BackColor = Color.FromArgb(192, 57, 43);
+                validUsername = false;
             }
         }
 
-
-
-
-        
-
-        private void txtEmail_Enter(object sender, EventArgs e)
-        {
-            iconEmail.BackColor = Color.FromArgb(75, 65, 114);
-            validEmail = true;
-        }
-
-        private void txtUserName_Enter(object sender, EventArgs e)
-        {
-            iconUserName.BackColor = Color.FromArgb(75, 65, 114);
-            validUsername = true;
-        }
 
         private void txtPass_Leave(object sender, EventArgs e)
         {
@@ -112,14 +106,20 @@ namespace PBL3
                     iconPass.BackColor = Color.FromArgb(192, 57, 43);
                     validPassword = false;
                 }
+                else
+                {
+                    iconPass.BackColor = Color.FromArgb(75, 65, 114);
+                    validPassword = true;
+                }
+            }
+            else
+            {
+                iconPass.BackColor = Color.FromArgb(192, 57, 43);
+                validPassword = false;
             }
         }
 
-        private void txtPass_Enter(object sender, EventArgs e)
-        {
-            iconPass.BackColor = Color.FromArgb(75, 65, 114);
-            validPassword = true;
-        }
+        
 
         private void txtName_Leave(object sender, EventArgs e)
         {
@@ -128,31 +128,39 @@ namespace PBL3
                 iconName.BackColor = Color.FromArgb(192, 57, 43);
                 validName = false;
             }
+            else
+            {
+                iconName.BackColor = Color.FromArgb(75, 65, 114);
+                validName = true;
+            }
         }
 
-        private void txtName_Enter(object sender, EventArgs e)
-        {
-            iconName.BackColor = Color.FromArgb(75, 65, 114);
-            validName = true;
-        }
+        
 
         private void txtNgaySinh_Leave(object sender, EventArgs e)
         {
             if (txtNgaySinh.Text != String.Empty)
             {
-                if (LoginWorkflow.Instance.CheckDate(txtNgaySinh.Text) == null)
+                DateTime? dateTime = LoginWorkflow.Instance.CheckDate(txtNgaySinh.Text);
+                if (dateTime == null || dateTime > DateTime.Now)
                 {
                     iconNgaySinh.BackColor = Color.FromArgb(192, 57, 43);
                     validNgaySinh = false;
                 }
+                else
+                {
+                    iconNgaySinh.BackColor = Color.FromArgb(75, 65, 114);
+                    validNgaySinh = true;
+                }
+            }
+            else
+            {
+                validNgaySinh = false;
+                iconNgaySinh.BackColor = Color.FromArgb(192, 57, 43);
             }
         }
 
-        private void txtNgaySinh_Enter(object sender, EventArgs e)
-        {
-            iconNgaySinh.BackColor = Color.FromArgb(75, 65, 114);
-            validNgaySinh = true;
-        }
+        
 
         private void txtCoin_Leave(object sender, EventArgs e)
         {
@@ -161,6 +169,8 @@ namespace PBL3
                 try
                 {
                     int coin = Convert.ToInt32(txtCoin.Text);
+                    iconCoin.BackColor = Color.FromArgb(75, 65, 114);
+                    validCoin = true;
                 }
                 catch(Exception ex)
                 {
@@ -168,13 +178,14 @@ namespace PBL3
                     validCoin = false;
                 }
             }
+            else
+            {
+                iconCoin.BackColor = Color.FromArgb(192, 57, 43);
+                validCoin = false;
+            }
         }
 
-        private void txtCoin_Enter(object sender, EventArgs e)
-        {
-            iconCoin.BackColor = Color.FromArgb(75, 65, 114);
-            validCoin = true;
-        }
+        
 
         private void cmbBoxGender_OnSelectedIndexChanged(object sender, EventArgs e)
         {
@@ -183,16 +194,15 @@ namespace PBL3
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            string name = txtName.Text;
-            bool gender = (cmbBoxGender.SelectedIndex == 0) ? true : false;
-            DateTime? birthDay = LoginWorkflow.Instance.CheckDate(txtNgaySinh.Text);
-            string userName = txtUserName.Text;
-            string passWord = txtPass.Text;
-            string email = txtEmail.Text;
-            int coin = Convert.ToInt32(txtCoin.Text);
-
             if (validEmail && validUsername && validPassword && validName && validNgaySinh && validCoin && validGender)
             {
+                string name = txtName.Text;
+                bool gender = (cmbBoxGender.SelectedIndex == 0) ? true : false;
+                DateTime? birthDay = LoginWorkflow.Instance.CheckDate(txtNgaySinh.Text);
+                string userName = txtUserName.Text;
+                string passWord = txtPass.Text;
+                string email = txtEmail.Text;
+                int coin = Convert.ToInt32(txtCoin.Text);
                 if (LoginWorkflow.Instance.SaveAccount(new Account()
                 {
                     Name = name,
@@ -214,6 +224,10 @@ namespace PBL3
                     this.Dispose();
                 }
             }
+            else
+            {
+                new FormMessageBox("Thông báo", "Thêm không thành công", FormMessageBox.MessageType.Info).ShowDialog();
+            }
         }
 
         private void btnShow_Click(object sender, EventArgs e)
@@ -229,6 +243,15 @@ namespace PBL3
                 txtPass.PasswordChar = '*';
             }
         }
+
+        private void datePicker_ValueChanged(object sender, EventArgs e)
+        {
+            txtNgaySinh.Text = datePicker.Text;
+            txtNgaySinh_Leave(this, new EventArgs());
+        }
+
         #endregion
+
+        
     }
 }
