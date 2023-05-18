@@ -288,7 +288,7 @@ namespace PBL3
             b.Location = new Point(0, 25 + 30 * index);
             b.Size = new Size(443, 30);
             b.Padding = new Padding(15, 0, 0, 0);
-            b.MouseDown += WordFound;
+            b.MouseDown += btnSearchFound_Click;
             return b;
         }
 
@@ -340,18 +340,6 @@ namespace PBL3
             messageBox.StartPosition = FormStartPosition.CenterScreen;
             if (messageBox.ShowDialog() == DialogResult.OK)
                 Application.Exit();
-        }
-
-        private void btnMaximize_Click(object sender, EventArgs e)
-        {
-            if (WindowState == FormWindowState.Maximized)
-            {
-                WindowState = FormWindowState.Normal;
-            }
-            else
-            {
-                WindowState = FormWindowState.Maximized;
-            }
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
@@ -673,18 +661,6 @@ namespace PBL3
         {
             Form form = new FormTranslanteText();
             OpenChildForm(form, FormType.Weak);
-        }
-
-        private void MainForm_VisibleChanged(object sender, EventArgs e)
-        {
-            if (!this.Visible)
-                return;
-        }
-
-        private void WordFound(object sender, MouseEventArgs e)
-        {
-            GlobalForm.MainForm.SwitchForm(new WordForm(((Button)sender).Text.Replace(' ', '_')),
-                 FormType.Weak);
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)

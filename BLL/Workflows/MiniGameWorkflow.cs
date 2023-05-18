@@ -104,7 +104,7 @@ namespace PBLLibrary
         {
             int accountID = LoginWorkflow.Instance.GetAccount().AccountID;
             List<string> result = _NotebookManager.GetNotebookWord_Random(accountID, count)
-                .Select(p => p.Word)
+                .Select(p => p.Wn_Word.word)
                 .ToList();
 
             if (result.Count < count)

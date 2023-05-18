@@ -232,6 +232,12 @@ namespace PBL3
             if (e.RowIndex == -1)
                 return;
 
+            if (dataGridView1.Rows[e.RowIndex].Cells["Tên nhánh"].Value == null)
+            {
+                dataGridView1.Rows[e.RowIndex].Cells["Tên nhánh"].Value = "-row-";
+                return;
+            }
+
             DataManager dm = new DataManager();
             if (dm.EDictionaryManager.GetSynset_ByWord(
                 dataGridView1.Rows[e.RowIndex].Cells["Tên nhánh"].Value.ToString()).Count == 0)

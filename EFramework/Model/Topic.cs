@@ -15,7 +15,7 @@ namespace EFramework.Model
     {
         public Topic()
         {
-            Branches = new List<Branch>();
+            Branches = new HashSet<Branch>();
         }
 
         [Key]

@@ -64,5 +64,11 @@
     "Volume": 10,
     "Voice": false,
     "Goal": 45
+  },
+  {
+    "UserId": 21,
+    "Volume": 10,
+    "Voice": false,
+    "Goal": 10
   }
 ]

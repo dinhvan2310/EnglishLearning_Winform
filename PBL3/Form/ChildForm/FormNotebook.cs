@@ -29,16 +29,16 @@ namespace PBL3
             panelNotebook.Controls.Clear();
 
             DataManager dm = new DataManager();
-            List<NotebookCard> words = dm.NotebookManager.GetNotebookWord_All(LoginWorkflow.Instance.GetAccount().AccountID);
+            List<Notebook> words = dm.NotebookManager.GetNotebookWord_All(LoginWorkflow.Instance.GetAccount().AccountID);
             words.ForEach(w =>
             {
                 if (w.LearnedPercent >= 100)
                 {
-                    dm.NotebookManager.RemoveWord(LoginWorkflow.Instance.GetAccount().AccountID, w.Word);
-                    learnedWords.Add(w.Word);
+                    dm.NotebookManager.RemoveWord(LoginWorkflow.Instance.GetAccount().AccountID, w.Wn_Word.word);
+                    learnedWords.Add(w.Wn_Word.word);
                 }
 
-                panelNotebook.Controls.Add(CreateButtonWord(w.Word, w.LearnedPercent));
+                panelNotebook.Controls.Add(CreateButtonWord(w.Wn_Word.word, w.LearnedPercent));
             });
 
             if (learnedWords.Count != 0)
@@ -105,13 +105,13 @@ namespace PBL3
             panelNotebook.Controls.Clear();
 
             DataManager dm = new DataManager();
-            List<NotebookCard> words = dm.NotebookManager.GetSortedWord_ByPercentLearning(
+            List<Notebook> words = dm.NotebookManager.GetSortedWord_ByPercentLearning(
                 LoginWorkflow.Instance.GetAccount().AccountID,
                 ((Button)sender).Name);
 
             words.ForEach(w =>
             {
-                panelNotebook.Controls.Add(CreateButtonWord(w.Word, w.LearnedPercent));
+                panelNotebook.Controls.Add(CreateButtonWord(w.Wn_Word.word, w.LearnedPercent));
             });
         }
 

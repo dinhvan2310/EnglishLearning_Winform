@@ -314,38 +314,6 @@ namespace BLL.Workflows
             }
         }
 
-        private void SetupAccount()
-        {
-            // update account
-            int yesterdayID = Convert.ToInt32(
-                        DateTime.Now.Subtract(new TimeSpan(1, 0, 0, 0)).ToString("yyyyMMdd"));
-            InformationPerDay yesterdayIPD = _AccountManager.GetLearningStat_ByID(_UserID, yesterdayID);
-            InformationPerDay currentIPD = _AccountManager.GetLearningStat_ByID(_UserID,
-                Convert.ToInt32(DateTime.Now.ToString("yyyyMMdd")));
-
-            DetailedInformation detail = GetAccountDetail();
-            _FirstTimeLogged = currentIPD == null;
-            if (yesterdayIPD == null) // not online yesterday
-            {
-                _AccountManager.UpdateDetailInformation(_UserID, new DetailedInformation()
-                {
-                    NumberOfConsecutiveDay = 1,
-                    Balance = detail.Balance,
-                    AchievedGoal = detail.AchievedGoal
-                });
-            }
-            else if (currentIPD == null) // first time login of day
-            {
-                _AccountManager.UpdateDetailInformation(_UserID, new DetailedInformation()
-                {
-                    NumberOfConsecutiveDay = detail.NumberOfConsecutiveDay + 1,
-                    Balance = detail.Balance,
-                    AchievedGoal = false
-                });
-            }
-            _AccountManager.UpdateLearningStat(_UserID, 0, 0);
-        }
-
         // auto login usage
         public bool Login()
         {
@@ -392,14 +360,70 @@ namespace BLL.Workflows
             }
         }
 
-        public void UpdateLearningStat(float learnedHour, int learnedWord)
+        private void SetupAccount()
         {
-            _AccountManager.UpdateLearningStat(_UserID, learnedHour, learnedWord);
+            // update account
+            int yesterdayID = Convert.ToInt32(
+                        DateTime.Now.Subtract(new TimeSpan(1, 0, 0, 0)).ToString("yyyyMMdd"));
+            InformationPerDay yesterdayIPD = _AccountManager.GetLearningStat_ByID(_UserID, yesterdayID);
+            InformationPerDay currentIPD = _AccountManager.GetLearningStat_ByID(_UserID,
+                Convert.ToInt32(DateTime.Now.ToString("yyyyMMdd")));
+            _FirstTimeLogged = currentIPD == null;
+
+            DetailedInformation detail = GetAccountDetail();
+
+            if (currentIPD == null) // first time login of day
+            {
+                detail.AchievedGoal = false;
+
+                if (yesterdayIPD == null) // not login yesterday
+                    detail.NumberOfConsecutiveDay = 1;
+                else
+                    detail.NumberOfConsecutiveDay += 1;
+
+                _AccountManager.UpdateDetailInformation(_UserID, detail);
+                _AccountManager.CreateLearningStat(_UserID, 0, 0);
+            }
         }
 
-        public int GetNumberOfLearnedDay()
+        public bool CheckExistGmail(string email, string username)
         {
-            return _AccountManager.GetLearningStat_All_ByUID(_UserID).Count();
+            using(var db = new DictionaryContext())
+            {
+                if(db.Account.SingleOrDefault(p => p.Email == email && p.UserName == username ) != null)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool UpdatePassword(string username, string newPass)
+        {
+            using(var db = new DictionaryContext())
+            {
+                Account acc = db.Account.SingleOrDefault(p => p.UserName == username);
+                if(acc != null)
+                {
+                    acc.Password = CreateMD5(newPass);
+                    db.Entry(acc.DetailedInformation).State = System.Data.Entity.EntityState.Unchanged;
+                    db.SaveChanges();
+                    return true;
+                }
+              
+            }
+            return false;
+        }
+
+        public void UpdateLearningStat(float learnedHour, int learnedWord)
+        {
+            var today = Convert.ToInt32(DateTime.Today.ToString("yyyyMMdd"));
+            InformationPerDay ipd = _AccountManager.GetLearningStat_ByID(_UserID, today);
+
+            ipd.OnlineHour += learnedHour;
+            ipd.NumberOfLearnedWord += learnedWord;
+
+            _AccountManager.UpdateLearningStat(_UserID, ipd);
         }
 
         public int GetNumberOfLearnedWord()
@@ -445,35 +469,6 @@ namespace BLL.Workflows
                 AchievedGoal = detail.AchievedGoal
             });
 
-        }
-
-        public bool CheckExistGmail(string email, string username)
-        {
-            using(var db = new DictionaryContext())
-            {
-                if(db.Account.SingleOrDefault(p => p.Email == email && p.UserName == username ) != null)
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        public bool UpdatePassword(string username, string newPass)
-        {
-            using(var db = new DictionaryContext())
-            {
-                Account acc = db.Account.SingleOrDefault(p => p.UserName == username);
-                if(acc != null)
-                {
-                    acc.Password = CreateMD5(newPass);
-                    db.Entry(acc.DetailedInformation).State = System.Data.Entity.EntityState.Unchanged;
-                    db.SaveChanges();
-                    return true;
-                }
-              
-            }
-            return false;
         }
     }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BLL.TransferObjects;
 using PBLLibrary;
+using System.Data.Entity;
 
 namespace BLL.Components
 {
@@ -40,19 +41,16 @@ namespace BLL.Components
                         .Select(p => new { p.w_num, p.synset_id })
                         .FirstOrDefault();
 
-                    if (!CheckWordIsExistInNotebook(userID, word))
+                    Notebook notebook = new Notebook()
                     {
-                        Notebook notebook = new Notebook()
-                        {
-                            AccountID = userID,
-                            WordNum = w.w_num,
-                            SynsetID = w.synset_id,
-                            LearnedPercent = 0
-                        };
-                        db.Notebook.Add(notebook);
+                        AccountID = userID,
+                        WordNum = w.w_num,
+                        SynsetID = w.synset_id,
+                        LearnedPercent = 0
+                    };
+                    db.Notebook.Add(notebook);
 
-                        db.SaveChanges();
-                    }
+                    db.SaveChanges();
                 }
             }
         }
@@ -72,56 +70,48 @@ namespace BLL.Components
             }
         }
 
-        public List<NotebookCard> GetNotebookWord_All(int userID)
+        public List<Notebook> GetNotebookWord_All(int userID)
         {
             using (var db = new DictionaryContext())
             {
-                List<NotebookCard> result = new List<NotebookCard>();
-
-                List<Notebook> temps = db.Notebook
+                List<Notebook> result = db.Notebook
                     .Where(p => p.AccountID == userID)
+                    .Include(p => p.Wn_Word)
                     .ToList();
-
-                temps.ForEach(item =>
-                {
-                    result.Add(new NotebookCard() { Word = item.Wn_Word.word, LearnedPercent = item.LearnedPercent });
-                });
 
                 return result;
             }
         }
 
-        public List<NotebookCard> GetSortedWord_ByPercentLearning(int userID, string order)
+        public List<Notebook> GetSortedWord_ByPercentLearning(int userID, string order)
         {
             using (var db = new DictionaryContext())
             {
-                List<NotebookCard> result = new List<NotebookCard>();
-                List<Notebook> temps = new List<Notebook>();
+                List<Notebook> result = new List<Notebook>();
 
                 if (order == "ascending")
                 {
-                    temps = db.Notebook
+                    result = db.Notebook
                         .Where(w => w.AccountID == userID)
                         .OrderBy(w => w.LearnedPercent)
+                        .Include(p => p.Wn_Word)
                         .ToList();
 
                 }
                 else
                 {
-                    temps = db.Notebook.Where(w => w.AccountID == userID)
+                    result = db.Notebook
+                        .Where(w => w.AccountID == userID)
                         .OrderByDescending(w => w.LearnedPercent)
+                        .Include(p => p.Wn_Word)
                         .ToList();
                 }
-
-                temps.ForEach(item =>
-                {
-                    result.Add(new NotebookCard() { Word = item.Wn_Word.word, LearnedPercent = item.LearnedPercent });
-                });
 
                 return result;
             }
 
         }
+
         public void IncreaseLearnedPercent(int userID, string word, int num)
         {
             using (var db = new DictionaryContext())
@@ -134,26 +124,18 @@ namespace BLL.Components
                 db.SaveChanges();
             }
         }
-        public List<NotebookCard> GetNotebookWord_Random(int userID, int limit)
+        public List<Notebook> GetNotebookWord_Random(int userID, int limit)
         {
             using (var db = new DictionaryContext())
             {
-                List<NotebookCard> results = new List<NotebookCard>();
-
-                List<Notebook> temps = db.Notebook
+                List<Notebook> result = db.Notebook
                     .Where(p => p.AccountID == userID)
+                    .Include(p => p.Wn_Word)
                     .Shuffle(new Random())
                     .Take(limit)
                     .ToList();
 
-                temps.ForEach(item =>
-                {
-                    results.Add(new NotebookCard()
-                    {
-                        Word = item.Wn_Word.word, LearnedPercent = item.LearnedPercent
-                    });
-                });
-                return results;
+                return result;
             }
         }
         public int GetNotebookCount(int userID)

@@ -14,12 +14,13 @@ namespace EFramework.Model
         public Account()
         {
             DetailedInformation = new DetailedInformation();
-            InformationPerDays = new List<InformationPerDay>();
-            UserPacketInfos = new List<UserPacketInfo>();
-            Notebooks = new List<Notebook>();
+            InformationPerDays = new HashSet<InformationPerDay>();
+            UserPacketInfos = new HashSet<UserPacketInfo>();
+            Notebooks = new HashSet<Notebook>();
         }
 
         [Key]
+        [Required]
         public int AccountID { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
