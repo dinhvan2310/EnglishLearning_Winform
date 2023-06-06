@@ -126,6 +126,17 @@ namespace BLL.Components
             }
         }
 
+        /// <summary>
+        /// Lấy danh sách các từ việt dựa trên filter 
+        /// Có 3 chế độ:
+        /// 1.  Lấy danh sách các từ có chứa filter (%filter%)
+        /// 2.  Lấy danh sách các từ bắt đầu bằng filter (filter%)
+        /// 3.  Lấy danh sách các từ kết thúc bằng filter (%filter)
+        /// 4.  Lấy danh sachs các từ giống hệt filter (filter)
+        /// </summary>
+        /// <param name="filter"></param>
+        /// <param name="limit">Số lượng tối đa các từ trả về (mặc định là 10)</param>
+        /// <returns></returns>
         public List<word_viet> GetWord_ByFilter(string filter, int limit = 10)
         {
             using (var dbContext = new DictionaryContext())
@@ -144,9 +155,9 @@ namespace BLL.Components
                                     w.word.Equals(filter))
                                 .Take(limit).ToList();
 
-                results = results.GroupBy(p => p.word)
+               /* results = results.GroupBy(p => p.word)
                     .Select(p => p.First())
-                    .ToList();
+                    .ToList();*/
 
                 return results;
 
