@@ -165,10 +165,6 @@ namespace BLL.Components
                                     w.word.Equals(filter))
                                 .Take(limit).ToList();
 
-                results = results.GroupBy(p => p.word)
-                    .Select(p => p.First())
-                    .ToList();
-
                 return results;
 
             }
