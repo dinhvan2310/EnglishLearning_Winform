@@ -29,22 +29,43 @@ namespace BLL.Components
 
                 string HTMLCode = (dbContext.Word_viet.Where(i => i.word == word).FirstOrDefault().detail);
 
-                HTMLCode = HTMLCode.Replace("\n", " ");
+                HTMLCode = HTMLCode.Replace("\n", " ");     
                 HTMLCode = HTMLCode.Replace("\t", " ");
                 HTMLCode = Regex.Replace(HTMLCode, "\\s+", " ");
-                HTMLCode = Regex.Replace(HTMLCode, "<head.*?</head>", "", RegexOptions.IgnoreCase | RegexOptions.Singleline);
-                HTMLCode = Regex.Replace(HTMLCode, "<script.*?</script>", "", RegexOptions.IgnoreCase | RegexOptions.Singleline);
+                // Sử dụng RegexOptions.Singleline pattern . sẽ khớp với \n trong khi mặc định là không
+                // Xóa tất cả kí tự nằm trong cặp tag <head>,</head> (Lazy)
+                HTMLCode = Regex.Replace(HTMLCode, "<head.*?</head>", "", RegexOptions.IgnoreCase | RegexOptions.Singleline);  
+                // Xóa tất cả kí tự nằm trong cặp tag <script>,</script> (Lazy)
+                HTMLCode = Regex.Replace(HTMLCode, "<script.*?</script>", "", RegexOptions.IgnoreCase | RegexOptions.Singleline);   
                 StringBuilder sbHTML = new StringBuilder(HTMLCode);
+                // Thay thế các thẻ đặc biệt &... 
+                //&nbsp;: Khoảng trống không phá vỡ (non-breaking space).
+                //&amp;: Ký tự "&" (ampersand).
+                //&lt;: Ký tự "<" (dấu nhỏ hơn).
+                //&gt;: Ký tự ">" (dấu lớn hơn).
+                //&quot;: Ký tự dấu ngoặc kép (double quotation mark).
+                //&apos;: Ký tự dấu nháy đơn (single quotation mark).
+                //&copy;: Ký tự bản quyền (copyright symbol).
+                //&reg;: Ký tự đăng ký (registered trademark symbol).
+                //&trade;: Ký tự thương hiệu (trademark symbol).
+                //&euro;: Ký tự Euro.
+                //&pound;: Ký tự Pound (đơn vị tiền tệ Anh).
+                //&yen;: Ký tự Yên (đơn vị tiền tệ Nhật Bản).
+                //&cent;: Ký tự Cent (đơn vị tiền tệ).
+                //&ndash;: Dấu nối ngắn.
+                //&mdash;: Dấu nối dài.
                 string[] OldWords = { "&nbsp;", "&amp;", "&quot;", "&lt;", "&gt;", "&reg;", "&copy;", "&bull;", "&trade;" };
                 string[] NewWords = { " ", "&", "\"", "<", ">", "Â®", "Â©", "â€¢", "â„¢" };
                 for (int i = 0; i < OldWords.Length; i++)
                 {
                     sbHTML.Replace(OldWords[i], NewWords[i]);
                 }
+                
                 sbHTML.Replace("<br>", "\n<br>");
                 sbHTML.Replace("<br ", "\n<br ");
                 sbHTML.Replace("<p ", "\n<p ");
 
+                // Xóa mọi tag (<....>)
                 string text = Regex.Replace(sbHTML.ToString(), "<[^>]*>", "");
 
                 text = text.Replace("\n*", "%\n*");
