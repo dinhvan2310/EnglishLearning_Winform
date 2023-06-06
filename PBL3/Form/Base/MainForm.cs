@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
@@ -454,7 +454,7 @@ namespace PBL3
 
             if (btnSearchType.Checked)
             {
-                List<word_viet> vwords = dm.VDictionaryManager.GetWord_ByFilter(txtSearch.Text.Replace(' ', '_') + "%", 10);
+                List<word_viet> vwords = dm.VDictionaryManager.GetWord_ByFilter(txtSearch.Text + "%", 10);
                 if (vwords.Count != 0)
                 {
                     panelSearchFound.Size = new Size(panelSearchFound.Size.Width, 25 + 30 * vwords.Count);
@@ -462,7 +462,7 @@ namespace PBL3
                     int i = 0;
                     foreach (word_viet w in vwords)
                     {
-                        _SearchOptions[i++].Text = w.word.Replace('_', ' ');
+                        _SearchOptions[i++].Text = w.word;
                     }
                 }
                 else
@@ -532,8 +532,7 @@ namespace PBL3
                 // Anh - Viet
                 if (btnSearchType.Checked)
                 {
-                    if (dm.VDictionaryManager.GetWord_ByFilter(_SearchOptions[_CurrentSearchOptionIndex].
-                        Text).Count == 0)
+                    if (dm.VDictionaryManager.GetWord_ByFilter(_SearchOptions[_CurrentSearchOptionIndex].Text).Count == 0)
                     {
                         OpenChildForm(new WordForm_None(txtSearch.Text, false), FormType.Weak);
                     }
@@ -546,7 +545,7 @@ namespace PBL3
                 else // Anh - Anh
                 {
                     if (dm.EDictionaryManager.GetWord_ByFilter(_SearchOptions[_CurrentSearchOptionIndex].
-                        Text.Replace(' ', '_')).Count == 0)
+                       Text.Replace(' ', '_')).Count == 0)
                     {
                         OpenChildForm(new WordForm_None(txtSearch.Text.Replace(' ', '_')), FormType.Weak);
                     }
@@ -578,13 +577,30 @@ namespace PBL3
         private void btnSearchFound_Click(object sender, EventArgs e)
         {
             DataManager dataAccess = new DataManager();
-            if (dataAccess.EDictionaryManager.GetWord_ByFilter(_SearchOptions[_CurrentSearchOptionIndex].Text.Replace(' ', '_')) == null)
+            // Anh - Viet
+            if (btnSearchType.Checked)
             {
-                OpenChildForm(new WordForm_None(((IconButton)sender).Text.Replace(' ', '_')), FormType.Weak);
+                if (dataAccess.VDictionaryManager.GetWord_ByFilter(_SearchOptions[_CurrentSearchOptionIndex].Text).Count == 0)
+                {
+                    OpenChildForm(new WordForm_None(txtSearch.Text, false), FormType.Weak);
+                }
+                else
+                {
+                    OpenChildForm(new WordForm(_SearchOptions[_CurrentSearchOptionIndex].Text, false),
+                        FormType.Weak);
+                }
             }
+            // Anh - Anh
             else
             {
-                OpenChildForm(new WordForm(((IconButton)sender).Text.Replace(' ', '_')), FormType.Weak);
+                if (dataAccess.EDictionaryManager.GetWord_ByFilter(_SearchOptions[_CurrentSearchOptionIndex].Text.Replace(' ', '_')) == null)
+                {
+                    OpenChildForm(new WordForm_None(((IconButton)sender).Text.Replace(' ', '_')), FormType.Weak);
+                }
+                else
+                {
+                    OpenChildForm(new WordForm(((IconButton)sender).Text.Replace(' ', '_')), FormType.Weak);
+                }
             }
         }
 
