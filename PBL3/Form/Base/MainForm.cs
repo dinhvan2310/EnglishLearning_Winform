@@ -288,7 +288,7 @@ namespace PBL3
             b.Location = new Point(0, 25 + 30 * index);
             b.Size = new Size(443, 30);
             b.Padding = new Padding(15, 0, 0, 0);
-            b.MouseDown += WordFound;
+            b.MouseDown += btnSearchFound_Click;
             return b;
         }
 
@@ -340,18 +340,6 @@ namespace PBL3
             messageBox.StartPosition = FormStartPosition.CenterScreen;
             if (messageBox.ShowDialog() == DialogResult.OK)
                 Application.Exit();
-        }
-
-        private void btnMaximize_Click(object sender, EventArgs e)
-        {
-            if (WindowState == FormWindowState.Maximized)
-            {
-                WindowState = FormWindowState.Normal;
-            }
-            else
-            {
-                WindowState = FormWindowState.Maximized;
-            }
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
@@ -466,7 +454,7 @@ namespace PBL3
 
             if (btnSearchType.Checked)
             {
-                List<word_viet> vwords = dm.VDictionaryManager.GetWord_ByFilter(txtSearch.Text.Replace(' ', '_') + "%", 10);
+                List<word_viet> vwords = dm.VDictionaryManager.GetWord_ByFilter(txtSearch.Text + "%", 10);
                 if (vwords.Count != 0)
                 {
                     panelSearchFound.Size = new Size(panelSearchFound.Size.Width, 25 + 30 * vwords.Count);
@@ -474,7 +462,7 @@ namespace PBL3
                     int i = 0;
                     foreach (word_viet w in vwords)
                     {
-                        _SearchOptions[i++].Text = w.word.Replace('_', ' ');
+                        _SearchOptions[i++].Text = w.word;
                     }
                 }
                 else
@@ -544,8 +532,7 @@ namespace PBL3
                 // Anh - Viet
                 if (btnSearchType.Checked)
                 {
-                    if (dm.VDictionaryManager.GetWord_ByFilter(_SearchOptions[_CurrentSearchOptionIndex].
-                        Text).Count == 0)
+                    if (dm.VDictionaryManager.GetWord_ByFilter(_SearchOptions[_CurrentSearchOptionIndex].Text).Count == 0)
                     {
                         OpenChildForm(new WordForm_None(txtSearch.Text, false), FormType.Weak);
                     }
@@ -558,7 +545,7 @@ namespace PBL3
                 else // Anh - Anh
                 {
                     if (dm.EDictionaryManager.GetWord_ByFilter(_SearchOptions[_CurrentSearchOptionIndex].
-                        Text.Replace(' ', '_')).Count == 0)
+                       Text.Replace(' ', '_')).Count == 0)
                     {
                         OpenChildForm(new WordForm_None(txtSearch.Text.Replace(' ', '_')), FormType.Weak);
                     }
@@ -590,13 +577,30 @@ namespace PBL3
         private void btnSearchFound_Click(object sender, EventArgs e)
         {
             DataManager dataAccess = new DataManager();
-            if (dataAccess.EDictionaryManager.GetWord_ByFilter(_SearchOptions[_CurrentSearchOptionIndex].Text.Replace(' ', '_')) == null)
+            // Anh - Viet
+            if (btnSearchType.Checked)
             {
-                OpenChildForm(new WordForm_None(((IconButton)sender).Text.Replace(' ', '_')), FormType.Weak);
+                if (dataAccess.VDictionaryManager.GetWord_ByFilter(_SearchOptions[_CurrentSearchOptionIndex].Text).Count == 0)
+                {
+                    OpenChildForm(new WordForm_None(txtSearch.Text, false), FormType.Weak);
+                }
+                else
+                {
+                    OpenChildForm(new WordForm(_SearchOptions[_CurrentSearchOptionIndex].Text, false),
+                        FormType.Weak);
+                }
             }
+            // Anh - Anh
             else
             {
-                OpenChildForm(new WordForm(((IconButton)sender).Text.Replace(' ', '_')), FormType.Weak);
+                if (dataAccess.EDictionaryManager.GetWord_ByFilter(_SearchOptions[_CurrentSearchOptionIndex].Text.Replace(' ', '_')) == null)
+                {
+                    OpenChildForm(new WordForm_None(((IconButton)sender).Text.Replace(' ', '_')), FormType.Weak);
+                }
+                else
+                {
+                    OpenChildForm(new WordForm(((IconButton)sender).Text.Replace(' ', '_')), FormType.Weak);
+                }
             }
         }
 
@@ -673,18 +677,6 @@ namespace PBL3
         {
             Form form = new FormTranslanteText();
             OpenChildForm(form, FormType.Weak);
-        }
-
-        private void MainForm_VisibleChanged(object sender, EventArgs e)
-        {
-            if (!this.Visible)
-                return;
-        }
-
-        private void WordFound(object sender, MouseEventArgs e)
-        {
-            GlobalForm.MainForm.SwitchForm(new WordForm(((Button)sender).Text.Replace(' ', '_')),
-                 FormType.Weak);
         }
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)

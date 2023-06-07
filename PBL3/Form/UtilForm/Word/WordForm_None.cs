@@ -80,6 +80,7 @@ namespace PBL3
             l.Cursor = Cursors.Hand;
             l.AutoSize = true;
             l.Dock = DockStyle.Top;
+            l.MouseClick += lblWordFound1_MouseClick;
 
             return l;
         }

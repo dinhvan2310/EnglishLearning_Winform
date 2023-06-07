@@ -11,10 +11,11 @@ namespace EFramework.Model
     {
         public AccountType()
         {
-            Accounts = new List<Account>();
+            Accounts = new HashSet<Account>();
         }
 
         [Key]
+        [Required]
         public int ID { get; set; }
         public string Name { get; set; }
 

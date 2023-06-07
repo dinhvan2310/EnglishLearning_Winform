@@ -11,7 +11,7 @@ namespace EFramework.Model
     {
         public wn_word()
         {
-            Notebooks = new List<Notebook>();
+            Notebooks = new HashSet<Notebook>();
         }
 
         [Key]

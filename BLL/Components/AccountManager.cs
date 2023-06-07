@@ -104,49 +104,6 @@ namespace BLL.Components
             }
         }
 
-        public InformationPerDay GetLearningStat_ByID(int accountID, int dayID)
-        {
-            using (var dbContext = new DictionaryContext())
-            {
-                return dbContext.InformationPerDay
-                    .SingleOrDefault(p => p.AccountID == accountID && p.DayID == dayID);
-            }
-        }
-
-        /// <summary>
-        /// lưu thời gian học và số từ học trong 1 ngày
-        /// </summary>
-        /// <param name="learnedWord"></param>
-        /// <param name="learnedTime"></param>
-        public void UpdateLearningStat(int userID, float learnedTime, int learnedWord)
-        {
-            using (var db = new DictionaryContext())
-            {
-                var today = Convert.ToInt32(DateTime.Today.ToString("yyyyMMdd"));
-
-                var rs = db.InformationPerDay.SingleOrDefault(p => p.AccountID == userID && p.DayID == today);
-
-                if (rs == null)
-                {
-                    var infor = new InformationPerDay()
-                    {
-                        AccountID = userID,
-                        NumberOfLearnedWord = 0,
-                        OnlineHour = 0,
-                        DayID = today
-                    };
-                    db.InformationPerDay.Add(infor);
-                    db.SaveChanges();
-                }
-                else
-                {
-
-                    rs.NumberOfLearnedWord += learnedWord;
-                    rs.OnlineHour += learnedTime;
-                    db.SaveChanges();
-                }
-            }
-        }
         public void UpdateDetailInformation(int userID, DetailedInformation detail)
         {
             using (var db = new DictionaryContext())
@@ -159,6 +116,52 @@ namespace BLL.Components
                 temp.NumberOfConsecutiveDay = detail.NumberOfConsecutiveDay;
                 temp.AchievedGoal = detail.AchievedGoal;
 
+                db.SaveChanges();
+            }
+        }
+
+        public InformationPerDay GetLearningStat_ByID(int accountID, int dayID)
+        {
+            using (var dbContext = new DictionaryContext())
+            {
+                return dbContext.InformationPerDay
+                    .SingleOrDefault(p => p.AccountID == accountID && p.DayID == dayID);
+            }
+        }
+
+        public void CreateLearningStat(int userID, float learnedTime, int learnedWord)
+        {
+            using (var db = new DictionaryContext())
+            {
+                var today = Convert.ToInt32(DateTime.Today.ToString("yyyyMMdd"));
+
+                var infor = new InformationPerDay()
+                {
+                    AccountID = userID,
+                    NumberOfLearnedWord = 0,
+                    OnlineHour = 0,
+                    DayID = today
+                };
+                db.InformationPerDay.Add(infor);
+                db.SaveChanges();
+            }
+        }
+
+        /// <summary>
+        /// lưu thời gian học và số từ học trong 1 ngày
+        /// </summary>
+        /// <param name="learnedWord"></param>
+        /// <param name="learnedTime"></param>
+        public void UpdateLearningStat(int userID, InformationPerDay ipd)
+        {
+            using (var db = new DictionaryContext())
+            {
+                var today = Convert.ToInt32(DateTime.Today.ToString("yyyyMMdd"));
+
+                var rs = db.InformationPerDay.SingleOrDefault(p => p.AccountID == userID && p.DayID == today);
+
+                rs.NumberOfLearnedWord = ipd.NumberOfLearnedWord;
+                rs.OnlineHour = ipd.OnlineHour;
                 db.SaveChanges();
             }
         }

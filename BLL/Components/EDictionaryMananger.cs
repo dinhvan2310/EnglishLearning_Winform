@@ -28,81 +28,7 @@ namespace BLL.Components
     public class EDictionaryMananger
     {
         #region Word
-        public List<wn_word> GetWord_Random(int limit = 10)
-        {
-            using (var dbContext = new DictionaryContext())
-            {
-                List<wn_word> results = new List<wn_word>();
-                Random r = new Random();
-
-                List<string> Wn_words = new List<string>();
-
-                var temp = dbContext.Wn_word
-                                .Shuffle(r)
-                                .Select(x => x.synset_id)
-                                .Take(limit * 4)
-                                .Join(
-                                    dbContext.Wn_word,
-                                    s => s,
-                                    w => w.synset_id,
-                                    (s, w) => new { Word = w, SynsetId = s })
-                                .Select(w => new { w.Word.word, w.Word.w_num })
-                                .ToList();
-
-                temp.ForEach(item =>
-                {
-                    if (Wn_words.Count < limit && (double)item.w_num == Math.Ceiling(r.NextDouble() * 6))
-                    {
-                        results.Add(new wn_word() { word = item.word });
-                    }
-                });
-
-                return results;
-            }
-        }
-
-        public List<wn_word> GetWord_ByFilter_Random(string filter, int limit = 10, bool distinct = false)
-        {
-            using (var dbContext = new DictionaryContext())
-            {
-                List<wn_word> results = new List<wn_word>();
-
-
-                bool startWith = filter[filter.Length - 1] == '%';
-                bool endWith = filter[0] == '%';
-                filter = filter.Replace("%", "");
-
-                if (distinct)
-                {
-                    results = dbContext.Wn_word
-                                         .Where(w =>
-                                             startWith && endWith ? w.word.Contains(filter) :
-                                             startWith ? w.word.StartsWith(filter) :
-                                             endWith ? w.word.EndsWith(filter) :
-                                             w.word.Equals(filter))
-                                         .Shuffle(new Random())
-                                         .ToList();
-
-                    results = results.GroupBy(p => p.word)
-                        .Select(p => p.First())
-                        .Take(limit).ToList();
-                }
-                else
-                {
-                    results = dbContext.Wn_word
-                                         .Where(w =>
-                                             startWith && endWith ? w.word.Contains(filter) :
-                                             startWith ? w.word.StartsWith(filter) :
-                                             endWith ? w.word.EndsWith(filter) :
-                                             w.word.Equals(filter))
-                                         .OrderBy(w => Guid.NewGuid())
-                                         .Take(limit)
-                                         .ToList();
-                }
-                return results;
-            }
-        }
-
+        
         public List<wn_word> GetWord_BySynsetID(decimal id)
         {
             using (var dbContext = new DictionaryContext())
@@ -368,6 +294,81 @@ namespace BLL.Components
             }
 
             return result.ToList();
+        }
+
+        public List<wn_word> GetWord_Random(int limit = 10)
+        {
+            using (var dbContext = new DictionaryContext())
+            {
+                List<wn_word> results = new List<wn_word>();
+                Random r = new Random();
+
+                List<string> Wn_words = new List<string>();
+
+                var temp = dbContext.Wn_word
+                                .Shuffle(r)
+                                .Select(x => x.synset_id)
+                                .Take(limit * 4)
+                                .Join(
+                                    dbContext.Wn_word,
+                                    s => s,
+                                    w => w.synset_id,
+                                    (s, w) => new { Word = w, SynsetId = s })
+                                .Select(w => new { w.Word.word, w.Word.w_num })
+                                .ToList();
+
+                temp.ForEach(item =>
+                {
+                    if (Wn_words.Count < limit && (double)item.w_num == Math.Ceiling(r.NextDouble() * 6))
+                    {
+                        results.Add(new wn_word() { word = item.word });
+                    }
+                });
+
+                return results;
+            }
+        }
+
+        public List<wn_word> GetWord_ByFilter_Random(string filter, int limit = 10, bool distinct = false)
+        {
+            using (var dbContext = new DictionaryContext())
+            {
+                List<wn_word> results = new List<wn_word>();
+
+
+                bool startWith = filter[filter.Length - 1] == '%';
+                bool endWith = filter[0] == '%';
+                filter = filter.Replace("%", "");
+
+                if (distinct)
+                {
+                    results = dbContext.Wn_word
+                                         .Where(w =>
+                                             startWith && endWith ? w.word.Contains(filter) :
+                                             startWith ? w.word.StartsWith(filter) :
+                                             endWith ? w.word.EndsWith(filter) :
+                                             w.word.Equals(filter))
+                                         .Shuffle(new Random())
+                                         .ToList();
+
+                    results = results.GroupBy(p => p.word)
+                        .Select(p => p.First())
+                        .Take(limit).ToList();
+                }
+                else
+                {
+                    results = dbContext.Wn_word
+                                         .Where(w =>
+                                             startWith && endWith ? w.word.Contains(filter) :
+                                             startWith ? w.word.StartsWith(filter) :
+                                             endWith ? w.word.EndsWith(filter) :
+                                             w.word.Equals(filter))
+                                         .OrderBy(w => Guid.NewGuid())
+                                         .Take(limit)
+                                         .ToList();
+                }
+                return results;
+            }
         }
         #endregion
 

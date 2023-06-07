@@ -13,7 +13,7 @@ namespace EFramework.Model
     {
         public UserPacket()
         {
-            UserPacketInfos = new List<UserPacketInfo>();
+            UserPacketInfos = new HashSet<UserPacketInfo>();
         }
 
         [Key]

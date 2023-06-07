@@ -79,7 +79,7 @@ namespace PBL3
                     "Số xu bạn nhận được là: " + (int)goal / 3,
                     FormMessageBox.MessageType.Info);
 
-                message.ShowDialog();
+                message.Show();
 
                 LoginWorkflow.Instance.AdjustBalance((int)goal / 3);
                 LoginWorkflow.Instance.HasAchievedGoal();
@@ -91,10 +91,10 @@ namespace PBL3
             panelNotebook.Controls.Clear();
 
             DataManager dm = new DataManager();
-            List<NotebookCard> words = dm.NotebookManager.GetNotebookWord_All(LoginWorkflow.Instance.GetAccount().AccountID);
+            List<Notebook> words = dm.NotebookManager.GetNotebookWord_All(LoginWorkflow.Instance.GetAccount().AccountID);
             words.ForEach(w =>
             {
-                panelNotebook.Controls.Add(CreateButtonWord(w.Word, w.LearnedPercent));
+                panelNotebook.Controls.Add(CreateButtonWord(w.Wn_Word.word, w.LearnedPercent));
             });
         }
 
