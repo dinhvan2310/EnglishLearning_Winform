@@ -101,6 +101,8 @@ namespace PBL3
 
                     _CurrentLeftBtn.Enabled = false;
                     _CurrentRightBtn.Enabled = false;
+
+                    _AnsweredCount += 1;
                 }
                 timer1.Start();
             }
@@ -146,8 +148,6 @@ namespace PBL3
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer1.Stop();
-
-            _AnsweredCount += 1;
 
             _CurrentRightBtn.BackColor = Color.FromArgb(48, 48, 87);
             _CurrentRightBtn.ForeColor = Color.FromArgb(237, 233, 253);
