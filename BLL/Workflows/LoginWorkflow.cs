@@ -351,7 +351,6 @@ namespace BLL.Workflows
                 string user = Decrypt(userNameHash);
                 string password = Decrypt(passwordHash);
                 return Login(user, password);
-                }
             }
             catch (Exception e)
             {
