@@ -129,6 +129,13 @@ namespace BLL.Components
             }
         }
 
+        /// <summary>
+        /// This function creates a new entry in the database (informationperday) for a user's learning statistics for the current
+        /// day.
+        /// </summary>
+        /// <param name="userID">The ID of the user for whom the learning statistics are being created.</param>
+        /// <param name="learnedTime">The amount of time (in hours) that the user has spent learning.</param>
+        /// <param name="learnedWord">The number of words learned by the user.</param>
         public void CreateLearningStat(int userID, float learnedTime, int learnedWord)
         {
             using (var db = new DictionaryContext())
@@ -138,8 +145,8 @@ namespace BLL.Components
                 var infor = new InformationPerDay()
                 {
                     AccountID = userID,
-                    NumberOfLearnedWord = 0,
-                    OnlineHour = 0,
+                    NumberOfLearnedWord = learnedTime,
+                    OnlineHour = learnedWord,
                     DayID = today
                 };
                 db.InformationPerDay.Add(infor);
@@ -160,9 +167,12 @@ namespace BLL.Components
 
                 var rs = db.InformationPerDay.SingleOrDefault(p => p.AccountID == userID && p.DayID == today);
 
-                rs.NumberOfLearnedWord = ipd.NumberOfLearnedWord;
-                rs.OnlineHour = ipd.OnlineHour;
-                db.SaveChanges();
+                if(rs != null)
+                {
+                    rs.NumberOfLearnedWord = ipd.NumberOfLearnedWord;
+                    rs.OnlineHour = ipd.OnlineHour;
+                    db.SaveChanges();
+                }
             }
         }
 
