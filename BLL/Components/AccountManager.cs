@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Security.Principal;
 using System.Windows.Forms;
@@ -10,7 +11,9 @@ using BLL.TransferObjects;
 using BLL.Workflows;
 using EFramework;
 using EFramework.Model;
+using Library;
 using MySqlX.XDevAPI.Common;
+using Newtonsoft.Json;
 
 namespace BLL.Components
 {
@@ -87,6 +90,19 @@ namespace BLL.Components
                     Account account = dbContext.Account.Find(accountID);
                     dbContext.Account.Remove(account);
                     dbContext.SaveChanges();
+
+                    /*string fileFullPath = GlobalConfig.Instance.PathFileJS() + "UserSettings.json";
+                    string json = File.ReadAllText(fileFullPath);
+                    
+                    JsonConvert.DeserializeObject<List<UserSetting>>(json).ForEach(item =>
+                    {
+                        if (item.UserId == account)
+                        {
+                            ChangeVolumn(item.Volume * 10);
+                            ChangeVoice(item.Voice == false ? Voice.Male : Voice.Female);
+                        }
+                    });*/
+
                     return true;
                 }
                 catch (Exception ex)
@@ -129,7 +145,14 @@ namespace BLL.Components
             }
         }
 
-        public void CreateLearningStat(int userID, int learnedTime, int learnedWord)
+        /// <summary>
+        /// This function creates a new entry in the database (informationperday) for a user's learning statistics for the current
+        /// day.
+        /// </summary>
+        /// <param name="userID">The ID of the user for whom the learning statistics are being created.</param>
+        /// <param name="learnedTime">The amount of time (in hours) that the user has spent learning.</param>
+        /// <param name="learnedWord">The number of words learned by the user.</param>
+        public void CreateLearningStat(int userID, float learnedTime, int learnedWord)
         {
             using (var db = new DictionaryContext())
             {
@@ -138,8 +161,8 @@ namespace BLL.Components
                 var infor = new InformationPerDay()
                 {
                     AccountID = userID,
-                    NumberOfLearnedWord = learnedTime,
-                    OnlineHour = learnedWord,
+                    NumberOfLearnedWord = learnedWord,
+                    OnlineHour = learnedTime,
                     DayID = today
                 };
                 db.InformationPerDay.Add(infor);

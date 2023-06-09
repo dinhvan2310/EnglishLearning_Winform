@@ -30,6 +30,7 @@ namespace PBL3
 
         private void trkVolumn_Scroll(object sender, EventArgs e)
         {
+            
             if (LoginWorkflow.Instance.IsLoggedIn())
             {
                 SettingWorkflow.Instance.SetUserSettings(LoginWorkflow.Instance.GetAccount().AccountID, trkVolumn.Value, cmbVoice.SelectedIndex == 0 ? false : true);

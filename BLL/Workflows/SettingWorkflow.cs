@@ -35,10 +35,12 @@ namespace BLL.Workflows
             _SoundManager = new SoundManager();
         }
 
+
         public void Speak(string sentence)
         {
             _SoundManager.Speak(sentence);
         }
+
 
         public void ChangeVolumn(int volumn)
         {
@@ -188,10 +190,9 @@ namespace BLL.Workflows
                     Volume = Volume,
                     Voice = Voice,
                 });
+            }
             string output = JsonConvert.SerializeObject(userSettings, Formatting.Indented);
             File.WriteAllText(fileFullPath, output);
-            }
-            
         }
 
 
