@@ -71,6 +71,7 @@ namespace BLL.Workflows
 
         /// <summary>
         /// Mã hóa chuỗi có mật khẩu
+        /// https://ngotuongdan.wordpress.com/2015/12/16/c-ma-hoa-va-giai-ma-thong-tin-voi-mat-khau/
         /// </summary>
         /// <param name="toEncrypt">Chuỗi cần mã hóa</param>
         /// <returns>Chuỗi đã mã hóa</returns>
@@ -100,10 +101,11 @@ namespace BLL.Workflows
         }
 
         /// <summary>
-        /// Giản mã
+        /// Giải mã
+        /// https://ngotuongdan.wordpress.com/2015/12/16/c-ma-hoa-va-giai-ma-thong-tin-voi-mat-khau/
         /// </summary>
         /// <param name="toDecrypt">Chuỗi đã mã hóa</param>
-        /// <returns>Chuỗi giản mã</returns>
+        /// <returns>Chuỗi giải mã</returns>
         public string Decrypt(string toDecrypt)
         {
             bool useHashing = true;
@@ -280,6 +282,16 @@ namespace BLL.Workflows
             }
         }
 
+        /// <summary>
+        /// This function checks if a user's login credentials are valid by comparing their password to a hashed
+        /// version stored in a database.
+        /// </summary>
+        /// <param name="userName">The username entered by the user trying to log in.</param>
+        /// <param name="password">The password entered by the user trying to log in.</param>
+        /// <returns>
+        /// The method returns a boolean value indicating whether the login was successful or not. If the login
+        /// is successful, it returns true, otherwise it returns false.
+        /// </returns>
         public bool Login(string userName, string password)
         {
             try
@@ -314,7 +326,10 @@ namespace BLL.Workflows
             }
         }
 
-        // auto login usage
+        /// <summary>
+        /// Auto Login
+        /// </summary>
+        /// <returns></returns>
         public bool Login()
         {
             try
@@ -360,6 +375,11 @@ namespace BLL.Workflows
             }
         }
 
+        /// <summary>
+        /// The function sets up the user's account by updating their learning statistics and account details(Balance, AchievedGoal, NumberOfConsecutiveDay).
+        /// Set _FirstTimeLogged
+        /// 
+        /// </summary>
         private void SetupAccount()
         {
             // update account
