@@ -28,7 +28,7 @@ namespace PBL3
         private Panel _CurrentPage;
 
         private bool[] _BarIsDirtys = new bool[8];
-        private readonly string[] _BarStrings = new string[] { "Họ và Tên", "Giới Tính", "01/01/2003",
+        private readonly string[] _BarStrings = new string[] { "Họ và Tên", "Giới Tính", "mm/dd/yyyy",
                                                     "Tên Tài Khoản", "Mật Khẩu", "Xác Nhận Mật Khẩu",
                                                     "Email", "Nhập Mã Xác Thực"};
 
@@ -84,6 +84,7 @@ namespace PBL3
                 btnReturn.Visible = true;
                 btnResigter.Visible = true;
             }
+            // CLick Btn Return
             else
             {
                 btnReturn.Visible = false;
@@ -109,7 +110,7 @@ namespace PBL3
         }
 
         /// <summary>
-        /// Kiểm tra định dạng của dateTime
+        /// Kiểm tra định dạng của dateTime (mm/dd/yyyy)
         /// </summary>
         /// <returns>null/DateTime</returns>
         private DateTime? ValidateDate()
@@ -393,6 +394,9 @@ namespace PBL3
         private void btnRegenerate_MouseClick(object sender, MouseEventArgs e)
         {
             _VerifyCode = GlobalConfig.Instance.GenerateVerifyCode();
+            Console.WriteLine(_VerifyCode);
+            LoginWorkflow.Instance.SendMessage(txtEmail.Text, "Verify Code",
+                "Mã Xác Thực cho tài khoản English Learning là: " + _VerifyCode);
         }
 
         private void btnResigter_Click(object sender, EventArgs e)

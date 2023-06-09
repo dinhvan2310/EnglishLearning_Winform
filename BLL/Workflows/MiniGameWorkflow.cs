@@ -121,8 +121,8 @@ namespace PBLLibrary
 
         public List<int> GetListInt_Random(int start, int count)
         {
-            Random a = new Random();
-            return Enumerable.Range(4, 4).OrderBy(x => a.Next()).Take(4).ToList();
+            Random a = new Random(start);
+            return Enumerable.Range(start, count).OrderBy(x => a.Next()).Take(count).ToList();
         }
     }
 }

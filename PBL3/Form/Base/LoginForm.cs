@@ -23,6 +23,7 @@ namespace PBL3
 
             StartPosition = FormStartPosition.CenterScreen;
             OpenChildForm(new FormSignIn());
+
         }
 
         #region HELPER FUNCTIONS
@@ -66,5 +67,6 @@ namespace PBL3
         }
         #endregion
 
+        
     }
 }

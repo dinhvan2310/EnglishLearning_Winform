@@ -45,7 +45,7 @@
             this.panelDrag.Controls.Add(this.btnExit);
             this.panelDrag.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelDrag.Location = new System.Drawing.Point(0, 0);
-            this.panelDrag.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelDrag.Margin = new System.Windows.Forms.Padding(2);
             this.panelDrag.Name = "panelDrag";
             this.panelDrag.Size = new System.Drawing.Size(412, 45);
             this.panelDrag.TabIndex = 0;
@@ -76,7 +76,7 @@
             this.btnMinimize.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.btnMinimize.IconSize = 32;
             this.btnMinimize.Location = new System.Drawing.Point(354, 8);
-            this.btnMinimize.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMinimize.Margin = new System.Windows.Forms.Padding(2);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(22, 24);
             this.btnMinimize.TabIndex = 6;
@@ -96,7 +96,7 @@
             this.btnExit.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnExit.IconSize = 32;
             this.btnExit.Location = new System.Drawing.Point(381, 10);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(2);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(22, 24);
             this.btnExit.TabIndex = 5;
@@ -108,7 +108,7 @@
             // 
             this.panelBase.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelBase.Location = new System.Drawing.Point(0, 45);
-            this.panelBase.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelBase.Margin = new System.Windows.Forms.Padding(2);
             this.panelBase.Name = "panelBase";
             this.panelBase.Size = new System.Drawing.Size(412, 379);
             this.panelBase.TabIndex = 7;
@@ -124,7 +124,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "LoginForm";
             this.Text = "LoginForm";
             this.panelDrag.ResumeLayout(false);

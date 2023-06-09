@@ -1,86 +1,14 @@
 [
   {
-    "UserId": 29,
-    "Volume": 6,
-    "Voice": false,
-    "Goal": 120
-  },
-  {
-    "UserId": 28,
-    "Volume": 10,
-    "Voice": false,
-    "Goal": 45
-  },
-  {
-    "UserId": 30,
-    "Volume": 10,
-    "Voice": false,
-    "Goal": 45
-  },
-  {
-    "UserId": 31,
-    "Volume": 8,
-    "Voice": true,
-    "Goal": 45
-  },
-  {
-    "UserId": 37,
-    "Volume": 10,
-    "Voice": true,
-    "Goal": 0
-  },
-  {
-    "UserId": 38,
-    "Volume": 10,
-    "Voice": false,
-    "Goal": 120
-  },
-  {
-    "UserId": 19,
-    "Volume": 10,
-    "Voice": false,
-    "Goal": 10
-  },
-  {
-    "UserId": 20,
-    "Volume": 10,
-    "Voice": false,
-    "Goal": 45
-  },
-  {
-    "UserId": 22,
-    "Volume": 10,
-    "Voice": false,
-    "Goal": 10
-  },
-  {
-    "UserId": 40,
-    "Volume": 10,
-    "Voice": false,
-    "Goal": 45
-  },
-  {
-    "UserId": 41,
-    "Volume": 10,
-    "Voice": false,
-    "Goal": 45
-  },
-  {
-    "UserId": 21,
-    "Volume": 10,
-    "Voice": false,
-    "Goal": 10
-  },
-  {
-    "UserId": 53,
-    "Volume": 10,
-    "Voice": false,
-    "Goal": 45
-  },
-  {
     "UserId": 54,
-    "Volume": 7,
+    "Volume": 5,
     "Voice": true,
-    "Goal": 120
+    "Goal": 45
+  },
+  {
+    "UserId": 56,
+    "Volume": 10,
+    "Voice": false,
+    "Goal": 45
   }
 ]

@@ -593,7 +593,7 @@ namespace PBL3
             // Anh - Anh
             else
             {
-                if (dataAccess.EDictionaryManager.GetWord_ByFilter(_SearchOptions[_CurrentSearchOptionIndex].Text.Replace(' ', '_')) == null)
+                if (dataAccess.EDictionaryManager.GetWord_ByFilter(_SearchOptions[_CurrentSearchOptionIndex].Text.Replace(' ', '_')).Count == 0)
                 {
                     OpenChildForm(new WordForm_None(((IconButton)sender).Text.Replace(' ', '_')), FormType.Weak);
                 }
@@ -618,6 +618,7 @@ namespace PBL3
             panelPersonal.Visible = false;
             LoginWorkflow.Instance.DisableRememberMeLogin();
             GlobalForm.LoginForm.Show();
+            GlobalForm.LoginForm.OpenChildForm(new FormSignIn());
             this.Hide();
         }
 

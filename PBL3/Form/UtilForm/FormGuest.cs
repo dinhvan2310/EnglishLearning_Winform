@@ -21,7 +21,7 @@ namespace PBL3
         private void btnLogin_MouseClick(object sender, MouseEventArgs e)
         {
             GlobalForm.LoginForm.Show();
-
+            GlobalForm.LoginForm.OpenChildForm(new FormSignIn());
             GlobalForm.MainForm.Hide();
         }
     }

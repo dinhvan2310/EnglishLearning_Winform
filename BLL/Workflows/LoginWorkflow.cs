@@ -67,7 +67,7 @@ namespace BLL.Workflows
             
         }
 
-
+        
 
         /// <summary>
         /// Mã hóa chuỗi có mật khẩu
@@ -101,7 +101,8 @@ namespace BLL.Workflows
         }
 
         /// <summary>
-        /// Giản mã
+        /// Giải mã
+        /// https://ngotuongdan.wordpress.com/2015/12/16/c-ma-hoa-va-giai-ma-thong-tin-voi-mat-khau/
         /// </summary>
         /// <param name="toDecrypt">Chuỗi đã mã hóa</param>
         /// <returns>Chuỗi giải mã</returns>
@@ -134,8 +135,8 @@ namespace BLL.Workflows
         public void DisableRememberMeLogin()
         {
             string fileFullPath = GlobalConfig.Instance.PathFileJS() + "RememberMeLogin.json";
-            /*string json = File.ReadAllText(fileFullPath);
-            dynamic jsonObj = JsonConvert.DeserializeObject(json);*/
+//             string json = File.ReadAllText(fileFullPath);
+//             dynamic jsonObj = JsonConvert.DeserializeObject(json);
             object jsonObj = new
             {
                 UserName = "",
@@ -149,8 +150,6 @@ namespace BLL.Workflows
         public void ActiveRememberMeLogin(string UserID, string Password)
         {
             string fileFullPath = GlobalConfig.Instance.PathFileJS() + "RememberMeLogin.json";
-           /* string json = File.ReadAllText(fileFullPath);
-            dynamic jsonObj = JsonConvert.DeserializeObject(json);*/
 
             object jsonObj = new
             {
@@ -248,6 +247,11 @@ namespace BLL.Workflows
             return _Validator.CheckEmail(email);
         }
 
+        /// <summary>
+        /// Kiểm tra định dạng ngày tháng năm (mm/dd/yyyy)
+        /// </summary>
+        /// <param name="date"></param>
+        /// <returns></returns>
         public DateTime? CheckDate(string date)
         {
             return _Validator.CheckDate(date);
@@ -281,6 +285,16 @@ namespace BLL.Workflows
             }
         }
 
+        /// <summary>
+        /// This function checks if a user's login credentials are valid by comparing their password to a hashed
+        /// version stored in a database.
+        /// </summary>
+        /// <param name="userName">The username entered by the user trying to log in.</param>
+        /// <param name="password">The password entered by the user trying to log in.</param>
+        /// <returns>
+        /// The method returns a boolean value indicating whether the login was successful or not. If the login
+        /// is successful, it returns true, otherwise it returns false.
+        /// </returns>
         public bool Login(string userName, string password)
         {
             try
@@ -326,18 +340,18 @@ namespace BLL.Workflows
             {
                 string fileFullPath = GlobalConfig.Instance.PathFileJS() + "RememberMeLogin.json";
                 string json = File.ReadAllText(fileFullPath);
-
+                
                 dynamic jsonObj = JsonConvert.DeserializeObject(json);
                 if (jsonObj == null)
                 {
                     return false;
                 }
+                
                 string userNameHash = jsonObj["UserName"].ToString();
                 string passwordHash = jsonObj["Password"].ToString();
 
                 if (userNameHash == "" || passwordHash == "")
                     return false;
-                
 
                 string user = Decrypt(userNameHash);
                 string password = Decrypt(passwordHash);
@@ -350,6 +364,11 @@ namespace BLL.Workflows
             }
         }
 
+        /// <summary>
+        /// The function sets up the user's account by updating their learning statistics and account details(Balance, AchievedGoal, NumberOfConsecutiveDay).
+        /// Set _FirstTimeLogged
+        /// 
+        /// </summary>
         private void SetupAccount()
         {
             // update account

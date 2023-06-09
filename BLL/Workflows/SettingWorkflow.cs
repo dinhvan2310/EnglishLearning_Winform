@@ -57,6 +57,11 @@ namespace BLL.Workflows
             return _SoundManager.IsSpeaking;
         }
 
+        /// <summary>
+        /// This function creates a JSON file containing default user settings for a given user ID.
+        /// </summary>
+        /// <param name="UserID">The ID of the user for whom the user settings JSON file is being created.
+        /// </param>
         private void CreateStandardUserSettingsJson(int UserID)
         {
             string fileFullPath = GlobalConfig.Instance.PathFileJS() + "UserSettings.json";
@@ -73,6 +78,11 @@ namespace BLL.Workflows
             File.WriteAllText(fileFullPath, output);
         }
 
+        /// <summary>
+        /// This function applies user settings for volume and voice based on the user ID by reading from a JSON
+        /// file.
+        /// </summary>
+        /// <param name="UserID">The ID of the user whose settings are being applied.</param>
         public void ApplyUserSettings(int UserID)
         {
             string fileFullPath = GlobalConfig.Instance.PathFileJS() + "UserSettings.json";
@@ -80,6 +90,7 @@ namespace BLL.Workflows
             if (json == "")
             {
                 CreateStandardUserSettingsJson(UserID);
+                json = File.ReadAllText(fileFullPath);
             }
             JsonConvert.DeserializeObject<List<UserSetting>>(json).ForEach(item =>
             {
@@ -98,6 +109,7 @@ namespace BLL.Workflows
             if (json == "")
             {
                 CreateStandardUserSettingsJson(UserID);
+                json = File.ReadAllText(fileFullPath);
             }
             List<UserSetting> userSettings = JsonConvert.DeserializeObject<List<UserSetting>>(json);
             UserSetting userSetting = userSettings.FirstOrDefault(p => p.UserId == UserID);
@@ -120,9 +132,15 @@ namespace BLL.Workflows
             {
                 return userSetting;
             }
-
         }
 
+        /// <summary>
+        /// The function sets a user's goal in a JSON file containing user settings.
+        /// </summary>
+        /// <param name="UserID">The ID of the user whose goal is being set.</param>
+        /// <param name="Goal">The goal parameter is an integer value representing the user's desired goal. It
+        /// is used in the SetUserGoal method to update or create a new user setting for the specified user
+        /// ID.</param>
         public void SetUserGoal(int UserID, int Goal)
         {
             List<UserSetting> userSettings = new List<UserSetting>();
@@ -132,6 +150,7 @@ namespace BLL.Workflows
             if (json == "")
             {
                 CreateStandardUserSettingsJson(UserID);
+                json = File.ReadAllText(fileFullPath);
             }
             userSettings = JsonConvert.DeserializeObject<List<UserSetting>>(json);
             
@@ -153,7 +172,6 @@ namespace BLL.Workflows
                     Volume = 10,
                     Voice = false,
                     Goal = Goal,
-
                 });
             }
 
@@ -161,6 +179,17 @@ namespace BLL.Workflows
             File.WriteAllText(fileFullPath, output);
         }
 
+        /// <summary>
+        /// The function sets the user settings for a given user ID by updating or adding the volume and voice
+        /// settings in a JSON file.
+        /// </summary>
+        /// <param name="UserID">An integer value representing the unique identifier of the user whose settings
+        /// are being set or updated.</param>
+        /// <param name="Volume">The volume parameter is an integer value that represents the volume level for a
+        /// user's settings. It can range from 0 to 100, with 0 being muted and 100 being the maximum
+        /// volume.</param>
+        /// <param name="Voice">A boolean value indicating whether the user has enabled voice commands or not.
+        /// </param>
         public void SetUserSettings(int UserID, int Volume, bool Voice)
         {
             List<UserSetting> userSettings = new List<UserSetting>();
@@ -169,6 +198,7 @@ namespace BLL.Workflows
             if (json == "")
             {
                 CreateStandardUserSettingsJson(UserID);
+                json = File.ReadAllText(fileFullPath);
             }
             userSettings = JsonConvert.DeserializeObject<List<UserSetting>>(json);
             bool check = false;

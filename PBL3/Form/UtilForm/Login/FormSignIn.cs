@@ -69,7 +69,10 @@ namespace PBL3
                     pictureBox1.Image = (Image)Properties.Resources.ResourceManager.GetObject(
                         txtUsername.Text.Length == 0 ? "textbox_user_Clicked"
                         : "textbox_user_" + txtUsername.Text.Length);
-
+                else if(txtUsername.Text.Length >= 24)
+                {
+                    pictureBox1.Image = (Image)Properties.Resources.ResourceManager.GetObject("textbox_user_24");
+                }
             }
 
         }
@@ -183,7 +186,7 @@ namespace PBL3
 
         private void FormSignIn_VisibleChanged(object sender, EventArgs e)
         {
-            if(this.Visible == true)
+            /*if(this.Visible == true)
             {
                 _txtPHHolders[0].Text = _barStrings[0];
                 _barIsDirtys[0] = false;
@@ -197,7 +200,7 @@ namespace PBL3
 
 
                 btnSave.Checked = false;
-            }
+            }*/
         }
     }
 }
