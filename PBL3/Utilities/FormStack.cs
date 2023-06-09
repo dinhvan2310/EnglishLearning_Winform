@@ -50,7 +50,6 @@ namespace PBL3.Utilities
             }
             _Stack.Clear();
         }
-
     }
 
     public enum FormType

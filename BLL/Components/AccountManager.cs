@@ -129,7 +129,7 @@ namespace BLL.Components
             }
         }
 
-        public void CreateLearningStat(int userID, float learnedTime, int learnedWord)
+        public void CreateLearningStat(int userID, int learnedTime, int learnedWord)
         {
             using (var db = new DictionaryContext())
             {
@@ -138,8 +138,8 @@ namespace BLL.Components
                 var infor = new InformationPerDay()
                 {
                     AccountID = userID,
-                    NumberOfLearnedWord = 0,
-                    OnlineHour = 0,
+                    NumberOfLearnedWord = learnedTime,
+                    OnlineHour = learnedWord,
                     DayID = today
                 };
                 db.InformationPerDay.Add(infor);
@@ -160,9 +160,12 @@ namespace BLL.Components
 
                 var rs = db.InformationPerDay.SingleOrDefault(p => p.AccountID == userID && p.DayID == today);
 
-                rs.NumberOfLearnedWord = ipd.NumberOfLearnedWord;
-                rs.OnlineHour = ipd.OnlineHour;
-                db.SaveChanges();
+                if(rs != null)
+                {
+                    rs.NumberOfLearnedWord = ipd.NumberOfLearnedWord;
+                    rs.OnlineHour = ipd.OnlineHour;
+                    db.SaveChanges();
+                }
             }
         }
 

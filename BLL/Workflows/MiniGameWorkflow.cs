@@ -118,5 +118,11 @@ namespace PBLLibrary
 
             return result;
         }
+
+        public List<int> GetListInt_Random(int start, int count)
+        {
+            Random a = new Random();
+            return Enumerable.Range(4, 4).OrderBy(x => a.Next()).Take(4).ToList();
+        }
     }
 }

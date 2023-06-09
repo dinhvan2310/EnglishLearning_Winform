@@ -67,10 +67,11 @@ namespace BLL.Workflows
             _IniOnlineTime = DateTime.Now;
         }
 
-        
+
 
         /// <summary>
         /// Mã hóa chuỗi có mật khẩu
+        /// https://ngotuongdan.wordpress.com/2015/12/16/c-ma-hoa-va-giai-ma-thong-tin-voi-mat-khau/
         /// </summary>
         /// <param name="toEncrypt">Chuỗi cần mã hóa</param>
         /// <returns>Chuỗi đã mã hóa</returns>
@@ -100,10 +101,11 @@ namespace BLL.Workflows
         }
 
         /// <summary>
-        /// Giản mã
+        /// Giải mã 
+        /// https://ngotuongdan.wordpress.com/2015/12/16/c-ma-hoa-va-giai-ma-thong-tin-voi-mat-khau/
         /// </summary>
         /// <param name="toDecrypt">Chuỗi đã mã hóa</param>
-        /// <returns>Chuỗi giản mã</returns>
+        /// <returns>Chuỗi giải mã</returns>
         public string Decrypt(string toDecrypt)
         {
             bool useHashing = true;
@@ -280,6 +282,7 @@ namespace BLL.Workflows
             }
         }
 
+        ///
         public bool Login(string userName, string password)
         {
             try
@@ -314,7 +317,10 @@ namespace BLL.Workflows
             }
         }
 
-        // auto login usage
+        /// <summary>
+        /// Auto Login
+        /// </summary>
+        /// <returns></returns>
         public bool Login()
         {
             try
@@ -340,8 +346,6 @@ namespace BLL.Workflows
                     else
                     {
                         string pass = CreateMD5(password);
-                        Console.WriteLine(pass);
-                        Console.WriteLine(account.Password);
                         if (account.Password == pass)
                         {
                             _UserID = account.AccountID;
@@ -359,7 +363,9 @@ namespace BLL.Workflows
                 return false;
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         private void SetupAccount()
         {
             // update account

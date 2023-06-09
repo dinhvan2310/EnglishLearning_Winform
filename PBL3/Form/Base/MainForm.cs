@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
@@ -183,11 +183,11 @@ namespace PBL3
                 _CurrentBtn.Enabled = false;
 
                 // background
-                btnOverlaySelectedBtn.Visible = true;
+                /*btnOverlaySelectedBtn.Visible = true;*/
                 btnOverlaySelectedBtn.Location = new Point(btnOverlaySelectedBtn.Location.X, _CurrentBtn.Location.Y);
 
                 // icon
-                iconOverlaySelectedBtn.Visible = true;
+                /*iconOverlaySelectedBtn.Visible = true;*/
                 iconOverlaySelectedBtn.Location = new Point(iconOverlaySelectedBtn.Location.X,
                     _CurrentBtn.Location.Y + 10);
                 iconOverlaySelectedBtn.IconChar = _CurrentBtn.IconChar;

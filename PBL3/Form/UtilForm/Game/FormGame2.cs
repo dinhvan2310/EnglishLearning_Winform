@@ -60,9 +60,8 @@ namespace PBL3
 
         private void SetQuestion()
         {
-            Random a = new Random();
-            var numbersLeft = Enumerable.Range(0, 4).OrderBy(x => a.Next()).Take(4).ToList();
-            var numbersRight = Enumerable.Range(4, 4).OrderBy(x => a.Next()).Take(4).ToList();
+            var numbersLeft = MiniGameWorkflow.Instance.GetListInt_Random(0, 4);
+            var numbersRight = MiniGameWorkflow.Instance.GetListInt_Random(4, 4);
 
             btnNext.Enabled = false;
 
