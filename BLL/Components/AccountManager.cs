@@ -145,8 +145,8 @@ namespace BLL.Components
                 var infor = new InformationPerDay()
                 {
                     AccountID = userID,
-                    NumberOfLearnedWord = learnedTime,
-                    OnlineHour = learnedWord,
+                    NumberOfLearnedWord = learnedWord,
+                    OnlineHour = learnedTime,
                     DayID = today
                 };
                 db.InformationPerDay.Add(infor);

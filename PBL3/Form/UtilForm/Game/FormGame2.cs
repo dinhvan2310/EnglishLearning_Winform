@@ -89,7 +89,7 @@ namespace PBL3
                     _WrongAnswerCount = _WrongAnswerCount + 1;
                 }
                 else
-                {                    
+                {
                     _CurrentRightBtn.BackColor = Color.FromArgb(88, 204, 2);
                     _CurrentLeftBtn.BackColor = Color.FromArgb(88, 204, 2);
 
@@ -101,6 +101,8 @@ namespace PBL3
 
                     _CurrentLeftBtn.Enabled = false;
                     _CurrentRightBtn.Enabled = false;
+
+                    _AnsweredCount += 1;
                 }
                 timer1.Start();
             }
@@ -156,7 +158,6 @@ namespace PBL3
             _CurrentRightBtn = null;
             _CurrentLeftBtn = null;
 
-            _AnsweredCount += 1;
             if (_AnsweredCount == 4)
             {
                 _QuestionIndex += 4;
