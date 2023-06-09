@@ -64,7 +64,7 @@ namespace BLL.Workflows
             _Validator = new Validator();
             _PackageManager = new PackageManager();
 
-            _IniOnlineTime = DateTime.Now;
+            
         }
 
         
@@ -135,9 +135,9 @@ namespace BLL.Workflows
         public void DisableRememberMeLogin()
         {
             string fileFullPath = GlobalConfig.Instance.PathFileJS() + "RememberMeLogin.json";
-            string json = File.ReadAllText(fileFullPath);
-            dynamic jsonObj = JsonConvert.DeserializeObject(json);
-            jsonObj = new
+//             string json = File.ReadAllText(fileFullPath);
+//             dynamic jsonObj = JsonConvert.DeserializeObject(json);
+            object jsonObj = new
             {
                 UserName = "",
                 Password = "",
@@ -150,10 +150,8 @@ namespace BLL.Workflows
         public void ActiveRememberMeLogin(string UserID, string Password)
         {
             string fileFullPath = GlobalConfig.Instance.PathFileJS() + "RememberMeLogin.json";
-            string json = File.ReadAllText(fileFullPath);
-            dynamic jsonObj = JsonConvert.DeserializeObject(json);
 
-            jsonObj = new
+            object jsonObj = new
             {
                 UserName = Encrypt(UserID),
                 Password = Encrypt(Password),
@@ -313,6 +311,7 @@ namespace BLL.Workflows
                             _UserID = account.AccountID;
 
                             SetupAccount();
+                            _IniOnlineTime = DateTime.Now;
                             return true;
                         }
                         return false;
@@ -336,7 +335,13 @@ namespace BLL.Workflows
             {
                 string fileFullPath = GlobalConfig.Instance.PathFileJS() + "RememberMeLogin.json";
                 string json = File.ReadAllText(fileFullPath);
+                
                 dynamic jsonObj = JsonConvert.DeserializeObject(json);
+                if (jsonObj == null)
+                {
+                    return false;
+                }
+                
                 string userNameHash = jsonObj["UserName"].ToString();
                 string passwordHash = jsonObj["Password"].ToString();
 
@@ -345,27 +350,7 @@ namespace BLL.Workflows
 
                 string user = Decrypt(userNameHash);
                 string password = Decrypt(passwordHash);
-                using (var dbContext = new DictionaryContext())
-                {
-                    Account account = dbContext.Account.SingleOrDefault(i => i.UserName == user);
-                    if (account == null)
-                    {
-                        return false;
-                    }
-                    else
-                    {
-                        string pass = CreateMD5(password);
-                        Console.WriteLine(pass);
-                        Console.WriteLine(account.Password);
-                        if (account.Password == pass)
-                        {
-                            _UserID = account.AccountID;
-
-                            SetupAccount();
-                            return true;
-                        }
-                        return false;
-                    }
+                return Login(user, password);
                 }
             }
             catch (Exception e)

@@ -55,6 +55,11 @@ namespace BLL.Workflows
             return _SoundManager.IsSpeaking;
         }
 
+        /// <summary>
+        /// This function creates a JSON file containing default user settings for a given user ID.
+        /// </summary>
+        /// <param name="UserID">The ID of the user for whom the user settings JSON file is being created.
+        /// </param>
         private void CreateStandardUserSettingsJson(int UserID)
         {
             string fileFullPath = GlobalConfig.Instance.PathFileJS() + "UserSettings.json";
@@ -159,6 +164,17 @@ namespace BLL.Workflows
             File.WriteAllText(fileFullPath, output);
         }
 
+        /// <summary>
+        /// The function sets the user settings for a given user ID by updating or adding the volume and voice
+        /// settings in a JSON file.
+        /// </summary>
+        /// <param name="UserID">An integer value representing the unique identifier of the user whose settings
+        /// are being set or updated.</param>
+        /// <param name="Volume">The volume parameter is an integer value that represents the volume level for a
+        /// user's settings. It can range from 0 to 100, with 0 being muted and 100 being the maximum
+        /// volume.</param>
+        /// <param name="Voice">A boolean value indicating whether the user has enabled voice commands or not.
+        /// </param>
         public void SetUserSettings(int UserID, int Volume, bool Voice)
         {
             List<UserSetting> userSettings = new List<UserSetting>();
@@ -188,10 +204,9 @@ namespace BLL.Workflows
                     Volume = Volume,
                     Voice = Voice,
                 });
+            }
             string output = JsonConvert.SerializeObject(userSettings, Formatting.Indented);
             File.WriteAllText(fileFullPath, output);
-            }
-            
         }
 
 
