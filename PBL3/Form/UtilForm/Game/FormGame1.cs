@@ -134,7 +134,7 @@ namespace PBL3
                     int userID = LoginWorkflow.Instance.GetAccount().AccountID;
                     if (dm.NotebookManager.CheckWordIsExistInNotebook(userID, rightAns.Replace(' ', '_')))
                         dm.NotebookManager.IncreaseLearnedPercent(LoginWorkflow.Instance.GetAccount().AccountID,
-                            rightAns, 10);
+                            rightAns.Replace(' ', '_'), 10);
                 }
 
             }
