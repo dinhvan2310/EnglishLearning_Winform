@@ -593,7 +593,7 @@ namespace PBL3
             // Anh - Anh
             else
             {
-                if (dataAccess.EDictionaryManager.GetWord_ByFilter(_SearchOptions[_CurrentSearchOptionIndex].Text.Replace(' ', '_')) == null)
+                if (dataAccess.EDictionaryManager.GetWord_ByFilter(_SearchOptions[_CurrentSearchOptionIndex].Text.Replace(' ', '_')).Count == 0)
                 {
                     OpenChildForm(new WordForm_None(((IconButton)sender).Text.Replace(' ', '_')), FormType.Weak);
                 }
