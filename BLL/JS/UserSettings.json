@@ -1,13 +1,7 @@
 [
   {
-    "UserId": 54,
+    "UserId": 40,
     "Volume": 5,
-    "Voice": true,
-    "Goal": 45
-  },
-  {
-    "UserId": 56,
-    "Volume": 10,
     "Voice": false,
     "Goal": 45
   }

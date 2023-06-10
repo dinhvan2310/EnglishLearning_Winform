@@ -21,7 +21,7 @@ namespace PBL3
             "ID: 1",
             "UserName: phuongthao1204",
             "Name: Phương Thảo",
-            "BirthDate: 12/04/2003",
+            "BirthDate: mm/dd/yyyy",
             "Email: phuongthao1204@gmail.com"
         };
 
@@ -56,105 +56,63 @@ namespace PBL3
             txtSearch.ForeColor = Color.FromArgb(119, 112, 156);
             txtSearch.Text = placeholder[rjComboBox1.SelectedIndex];
         }
+
         private void ShowListAccount(SearchBy searchBy)
         {
             DataManager dataManager = new DataManager();
             try
             {
+                List<DataGridViewData> data = dataManager.AccountManager.GetListAccounts().Select(p => new DataGridViewData
+                {
+                    AccountID = p.AccountID,
+                    UserName = p.UserName,
+                    Name = p.Name,
+                    BirthDate = p.BirthDate,
+                    Email = p.Email,
+                    Gender = (p.Gender) ? "Nam" : "Nữ",
+                    Balance = p.DetailedInformation.Balance,
+                }).ToList();
+
                 switch (searchBy)
                 {
                     case SearchBy.None:
                         {
-                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts().Select(p => new
-                            {
-                                p.AccountID,
-                                p.UserName,
-                                p.Name,
-                                p.BirthDate,
-                                p.Email,
-                                Gender = (p.Gender) ? "Nam" : "Nữ",
-                                Balance = dataManager.AccountManager.GetAccountDetail(p.AccountID).Balance,
-                            }).ToList();
+                            dataGridView1.DataSource = data;
                             break;
                         }
 
                     case SearchBy.ID:
                         {
                             int id = Convert.ToInt32(txtSearch.Text);
-                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts().Where(p => p.AccountID == id).Select(p => new
-                            {
-                                p.AccountID,
-                                p.UserName,
-                                p.Name,
-                                p.BirthDate,
-                                p.Email,
-                                Gender = (p.Gender) ? "Nam" : "Nữ",
-                                Balance = dataManager.AccountManager.GetAccountDetail(p.AccountID).Balance,
-                            }).ToList();
+                            dataGridView1.DataSource = data.Where(p => p.AccountID == id).ToList();
                             break;
                         }
 
                     case SearchBy.UserName:
                         {
                             string userName = txtSearch.Text;
-                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts().Where(p => p.UserName == userName).Select(p => new
-                            {
-                                p.AccountID,
-                                p.UserName,
-                                p.Name,
-                                p.BirthDate,
-                                p.Email,
-                                Gender = (p.Gender) ? "Nam" : "Nữ",
-                                Balance = dataManager.AccountManager.GetAccountDetail(p.AccountID).Balance,
-                            }).ToList();
+                            dataGridView1.DataSource = data.Where(p => p.UserName == userName).ToList();
                             break;
                         }
 
                     case SearchBy.Name:
                         {
                             string name = txtSearch.Text;
-                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts().Where(p => p.Name.ToLower().Contains(name.ToLower())).Select(p => new
-                            {
-                                p.AccountID,
-                                p.UserName,
-                                p.Name,
-                                p.BirthDate,
-                                p.Email,
-                                Gender = (p.Gender) ? "Nam" : "Nữ",
-                                Balance = dataManager.AccountManager.GetAccountDetail(p.AccountID).Balance,
-                            }).ToList();
+                            dataGridView1.DataSource = data.Where(p => p.Name.ToLower().Contains(name.ToLower())).ToList();
                             break;
                         }
 
                     case SearchBy.BirthDate:
                         {
                             DateTime birthDate = Convert.ToDateTime(txtSearch.Text);
-                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts().Where(p => p.BirthDate == birthDate).Select(p => new
-                            {
-                                p.AccountID,
-                                p.UserName,
-                                p.Name,
-                                p.BirthDate,
-                                p.Email,
-                                Gender = (p.Gender) ? "Nam" : "Nữ",
-                                Balance = dataManager.AccountManager.GetAccountDetail(p.AccountID).Balance,
-                            }).ToList();
+                            dataGridView1.DataSource = data.Where(p => p.BirthDate == birthDate).ToList();
                             break;
                         }
 
                     case SearchBy.Email:
                         {
                             string email = txtSearch.Text;
-                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts().Where(p => p.Email == email).Select(p => new
-                            {
-                                p.AccountID,
-                                p.UserName,
-                                p.Name,
-                                p.BirthDate,
-                                p.Email,
-                                Gender = (p.Gender) ? "Nam" : "Nữ",
-                                Balance = dataManager.AccountManager.GetAccountDetail(p.AccountID).Balance,
-                            }).ToList();
+                            dataGridView1.DataSource = data.Where(p => p.Email == email).ToList();
                             break;
                         }
 
@@ -162,7 +120,7 @@ namespace PBL3
 
                 }
             }
-            catch (Exception ex)
+            catch (FormatException ex)
             {
                 FormMessageBox f = new FormMessageBox("Vui lòng nhập lại", "Định dạng thông tin nhập không  hợp lệ", FormMessageBox.MessageType.Info);
                 f.StartPosition = FormStartPosition.CenterScreen;
@@ -253,7 +211,7 @@ namespace PBL3
                     {
                         if (!dataManager.AccountManager.DeleteAccount((int)row.Cells[0].Value))
                         {
-                            new FormMessageBox("Lỗi", "Xóa tài khoản không thành công", FormMessageBox.MessageType.Info).Show();
+                            new FormMessageBox("Lỗi", $"Xóa tài khoản id ({row.Cells[0].Value})  không thành công", FormMessageBox.MessageType.Info).Show();
                         }
                     }
                     ShowListAccount(SearchBy.None);
@@ -262,5 +220,16 @@ namespace PBL3
         }
 
         
+    }
+
+    class DataGridViewData
+    {
+        public int AccountID { set; get; }
+        public string UserName { set; get; }
+        public string Name { set; get; }
+        public DateTime? BirthDate { set; get; }
+        public string Email { set; get; }
+        public string Gender { set; get; }
+        public int Balance { set; get; }
     }
 }

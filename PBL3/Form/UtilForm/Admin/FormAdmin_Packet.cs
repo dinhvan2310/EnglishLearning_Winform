@@ -1,4 +1,5 @@
 ﻿using BLL.Workflows;
+using EFramework.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,12 +39,15 @@ namespace PBL3
 
         private void SetUpUI()
         {
-            ShowListAccount(SearchBy.None);
-
+            rjComboBox2.Items.AddRange(new BLL.Workflows.DataManager().PackageManager.GetAllUserPackage().ToArray());
+            rjComboBox2.DisplayMember = "Name";
+            rjComboBox2.SelectedIndex = 0;
             rjComboBox1.SelectedIndex = 0;
+
+            ShowListAccount(SearchBy.None, ((UserPacket)(rjComboBox2.SelectedItem)).Name.ToString());
         }
 
-        private void ShowListAccount(SearchBy searchBy)
+        private void ShowListAccount(SearchBy searchBy, string packageName)
         {
             DataManager dataManager = new DataManager();
             try
@@ -52,13 +56,15 @@ namespace PBL3
                 {
                     case SearchBy.None:
                         {
-                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts().Join(dataManager.PackageManager.GetUserPacketInfo_All_ByNamePacket("Premium"),
-                                a => a.AccountID, p => p.AccountID, (a, p) =>
+                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts()
+                                .Where(p => new BLL.Workflows.DataManager().PackageManager.IsHasUserPacket(p.AccountID, packageName))
+                                .Select(p => new
                                 {
-                                    return new
-                                    {
-                                        a.AccountID, a.UserName, a.Name, p.PacketID, p.DueDate
-                                    };
+                                    p.AccountID,
+                                    p.UserName,
+                                    p.Name,
+                                    p.UserPacketInfos.FirstOrDefault(pp => pp.UserPacket.Name == packageName).PacketID,
+                                    p.UserPacketInfos.FirstOrDefault(pp => pp.UserPacket.Name == packageName).DueDate,
                                 }).ToList();
                             break;
                         }
@@ -66,13 +72,15 @@ namespace PBL3
                     case SearchBy.ID:
                         {
                             int id = Convert.ToInt32(txtSearch.Text);
-                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts().Where(p => p.AccountID == id).Join(dataManager.PackageManager.GetUserPacketInfo_All_ByNamePacket("Premium"),
-                                a => a.AccountID, p => p.AccountID, (a, p) =>
+                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts()
+                                .Where(p => new BLL.Workflows.DataManager().PackageManager.IsHasUserPacket(p.AccountID, packageName) && p.AccountID == id)
+                                .Select(p => new
                                 {
-                                    return new
-                                    {
-                                        a.AccountID, a.UserName, a.Name, p.PacketID, p.DueDate
-                                    };
+                                    p.AccountID,
+                                    p.UserName,
+                                    p.Name,
+                                    p.UserPacketInfos.FirstOrDefault(pp => pp.UserPacket.Name == packageName).PacketID,
+                                    p.UserPacketInfos.FirstOrDefault(pp => pp.UserPacket.Name == packageName).DueDate,
                                 }).ToList();
                             break;
                         }
@@ -80,13 +88,15 @@ namespace PBL3
                     case SearchBy.UserName:
                         {
                             string userName = txtSearch.Text;
-                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts().Where(p => p.UserName == userName).Join(dataManager.PackageManager.GetUserPacketInfo_All_ByNamePacket("Premium"),
-                                a => a.AccountID, p => p.AccountID, (a, p) =>
+                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts()
+                                .Where(p => new BLL.Workflows.DataManager().PackageManager.IsHasUserPacket(p.AccountID, packageName) && p.UserName == userName)
+                                .Select(p => new
                                 {
-                                    return new
-                                    {
-                                        a.AccountID, a.UserName, a.Name, p.PacketID, p.DueDate
-                                    };
+                                    p.AccountID,
+                                    p.UserName,
+                                    p.Name,
+                                    p.UserPacketInfos.FirstOrDefault(pp => pp.UserPacket.Name == packageName).PacketID,
+                                    p.UserPacketInfos.FirstOrDefault(pp => pp.UserPacket.Name == packageName).DueDate,
                                 }).ToList();
                             break;
                         }
@@ -94,13 +104,15 @@ namespace PBL3
                     case SearchBy.Name:
                         {
                             string name = txtSearch.Text;
-                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts().Where(p => p.Name.Contains(name)).Join(dataManager.PackageManager.GetUserPacketInfo_All_ByNamePacket("Premium"),
-                                a => a.AccountID, p => p.AccountID, (a, p) =>
+                            dataGridView1.DataSource = dataManager.AccountManager.GetListAccounts()
+                                .Where(p => new BLL.Workflows.DataManager().PackageManager.IsHasUserPacket(p.AccountID, packageName) && p.Name.Contains(name))
+                                .Select(p => new
                                 {
-                                    return new
-                                    {
-                                        a.AccountID, a.UserName, a.Name, p.PacketID, p.DueDate
-                                    };
+                                    p.AccountID,
+                                    p.UserName,
+                                    p.Name,
+                                    p.UserPacketInfos.FirstOrDefault(pp => pp.UserPacket.Name == packageName).PacketID,
+                                    p.UserPacketInfos.FirstOrDefault(pp => pp.UserPacket.Name == packageName).DueDate,
                                 }).ToList();
                             break;
                         }
@@ -110,6 +122,7 @@ namespace PBL3
             }
             catch (Exception ex)
             {
+                
                 FormMessageBox f = new FormMessageBox("Vui lòng nhập lại", "Định dạng thông tin nhập không  hợp lệ", FormMessageBox.MessageType.Info);
                 f.StartPosition = FormStartPosition.CenterScreen;
                 f.Show();
@@ -125,26 +138,37 @@ namespace PBL3
                 int price = Convert.ToInt32(txtPrice.Text);
                 if(price > 0)
                 {
-                    dataManager.PackageManager.SetPricePacket("Premium", price);
-                    new FormMessageBox("Thông báo", "Thay đổi giá vé người dùng thành công", FormMessageBox.MessageType.Info).Show();
+                    if(dataManager.PackageManager.SetPricePacket(((UserPacket)(rjComboBox2.SelectedItem)).Name.ToString(), price))
+                    {
+                        FormMessageBox f = new FormMessageBox("Thông báo", "Thay đổi giá vé người dùng thành công", FormMessageBox.MessageType.Info);
+                        f.StartPosition = FormStartPosition.CenterScreen;
+                        f.Show();
+                    }
+                    else
+                    {
+                        FormMessageBox f = new FormMessageBox("Lỗi", "Có lỗi xảy ra", FormMessageBox.MessageType.Info);
+                        f.StartPosition = FormStartPosition.CenterScreen;
+                        f.Show();
+                    }
                 }
                 else
                 {
-                    throw new Exception();
+                    throw new FormatException();
                 }
             }
-            catch(Exception ex)
+            catch(FormatException ex)
             {
-                new FormMessageBox("Lỗi", "Vui lòng nhập giá gói người dùng là số nguyên", FormMessageBox.MessageType.Info).Show();
+                FormMessageBox f = new FormMessageBox("Vui lòng nhập lại", "Vui lòng nhập giá gói người dùng là số nguyên dương", FormMessageBox.MessageType.Info);
+                f.StartPosition = FormStartPosition.CenterScreen;
+                f.Show();
             }
-
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
             if (txtSearch.Text == "" || placeholder.Any(i => i == txtSearch.Text))
             {
-                ShowListAccount(SearchBy.None);
+                ShowListAccount(SearchBy.None, ((UserPacket)(rjComboBox2.SelectedItem)).Name.ToString());
                 setPlaceholder();
                 return;
             }
@@ -153,19 +177,19 @@ namespace PBL3
             {
                 case "ID":
                     {
-                        ShowListAccount(SearchBy.ID);
+                        ShowListAccount(SearchBy.ID, ((UserPacket)(rjComboBox2.SelectedItem)).Name.ToString());
                         break;
                     }
 
                 case "UserName":
                     {
-                        ShowListAccount(SearchBy.UserName);
+                        ShowListAccount(SearchBy.UserName, ((UserPacket)(rjComboBox2.SelectedItem)).Name.ToString());
                         break;
                     }
 
                 case "Name":
                     {
-                        ShowListAccount(SearchBy.Name);
+                        ShowListAccount(SearchBy.Name, ((UserPacket)(rjComboBox2.SelectedItem)).Name.ToString());
                         break;
                     }
             }
@@ -194,4 +218,5 @@ namespace PBL3
 
 
     }
+
 }

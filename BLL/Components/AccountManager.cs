@@ -28,7 +28,7 @@ namespace BLL.Components
                 using (var dbContext = new DictionaryContext())
                 {
                     account.TypeID = 4; // User type ID
-
+                    
 
                     dbContext.Account.Add(account);
                     dbContext.SaveChanges();
@@ -71,7 +71,17 @@ namespace BLL.Components
         {
             using (var dbContext = new DictionaryContext())
             {
-                List<Account> rs = dbContext.Account.Where(p => p.TypeID != 5).ToList();
+                List<Account> rs = dbContext.Account
+                    .Include(p => p.DetailedInformation)
+                    .Where(p => p.TypeID != 5).ToList();
+                rs.ForEach(item =>
+                {
+                    dbContext.Entry(item).Collection(p => p.UserPacketInfos).Load();
+                    foreach(var userPacketInfo in item.UserPacketInfos)
+                    {
+                        dbContext.Entry(userPacketInfo).Reference(pp => pp.UserPacket).Load();
+                    }
+                });
                 rs.Reverse();
                 return rs;
             }
@@ -91,22 +101,19 @@ namespace BLL.Components
                     dbContext.Account.Remove(account);
                     dbContext.SaveChanges();
 
-                    /*string fileFullPath = GlobalConfig.Instance.PathFileJS() + "UserSettings.json";
+                    string fileFullPath = GlobalConfig.Instance.PathFileJS() + "UserSettings.json";
                     string json = File.ReadAllText(fileFullPath);
-                    
-                    JsonConvert.DeserializeObject<List<UserSetting>>(json).ForEach(item =>
-                    {
-                        if (item.UserId == account)
-                        {
-                            ChangeVolumn(item.Volume * 10);
-                            ChangeVoice(item.Voice == false ? Voice.Male : Voice.Female);
-                        }
-                    });*/
 
+                    List<UserSetting> jsonObject = JsonConvert.DeserializeObject<List<UserSetting>>(json);
+                    jsonObject.RemoveAll(item => item.UserId == account.AccountID);
+
+                    string output = JsonConvert.SerializeObject(jsonObject, Formatting.Indented);
+                    File.WriteAllText(fileFullPath, output);
                     return true;
                 }
                 catch (Exception ex)
                 {
+                    Console.WriteLine(ex.Message);
                     return false;
                 }
             }
@@ -116,7 +123,7 @@ namespace BLL.Components
         {
             using (var dbContext = new DictionaryContext())
             {
-                return dbContext.DetailedInformation.Single(p => p.AccountID == accountID);
+                return dbContext.DetailedInformation.SingleOrDefault(p => p.AccountID == accountID);
             }
         }
 

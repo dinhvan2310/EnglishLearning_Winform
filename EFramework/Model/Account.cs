@@ -13,7 +13,6 @@ namespace EFramework.Model
     {
         public Account()
         {
-            DetailedInformation = new DetailedInformation();
             InformationPerDays = new HashSet<InformationPerDay>();
             UserPacketInfos = new HashSet<UserPacketInfo>();
             Notebooks = new HashSet<Notebook>();

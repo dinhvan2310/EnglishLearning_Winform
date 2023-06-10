@@ -26,14 +26,22 @@ namespace BLL.Components
 
         public bool SetPricePacket(string packetName, int price)
         {
-            using (DictionaryContext dbContext = new DictionaryContext())
+            try
             {
+                using (DictionaryContext dbContext = new DictionaryContext())
+                {
                     UserPacket result = new UserPacket();
                     result = dbContext.UserPacket
                             .Single(p => p.Name == packetName);
                     result.Price = price;
                     dbContext.SaveChanges();
                     return true;
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return false;
             }
         }
 
@@ -41,6 +49,8 @@ namespace BLL.Components
         {
             using (var dbContext = new DictionaryContext())
             {
+                if (dbContext.UserPacket.SingleOrDefault(p => p.Name == namePacket) == null)
+                    return null;
                 int packetID = dbContext.UserPacket.SingleOrDefault(p => p.Name == namePacket).PacketID;
                 return dbContext.UserPacketInfo.SingleOrDefault(p => p.AccountID == userID && p.PacketID == packetID);
             }
@@ -51,11 +61,20 @@ namespace BLL.Components
             return (GetUserPacketInfo(userID, namePacket) != null) ? true : false;
         }
 
+        /// <summary>
+        /// Trả về false nếu userPacket của người dùng đã hết hạn
+        /// Trả về true trong mọi trường hợp còn lại
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <param name="namePacket"></param>
+        /// <returns></returns>
         public bool CheckUserPackageDuration(int userID, string namePacket)
         {
             using (var dbContext = new DictionaryContext())
             {
                 UserPacket userPacket = dbContext.UserPacket.SingleOrDefault(p => p.Name == namePacket);
+                if (userPacket == null)
+                    return true;
                 int packetID = userPacket.PacketID;
                 UserPacketInfo userPacketInfo = dbContext.UserPacketInfo.SingleOrDefault(p => p.PacketID == packetID && p.AccountID == userID);
                 if (userPacketInfo != null)
@@ -83,6 +102,10 @@ namespace BLL.Components
             using (var dbContext = new DictionaryContext())
             {
                 UserPacket userPacket = dbContext.UserPacket.SingleOrDefault(p => p.Name == namePacket);
+                if (userPacket == null)
+                {
+                    return false;
+                }
                 int packetID = userPacket.PacketID;
                 UserPacketInfo userPacketInfo = dbContext.UserPacketInfo.SingleOrDefault(p => p.PacketID == packetID && p.AccountID == userID);
                 if (userPacketInfo != null)
@@ -105,6 +128,8 @@ namespace BLL.Components
                 AccountManager am = new AccountManager();
                 int balance = am.GetAccountDetail(userID).Balance;
                 UserPacket userPacket = dbContext.UserPacket.SingleOrDefault(p => p.Name == namePacket);
+                if (userPacket == null)
+                    return false;
                 int pricePacket = userPacket.Price;
                 int packetID = userPacket.PacketID;
                 if (balance >= pricePacket)
@@ -134,8 +159,18 @@ namespace BLL.Components
         {
             using (var dbContext = new DictionaryContext())
             {
+                if (dbContext.UserPacket.SingleOrDefault(p => p.Name == namePacket) == null)
+                    return null;
                 int packetID = dbContext.UserPacket.SingleOrDefault(p => p.Name == namePacket).PacketID;
                 return dbContext.UserPacketInfo.Where(p => p.PacketID == packetID).ToList();
+            }
+        }
+
+        public List<UserPacket> GetAllUserPackage()
+        {
+            using (var dbContext = new DictionaryContext())
+            {
+                return dbContext.UserPacket.ToList();
             }
         }
     }

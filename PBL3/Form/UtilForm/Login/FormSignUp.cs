@@ -432,6 +432,12 @@ namespace PBL3
                     UserName = userName,
                     Password = passWord,
                     Email = email,
+                    DetailedInformation = new DetailedInformation()
+                    {
+                        Balance = 0,
+                        NumberOfConsecutiveDay = 0,
+                        AchievedGoal = false,
+                    }
                 }))
                 {
                     GlobalForm.LoginForm.OpenChildForm(new FormSignIn());

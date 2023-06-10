@@ -306,6 +306,7 @@
             this.txtNgaySinh.Name = "txtNgaySinh";
             this.txtNgaySinh.Size = new System.Drawing.Size(187, 20);
             this.txtNgaySinh.TabIndex = 82;
+            this.txtNgaySinh.Enter += new System.EventHandler(this.txtNgaySinh_Enter);
             this.txtNgaySinh.Leave += new System.EventHandler(this.txtNgaySinh_Leave);
             // 
             // rjButton10

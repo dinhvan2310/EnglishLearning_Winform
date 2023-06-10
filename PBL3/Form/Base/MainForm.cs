@@ -34,7 +34,6 @@ namespace PBL3
         public MainForm()
         {
             InitializeComponent();
-
             AutoLogin(); // success if login already remembered
             SetupForm();
             SetupUI();

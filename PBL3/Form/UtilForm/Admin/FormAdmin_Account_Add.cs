@@ -25,13 +25,22 @@ namespace PBL3
         private bool validNgaySinh = false;
         private bool validGender = false;
 
+        private string _placeHolderNgaySinh = "mm/dd/yyyy";
+
         public FormAdmin_Account_Add()
         {
             InitializeComponent();
 
             // Reduce Flicker
             this.DoubleBuffered = true;
+            setPlaceHolder();
 
+        }
+
+        private void setPlaceHolder()
+        {
+            txtNgaySinh.Text = _placeHolderNgaySinh;
+            txtNgaySinh.ForeColor = Color.FromArgb(119, 112, 156);
         }
 
         #region EVENTS
@@ -156,7 +165,7 @@ namespace PBL3
             else
             {
                 validNgaySinh = false;
-                iconNgaySinh.BackColor = Color.FromArgb(192, 57, 43);
+                setPlaceHolder();
             }
         }
 
@@ -214,6 +223,8 @@ namespace PBL3
                     DetailedInformation = new DetailedInformation()
                     {
                         Balance = coin,
+                        NumberOfConsecutiveDay = 0,
+                        AchievedGoal = false,
                     },
                 }))
                 {
@@ -250,8 +261,16 @@ namespace PBL3
             txtNgaySinh_Leave(this, new EventArgs());
         }
 
+
         #endregion
 
-        
+        private void txtNgaySinh_Enter(object sender, EventArgs e)
+        {
+            if(txtNgaySinh.Text == _placeHolderNgaySinh)
+            {
+                txtNgaySinh.Text = "";
+                txtNgaySinh.ForeColor = Color.White;
+            }
+        }
     }
 }
