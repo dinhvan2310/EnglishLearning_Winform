@@ -582,11 +582,11 @@ namespace PBL3
             {
                 if (dataAccess.VDictionaryManager.GetWord_ByFilter(_SearchOptions[_CurrentSearchOptionIndex].Text).Count == 0)
                 {
-                    OpenChildForm(new WordForm_None(txtSearch.Text, false), FormType.Weak);
+                    OpenChildForm(new WordForm_None(((IconButton)sender).Text, false), FormType.Weak);
                 }
                 else
                 {
-                    OpenChildForm(new WordForm(_SearchOptions[_CurrentSearchOptionIndex].Text, false),
+                    OpenChildForm(new WordForm(((IconButton)sender).Text, false),
                         FormType.Weak);
                 }
             }

@@ -64,7 +64,7 @@ namespace PBL3
             {
                 foreach (word_viet w in _VWords)
                 {
-                    panel1.Controls.Add(CreateLabelWord(_Words[i++].word));
+                    panel1.Controls.Add(CreateLabelWord(_VWords[i++].word));
                 }
             }
         }
@@ -90,8 +90,16 @@ namespace PBL3
         #region EVENTS
         private void lblWordFound1_MouseClick(object sender, MouseEventArgs e)
         {
-            GlobalForm.MainForm.SwitchForm(new WordForm(((Label)sender).Text.Replace(' ', '_')),
+            if(_IsEE)
+            {
+                GlobalForm.MainForm.SwitchForm(new WordForm(((Label)sender).Text.Replace(' ', '_')),
                 FormType.Weak);
+            }
+            else
+            {
+                GlobalForm.MainForm.SwitchForm(new WordForm(((Label)sender).Text, false),
+                FormType.Weak);
+            }
         }
 
         private void btnReturn_MouseClick(object sender, MouseEventArgs e)
