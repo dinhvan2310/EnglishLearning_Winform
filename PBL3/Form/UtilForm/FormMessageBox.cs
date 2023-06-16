@@ -22,7 +22,7 @@ namespace PBL3
 
         public FormMessageBox(string subject, string message, MessageType type)
         {
-            InitializeComponent();
+            InitializeComponent();   
             this.Region = System.Drawing.Region.FromHrgn(ExternalImport.CreateRoundRectRgn(0, 0, Width, Height, 50, 50));
 
             lblSubject.Text = subject;
